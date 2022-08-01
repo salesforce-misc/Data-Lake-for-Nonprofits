@@ -1,47 +1,64 @@
 # Unit Tests
 
 For information about running tests for create-react-app applications
-https://create-react-app.dev/docs/running-tests/
+<https://create-react-app.dev/docs/running-tests/>
 
 ## Mocks
 
-Since Jest has not fully supported ESM yet, we used mocks for some third party libraries.
-These mocks can be found under `src/__mocks__`
+<!-- Since Jest has not fully supported ESM yet, we used mocks for some third party libraries.
+These mocks can be found under `src/__mocks__` -->
+
+## Models and Stores
+
+### Field
+
+- initialized properly
+- address is a compound type
+- location is a compound type
+- any other type different than address and location is not a compound type
+- can not exclude id type
+- can not exclude certain names
+- can exclude other field types
+- can not toggle excluded prop if canExclude is false
+- can not toggle excluded prop for compound type
+- can toggle excluded prop for other types
+
+### SFObject
 
 ## Components
 
 ### ClickableImage
 
-- Unit test to check rendering properly
+<!-- - Unit test to check rendering properly -->
 
 ### ClipboardField
 
-- Unit test to check rendering non-password text properly
+<!-- - Unit test to check rendering non-password text properly
 - Unit test to check rendering password text properly
-- Unit test to check click event for password text
+- Unit test to check click event for password text -->
 
 ### CloudwatchDashboardPanel
 
-- Unit test to check rendering properly
+<!-- - Unit test to check rendering properly -->
 
 ### CredentialsError
 
-- Unit test to check rendering properly without an exception
+<!-- - Unit test to check rendering properly without an exception
 - Unit test to check rendering properly with an invalid key exception
 - Unit test to check rendering properly with a non-admin key exception
 - Unit test to check rendering properly with an account mismatch exception
 - Unit test to check rendering properly with a default exception
-- Unit test to check rendering properly with an unknown exception
+- Unit test to check rendering properly with an unknown exception -->
 
 ### CredentialsForm
 
 ### CurvedBox
 
-- Unit test to check rendering properly
+<!-- - Unit test to check rendering properly -->
 
 ### DataImportStatusPanel
 
-- Unit test to check CountBadge rendering properly
+<!-- - Unit test to check CountBadge rendering properly -->
 
 ### DataModelDescription
 

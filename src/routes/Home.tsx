@@ -1,6 +1,6 @@
 import { FC, useEffect, useState } from "react";
 import isNil from "lodash/isNil";
-import { Box, Image, Container, Stack, Heading, Text, Button, Grid, GridItem, Tag } from "@chakra-ui/react";
+import { Box, Container, Heading, Text, Button, Grid, GridItem, Tag } from "@chakra-ui/react";
 import { ArrowForwardIcon } from "@chakra-ui/icons";
 import { GiPlug } from "react-icons/gi";
 import { observer } from "mobx-react";
@@ -8,8 +8,6 @@ import { useNavigate } from "react-router-dom";
 import { SubmitHandler, useForm } from "react-hook-form";
 
 import { theme } from "../themes/orange";
-import welcomeImage from "../images/datalake-home.png";
-import ezDataLakeTitleImage from "../images/ez-datalake-title.svg";
 import { OutlineButton } from "../components/OutlineButton";
 import { CurvedBox } from "../components/CurvedBox";
 import { useStore } from "../AppContext";

@@ -1,13 +1,11 @@
 import { FC, useEffect, useState } from "react";
-import { Box, Image, Container, Stack, Heading, Text, Button, Flex, Grid, GridItem, Alert, AlertIcon, Badge, Progress } from "@chakra-ui/react";
+import { Box, Container, Heading, Text, Button, Flex, Grid, GridItem, Alert, AlertIcon, Badge, Progress } from "@chakra-ui/react";
 import { ArrowForwardIcon } from "@chakra-ui/icons";
 import { observer } from "mobx-react";
 import { useNavigate } from "react-router-dom";
 import { SubmitHandler, useForm } from "react-hook-form";
 
 import { theme } from "../themes/orange";
-import welcomeImage from "../images/datalake-home.png";
-import ezDataLakeTitleImage from "../images/ez-datalake-title.svg";
 import { CurvedBox } from "../components/CurvedBox";
 import { TimeAgo } from "../components/TimeAgo";
 import { useInstallation, useStore } from "../AppContext";
@@ -24,6 +22,7 @@ import { SubscribeSNSPanel } from "../components/SubscribeSNSPanel";
 import { DataImportStatusPanel } from "../components/DataImportStatusPanel";
 import { DataModelTablePreview } from "../components/DataModelTablePreview";
 import { useMetadataStore } from "../models/MetadataStore";
+import { Header } from "components/Header";
 
 export const BackHome: FC = observer(() => {
   const { tone, colorScheme } = useColorScheme();
@@ -66,15 +65,8 @@ export const BackHome: FC = observer(() => {
     <>
       <CurvedBox bgGradient={theme.gradients.bgLight} />
 
-      <Container maxW="container.lg" pt="20px" position="relative">
-        <Stack direction={{ base: "column", lg: "row" }} spacing={{ base: "0", lg: "0" }} align="center" justifyContent="center">
-          <Box maxW="300px">
-            <Image src={ezDataLakeTitleImage} />
-          </Box>
-          <Box maxW="400px">
-            <Image src={welcomeImage} />
-          </Box>
-        </Stack>
+      <Container maxW="container.md" pt="20px" position="relative">
+        <Header />
       </Container>
 
       <Container maxW="container.md" position="relative">

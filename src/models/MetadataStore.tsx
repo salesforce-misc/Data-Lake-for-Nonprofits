@@ -259,6 +259,7 @@ export const MetadataStore = BaseStore.named("MetadataStore")
       const list = [];
       for (const defaultObject of defaultObjects) {
         if (!self.objects.has(defaultObject.name)) {
+          // @ts-ignore
           list.push(defaultObject);
         }
       }

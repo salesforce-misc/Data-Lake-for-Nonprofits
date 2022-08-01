@@ -34,6 +34,7 @@ export const CredentialsForm: FC<{
         Access Key ID &amp; Secret Access Key
       </Heading>
 
+      {/* @ts-ignore */}
       <FormControl isInvalid={errors.accessKeyId || errors.secretAccessKey}>
         <Input
           id="accessKeyId"

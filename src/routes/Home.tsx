@@ -242,6 +242,7 @@ const CredentialsCollectionForm: FC<{ onCancel: () => void; onDone: () => void }
       <CredentialsError exception={error} />
 
       <Box pt={6}>
+        {/* @ts-ignore */}
         <CredentialsForm {...{ register, errors, isSubmitting, control }} />
       </Box>
 

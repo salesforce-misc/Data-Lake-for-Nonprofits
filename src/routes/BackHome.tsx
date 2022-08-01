@@ -193,8 +193,7 @@ const DataTableStatusInfo: FC = observer(() => {
         <AlertIcon alignSelf="flex-start" />
         <Box>
           <Box>
-            Something went wrong and we are unable get the data schema. This might be an intermittent
-            problem. Wait for a few minutes and try again.
+            Something went wrong and we are unable get the data schema. This might be an intermittent problem. Wait for a few minutes and try again.
           </Box>
           <Box textAlign="right" w="full" mt={4}>
             <Button colorScheme="red" size="sm" onClick={handleTryAgain} loadingText="Processing" isLoading={!isError}>
@@ -341,6 +340,7 @@ const CredentialsCollectionForm: FC<{ onCancel: () => void; onDone: () => void; 
         <CredentialsError exception={error} />
 
         <Box pt={6}>
+          {/* @ts-ignore */}
           <CredentialsForm {...{ register, errors, isSubmitting, control }} />
         </Box>
 

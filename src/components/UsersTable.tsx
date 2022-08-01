@@ -299,6 +299,7 @@ const WarningBanner: FC<{ user: IUser }> = observer(({ user }) => {
   let content = null;
   if (user.hasAccess) return null;
   if (user.accessStatus === UserAccessStatus.No_Keys) {
+    // @ts-ignore
     content = (
       <Alert status="warning" mt={0} mb={4} borderRadius="md" color="red.700" alignItems="flex-start" fontSize="sm">
         <AlertDescription>
@@ -310,6 +311,7 @@ const WarningBanner: FC<{ user: IUser }> = observer(({ user }) => {
   }
 
   if (user.accessStatus === UserAccessStatus.No_Active_Keys) {
+    // @ts-ignore
     content = (
       <Alert status="warning" mt={0} mb={4} borderRadius="md" color="red.700" alignItems="flex-start" fontSize="sm">
         <AlertDescription>
@@ -320,6 +322,7 @@ const WarningBanner: FC<{ user: IUser }> = observer(({ user }) => {
   }
 
   if (user.accessStatus === UserAccessStatus.No_POLICY) {
+    // @ts-ignore
     content = (
       <Alert status="warning" mt={0} mb={4} borderRadius="md" color="red.700" alignItems="flex-start" fontSize="sm">
         <Box>

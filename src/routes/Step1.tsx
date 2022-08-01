@@ -134,9 +134,11 @@ export const Step1: FC = observer(() => {
           <CredentialsError exception={stepException} />
 
           <Box pt={6}>
+            {/* @ts-ignore */}
             <CredentialsForm {...{ register, errors, isSubmitting, control }} />
           </Box>
           <Box pt={6}>
+            {/* @ts-ignore */}
             <RegionForm {...{ register, errors, isSubmitting }} description={regionDescription} defaultRegion={installation.region} />
           </Box>
         </Collapse>

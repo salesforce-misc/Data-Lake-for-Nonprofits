@@ -6,14 +6,13 @@ import { ICredentialsFormInput } from "./CredentialsForm";
 import { awsRegions } from "../data/aws-regions";
 import { useColorScheme } from "../models/useColorScheme";
 
-export const RegionForm: FC<{ register: UseFormRegister<ICredentialsFormInput>; errors: FieldErrors; isSubmitting: boolean; description: string, defaultRegion: string }> = ({
-  register,
-  errors,
-  isSubmitting,
-  description,
-  defaultRegion,
-}) => {
-
+export const RegionForm: FC<{
+  register: UseFormRegister<ICredentialsFormInput>;
+  errors: FieldErrors;
+  isSubmitting: boolean;
+  description: string;
+  defaultRegion: string;
+}> = ({ register, errors, isSubmitting, description, defaultRegion }) => {
   const { tone } = useColorScheme();
 
   return (
@@ -24,14 +23,9 @@ export const RegionForm: FC<{ register: UseFormRegister<ICredentialsFormInput>; 
       <Text fontSize="sm" color={tone(700)} mb={3}>
         {description}
       </Text>
+      {/* @ts-ignore */}
       <FormControl isInvalid={errors.region || errors.region}>
-        <Select
-          bg={tone(75)}
-          id="region"
-          {...register("region", { required: "Required" })}
-          defaultValue={defaultRegion}
-          disabled={isSubmitting}
-        >
+        <Select bg={tone(75)} id="region" {...register("region", { required: "Required" })} defaultValue={defaultRegion} disabled={isSubmitting}>
           {awsRegions.map((item) => (
             <option key={item.name} value={item.name}>
               {item.label}

@@ -2,8 +2,9 @@ import slice from "lodash/slice";
 import isEmpty from "lodash/isEmpty";
 import { useState } from "react";
 
-import { IField, ISFObject } from "./MetadataStore";
-import { removeSpaces } from "../helpers/utils";
+import { removeSpaces } from "helpers/utils";
+import { ISFObject } from "models/helpers/SFObject";
+import { IField } from "models/helpers/Field";
 
 export enum FieldsViewOptions {
   All = "ALL",

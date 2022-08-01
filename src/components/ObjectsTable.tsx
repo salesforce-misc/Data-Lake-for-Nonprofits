@@ -27,14 +27,15 @@ import {
 } from "@chakra-ui/react";
 import { BsCircle, BsCheckCircleFill } from "react-icons/bs";
 import { observer } from "mobx-react";
-
-import { niceNumber } from "../helpers/utils";
-import { ISFObject, useMetadataStore } from "../models/MetadataStore";
-import { useColorScheme } from "../models/useColorScheme";
-import { ObjectsViewOptions, useObjectsTable } from "../models/useObjectsTable";
 import { SmallCloseIcon, SpinnerIcon } from "@chakra-ui/icons";
-import { PaginationButtons } from "./PaginationButtons";
-import { FieldsTable } from "./FieldsTable";
+
+import { niceNumber } from "helpers/utils";
+import { useMetadataStore } from "models/MetadataStore";
+import { useColorScheme } from "models/useColorScheme";
+import { ObjectsViewOptions, useObjectsTable } from "models/useObjectsTable";
+import { PaginationButtons } from "components/PaginationButtons";
+import { FieldsTable } from "components/FieldsTable";
+import { ISFObject } from "models/helpers/SFObject";
 
 export const ObjectsTable: FC = observer(() => {
   const { store } = useMetadataStore();
@@ -268,8 +269,8 @@ const ObjectRow: FC<{ object: ISFObject; isProcessing: boolean; setProcessing: D
                 <Box w="full">
                   <AlertTitle>Limit reached</AlertTitle>
                   <AlertDescription fontSize="sm" display="block" mt={2}>
-                    You can include up to {store.maxLimit} objects. You have reached this limit, you can exclude an existing object before
-                    you can add another one.
+                    You can include up to {store.maxLimit} objects. You have reached this limit, you can exclude an existing object before you can add
+                    another one.
                   </AlertDescription>
                   <Box textAlign="right" mt={3}>
                     <Button colorScheme="orange" size="sm" onClick={() => setLimitReached(false)}>

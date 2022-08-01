@@ -29,11 +29,13 @@ import { ChevronRightIcon, SmallCloseIcon } from "@chakra-ui/icons";
 import { BsCircle, BsCheckCircleFill } from "react-icons/bs";
 import { observer } from "mobx-react";
 
-import { niceNumber } from "../helpers/utils";
-import { IField, ISFObject, useMetadataStore } from "../models/MetadataStore";
-import { useColorScheme } from "../models/useColorScheme";
-import { FieldsViewOptions, useFieldsTable } from "../models/useFieldsTable";
-import { PaginationButtons } from "./PaginationButtons";
+import { niceNumber } from "helpers/utils";
+import { useMetadataStore } from "models/MetadataStore";
+import { useColorScheme } from "models/useColorScheme";
+import { FieldsViewOptions, useFieldsTable } from "models/useFieldsTable";
+import { ISFObject } from "models/helpers/SFObject";
+import { IField } from "models/helpers/Field";
+import { PaginationButtons } from "components/PaginationButtons";
 
 export const DataModelTable: FC = observer(() => {
   const { colorScheme } = useColorScheme();

@@ -1,10 +1,11 @@
 import chunkIt from "lodash/chunk";
+
 import { Instance } from "mobx-state-tree";
 
-import { s3PutJson } from "../../api/s3-put-json";
-import { ISFObject } from "../MetadataStore";
-import { Operation } from "./Operation";
-import { OperationContext } from "./utils";
+import { s3PutJson } from "api/s3-put-json";
+import { Operation } from "models/operations/Operation";
+import { OperationContext } from "models/operations/utils";
+import { ISFObject } from "models/helpers/SFObject";
 
 export const UploadSchema = Operation.named("UploadSchema")
   .props({
@@ -51,7 +52,7 @@ export const UploadSchema = Operation.named("UploadSchema")
           jsonContent: JSON.stringify({ exclude: object.excluded, label: object.label, name: object.name }),
         });
 
-        // self.incrementPercentage() here is called after each object file is uploaded. So if we have 5 objects 
+        // self.incrementPercentage() here is called after each object file is uploaded. So if we have 5 objects
         // to upload then after uploading an object we made 1/5th of the total progress.
         self.incrementPercentage((1 / selectedObjects.length) * 100);
       };

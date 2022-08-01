@@ -3,8 +3,9 @@ import { Box, Text, HStack, Badge, Table, TableCaption, Thead, Tr, Th, Tbody, Td
 import { ChevronRightIcon } from "@chakra-ui/icons";
 import { observer } from "mobx-react";
 
-import { niceNumber } from "../helpers/utils";
-import { ISFObject, useMetadataStore } from "../models/MetadataStore";
+import { niceNumber } from "helpers/utils";
+import { useMetadataStore } from "models/MetadataStore";
+import { ISFObject } from "models/helpers/SFObject";
 
 export const DataModelTablePreview: FC<{ colorScheme: string; showCaption?: boolean }> = observer(({ colorScheme, showCaption = true }) => {
   const { store } = useMetadataStore();

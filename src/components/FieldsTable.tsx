@@ -21,10 +21,11 @@ import { SmallCloseIcon } from "@chakra-ui/icons";
 import { BsCircle, BsCheckCircleFill } from "react-icons/bs";
 import { observer } from "mobx-react";
 
-import { IField, ISFObject } from "../models/MetadataStore";
-import { useColorScheme } from "../models/useColorScheme";
-import { FieldsViewOptions, useFieldsTable } from "../models/useFieldsTable";
-import { PaginationButtons } from "./PaginationButtons";
+import { useColorScheme } from "models/useColorScheme";
+import { FieldsViewOptions, useFieldsTable } from "models/useFieldsTable";
+import { ISFObject } from "models/helpers/SFObject";
+import { IField } from "models/helpers/Field";
+import { PaginationButtons } from "components/PaginationButtons";
 
 export const FieldsTable: FC<{ object: ISFObject }> = observer(({ object }) => {
   const { tone, colorScheme } = useColorScheme();

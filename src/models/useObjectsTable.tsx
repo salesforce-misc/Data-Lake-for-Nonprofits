@@ -2,8 +2,9 @@ import slice from "lodash/slice";
 import isEmpty from "lodash/isEmpty";
 import { useState } from "react";
 
-import { ISFObject, IMetadataStore } from "./MetadataStore";
-import { removeSpaces } from "../helpers/utils";
+import { IMetadataStore } from "models/MetadataStore";
+import { ISFObject } from "models/helpers/SFObject";
+import { removeSpaces } from "helpers/utils";
 
 export enum ObjectsViewOptions {
   All = "ALL",

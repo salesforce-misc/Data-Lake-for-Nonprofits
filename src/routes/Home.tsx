@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { SubmitHandler, useForm } from "react-hook-form";
 
 import { theme } from "../themes/orange";
+import { Header } from "components/Header";
 import { OutlineButton } from "../components/OutlineButton";
 import { CurvedBox } from "../components/CurvedBox";
 import { useStore } from "../AppContext";
@@ -77,8 +78,8 @@ export const Home: FC = observer(() => {
     <>
       <CurvedBox bgGradient={theme.gradients.bgLight} />
 
-      <Container maxW="container.lg" pt="20px" position="relative">
-        test
+      <Container maxW="container.md" pt="20px" position="relative">
+        <Header />
       </Container>
 
       <Container maxW="container.md" position="relative">

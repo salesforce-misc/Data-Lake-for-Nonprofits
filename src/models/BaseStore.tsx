@@ -1,7 +1,7 @@
 import isNil from "lodash/isNil";
 import { types, Instance } from "mobx-state-tree";
 
-enum StoreLoadingState {
+enum IStoreLoadingState {
   Initial = "INITIAL",
   Loading = "LOADING",
   Ready = "READY",
@@ -29,8 +29,8 @@ enum StoreLoadingState {
 export const BaseStore = types
   .model("BaseStore", {
     loadingState: types.optional(
-      types.enumeration<StoreLoadingState>("StoreLoadingState", Object.values(StoreLoadingState)),
-      StoreLoadingState.Initial
+      types.enumeration<IStoreLoadingState>("StoreLoadingState", Object.values(IStoreLoadingState)),
+      IStoreLoadingState.Initial
     ),
     loadingError: types.maybe(types.frozen()),
     loadingPercentage: 0,
@@ -47,11 +47,11 @@ export const BaseStore = types
     afterCreate(): void {
       // The purpose is to ensure that when a store snapshot is rehydrated that it is reset
       // to 'initial' but only if it was loading or had an error
-      const loading = self.loadingState === StoreLoadingState.Loading;
-      const reLoading = self.loadingState === StoreLoadingState.Reloading;
+      const loading = self.loadingState === IStoreLoadingState.Loading;
+      const reLoading = self.loadingState === IStoreLoadingState.Reloading;
       const hasError = !isNil(self.loadingError);
       if (loading || reLoading || hasError) {
-        self.loadingState = StoreLoadingState.Initial;
+        self.loadingState = IStoreLoadingState.Initial;
         self.loadingError = undefined;
         self.loadingPercentage = 0;
       }
@@ -70,14 +70,14 @@ export const BaseStore = types
         if (loadingPromise) return loadingPromise;
 
         self.loadingError = undefined;
-        if (self.loadingState === StoreLoadingState.Ready) self.loadingState = StoreLoadingState.Reloading;
-        else if (self.loadingState !== StoreLoadingState.Reloading) self.loadingState = StoreLoadingState.Loading;
+        if (self.loadingState === IStoreLoadingState.Ready) self.loadingState = IStoreLoadingState.Reloading;
+        else if (self.loadingState !== IStoreLoadingState.Reloading) self.loadingState = IStoreLoadingState.Loading;
         self.loadingPercentage = 0;
         loadingPromise = new Promise(async (resolve, reject) => {
           try {
             await self.doLoad(args);
             self.runInAction(() => {
-              self.loadingState = StoreLoadingState.Ready;
+              self.loadingState = IStoreLoadingState.Ready;
               self.loadingPercentage = 100;
               loadingPromise = undefined;
             });
@@ -85,7 +85,7 @@ export const BaseStore = types
             resolve();
           } catch (err) {
             self.runInAction(() => {
-              self.loadingState = self.loadingState === StoreLoadingState.Loading ? StoreLoadingState.Initial : StoreLoadingState.Ready;
+              self.loadingState = self.loadingState === IStoreLoadingState.Loading ? IStoreLoadingState.Initial : IStoreLoadingState.Ready;
               self.loadingError = err;
               loadingPromise = undefined;
             });
@@ -111,7 +111,7 @@ export const BaseStore = types
 
     reset() {
       self.loadingError = undefined;
-      self.loadingState = StoreLoadingState.Initial;
+      self.loadingState = IStoreLoadingState.Initial;
       self.loadingPercentage = 0;
     },
   }))
@@ -131,9 +131,9 @@ export const BaseStore = types
 export interface IBaseStore extends Instance<typeof BaseStore> {}
 
 export const isStoreReady = (store: IBaseStore) =>
-  store.loadingState === StoreLoadingState.Ready || store.loadingState === StoreLoadingState.Reloading;
+  store.loadingState === IStoreLoadingState.Ready || store.loadingState === IStoreLoadingState.Reloading;
 export const isStoreEmpty = (store: IBaseStore) => isStoreReady(store) && store.empty;
-export const isStoreLoading = (store: IBaseStore) => store.loadingState === StoreLoadingState.Loading;
-export const isStoreReLoading = (store: IBaseStore) => store.loadingState === StoreLoadingState.Reloading;
-export const isStoreNew = (store: IBaseStore) => store.loadingState === StoreLoadingState.Initial;
+export const isStoreLoading = (store: IBaseStore) => store.loadingState === IStoreLoadingState.Loading;
+export const isStoreReLoading = (store: IBaseStore) => store.loadingState === IStoreLoadingState.Reloading;
+export const isStoreNew = (store: IBaseStore) => store.loadingState === IStoreLoadingState.Initial;
 export const isStoreError = (store: IBaseStore) => !isNil(store.loadingError);

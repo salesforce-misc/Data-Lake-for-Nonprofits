@@ -21,8 +21,8 @@ import { deleteAccessKey } from "api/delete-access-key";
 import { BaseStore, isStoreError, isStoreLoading, isStoreNew, isStoreReady, isStoreReLoading } from "models/BaseStore";
 import { IInstallation } from "models/Installation";
 
-import { AccessKeyStatus, IUserAccessKey } from "models/helpers/UserAccessKey";
-import { IUser, RawUser, User } from "models/helpers/User";
+import { TAccessKeyStatus, IUserAccessKey } from "models/helpers/UserAccessKey";
+import { IUser, IRawUser, User } from "models/helpers/User";
 
 /**
  * Represents the users store.
@@ -70,7 +70,7 @@ export const UsersStore = BaseStore.named("UsersStore")
   })
 
   .actions((self) => ({
-    setUser(rawUser: RawUser) {
+    setUser(rawUser: IRawUser) {
       if (self.users.has(rawUser.id)) {
         self.users.get(rawUser.id)?.setUser(rawUser);
       } else {
@@ -121,7 +121,7 @@ export const UsersStore = BaseStore.named("UsersStore")
           user.setAccessKey({
             id: accessKey.AccessKeyId,
             createDate: accessKey.CreateDate,
-            status: accessKey.Status === "Active" ? AccessKeyStatus.Active : AccessKeyStatus.Inactive,
+            status: accessKey.Status === "Active" ? TAccessKeyStatus.Active : TAccessKeyStatus.Inactive,
           });
         });
       };
@@ -173,7 +173,7 @@ export const UsersStore = BaseStore.named("UsersStore")
       user.setAccessKey({
         id: newAccessKey.AccessKeyId,
         createDate: newAccessKey.CreateDate,
-        status: newAccessKey.Status === "Active" ? AccessKeyStatus.Active : AccessKeyStatus.Inactive,
+        status: newAccessKey.Status === "Active" ? TAccessKeyStatus.Active : TAccessKeyStatus.Inactive,
         secret: newAccessKey.SecretAccessKey,
       });
 
@@ -210,7 +210,7 @@ export const UsersStore = BaseStore.named("UsersStore")
       });
     },
 
-    async updateAccessKeyStatus(user: IUser, accessKey: IUserAccessKey, status: AccessKeyStatus, installation: IInstallation): Promise<void> {
+    async updateAccessKeyStatus(user: IUser, accessKey: IUserAccessKey, status: TAccessKeyStatus, installation: IInstallation): Promise<void> {
       if (!self.users.has(user.id)) throw new Error(`User "${user.name}" not found`);
       const existingUser = self.users.get(user.id) as IUser;
       if (!existingUser.accessKeys.has(accessKey.id)) throw new Error(`Access key "${accessKey.id}" not found`);
@@ -220,7 +220,7 @@ export const UsersStore = BaseStore.named("UsersStore")
       const adminSecretKey = installation.credentials.secretKey;
       const region = installation.region;
 
-      if (status === AccessKeyStatus.Inactive) {
+      if (status === TAccessKeyStatus.Inactive) {
         await deactivateAccessKey({
           accessKey: adminAccessKey,
           secretKey: adminSecretKey,
@@ -228,7 +228,7 @@ export const UsersStore = BaseStore.named("UsersStore")
           userName: user.name,
           accessKeyId: existingAccessKey.id,
         });
-        existingAccessKey.setStatus(AccessKeyStatus.Inactive);
+        existingAccessKey.setStatus(TAccessKeyStatus.Inactive);
       } else {
         await activateAccessKey({
           accessKey: adminAccessKey,
@@ -237,7 +237,7 @@ export const UsersStore = BaseStore.named("UsersStore")
           userName: user.name,
           accessKeyId: existingAccessKey.id,
         });
-        existingAccessKey.setStatus(AccessKeyStatus.Active);
+        existingAccessKey.setStatus(TAccessKeyStatus.Active);
       }
     },
 
@@ -282,7 +282,7 @@ export const UsersStore = BaseStore.named("UsersStore")
       existingUser.setAccessKey({
         id: newAccessKey.AccessKeyId,
         createDate: newAccessKey.CreateDate,
-        status: newAccessKey.Status === "Active" ? AccessKeyStatus.Active : AccessKeyStatus.Inactive,
+        status: newAccessKey.Status === "Active" ? TAccessKeyStatus.Active : TAccessKeyStatus.Inactive,
         secret: newAccessKey.SecretAccessKey,
       });
 

@@ -1,14 +1,14 @@
 import { types, Instance } from "mobx-state-tree";
 
-export enum AccessKeyStatus {
+export enum TAccessKeyStatus {
   Active = "ACTIVE",
   Inactive = "INACTIVE",
 }
 
-export interface RawAccessKey {
+export interface IRawAccessKey {
   id: string;
   createDate: Date;
-  status: AccessKeyStatus;
+  status: TAccessKeyStatus;
   secret?: string;
 }
 
@@ -20,19 +20,19 @@ export const UserAccessKey = types
     id: "",
     secret: "",
     createDate: types.Date,
-    status: types.enumeration<AccessKeyStatus>("AccessKeyStatus", Object.values(AccessKeyStatus)),
+    status: types.enumeration<TAccessKeyStatus>("AccessKeyStatus", Object.values(TAccessKeyStatus)),
     stale: false,
   })
 
   .actions((self) => ({
-    setAccessKey(rawAccessKey: RawAccessKey) {
+    setAccessKey(rawAccessKey: IRawAccessKey) {
       self.createDate = rawAccessKey.createDate;
       self.status = rawAccessKey.status;
       if (rawAccessKey.secret) self.secret = rawAccessKey.secret;
       self.stale = false;
     },
 
-    setStatus(status: AccessKeyStatus) {
+    setStatus(status: TAccessKeyStatus) {
       self.status = status;
     },
 
@@ -43,7 +43,7 @@ export const UserAccessKey = types
 
   .views((self) => ({
     get isActive(): boolean {
-      return self.status === AccessKeyStatus.Active;
+      return self.status === TAccessKeyStatus.Active;
     },
   }));
 

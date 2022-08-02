@@ -27,8 +27,8 @@ import { TimeAgo } from "components/TimeAgo";
 import { DownloadableAccessKey } from "components/DownloadableAccessKey";
 import { delay } from "helpers/utils";
 import { useUsersStore } from "models/UsersStore";
-import { IUser, UserAccessStatus } from "models/helpers/User";
-import { AccessKeyStatus, IUserAccessKey } from "models/helpers/UserAccessKey";
+import { IUser, TUserAccessStatus } from "models/helpers/User";
+import { TAccessKeyStatus, IUserAccessKey } from "models/helpers/UserAccessKey";
 
 export const UsersTable: FC = observer(() => {
   const { colorScheme } = useColorScheme();
@@ -300,7 +300,7 @@ const WarningBanner: FC<{ user: IUser }> = observer(({ user }) => {
 
   let content = null;
   if (user.hasAccess) return null;
-  if (user.accessStatus === UserAccessStatus.No_Keys) {
+  if (user.accessStatus === TUserAccessStatus.No_Keys) {
     // @ts-ignore
     content = (
       <Alert status="warning" mt={0} mb={4} borderRadius="md" color="red.700" alignItems="flex-start" fontSize="sm">
@@ -312,7 +312,7 @@ const WarningBanner: FC<{ user: IUser }> = observer(({ user }) => {
     );
   }
 
-  if (user.accessStatus === UserAccessStatus.No_Active_Keys) {
+  if (user.accessStatus === TUserAccessStatus.No_Active_Keys) {
     // @ts-ignore
     content = (
       <Alert status="warning" mt={0} mb={4} borderRadius="md" color="red.700" alignItems="flex-start" fontSize="sm">
@@ -323,7 +323,7 @@ const WarningBanner: FC<{ user: IUser }> = observer(({ user }) => {
     );
   }
 
-  if (user.accessStatus === UserAccessStatus.No_POLICY) {
+  if (user.accessStatus === TUserAccessStatus.No_POLICY) {
     // @ts-ignore
     content = (
       <Alert status="warning" mt={0} mb={4} borderRadius="md" color="red.700" alignItems="flex-start" fontSize="sm">
@@ -373,16 +373,16 @@ const AccessKeyDetailRow: FC<{ user: IUser; userAccessKey: IUserAccessKey }> = o
 
   const isActive = userAccessKey.isActive;
 
-  const handleChangeStatus = async (status: AccessKeyStatus) => {
+  const handleChangeStatus = async (status: TAccessKeyStatus) => {
     setError("");
     setProcessing(true);
-    const action = status === AccessKeyStatus.Active ? "Activated" : "Deactivated";
+    const action = status === TAccessKeyStatus.Active ? "Activated" : "Deactivated";
 
     try {
       await delay(1); // To give a better visual cue
       await store.updateAccessKeyStatus(user, userAccessKey, status, installation);
       toast({
-        status: status === AccessKeyStatus.Active ? "success" : "warning",
+        status: status === TAccessKeyStatus.Active ? "success" : "warning",
         description: `${action} ${userAccessKey.id}`,
         isClosable: false,
         duration: 2000,
@@ -394,8 +394,8 @@ const AccessKeyDetailRow: FC<{ user: IUser; userAccessKey: IUserAccessKey }> = o
     setProcessing(false);
   };
 
-  const activate = () => handleChangeStatus(AccessKeyStatus.Active);
-  const deactivate = () => handleChangeStatus(AccessKeyStatus.Inactive);
+  const activate = () => handleChangeStatus(TAccessKeyStatus.Active);
+  const deactivate = () => handleChangeStatus(TAccessKeyStatus.Inactive);
 
   return (
     <Box fontSize="sm" pl={6} mt={6} mb={6}>

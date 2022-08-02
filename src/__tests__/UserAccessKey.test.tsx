@@ -1,11 +1,11 @@
-import { AccessKeyStatus, IUserAccessKey, UserAccessKey } from "models/helpers/UserAccessKey";
+import { TAccessKeyStatus, IUserAccessKey, UserAccessKey } from "models/helpers/UserAccessKey";
 
 describe("UserAccessKey Model", () => {
   const baseProps = {
     id: "1",
     secret: "some-test-secret",
     createDate: new Date("2022-01-05"),
-    status: AccessKeyStatus.Active,
+    status: TAccessKeyStatus.Active,
     stale: false,
   };
 
@@ -33,7 +33,7 @@ describe("UserAccessKey Model", () => {
       id: "2",
       secret: "some-other-test-secret",
       createDate: new Date("2022-02-01"),
-      status: AccessKeyStatus.Inactive,
+      status: TAccessKeyStatus.Inactive,
     };
 
     // Set access key
@@ -53,13 +53,13 @@ describe("UserAccessKey Model", () => {
     expect(accessKey.status).toBe("ACTIVE");
 
     // Set the status
-    accessKey.setStatus(AccessKeyStatus.Inactive);
+    accessKey.setStatus(TAccessKeyStatus.Inactive);
 
     // Check the status to be inactive
     expect(accessKey.status).toBe("INACTIVE");
 
     // Set the status back to active
-    accessKey.setStatus(AccessKeyStatus.Active);
+    accessKey.setStatus(TAccessKeyStatus.Active);
 
     // Check the status to be active again
     expect(accessKey.status).toBe("ACTIVE");

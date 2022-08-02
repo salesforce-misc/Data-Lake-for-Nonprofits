@@ -3,9 +3,9 @@ import every from "lodash/every";
 
 import { types, Instance } from "mobx-state-tree";
 
-import { AccessKeyStatus, IUserAccessKey, RawAccessKey, UserAccessKey } from "models/helpers/UserAccessKey";
+import { TAccessKeyStatus, IUserAccessKey, IRawAccessKey, UserAccessKey } from "models/helpers/UserAccessKey";
 
-export interface RawUser {
+export interface IRawUser {
   id: string;
   name: string;
   arn: string;
@@ -14,7 +14,7 @@ export interface RawUser {
   hasAthenaManagedPolicy: boolean;
 }
 
-export enum UserAccessStatus {
+export enum TUserAccessStatus {
   No_Active_Keys = "NOT_ACTIVE_KEYS",
   No_Keys = "NO_KEYS",
   No_POLICY = "NO_POLICY", // When the user does not have the athena managed policy nor the admin policy
@@ -37,7 +37,7 @@ export const User = types
   })
 
   .actions((self) => ({
-    setUser(rawUser: RawUser) {
+    setUser(rawUser: IRawUser) {
       self.id = rawUser.id;
       self.name = rawUser.name;
       self.arn = rawUser.arn;
@@ -47,7 +47,7 @@ export const User = types
       self.stale = false;
     },
 
-    setAccessKey(rawAccessKey: RawAccessKey) {
+    setAccessKey(rawAccessKey: IRawAccessKey) {
       if (self.accessKeys.has(rawAccessKey.id)) {
         self.accessKeys.get(rawAccessKey.id)?.setAccessKey(rawAccessKey);
       } else {
@@ -83,17 +83,17 @@ export const User = types
   }))
 
   .views((self) => ({
-    get accessStatus(): UserAccessStatus {
-      if (!self.hasAdminPolicy && !self.hasAthenaManagedPolicy) return UserAccessStatus.No_POLICY;
-      if (self.accessKeys.size === 0) return UserAccessStatus.No_Keys;
-      if (every(self.listAccessKeys, ["status", AccessKeyStatus.Inactive])) return UserAccessStatus.No_Active_Keys;
-      return UserAccessStatus.Valid;
+    get accessStatus(): TUserAccessStatus {
+      if (!self.hasAdminPolicy && !self.hasAthenaManagedPolicy) return TUserAccessStatus.No_POLICY;
+      if (self.accessKeys.size === 0) return TUserAccessStatus.No_Keys;
+      if (every(self.listAccessKeys, ["status", TAccessKeyStatus.Inactive])) return TUserAccessStatus.No_Active_Keys;
+      return TUserAccessStatus.Valid;
     },
   }))
 
   .views((self) => ({
     get hasAccess(): boolean {
-      return self.accessStatus === UserAccessStatus.Valid;
+      return self.accessStatus === TUserAccessStatus.Valid;
     },
   }));
 

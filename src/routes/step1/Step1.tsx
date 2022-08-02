@@ -1,4 +1,4 @@
-import { FC, useState, useEffect } from "react";
+import React from "react";
 import {
   Box,
   Container,
@@ -19,26 +19,27 @@ import { observer } from "mobx-react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 
-import awsConnectImage01 from "../images/aws-connect-01.png";
-import awsConnectImage02 from "../images/aws-connect-02.png";
-import awsPlugImage01 from "../images/aws-plug-01.png";
-import { CredentialsValidationException } from "../api/validate-credentials";
-import { useInstallation, useStore } from "../AppContext";
-import { CurvedBox } from "../components/CurvedBox";
-import { StepsIndicator } from "../components/StepsIndicator";
-import { ClickableImage } from "../components/ClickableImage";
-import { OutlineButton } from "../components/OutlineButton";
-import { YesNoAnswer } from "../models/steps/BaseStep";
-import { CredentialsForm, ICredentialsFormInput } from "../components/CredentialsForm";
-import { RegionForm } from "../components/RegionForm";
-import { CredentialsError } from "../components/CredentialsError";
+import awsConnectImage01 from "images/aws-connect-01.png";
+import awsConnectImage02 from "images/aws-connect-02.png";
+import awsPlugImage01 from "images/aws-plug-01.png";
 
-export const Step1: FC = observer(() => {
+import { useInstallation, useStore } from "AppContext";
+import { CredentialsValidationException } from "api/validate-credentials";
+import { CurvedBox } from "components/CurvedBox";
+import { StepsIndicator } from "components/StepsIndicator";
+import { ClickableImage } from "components/ClickableImage";
+import { OutlineButton } from "components/OutlineButton";
+import { CredentialsForm, ICredentialsFormInput } from "components/CredentialsForm";
+import { RegionForm } from "components/RegionForm";
+import { CredentialsError } from "components/CredentialsError";
+import { YesNoAnswer } from "models/steps/BaseStep";
+
+export const Step1 = observer(() => {
   const installation = useInstallation();
   const step = installation.connectToAwsStep;
   const needsAssistance = step.needsAssistance;
   const navigate = useNavigate();
-  const [stepException, setStepException] = useState<CredentialsValidationException | Error>();
+  const [stepException, setStepException] = React.useState<CredentialsValidationException | Error>();
   const appStore = useStore();
 
   const handleAnswer = (answer: YesNoAnswer) => () => {
@@ -64,7 +65,7 @@ export const Step1: FC = observer(() => {
     }
   };
 
-  useEffect(() => {
+  React.useEffect(() => {
     step.markStarted();
     window.scrollTo(0, 0);
   }, [appStore, step]);
@@ -165,7 +166,7 @@ export const Step1: FC = observer(() => {
   );
 });
 
-const InstructionSection: FC = () => {
+const InstructionSection = () => {
   return (
     <Box bg="orange.75" p={6} borderRadius="lg" border="1px" borderColor="orange.100">
       <Stack direction={{ base: "column", md: "row" }} spacing="30px" pt={6} pb={6}>

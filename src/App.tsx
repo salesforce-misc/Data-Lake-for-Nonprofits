@@ -5,13 +5,13 @@ import { observer } from "mobx-react";
 
 import { theme as orange } from "./themes/orange";
 import { theme as purple } from "./themes/purple";
-import { Home } from "./routes/Home";
-import { Step1 } from "./routes/Step1";
-import { Step2 } from "./routes/Step2";
-import { Step3 } from "./routes/Step3";
-import { Step4 } from "./routes/Step4";
-import { Step5 } from "./routes/Step5";
-import { Step6 } from "./routes/Step6";
+import { Home } from "./routes/home/Home";
+import { Step1 } from "./routes/step1/Step1";
+import { Step2 } from "./routes/step2/Step2";
+import { Step3 } from "./routes/step3/Step3";
+import { Step4 } from "./routes/step4/Step4";
+import { Step5 } from "./routes/step5/Step5";
+import { Step6 } from "./routes/step6/Step6";
 
 const App: FC = () => {
   // If the user does a browser refresh, they need to be redirected back to the home page

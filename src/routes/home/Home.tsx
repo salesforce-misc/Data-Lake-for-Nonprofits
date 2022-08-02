@@ -17,7 +17,7 @@ import { DetectedInstallationSelections } from "components/DetectedInstallationS
 import { CredentialsValidationException } from "api/validate-credentials";
 import { useDetectedInstallationStore } from "models/DetectedInstallationsStore";
 import { useStore } from "AppContext";
-import { BackHome } from "routes/BackHome";
+import { BackHome } from "routes/home/BackHome";
 import { useColorScheme } from "models/useColorScheme";
 import { IDetectedInstallation } from "models/helpers/DetectedInstallation";
 

@@ -1,17 +1,17 @@
 import { FC, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { Box, Button, Container, Heading, HStack, Text } from "@chakra-ui/react";
+import { ArrowBackIcon } from "@chakra-ui/icons";
 import { observer } from "mobx-react";
 
-import { useInstallation } from "../AppContext";
-import { CurvedBox } from "../components/CurvedBox";
-import { StepsBanner } from "../components/StepsBanner";
-import { TableauAccessPanel } from "../components/TableauAccessPanel";
-import { useColorScheme } from "../models/useColorScheme";
-import { UsersPanel } from "../components/UsersPanel";
-import { SubscribeSNSPanel } from "../components/SubscribeSNSPanel";
-import { CloudwatchDashboardPanel } from "../components/CloudwatchDashboardPanel";
-import { ArrowBackIcon } from "@chakra-ui/icons";
-import { useNavigate } from "react-router-dom";
+import { useInstallation } from "AppContext";
+import { CurvedBox } from "components/CurvedBox";
+import { StepsBanner } from "components/StepsBanner";
+import { TableauAccessPanel } from "components/TableauAccessPanel";
+import { UsersPanel } from "components/UsersPanel";
+import { SubscribeSNSPanel } from "components/SubscribeSNSPanel";
+import { CloudwatchDashboardPanel } from "components/CloudwatchDashboardPanel";
+import { useColorScheme } from "models/useColorScheme";
 
 export const Step6: FC = observer(() => {
   const { tone, colorScheme } = useColorScheme();

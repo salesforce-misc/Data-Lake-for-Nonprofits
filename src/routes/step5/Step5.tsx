@@ -18,17 +18,17 @@ import { ArrowForwardIcon, TimeIcon } from "@chakra-ui/icons";
 import { observer } from "mobx-react";
 import { useNavigate } from "react-router-dom";
 
-import awsImage from "../images/processing-aws-01.png";
-import sforgImage from "../images/processing-sforg-01.png";
+import awsImage from "images/processing-aws-01.png";
+import sforgImage from "images/processing-sforg-01.png";
 
-import { theme } from "../themes/green";
-import { useInstallation } from "../AppContext";
-import { CurvedBox } from "../components/CurvedBox";
-import { humanProcessingTime } from "../helpers/utils";
-import { IOperation } from "../models/operations/Operation";
-import { DataImportStatusPanel } from "../components/DataImportStatusPanel";
-import { RetryErrorPanel } from "../components/RetryErrorPanel";
-import { StepsBanner } from "../components/StepsBanner";
+import { useInstallation } from "AppContext";
+import { theme } from "themes/green";
+import { CurvedBox } from "components/CurvedBox";
+import { DataImportStatusPanel } from "components/DataImportStatusPanel";
+import { RetryErrorPanel } from "components/RetryErrorPanel";
+import { StepsBanner } from "components/StepsBanner";
+import { humanProcessingTime } from "helpers/utils";
+import { IOperation } from "models/operations/Operation";
 
 const colorScheme = theme.name;
 

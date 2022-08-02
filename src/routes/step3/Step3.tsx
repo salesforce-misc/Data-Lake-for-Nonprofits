@@ -19,15 +19,15 @@ import { ArrowForwardIcon, ArrowBackIcon } from "@chakra-ui/icons";
 import { observer } from "mobx-react";
 import { useNavigate } from "react-router-dom";
 
-import { useInstallation } from "../AppContext";
-import { CurvedBox } from "../components/CurvedBox";
-import { StepsIndicator } from "../components/StepsIndicator";
-import { useMetadataStore } from "../models/MetadataStore";
-import { ImportFrequencyPanel } from "../components/ImportFrequencyPanel";
-import { DataModelDescription } from "../components/DataModelDescription";
-import { useColorScheme } from "../models/useColorScheme";
-import { ObjectsTable } from "../components/ObjectsTable";
-import { niceNumber } from "../helpers/utils";
+import { useInstallation } from "AppContext";
+import { CurvedBox } from "components/CurvedBox";
+import { StepsIndicator } from "components/StepsIndicator";
+import { ImportFrequencyPanel } from "components/ImportFrequencyPanel";
+import { DataModelDescription } from "components/DataModelDescription";
+import { ObjectsTable } from "components/ObjectsTable";
+import { niceNumber } from "helpers/utils";
+import { useMetadataStore } from "models/MetadataStore";
+import { useColorScheme } from "models/useColorScheme";
 
 export const Step3: FC = observer(() => {
   const { tone, colorScheme } = useColorScheme();

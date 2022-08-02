@@ -4,14 +4,14 @@ import { ArrowForwardIcon, ArrowBackIcon } from "@chakra-ui/icons";
 import { observer } from "mobx-react";
 import { useNavigate } from "react-router-dom";
 
-import { theme } from "../themes/pink";
-import { useInstallation } from "../AppContext";
-import { CurvedBox } from "../components/CurvedBox";
-import { StepsIndicator } from "../components/StepsIndicator";
-import { awsRegionsMap } from "../data/aws-regions";
-import { DataModelTablePreview } from "../components/DataModelTablePreview";
-import { useMetadataStore } from "../models/MetadataStore";
-import { niceNumber } from "../helpers/utils";
+import { useInstallation } from "AppContext";
+import { theme } from "themes/pink";
+import { CurvedBox } from "components/CurvedBox";
+import { StepsIndicator } from "components/StepsIndicator";
+import { DataModelTablePreview } from "components/DataModelTablePreview";
+import { niceNumber } from "helpers/utils";
+import { awsRegionsMap } from "data/aws-regions";
+import { useMetadataStore } from "models/MetadataStore";
 
 export const Step4: FC = observer(() => {
   const installation = useInstallation();
@@ -123,9 +123,7 @@ const ReviewGrid: FC = observer(() => {
       <GridItem {...headerProps}>Import Schedule</GridItem>
       <GridItem {...contentProps}>{installation.importOptionsStep.infoMessage}</GridItem>
       <GridItem {...headerProps}>Data Model</GridItem>
-      <GridItem {...contentProps}>
-        We will import {niceNumber(store.selectedObjects.length)} objects
-      </GridItem>
+      <GridItem {...contentProps}>We will import {niceNumber(store.selectedObjects.length)} objects</GridItem>
     </Grid>
   );
 });

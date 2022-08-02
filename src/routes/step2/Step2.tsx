@@ -24,19 +24,21 @@ import {
 import { ArrowForwardIcon, ArrowBackIcon, ExternalLinkIcon, RepeatIcon } from "@chakra-ui/icons";
 import { observer } from "mobx-react";
 import { useNavigate } from "react-router-dom";
-import { useInstallation, useStore } from "../AppContext";
-import { theme } from "../themes/blue";
-import { CurvedBox } from "../components/CurvedBox";
-import { StepsIndicator } from "../components/StepsIndicator";
-import { ClickableImage } from "../components/ClickableImage";
-import sforgPlugImage01 from "../images/sforg-plug-01.png";
-import appflowConnectionImage01 from "../images/appflow-connection-01.png";
-import appflowConnectionImage02 from "../images/appflow-connection-02.png";
-import appflowConnectionImage03 from "../images/appflow-connection-03.png";
-import appflowConnectionImage04 from "../images/appflow-connection-04.png";
-import { YesNoAnswer } from "../models/steps/BaseStep";
-import { OutlineButton } from "../components/OutlineButton";
-import { useConnectionsStore } from "../models/ConnectionsStore";
+
+import appflowConnectionImage01 from "images/appflow-connection-01.png";
+import appflowConnectionImage02 from "images/appflow-connection-02.png";
+import appflowConnectionImage03 from "images/appflow-connection-03.png";
+import appflowConnectionImage04 from "images/appflow-connection-04.png";
+import sforgPlugImage01 from "images/sforg-plug-01.png";
+
+import { useInstallation, useStore } from "AppContext";
+import { theme } from "themes/blue";
+import { CurvedBox } from "components/CurvedBox";
+import { StepsIndicator } from "components/StepsIndicator";
+import { ClickableImage } from "components/ClickableImage";
+import { YesNoAnswer } from "models/steps/BaseStep";
+import { OutlineButton } from "components/OutlineButton";
+import { useConnectionsStore } from "models/ConnectionsStore";
 
 export const Step2: FC = observer(() => {
   const installation = useInstallation();

@@ -1,4 +1,4 @@
-# Web UI
+# Datalake for Nonprofit Cloud - Powered by AWS
 
 ```
 npm start

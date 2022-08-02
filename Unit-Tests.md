@@ -10,7 +10,7 @@ These mocks can be found under `src/__mocks__` -->
 
 ## Models and Stores
 
-### Field
+### Field Model
 
 - initialized properly
 - address is a compound type
@@ -23,7 +23,38 @@ These mocks can be found under `src/__mocks__` -->
 - can not toggle excluded prop for compound type
 - can toggle excluded prop for other types
 
-### SFObject
+### SFObject Model
+
+- initialized properly
+- set object using setObject action
+- set fields using setFields action
+- set fields using setFields action except compound fields
+- set field using setField action
+- set fields loaded using setFieldsLoaded action
+- set selected using setSelected action
+- set stale using markStale action
+- get selectable fields using selectableFields view
+- get listable fields using listableFields view
+- get immutable fields using immutableFields view
+- get selected fields using selectedFields view
+- get user selected fields using userSelectedFields view
+- get excluded fields using excludedFields view
+- get all excluded fields using allExcludedFields view
+- get number of fields using fieldsCount view
+- get number of selected fields using selectedFieldsCount view
+- get number of excluded fields using excludedFieldsCount view
+- check the object is not default
+- check the Account object is default
+
+### Credentials Model
+
+- initialized properly
+- reset credentials using reset action
+- root user
+- non-root user
+- non-empty credentials
+- empty access key
+- empty secret key
 
 ## Components
 

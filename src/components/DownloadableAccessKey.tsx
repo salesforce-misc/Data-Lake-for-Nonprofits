@@ -2,9 +2,9 @@ import { FC } from "react";
 import { observer } from "mobx-react";
 import { Box, Text, Button, Alert, AlertDescription, Stack, AlertIcon } from "@chakra-ui/react";
 
-import { useColorScheme } from "../models/useColorScheme";
-import { ClipboardField } from "./ClipboardField";
-import { IUserAccessKey } from "../models/UsersStore";
+import { useColorScheme } from "models/useColorScheme";
+import { ClipboardField } from "components/ClipboardField";
+import { IUserAccessKey } from "models/helpers/UserAccessKey";
 
 export const DownloadableAccessKey: FC<{ userAccessKey: IUserAccessKey; userName: string; onDone: () => void }> = observer(
   ({ userAccessKey, userName, onDone }) => {

@@ -19,14 +19,16 @@ import {
   Text,
   CloseButton,
 } from "@chakra-ui/react";
-
-import { useColorScheme } from "../models/useColorScheme";
-import { useInstallation } from "../AppContext";
-import { AccessKeyStatus, IUser, IUserAccessKey, UserAccessStatus, useUsersStore } from "../models/UsersStore";
-import { TimeAgo } from "./TimeAgo";
 import { CheckIcon, ChevronRightIcon, DeleteIcon, NotAllowedIcon } from "@chakra-ui/icons";
-import { delay } from "../helpers/utils";
-import { DownloadableAccessKey } from "./DownloadableAccessKey";
+
+import { useInstallation } from "AppContext";
+import { useColorScheme } from "models/useColorScheme";
+import { TimeAgo } from "components/TimeAgo";
+import { DownloadableAccessKey } from "components/DownloadableAccessKey";
+import { delay } from "helpers/utils";
+import { AccessKeyStatus, UserAccessStatus, useUsersStore } from "models/UsersStore";
+import { IUser } from "models/helpers/User";
+import { IUserAccessKey } from "models/helpers/UserAccessKey";
 
 export const UsersTable: FC = observer(() => {
   const { colorScheme } = useColorScheme();

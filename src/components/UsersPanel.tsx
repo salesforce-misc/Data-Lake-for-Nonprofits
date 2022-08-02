@@ -18,12 +18,13 @@ import { RepeatIcon } from "@chakra-ui/icons";
 import { observer } from "mobx-react";
 import { SubmitHandler, useForm } from "react-hook-form";
 
-import { useInstallation } from "../AppContext";
-import { useColorScheme } from "../models/useColorScheme";
-import { IUserAccessKey, useUsersStore } from "../models/UsersStore";
-import { RetryErrorPanel } from "./RetryErrorPanel";
-import { DownloadableAccessKey } from "./DownloadableAccessKey";
-import { UsersTable } from "./UsersTable";
+import { useInstallation } from "AppContext";
+import { RetryErrorPanel } from "components/RetryErrorPanel";
+import { DownloadableAccessKey } from "components/DownloadableAccessKey";
+import { UsersTable } from "components/UsersTable";
+import { useColorScheme } from "models/useColorScheme";
+import { useUsersStore } from "models/UsersStore";
+import { IUserAccessKey } from "models/helpers/UserAccessKey";
 
 export const UsersPanel: FC = observer(() => {
   const { tone } = useColorScheme();
@@ -37,7 +38,8 @@ export const UsersPanel: FC = observer(() => {
         <RefreshButton />
       </HStack>
       <Box mb={4} color={tone(800)}>
-        Create users who will need access to the data. These users will have <i>least privilege</i> credentials to access only the data and resources they need.
+        Create users who will need access to the data. These users will have <i>least privilege</i> credentials to access only the data and resources
+        they need.
       </Box>
       <ErrorPanel />
       <ProgressPanel />
@@ -58,8 +60,7 @@ const InfoBanner: FC = observer(() => {
   return (
     <Box bg={tone(75)} p={3} borderRadius="md" mb={5} color={tone(700)}>
       <Text display="block" fontSize="sm" mb={2}>
-        When connecting to your data lake, you need access keys. Access keys are associated with users. Add a user to obtain the
-        access keys.
+        When connecting to your data lake, you need access keys. Access keys are associated with users. Add a user to obtain the access keys.
       </Text>
       {!isAdding && (
         <Box textAlign="right">

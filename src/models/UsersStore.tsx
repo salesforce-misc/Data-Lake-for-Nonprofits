@@ -1,76 +1,33 @@
 import chunkIt from "lodash/chunk";
 import isEmpty from "lodash/isEmpty";
 import sortBy from "lodash/sortBy";
-import some from "lodash/some";
-import every from "lodash/every";
 
 import { types, Instance } from "mobx-state-tree";
 import { values } from "mobx";
 import { useEffect } from "react";
 import { User as IAMUser } from "@aws-sdk/client-iam";
 
-import { BaseStore, isStoreError, isStoreLoading, isStoreNew, isStoreReady, isStoreReLoading } from "./BaseStore";
-import { IInstallation } from "./Installation";
-import { listUsers } from "../api/list-users";
-import { listAccessKeys } from "../api/list-access-keys";
-import { listUserPolicies } from "../api/list-user-policies";
-import { createUser } from "../api/create-user";
-import { attachUserPolicy } from "../api/attach-user-policy";
-import { createAccessKey } from "../api/create-access-key";
-import { delay } from "../helpers/utils";
-import { deleteUser } from "../api/delete-user";
-import { deactivateAccessKey } from "../api/deactivate-access-key";
-import { activateAccessKey } from "../api/activate-access-key";
-import { deleteAccessKey } from "../api/delete-access-key";
+import { delay } from "helpers/utils";
+import { listUsers } from "api/list-users";
+import { listAccessKeys } from "api/list-access-keys";
+import { listUserPolicies } from "api/list-user-policies";
+import { createUser } from "api/create-user";
+import { attachUserPolicy } from "api/attach-user-policy";
+import { createAccessKey } from "api/create-access-key";
+import { deleteUser } from "api/delete-user";
+import { deactivateAccessKey } from "api/deactivate-access-key";
+import { activateAccessKey } from "api/activate-access-key";
+import { deleteAccessKey } from "api/delete-access-key";
+import { BaseStore, isStoreError, isStoreLoading, isStoreNew, isStoreReady, isStoreReLoading } from "models/BaseStore";
+import { IInstallation } from "models/Installation";
+
+import { IUserAccessKey } from "models/helpers/UserAccessKey";
+import { IUser, User } from "models/helpers/User";
 
 export enum AccessKeyStatus {
   Active = "ACTIVE",
   Inactive = "INACTIVE",
 }
-
-interface RawAccessKey {
-  id: string;
-  createDate: Date;
-  status: AccessKeyStatus;
-  secret?: string;
-}
-
-/**
- * Represents a user access key (id + secret)
- */
-const UserAccessKey = types
-  .model("UserAccessKey", {
-    id: "",
-    secret: "",
-    createDate: types.Date,
-    status: types.enumeration<AccessKeyStatus>("AccessKeyStatus", Object.values(AccessKeyStatus)),
-    stale: false,
-  })
-
-  .actions((self) => ({
-    setAccessKey(rawAccessKey: RawAccessKey) {
-      self.createDate = rawAccessKey.createDate;
-      self.status = rawAccessKey.status;
-      if (rawAccessKey.secret) self.secret = rawAccessKey.secret;
-      self.stale = false;
-    },
-
-    setStatus(status: AccessKeyStatus) {
-      self.status = status;
-    },
-
-    markStale() {
-      self.stale = true;
-    },
-  }))
-
-  .views((self) => ({
-    get isActive(): boolean {
-      return self.status === AccessKeyStatus.Active;
-    },
-  }));
-
-export interface IUserAccessKey extends Instance<typeof UserAccessKey> {}
 
 interface RawUser {
   id: string;
@@ -87,84 +44,6 @@ export enum UserAccessStatus {
   No_POLICY = "NO_POLICY", // When the user does not have the athena managed policy nor the admin policy
   Valid = "VALID",
 }
-
-/**
- * Represents an IAM user
- */
-const User = types
-  .model("User", {
-    id: "",
-    name: "",
-    arn: "",
-    createDate: types.maybe(types.Date),
-    accessKeys: types.map(UserAccessKey),
-    policies: types.array(types.string),
-    hasAthenaManagedPolicy: false,
-    stale: false,
-  })
-
-  .actions((self) => ({
-    setUser(rawUser: RawUser) {
-      self.id = rawUser.id;
-      self.name = rawUser.name;
-      self.arn = rawUser.arn;
-      self.createDate = rawUser.createDate;
-      self.policies.replace(rawUser.policies);
-      self.hasAthenaManagedPolicy = rawUser.hasAthenaManagedPolicy;
-      self.stale = false;
-    },
-
-    setAccessKey(rawAccessKey: RawAccessKey) {
-      if (self.accessKeys.has(rawAccessKey.id)) {
-        self.accessKeys.get(rawAccessKey.id)?.setAccessKey(rawAccessKey);
-      } else {
-        self.accessKeys.set(rawAccessKey.id, rawAccessKey);
-      }
-
-      return self.accessKeys.get(rawAccessKey.id);
-    },
-
-    markStale() {
-      self.stale = true;
-      self.accessKeys.forEach((key) => key.markStale());
-    },
-
-    removeStale() {
-      self.accessKeys.forEach((accessKey) => {
-        if (accessKey.stale) self.accessKeys.delete(accessKey.id); // It is safe to delete from a map while iterating
-      });
-    },
-  }))
-
-  .views((self) => ({
-    get hasAdminPolicy(): boolean {
-      return some(self.policies, "arn:aws:iam::aws:policy/AdministratorAccess");
-    },
-
-    get listAccessKeys(): readonly IUserAccessKey[] {
-      const result: IUserAccessKey[] = [];
-      self.accessKeys.forEach((key) => result.push(key));
-
-      return result;
-    },
-  }))
-
-  .views((self) => ({
-    get accessStatus(): UserAccessStatus {
-      if (!self.hasAdminPolicy && !self.hasAthenaManagedPolicy) return UserAccessStatus.No_POLICY;
-      if (self.accessKeys.size === 0) return UserAccessStatus.No_Keys;
-      if (every(self.listAccessKeys, ["status", AccessKeyStatus.Inactive])) return UserAccessStatus.No_Active_Keys;
-      return UserAccessStatus.Valid;
-    },
-  }))
-
-  .views((self) => ({
-    get hasAccess(): boolean {
-      return self.accessStatus === UserAccessStatus.Valid;
-    },
-  }));
-
-export interface IUser extends Instance<typeof User> {}
 
 /**
  * Represents the users store.

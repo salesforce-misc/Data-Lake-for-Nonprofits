@@ -1,4 +1,3 @@
-import some from "lodash/some";
 import every from "lodash/every";
 
 import { types, Instance } from "mobx-state-tree";
@@ -71,21 +70,23 @@ const userActions = (self: any) => ({
 
 const userViews = (self: any) => ({
   get hasAdminPolicy(): boolean {
-    return some(self.policies, "arn:aws:iam::aws:policy/AdministratorAccess");
+    return self.policies.some((p: string) => p === "arn:aws:iam::aws:policy/AdministratorAccess");
   },
 
   get listAccessKeys(): readonly IUserAccessKey[] {
     const result: IUserAccessKey[] = [];
-    self.accessKeys.forEach((key) => result.push(key));
+    self.accessKeys.forEach((key: IUserAccessKey) => result.push(key));
 
     return result;
   },
+
   get accessStatus(): TUserAccessStatus {
     if (!self.hasAdminPolicy && !self.hasAthenaManagedPolicy) return TUserAccessStatus.No_POLICY;
     if (self.accessKeys.size === 0) return TUserAccessStatus.No_Keys;
     if (every(self.listAccessKeys, ["status", TAccessKeyStatus.Inactive])) return TUserAccessStatus.No_Active_Keys;
     return TUserAccessStatus.Valid;
   },
+
   get hasAccess(): boolean {
     return self.accessStatus === TUserAccessStatus.Valid;
   },

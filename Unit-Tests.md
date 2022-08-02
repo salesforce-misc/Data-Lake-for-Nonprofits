@@ -74,6 +74,19 @@ These mocks can be found under `src/__mocks__` -->
 
 ### User Model
 
+- initialized properly
+- set user
+- set a new access key
+- set an existing access key
+- mark stale
+- if the user does not have admin policy
+- if the user has admin policy
+- list access keys
+- NO_POLICY access status
+- NO_KEYS access status
+- NOT_ACTIVE_KEYS access status
+- VALID access status
+
 ## Components
 
 ### ClickableImage

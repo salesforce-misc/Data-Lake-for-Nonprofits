@@ -24,7 +24,7 @@ export const Header = () => {
       <Stack direction={{ base: "column", lg: "row" }} spacing={{ base: "0", lg: "0" }} width="100%">
         <Box maxH="160px" marginBottom="48px">
           <Heading display="inline-block" size="lg" pt="10px" pb="10px" pl={2} bgGradient={theme.gradients.bgDark} bgClip="text" letterSpacing="-1px">
-            DataLake for NonProfit, Powered by AWS
+            Datalake for Nonprofits, Powered by AWS
           </Heading>
         </Box>
       </Stack>

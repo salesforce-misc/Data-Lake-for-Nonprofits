@@ -1,6 +1,6 @@
-# Datalake for Nonprofit Cloud - Powered by AWS
+# Datalake for Nonprofits, Powered by AWS
 
-```
+```javascript
 npm start
 npm test
 npm run build

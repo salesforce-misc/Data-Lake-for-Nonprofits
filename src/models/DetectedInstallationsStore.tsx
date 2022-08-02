@@ -8,7 +8,7 @@ import { types, Instance } from "mobx-state-tree";
 import { values } from "mobx";
 
 import { BaseStore, isStoreError, isStoreLoading, isStoreReady, isStoreReLoading } from "./BaseStore";
-import { Credentials, ICredentials } from "./Credentials";
+import { Credentials, ICredentials } from "./helpers/Credentials";
 import { BucketsStackNamePrefix } from "./Installation";
 import { awsRegions } from "../data/aws-regions";
 import { validateCredentials } from "../api/validate-credentials";

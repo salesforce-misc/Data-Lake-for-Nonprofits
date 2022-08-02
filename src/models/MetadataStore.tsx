@@ -11,7 +11,7 @@ import { useEffect } from "react";
 
 import { useInstallation } from "AppContext";
 import { BaseStore, isStoreError, isStoreNew, isStoreReady } from "models/BaseStore";
-import { ICredentials } from "models/Credentials";
+import { ICredentials } from "models/helpers/Credentials";
 import { IInstallation, isCompleted } from "models/Installation";
 import { IRawSalesforceObject, listSalesforceObjects } from "api/list-salesforce-objects";
 import { listSalesforceFields } from "api/list-salesforce-fields";

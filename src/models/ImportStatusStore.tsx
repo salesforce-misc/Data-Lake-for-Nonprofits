@@ -12,7 +12,7 @@ import { useEffect } from "react";
 
 import { useInstallation } from "../AppContext";
 import { BaseStore, isStoreError, isStoreLoading, isStoreNew, isStoreReady, isStoreReLoading } from "./BaseStore";
-import { ICredentials } from "./Credentials";
+import { ICredentials } from "./helpers/Credentials";
 import { IInstallation } from "./Installation";
 import { describeSFN } from "../api/describe-sfn";
 import { delay, niceByte, niceNumber } from "../helpers/utils";

@@ -2,7 +2,7 @@ import isEmpty from "lodash/isEmpty";
 import { types, Instance, getSnapshot } from "mobx-state-tree";
 
 import { IInstallation, Installation, isCompleted } from "./Installation";
-import { Credentials, ICredentials } from "./Credentials";
+import { Credentials, ICredentials } from "./helpers/Credentials";
 import { storage } from "../helpers/utils";
 import { s3PutJson } from "../api/s3-put-json";
 import { IDetectedInstallation } from "./DetectedInstallationsStore";

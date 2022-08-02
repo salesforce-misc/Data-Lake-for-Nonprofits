@@ -8,7 +8,7 @@ import { ConnectionsStore } from "./ConnectionsStore";
 import { ConnectToAWS } from "./steps/ConnectToAWS";
 import { ConnectToSalesforce } from "./steps/ConnectToSalesforce";
 import { ImportOptionsStep } from "./steps/ImportOptionsStep";
-import { ICredentials } from "./Credentials";
+import { ICredentials } from "./helpers/Credentials";
 import { IAppStore } from "./AppStore";
 import { SequentialOperations } from "./operations/SequentialOperations";
 import { BaseStep, IBaseStep, StepStatus } from "./steps/BaseStep";
@@ -52,7 +52,7 @@ export const Installation = types
     importDataBucketName: "",
     athenaDataBucketName: "",
     importAlarmArns: types.array(types.string),
-    snsTopicArn: '',
+    snsTopicArn: "",
 
     connectToAwsStep: types.optional(ConnectToAWS, {}),
     connectToSalesforceStep: types.optional(ConnectToSalesforce, {}),
@@ -258,7 +258,7 @@ export const Installation = types
 
     get isPostDeployment(): boolean {
       return isCompleted(self.deploymentStep);
-    }
+    },
   }));
 
 // see https://mobx-state-tree.js.org/tips/typescript

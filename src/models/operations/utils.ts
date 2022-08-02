@@ -1,6 +1,6 @@
 import { types } from "mobx-state-tree";
 
-import { ICredentials } from "../Credentials";
+import { ICredentials } from "../helpers/Credentials";
 import { IAppStore } from "../AppStore";
 import { ProvisionBucketsStack } from "./ProvisionBucketsStack";
 import { ProvisionVpcStack } from "./ProvisionVpcStack";
@@ -66,7 +66,7 @@ const typeDispatcher = (snapshot: { type?: string }) => {
   if (snapshot.type === "UploadSchema") return UploadSchema;
   if (snapshot.type === "StartImport") return StartImport;
   if (snapshot.type === "PutDashboard") return PutDashboard;
-  
+
   return Operation;
 };
 
@@ -80,7 +80,7 @@ export const mstOperationsType = types.array(
     ProvisionStepFnStack,
     UploadSchema,
     StartImport,
-    PutDashboard,
+    PutDashboard
   )
 );
 

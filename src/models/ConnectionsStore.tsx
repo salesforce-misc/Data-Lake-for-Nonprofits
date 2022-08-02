@@ -5,7 +5,7 @@ import { types, Instance, getParent } from "mobx-state-tree";
 import { listAppflowConnections } from "../api/list-appflow-connections";
 import { useInstallation } from "../AppContext";
 import { BaseStore, isStoreNew, isStoreError, isStoreReady, isStoreLoading, isStoreReLoading } from "./BaseStore";
-import { ICredentials } from "./Credentials";
+import { ICredentials } from "./helpers/Credentials";
 import { IInstallation } from "./Installation";
 
 /**

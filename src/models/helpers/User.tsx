@@ -84,6 +84,7 @@ const userViews = (self: any) => ({
     if (!self.hasAdminPolicy && !self.hasAthenaManagedPolicy) return TUserAccessStatus.No_POLICY;
     if (self.accessKeys.size === 0) return TUserAccessStatus.No_Keys;
     if (every(self.listAccessKeys, ["status", TAccessKeyStatus.Inactive])) return TUserAccessStatus.No_Active_Keys;
+
     return TUserAccessStatus.Valid;
   },
 

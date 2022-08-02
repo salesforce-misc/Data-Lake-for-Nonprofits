@@ -64,6 +64,16 @@ These mocks can be found under `src/__mocks__` -->
 - account id view
 - appFlow connection name view
 
+### UserAccessKey Model
+
+- initialized properly
+- set access key
+- set status
+- mark stale
+- if it is active using the view
+
+### User Model
+
 ## Components
 
 ### ClickableImage

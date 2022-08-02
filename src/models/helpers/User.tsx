@@ -24,77 +24,73 @@ export enum TUserAccessStatus {
 /**
  * Represents an IAM user
  */
-export const User = types
-  .model("User", {
-    id: "",
-    name: "",
-    arn: "",
-    createDate: types.maybe(types.Date),
-    accessKeys: types.map(UserAccessKey),
-    policies: types.array(types.string),
-    hasAthenaManagedPolicy: false,
-    stale: false,
-  })
 
-  .actions((self) => ({
-    setUser(rawUser: IRawUser) {
-      self.id = rawUser.id;
-      self.name = rawUser.name;
-      self.arn = rawUser.arn;
-      self.createDate = rawUser.createDate;
-      self.policies.replace(rawUser.policies);
-      self.hasAthenaManagedPolicy = rawUser.hasAthenaManagedPolicy;
-      self.stale = false;
-    },
+const userProps = {
+  id: "",
+  name: "",
+  arn: "",
+  createDate: types.maybe(types.Date),
+  accessKeys: types.map(UserAccessKey),
+  policies: types.array(types.string),
+  hasAthenaManagedPolicy: false,
+  stale: false,
+};
 
-    setAccessKey(rawAccessKey: IRawAccessKey) {
-      if (self.accessKeys.has(rawAccessKey.id)) {
-        self.accessKeys.get(rawAccessKey.id)?.setAccessKey(rawAccessKey);
-      } else {
-        self.accessKeys.set(rawAccessKey.id, rawAccessKey);
-      }
+const userActions = (self: any) => ({
+  setUser(rawUser: IRawUser) {
+    self.id = rawUser.id;
+    self.name = rawUser.name;
+    self.arn = rawUser.arn;
+    self.createDate = rawUser.createDate;
+    self.policies.replace(rawUser.policies);
+    self.hasAthenaManagedPolicy = rawUser.hasAthenaManagedPolicy;
+    self.stale = false;
+  },
 
-      return self.accessKeys.get(rawAccessKey.id);
-    },
+  setAccessKey(rawAccessKey: IRawAccessKey) {
+    if (self.accessKeys.has(rawAccessKey.id)) {
+      self.accessKeys.get(rawAccessKey.id)?.setAccessKey(rawAccessKey);
+    } else {
+      self.accessKeys.set(rawAccessKey.id, rawAccessKey);
+    }
 
-    markStale() {
-      self.stale = true;
-      self.accessKeys.forEach((key) => key.markStale());
-    },
+    return self.accessKeys.get(rawAccessKey.id);
+  },
 
-    removeStale() {
-      self.accessKeys.forEach((accessKey) => {
-        if (accessKey.stale) self.accessKeys.delete(accessKey.id); // It is safe to delete from a map while iterating
-      });
-    },
-  }))
+  markStale() {
+    self.stale = true;
+    self.accessKeys.forEach((key) => key.markStale());
+  },
 
-  .views((self) => ({
-    get hasAdminPolicy(): boolean {
-      return some(self.policies, "arn:aws:iam::aws:policy/AdministratorAccess");
-    },
+  removeStale() {
+    self.accessKeys.forEach((accessKey) => {
+      if (accessKey.stale) self.accessKeys.delete(accessKey.id); // It is safe to delete from a map while iterating
+    });
+  },
+});
 
-    get listAccessKeys(): readonly IUserAccessKey[] {
-      const result: IUserAccessKey[] = [];
-      self.accessKeys.forEach((key) => result.push(key));
+const userViews = (self: any) => ({
+  get hasAdminPolicy(): boolean {
+    return some(self.policies, "arn:aws:iam::aws:policy/AdministratorAccess");
+  },
 
-      return result;
-    },
-  }))
+  get listAccessKeys(): readonly IUserAccessKey[] {
+    const result: IUserAccessKey[] = [];
+    self.accessKeys.forEach((key) => result.push(key));
 
-  .views((self) => ({
-    get accessStatus(): TUserAccessStatus {
-      if (!self.hasAdminPolicy && !self.hasAthenaManagedPolicy) return TUserAccessStatus.No_POLICY;
-      if (self.accessKeys.size === 0) return TUserAccessStatus.No_Keys;
-      if (every(self.listAccessKeys, ["status", TAccessKeyStatus.Inactive])) return TUserAccessStatus.No_Active_Keys;
-      return TUserAccessStatus.Valid;
-    },
-  }))
+    return result;
+  },
+  get accessStatus(): TUserAccessStatus {
+    if (!self.hasAdminPolicy && !self.hasAthenaManagedPolicy) return TUserAccessStatus.No_POLICY;
+    if (self.accessKeys.size === 0) return TUserAccessStatus.No_Keys;
+    if (every(self.listAccessKeys, ["status", TAccessKeyStatus.Inactive])) return TUserAccessStatus.No_Active_Keys;
+    return TUserAccessStatus.Valid;
+  },
+  get hasAccess(): boolean {
+    return self.accessStatus === TUserAccessStatus.Valid;
+  },
+});
 
-  .views((self) => ({
-    get hasAccess(): boolean {
-      return self.accessStatus === TUserAccessStatus.Valid;
-    },
-  }));
+export const User = types.model("User", userProps).actions(userActions).views(userViews);
 
 export interface IUser extends Instance<typeof User> {}

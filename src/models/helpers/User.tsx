@@ -3,21 +3,9 @@ import every from "lodash/every";
 
 import { types, Instance } from "mobx-state-tree";
 
-import { IUserAccessKey, UserAccessKey } from "models/helpers/UserAccessKey";
+import { AccessKeyStatus, IUserAccessKey, RawAccessKey, UserAccessKey } from "models/helpers/UserAccessKey";
 
-export enum AccessKeyStatus {
-  Active = "ACTIVE",
-  Inactive = "INACTIVE",
-}
-
-interface RawAccessKey {
-  id: string;
-  createDate: Date;
-  status: AccessKeyStatus;
-  secret?: string;
-}
-
-interface RawUser {
+export interface RawUser {
   id: string;
   name: string;
   arn: string;

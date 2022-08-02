@@ -21,29 +21,8 @@ import { deleteAccessKey } from "api/delete-access-key";
 import { BaseStore, isStoreError, isStoreLoading, isStoreNew, isStoreReady, isStoreReLoading } from "models/BaseStore";
 import { IInstallation } from "models/Installation";
 
-import { IUserAccessKey } from "models/helpers/UserAccessKey";
-import { IUser, User } from "models/helpers/User";
-
-export enum AccessKeyStatus {
-  Active = "ACTIVE",
-  Inactive = "INACTIVE",
-}
-
-interface RawUser {
-  id: string;
-  name: string;
-  arn: string;
-  createDate: Date;
-  policies: string[];
-  hasAthenaManagedPolicy: boolean;
-}
-
-export enum UserAccessStatus {
-  No_Active_Keys = "NOT_ACTIVE_KEYS",
-  No_Keys = "NO_KEYS",
-  No_POLICY = "NO_POLICY", // When the user does not have the athena managed policy nor the admin policy
-  Valid = "VALID",
-}
+import { AccessKeyStatus, IUserAccessKey } from "models/helpers/UserAccessKey";
+import { IUser, RawUser, User } from "models/helpers/User";
 
 /**
  * Represents the users store.

@@ -5,7 +5,7 @@ export enum AccessKeyStatus {
   Inactive = "INACTIVE",
 }
 
-interface RawAccessKey {
+export interface RawAccessKey {
   id: string;
   createDate: Date;
   status: AccessKeyStatus;

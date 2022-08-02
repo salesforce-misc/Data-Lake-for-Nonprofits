@@ -26,9 +26,9 @@ import { useColorScheme } from "models/useColorScheme";
 import { TimeAgo } from "components/TimeAgo";
 import { DownloadableAccessKey } from "components/DownloadableAccessKey";
 import { delay } from "helpers/utils";
-import { AccessKeyStatus, UserAccessStatus, useUsersStore } from "models/UsersStore";
-import { IUser } from "models/helpers/User";
-import { IUserAccessKey } from "models/helpers/UserAccessKey";
+import { useUsersStore } from "models/UsersStore";
+import { IUser, UserAccessStatus } from "models/helpers/User";
+import { AccessKeyStatus, IUserAccessKey } from "models/helpers/UserAccessKey";
 
 export const UsersTable: FC = observer(() => {
   const { colorScheme } = useColorScheme();

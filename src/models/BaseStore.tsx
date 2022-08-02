@@ -1,7 +1,7 @@
 import isNil from "lodash/isNil";
 import { types, Instance } from "mobx-state-tree";
 
-enum IStoreLoadingState {
+export enum IStoreLoadingState {
   Initial = "INITIAL",
   Loading = "LOADING",
   Ready = "READY",
@@ -50,6 +50,7 @@ export const BaseStore = types
       const loading = self.loadingState === IStoreLoadingState.Loading;
       const reLoading = self.loadingState === IStoreLoadingState.Reloading;
       const hasError = !isNil(self.loadingError);
+
       if (loading || reLoading || hasError) {
         self.loadingState = IStoreLoadingState.Initial;
         self.loadingError = undefined;

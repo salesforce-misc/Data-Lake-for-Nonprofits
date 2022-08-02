@@ -8,7 +8,7 @@ For information about running tests for create-react-app applications
 <!-- Since Jest has not fully supported ESM yet, we used mocks for some third party libraries.
 These mocks can be found under `src/__mocks__` -->
 
-## Models and Stores
+## Models
 
 ### Field Model
 
@@ -86,6 +86,20 @@ These mocks can be found under `src/__mocks__` -->
 - NO_KEYS access status
 - NOT_ACTIVE_KEYS access status
 - VALID access status
+
+## Stores
+
+### Base Store
+
+- initialized properly
+- props after created with loading state
+- props after created with reloading state
+- props after created with an error
+- set loading percentage
+- increment loading percentage
+- reset the store
+- error message
+- error message when doLoad is implemented
 
 ## Components
 

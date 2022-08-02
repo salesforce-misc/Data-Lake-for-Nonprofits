@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import React from "react";
 import {
   Box,
   HStack,
@@ -23,10 +23,10 @@ import { RetryErrorPanel } from "components/RetryErrorPanel";
 import { DownloadableAccessKey } from "components/DownloadableAccessKey";
 import { UsersTable } from "components/UsersTable";
 import { useColorScheme } from "models/useColorScheme";
-import { useUsersStore } from "models/UsersStore";
 import { IUserAccessKey } from "models/helpers/UserAccessKey";
+import { useUsersStore } from "models/useUsersStore";
 
-export const UsersPanel: FC = observer(() => {
+export const UsersPanel = observer(() => {
   const { tone } = useColorScheme();
 
   return (
@@ -49,9 +49,9 @@ export const UsersPanel: FC = observer(() => {
   );
 });
 
-const InfoBanner: FC = observer(() => {
+const InfoBanner = observer(() => {
+  const [isAdding, setAdding] = React.useState(false);
   const installation = useInstallation();
-  const [isAdding, setAdding] = useState(false);
   const { isError, isLoading, isReloading } = useUsersStore(installation);
   const { tone, colorScheme } = useColorScheme();
 
@@ -78,14 +78,14 @@ interface IFormInput {
   userName: string;
 }
 
-const CreateUserForm: FC<{ onClose: () => void }> = observer(({ onClose }) => {
+const CreateUserForm = observer(({ onClose }: { onClose: () => void }) => {
   const installation = useInstallation();
   const toast = useToast();
   const { store } = useUsersStore(installation);
   const { tone, colorScheme } = useColorScheme();
-  const [accessKey, setAccessKey] = useState<IUserAccessKey>();
-  const [userName, setUserName] = useState<string>();
-  const [error, setError] = useState("");
+  const [accessKey, setAccessKey] = React.useState<IUserAccessKey>();
+  const [userName, setUserName] = React.useState<string>();
+  const [error, setError] = React.useState<string>("");
 
   const {
     handleSubmit,
@@ -161,7 +161,7 @@ const CreateUserForm: FC<{ onClose: () => void }> = observer(({ onClose }) => {
   );
 });
 
-const RefreshButton: FC = observer(() => {
+const RefreshButton = observer(() => {
   const installation = useInstallation();
   const { isLoading, isReloading, store } = useUsersStore(installation);
   const { colorScheme } = useColorScheme();
@@ -180,7 +180,7 @@ const RefreshButton: FC = observer(() => {
   );
 });
 
-const ProgressPanel: FC = observer(() => {
+const ProgressPanel = observer(() => {
   const installation = useInstallation();
   const { isError, isLoading, isReloading } = useUsersStore(installation);
   const { tone, colorScheme } = useColorScheme();
@@ -191,7 +191,7 @@ const ProgressPanel: FC = observer(() => {
   return <Progress size="sm" isIndeterminate colorScheme={colorScheme} bg={tone(100)} borderRadius="lg" mb={4} mt={0} />;
 });
 
-const ErrorPanel: FC = observer(() => {
+const ErrorPanel = observer(() => {
   const installation = useInstallation();
   const { isError, store } = useUsersStore(installation);
 

@@ -4,7 +4,6 @@ import sortBy from "lodash/sortBy";
 
 import { types, Instance } from "mobx-state-tree";
 import { values } from "mobx";
-import { useEffect } from "react";
 import { User as IAMUser } from "@aws-sdk/client-iam";
 
 import { delay } from "helpers/utils";
@@ -18,9 +17,9 @@ import { deleteUser } from "api/delete-user";
 import { deactivateAccessKey } from "api/deactivate-access-key";
 import { activateAccessKey } from "api/activate-access-key";
 import { deleteAccessKey } from "api/delete-access-key";
-import { BaseStore, isStoreError, isStoreLoading, isStoreNew, isStoreReady, isStoreReLoading } from "models/BaseStore";
-import { IInstallation } from "models/Installation";
 
+import { BaseStore } from "models/BaseStore";
+import { IInstallation } from "models/Installation";
 import { TAccessKeyStatus, IUserAccessKey } from "models/helpers/UserAccessKey";
 import { IUser, IRawUser, User } from "models/helpers/User";
 
@@ -292,32 +291,3 @@ export const UsersStore = BaseStore.named("UsersStore")
 
 // see https://mobx-state-tree.js.org/tips/typescript
 export interface IUsersStore extends Instance<typeof UsersStore> {}
-
-// We keep a map to hold the usersStore per installation id
-const usersStoreMap = new Map<string, IUsersStore>();
-
-export const getUsersStore = (installationId: string): IUsersStore => {
-  if (usersStoreMap.has(installationId)) return usersStoreMap.get(installationId) as IUsersStore;
-
-  const store = UsersStore.create();
-  usersStoreMap.set(installationId, store);
-
-  return store;
-};
-
-export function useUsersStore(installation: IInstallation) {
-  const store = getUsersStore(installation.id);
-
-  useEffect(() => {
-    if (!isStoreNew(store)) return;
-    store.load(installation);
-  }, [store, installation]);
-
-  return {
-    isError: isStoreError(store),
-    isReady: isStoreReady(store),
-    isLoading: isStoreLoading(store),
-    isReloading: isStoreReLoading(store),
-    store,
-  };
-}

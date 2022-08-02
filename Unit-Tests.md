@@ -56,6 +56,14 @@ These mocks can be found under `src/__mocks__` -->
 - empty access key
 - empty secret key
 
+### DetectedInstallation Model
+
+- initialized properly
+- start date view
+- started by view
+- account id view
+- appFlow connection name view
+
 ## Components
 
 ### ClickableImage

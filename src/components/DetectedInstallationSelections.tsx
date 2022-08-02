@@ -4,11 +4,12 @@ import { observer } from "mobx-react";
 import { FC, useState } from "react";
 import { BsCheckCircleFill, BsCircle } from "react-icons/bs";
 
-import { useDetectedInstallationStore, IDetectedInstallation } from "../models/DetectedInstallationsStore";
-import { useColorScheme } from "../models/useColorScheme";
-import { RetryErrorPanel } from "./RetryErrorPanel";
-import { awsRegionsMap } from "../data/aws-regions";
-import { TimeAgo } from "./TimeAgo";
+import { awsRegionsMap } from "data/aws-regions";
+import { useDetectedInstallationStore } from "models/DetectedInstallationsStore";
+import { useColorScheme } from "models/useColorScheme";
+import { RetryErrorPanel } from "components/RetryErrorPanel";
+import { TimeAgo } from "components/TimeAgo";
+import { IDetectedInstallation } from "models/helpers/DetectedInstallation";
 
 export const DetectedInstallationSelections: FC<{ onCancel: () => void; onResume: (installation: IDetectedInstallation) => void }> = observer(
   ({ onCancel, onResume }) => {

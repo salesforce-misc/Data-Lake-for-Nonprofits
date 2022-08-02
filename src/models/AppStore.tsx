@@ -1,11 +1,11 @@
 import isEmpty from "lodash/isEmpty";
 import { types, Instance, getSnapshot } from "mobx-state-tree";
 
-import { IInstallation, Installation, isCompleted } from "./Installation";
-import { Credentials, ICredentials } from "./helpers/Credentials";
-import { storage } from "../helpers/utils";
-import { s3PutJson } from "../api/s3-put-json";
-import { IDetectedInstallation } from "./DetectedInstallationsStore";
+import { s3PutJson } from "api/s3-put-json";
+import { storage } from "helpers/utils";
+import { IInstallation, Installation, isCompleted } from "models/Installation";
+import { Credentials, ICredentials } from "models/helpers/Credentials";
+import { IDetectedInstallation } from "models/helpers/DetectedInstallation";
 // import { installationData } from "../data/installation-data";
 
 /**

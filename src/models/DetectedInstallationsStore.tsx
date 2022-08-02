@@ -7,16 +7,17 @@ import { StackStatus } from "@aws-sdk/client-cloudformation";
 import { types, Instance } from "mobx-state-tree";
 import { values } from "mobx";
 
-import { BaseStore, isStoreError, isStoreLoading, isStoreReady, isStoreReLoading } from "./BaseStore";
-import { Credentials, ICredentials } from "./helpers/Credentials";
-import { BucketsStackNamePrefix } from "./Installation";
-import { awsRegions } from "../data/aws-regions";
-import { validateCredentials } from "../api/validate-credentials";
-import { listStacks } from "../api/list-stacks";
-import { describeStack } from "../api/describe-stack";
-import { getOutputValue, getParamValue } from "./operations/utils";
-import { s3GetJson } from "../api/s3-get-json";
+import { validateCredentials } from "api/validate-credentials";
+import { listStacks } from "api/list-stacks";
+import { describeStack } from "api/describe-stack";
+import { s3GetJson } from "api/s3-get-json";
+import { awsRegions } from "data/aws-regions";
 
+import { BaseStore, isStoreError, isStoreLoading, isStoreReady, isStoreReLoading } from "models/BaseStore";
+import { Credentials, ICredentials } from "models/helpers/Credentials";
+import { BucketsStackNamePrefix } from "models/Installation";
+import { getOutputValue, getParamValue } from "models/operations/utils";
+import { DetectedInstallation, IDetectedInstallation } from "models/helpers/DetectedInstallation";
 interface IDetectionInfo {
   id: string;
   installationJson?: IInstallationJson;
@@ -34,38 +35,6 @@ export interface IInstallationJson {
   region?: string;
   appFlowConnectionName?: string;
 }
-
-/**
- * Represents a short information about a detected installation
- */
-const DetectedInstallation = types
-  .model("DetectedInstallation", {
-    id: "",
-    webUrlOrigin: "",
-    reachable: true,
-    region: "",
-    installationJson: types.maybe(types.frozen()),
-  })
-
-  .views((self) => ({
-    get startDate(): Date | undefined {
-      return self.installationJson?.startDate;
-    },
-
-    get startedBy(): string | undefined {
-      return self.installationJson?.startedBy;
-    },
-
-    get accountId(): string | undefined {
-      return self.installationJson?.accountId;
-    },
-
-    get appFlowConnectionName(): string | undefined {
-      return self.installationJson?.appFlowConnectionName;
-    },
-  }));
-
-export interface IDetectedInstallation extends Instance<typeof DetectedInstallation> {}
 
 /**
  * Represents the model for the detected installation

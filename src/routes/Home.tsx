@@ -7,18 +7,19 @@ import { observer } from "mobx-react";
 import { useNavigate } from "react-router-dom";
 import { SubmitHandler, useForm } from "react-hook-form";
 
-import { theme } from "../themes/orange";
+import { theme } from "themes/orange";
 import { Header } from "components/Header";
-import { OutlineButton } from "../components/OutlineButton";
-import { CurvedBox } from "../components/CurvedBox";
-import { useStore } from "../AppContext";
-import { BackHome } from "./BackHome";
-import { useColorScheme } from "../models/useColorScheme";
-import { CredentialsValidationException } from "../api/validate-credentials";
-import { CredentialsForm, ICredentialsFormInput } from "../components/CredentialsForm";
-import { CredentialsError } from "../components/CredentialsError";
-import { IDetectedInstallation, useDetectedInstallationStore } from "../models/DetectedInstallationsStore";
-import { DetectedInstallationSelections } from "../components/DetectedInstallationSelections";
+import { OutlineButton } from "components/OutlineButton";
+import { CurvedBox } from "components/CurvedBox";
+import { CredentialsForm, ICredentialsFormInput } from "components/CredentialsForm";
+import { CredentialsError } from "components/CredentialsError";
+import { DetectedInstallationSelections } from "components/DetectedInstallationSelections";
+import { CredentialsValidationException } from "api/validate-credentials";
+import { useDetectedInstallationStore } from "models/DetectedInstallationsStore";
+import { useStore } from "AppContext";
+import { BackHome } from "routes/BackHome";
+import { useColorScheme } from "models/useColorScheme";
+import { IDetectedInstallation } from "models/helpers/DetectedInstallation";
 
 type StepInfo = {
   title: string;

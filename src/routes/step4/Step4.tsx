@@ -55,7 +55,8 @@ export const Step4 = observer(() => {
           <Heading display="inline-block" size="lg" pt="0px" pb="10px" color="white" letterSpacing="-1px">
             Review and confirm
           </Heading>
-          <Box color="purple.50">
+
+          <Box color="purple.50" mb={10}>
             <Stack direction="row" spacing="0" align="left" justifyContent="space-between">
               <Box mb={0}>Did we get everything right? Take a look at all the answers you provided and confirm your selections.</Box>
             </Stack>

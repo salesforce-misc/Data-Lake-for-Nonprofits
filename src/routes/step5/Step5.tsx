@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Container, Heading, Text, HStack, Button, ChakraProvider, Image, Progress } from "@chakra-ui/react";
+import { Box, Container, Heading, Text, HStack, Button, ChakraProvider, Image, Progress, Stack } from "@chakra-ui/react";
 import { ArrowForwardIcon } from "@chakra-ui/icons";
 import { observer } from "mobx-react";
 import { useNavigate } from "react-router-dom";
@@ -9,6 +9,7 @@ import sforgImage from "images/processing-sforg-01.png";
 
 import { useInstallation } from "AppContext";
 import { theme } from "themes/green";
+import { Header } from "components/Header";
 import { CurvedBox } from "components/CurvedBox";
 import { StepsBanner } from "components/StepsBanner";
 
@@ -51,31 +52,37 @@ export const Step5 = observer(() => {
       }
     };
     const beforeUnload = window.onbeforeunload;
-    return () => {
-      window.removeEventListener("beforeunload", beforeUnload);
-    };
+
+    return () => window.removeEventListener("beforeunload", beforeUnload);
   });
 
   return (
     <ChakraProvider theme={theme}>
+      <CurvedBox bgGradient={theme.gradients.bgLight} />
+
+      <Header />
+
       <Box position="relative">
         <CurvedBox />
         <StepsBanner current={5} />
 
-        <Container maxW="container.md" pt="0px" position="relative">
+        <Container maxW="container.md" pt="16px" position="relative">
           <Box float="right" fontSize="small" textAlign="center" color="green.100">
             <Text>Installation ID</Text>
             <Text>{installation.id}</Text>
           </Box>
-          <Text color="green.100" mt={5}>
-            Step 5
-          </Text>
+
           <Heading display="inline-block" size="lg" pt="0px" pb="10px" color="white" letterSpacing="-1px">
             Sit back and relax
           </Heading>
-          <Box color="green.50">
-            We are provisioning the data lake and importing the data. You can sit back and relax and watch the progress of the data import. Don't
-            close the browser tab, otherwise the provisioning will pause before it's fully completed.
+
+          <Box color="green.50" mb={10}>
+            <Stack direction="column" spacing="8px" align="left" justifyContent="space-between">
+              <Box mb={0}>
+                We are provisioning the data lake and importing the data. You can sit back and relax and watch the progress of the data import.
+              </Box>
+              <Box mb={0}>Don't close the browser tab, otherwise the provisioning will pause before it's fully completed.</Box>
+            </Stack>
           </Box>
 
           {inProgress && <Box mt="140px" />}

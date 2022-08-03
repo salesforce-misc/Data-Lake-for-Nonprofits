@@ -4,7 +4,7 @@ import { ArrowForwardIcon, ArrowBackIcon } from "@chakra-ui/icons";
 import { observer } from "mobx-react";
 import { useNavigate } from "react-router-dom";
 
-import { theme } from "themes/orange";
+import { theme } from "themes/purple";
 import { useInstallation } from "AppContext";
 import { CurvedBox } from "components/CurvedBox";
 import { StepsIndicator } from "components/StepsIndicator";

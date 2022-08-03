@@ -1,19 +1,19 @@
-import { FC, useEffect, MouseEventHandler } from "react";
-import { Box, Container, Heading, Text, HStack, Button, ChakraProvider, Grid, GridItem, Stack } from "@chakra-ui/react";
+import React from "react";
+import { Box, Container, Heading, Text, HStack, Button, ChakraProvider, Stack } from "@chakra-ui/react";
 import { ArrowForwardIcon, ArrowBackIcon } from "@chakra-ui/icons";
 import { observer } from "mobx-react";
 import { useNavigate } from "react-router-dom";
 
 import { useInstallation } from "AppContext";
 import { theme } from "themes/pink";
+import { Header } from "components/Header";
 import { CurvedBox } from "components/CurvedBox";
 import { StepsIndicator } from "components/StepsIndicator";
 import { DataModelTablePreview } from "components/DataModelTablePreview";
-import { niceNumber } from "helpers/utils";
-import { awsRegionsMap } from "data/aws-regions";
-import { useMetadataStore } from "models/MetadataStore";
 
-export const Step4: FC = observer(() => {
+import { ReviewGrid } from "routes/step4/ReviewGrid";
+
+export const Step4 = observer(() => {
   const installation = useInstallation();
   const step = installation.reviewStep;
   const navigate = useNavigate();
@@ -22,18 +22,22 @@ export const Step4: FC = observer(() => {
     navigate("/steps/3");
   };
 
-  const handleSubmit: MouseEventHandler<HTMLButtonElement> = async () => {
+  const handleSubmit: React.MouseEventHandler<HTMLButtonElement> = async () => {
     step.markCompleted();
     navigate("/steps/5");
   };
 
-  useEffect(() => {
+  React.useEffect(() => {
     step.markStarted();
     window.scrollTo(0, 0);
   }, [step]);
 
   return (
     <ChakraProvider theme={theme}>
+      <CurvedBox bgGradient={theme.gradients.bgLight} />
+
+      <Header />
+
       <Box position="relative">
         <CurvedBox />
         <Box bg="pink.600" w="full" position="relative">
@@ -42,14 +46,12 @@ export const Step4: FC = observer(() => {
           </Container>
         </Box>
 
-        <Container maxW="container.md" pt="0px" position="relative">
+        <Container maxW="container.md" pt="16px" position="relative">
           <Box float="right" fontSize="small" textAlign="center" color="pink.100">
             <Text>Installation ID</Text>
             <Text>{installation.id}</Text>
           </Box>
-          <Text color="pink.100" mt={5}>
-            Step 4
-          </Text>
+
           <Heading display="inline-block" size="lg" pt="0px" pb="10px" color="white" letterSpacing="-1px">
             Review and confirm
           </Heading>
@@ -86,44 +88,5 @@ export const Step4: FC = observer(() => {
         </Container>
       </Box>
     </ChakraProvider>
-  );
-});
-
-const ReviewGrid: FC = observer(() => {
-  const installation = useInstallation();
-  const { store } = useMetadataStore();
-
-  const commonProps = {
-    w: "100%",
-    h: "100%",
-    borderRadius: "md",
-    p: 3,
-  };
-
-  const headerProps = {
-    ...commonProps,
-    // bg: "pink.600",
-    // color: "pink.50",
-    color: "pink.700",
-    fontWeight: "bold",
-  };
-
-  const contentProps = {
-    ...commonProps,
-    bg: "pink.75",
-    color: "pink.800",
-  };
-
-  return (
-    <Grid templateColumns="0.5fr 1fr" gap={2}>
-      <GridItem {...headerProps}>AWS Region</GridItem>
-      <GridItem {...contentProps}>{awsRegionsMap[installation.region].label}</GridItem>
-      <GridItem {...headerProps}>Connection Name</GridItem>
-      <GridItem {...contentProps}>{installation.appFlowConnectionName}</GridItem>
-      <GridItem {...headerProps}>Import Schedule</GridItem>
-      <GridItem {...contentProps}>{installation.importOptionsStep.infoMessage}</GridItem>
-      <GridItem {...headerProps}>Data Model</GridItem>
-      <GridItem {...contentProps}>We will import {niceNumber(store.selectedObjects.length)} objects</GridItem>
-    </Grid>
   );
 });

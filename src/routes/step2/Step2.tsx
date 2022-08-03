@@ -1,4 +1,4 @@
-import { FC, useEffect, useState, ChangeEventHandler, MouseEventHandler } from "react";
+import React from "react";
 import isEmpty from "lodash/isEmpty";
 import {
   Box,
@@ -13,15 +13,9 @@ import {
   ListItem,
   Stack,
   Collapse,
-  Select,
-  Progress,
-  Alert,
-  AlertIcon,
-  IconButton,
   Divider,
-  Image,
 } from "@chakra-ui/react";
-import { ArrowForwardIcon, ArrowBackIcon, ExternalLinkIcon, RepeatIcon } from "@chakra-ui/icons";
+import { ArrowForwardIcon, ArrowBackIcon, ExternalLinkIcon } from "@chakra-ui/icons";
 import { observer } from "mobx-react";
 import { useNavigate } from "react-router-dom";
 
@@ -29,7 +23,6 @@ import appflowConnectionImage01 from "images/appflow-connection-01.png";
 import appflowConnectionImage02 from "images/appflow-connection-02.png";
 import appflowConnectionImage03 from "images/appflow-connection-03.png";
 import appflowConnectionImage04 from "images/appflow-connection-04.png";
-import sforgPlugImage01 from "images/sforg-plug-01.png";
 
 import { useInstallation, useStore } from "AppContext";
 import { theme } from "themes/blue";
@@ -38,15 +31,16 @@ import { StepsIndicator } from "components/StepsIndicator";
 import { ClickableImage } from "components/ClickableImage";
 import { YesNoAnswer } from "models/steps/BaseStep";
 import { OutlineButton } from "components/OutlineButton";
-import { useConnectionsStore } from "models/ConnectionsStore";
+import { Header } from "components/Header";
+import { AppFlowConnectionSelection } from "routes/step2/AppFlowConnectionSelection";
 
-export const Step2: FC = observer(() => {
+export const Step2 = observer(() => {
   const installation = useInstallation();
   const region = installation.region;
   const step = installation.connectToSalesforceStep;
   const createdConnection = step.createdConnection;
   const navigate = useNavigate();
-  const [isSubmitting, setSubmitting] = useState(false);
+  const [isSubmitting, setSubmitting] = React.useState(false);
   const appStore = useStore();
 
   const handleAnswer = (answer: YesNoAnswer) => () => {
@@ -57,14 +51,14 @@ export const Step2: FC = observer(() => {
     navigate("/steps/1");
   };
 
-  const handleSubmit: MouseEventHandler<HTMLButtonElement> = async () => {
+  const handleSubmit: React.MouseEventHandler<HTMLButtonElement> = async () => {
     if (isEmpty(installation.appFlowConnectionName)) throw Error("No appFlow connection name is selected");
     step.markCompleted();
     setSubmitting(false);
     navigate("/steps/3");
   };
 
-  useEffect(() => {
+  React.useEffect(() => {
     step.markStarted();
     window.scrollTo(0, 0);
   }, [appStore, step]);
@@ -73,8 +67,13 @@ export const Step2: FC = observer(() => {
 
   return (
     <ChakraProvider theme={theme}>
+      <CurvedBox bgGradient={theme.gradients.bgLight} />
+
+      <Header />
+
       <Box position="relative">
         <CurvedBox />
+
         <Box bg="blue.600" w="full" position="relative">
           <Container maxW="container.md" pt="15px" pb="15px">
             <StepsIndicator current={2} />
@@ -82,22 +81,15 @@ export const Step2: FC = observer(() => {
         </Box>
 
         <Container maxW="container.md" pt="0px" position="relative">
-          <Text color="blue.100" mt={5}>
-            Step 2
-          </Text>
-          <Heading display="inline-block" size="lg" pt="0px" pb="30px" color="gray.100" letterSpacing="-1px">
+          <Heading display="inline-block" size="lg" pt="16px" pb="30px" color="gray.100" letterSpacing="-1px">
             Connect to your Salesforce organization
           </Heading>
-          <Box color="gray.50">
-            <Stack direction="row" spacing="0" align="left" justifyContent="space-between">
-              <Box mb={6}>
-                For AWS to access your Salesforce data, we will need your authorization. We will guide you through the steps of setting up Amazon
-                AppFlow which is a service that allows AWS to connect to Salesforce, you will be creating a Salesforce connection, signing in to
-                Salesforce and authorizing access.
-              </Box>
-              <Box maxH={{ base: "100px", md: "100px" }} position="relative" top="-30px">
-                <Image src={sforgPlugImage01} maxW="150px" />
-              </Box>
+
+          <Box color="gray.50" mb={10}>
+            <Stack direction="column" spacing="8px" align="left" justifyContent="space-between">
+              <Box>For AWS to access your Salesforce data, we will need your authorization.</Box>
+              <Box>We will guide you through the steps of setting up Amazon AppFlow which is a service that allows AWS to connect to Salesforce.</Box>
+              <Box>You will be creating a Salesforce connection, signing in to Salesforce and authorizing access.</Box>
             </Stack>
           </Box>
 
@@ -241,109 +233,5 @@ export const Step2: FC = observer(() => {
         </Container>
       </Box>
     </ChakraProvider>
-  );
-});
-
-const AppFlowConnectionSelection: FC = observer(() => {
-  const installation = useInstallation();
-  const { isError, isLoading, isReloading, store } = useConnectionsStore();
-  const connectionNames = store.connectionNames;
-  const connectionName = installation.appFlowConnectionName;
-
-  const handleChange: ChangeEventHandler<HTMLSelectElement> = (event) => {
-    installation.setAppFlowConnectionName(event.target.value);
-  };
-
-  const handleTryAgain = async () => {
-    store.load();
-  };
-
-  useEffect(() => {
-    if (!isEmpty(connectionNames) && connectionNames?.length === 1) {
-      // If we only have one connection name, we will use it
-      installation.setAppFlowConnectionName(connectionNames[0]);
-    } else if (isEmpty(connectionNames) && !isLoading && !isReloading) {
-      installation.setAppFlowConnectionName("");
-    }
-  }, [connectionNames, installation, isLoading, isReloading]);
-
-  useEffect(() => {
-    if (isError) {
-      // When there is an error, we want to clear any selection
-      installation.setAppFlowConnectionName("");
-    }
-  }, [isError, installation]);
-
-  if (isLoading)
-    return (
-      <Box mt={6} mb={8}>
-        <Box textAlign="center" fontWeight="bold" color="blue.500" fontSize="sm" mb={2}>
-          Retrieving AppFlow Connection Names
-        </Box>
-        <Progress size="sm" isIndeterminate colorScheme="blue" bg="blue.75" />
-      </Box>
-    );
-
-  if (isError && !isReloading)
-    return (
-      <Alert status="error" variant="left-accent" mt={0} mb={8} color="red.700" alignItems="flex-end">
-        <AlertIcon alignSelf="flex-start" />
-        <Box>
-          <Box>
-            Something went wrong and we are unable to connect to your AWS account to get the list of Salesforce connections. This might be an
-            intermittent problem. Wait for a few minutes and try again.
-          </Box>
-          <Box textAlign="right" w="full" mt={4}>
-            <Button colorScheme="red" size="sm" onClick={handleTryAgain} loadingText="Processing" isLoading={isLoading || isReloading}>
-              Try Again
-            </Button>
-          </Box>
-        </Box>
-      </Alert>
-    );
-
-  if (isEmpty(connectionNames))
-    return (
-      <Alert status="info" variant="left-accent" mt={0} mb={8} color="blue.700" alignItems="flex-end">
-        <AlertIcon alignSelf="flex-start" />
-        <Box>
-          <Box>
-            We are unable to find the connection name. It might take a few minutes before the connection name is available. Wait for a few seconds and
-            try again.
-          </Box>
-          <Box textAlign="right" w="full" mt={4}>
-            <Button colorScheme="blue" size="sm" onClick={handleTryAgain} loadingText="Processing" isLoading={isLoading || isReloading}>
-              Try Again
-            </Button>
-          </Box>
-        </Box>
-      </Alert>
-    );
-
-  return (
-    <Box bg="blue.75" p={6} mb={8} borderRadius="lg" border="1px" borderColor="blue.100">
-      <Heading size="sm" pb="10px" color="blue.600">
-        Select the connection name
-      </Heading>
-
-      <HStack>
-        <Select bg="blue.50" id="appFlowConnectionName" value={connectionName} onChange={handleChange} disabled={isLoading || isReloading}>
-          <option value="">Select a connection name</option>
-          {connectionNames?.map((name, index) => (
-            <option value={name} key={index}>
-              {name}
-            </option>
-          ))}
-        </Select>
-        <IconButton
-          colorScheme="blue"
-          variant="outline"
-          aria-label="Search database"
-          onClick={handleTryAgain}
-          icon={<RepeatIcon />}
-          isLoading={isLoading || isReloading}
-        />
-      </HStack>
-    </Box>
   );
 });

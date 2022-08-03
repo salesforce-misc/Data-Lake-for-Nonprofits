@@ -38,9 +38,7 @@ export const Home = observer(() => {
     <>
       <CurvedBox bgGradient={theme.gradients.bgLight} />
 
-      <Container maxW="container.md" pt="20px" position="relative">
-        <Header />
-      </Container>
+      <Header />
 
       <Container maxW="container.md" position="relative">
         <Box mt="-4" position="relative" boxShadow="base" borderRadius="lg" bg="orange.50" p={6}>

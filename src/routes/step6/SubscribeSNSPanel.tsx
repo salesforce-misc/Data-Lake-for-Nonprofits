@@ -2,10 +2,9 @@ import { Alert, AlertDescription, Box, Button, FormControl, FormErrorMessage, He
 import { observer } from "mobx-react";
 import { FC, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { subscribeSNS } from "../api/subscribe-sns";
-import { useInstallation } from "../AppContext";
-import { useColorScheme } from "../models/useColorScheme";
-
+import { subscribeSNS } from "../../api/subscribe-sns";
+import { useInstallation } from "../../AppContext";
+import { useColorScheme } from "../../models/useColorScheme";
 
 export const SubscribeSNSPanel: FC = observer(() => {
   const { tone } = useColorScheme();
@@ -51,15 +50,15 @@ const SubscribeForm: FC = observer(() => {
     setError("");
 
     try {
-      await subscribeSNS({ 
-        accessKey: installation.credentials.accessKey, 
-        secretKey: installation.credentials.secretKey, 
+      await subscribeSNS({
+        accessKey: installation.credentials.accessKey,
+        secretKey: installation.credentials.secretKey,
         region: installation.region,
-        email: emailValue, 
-        topicArn: installation.snsTopicArn 
+        email: emailValue,
+        topicArn: installation.snsTopicArn,
       });
       toast({
-        status: 'success',
+        status: "success",
         description: `Email "${emailValue}" subscribed!`,
         isClosable: false,
         duration: 10_000,
@@ -67,7 +66,7 @@ const SubscribeForm: FC = observer(() => {
       setTimeout(() => {
         window.scrollBy(0, 300);
         reset();
-        setFocus('email');
+        setFocus("email");
       }, 250);
     } catch (err: any) {
       console.log(err);

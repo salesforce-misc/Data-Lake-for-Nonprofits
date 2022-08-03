@@ -8,7 +8,7 @@ import { theme } from "themes/purple";
 import { useInstallation } from "AppContext";
 import { CurvedBox } from "components/CurvedBox";
 import { StepsIndicator } from "components/StepsIndicator";
-import { ImportFrequencyPanel } from "components/ImportFrequencyPanel";
+import { ImportFrequencyPanel } from "routes/step3/ImportFrequencyPanel";
 import { Header } from "components/Header";
 import { useMetadataStore } from "models/MetadataStore";
 import { useColorScheme } from "models/useColorScheme";

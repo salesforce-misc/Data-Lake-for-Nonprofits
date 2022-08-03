@@ -2,7 +2,7 @@ import { FC } from "react";
 import { observer } from "mobx-react";
 import { Alert, AlertDescription, AlertIcon, AlertTitle, Box, ListItem, UnorderedList } from "@chakra-ui/react";
 
-import { CredentialsValidationErrorCode, CredentialsValidationException } from "../api/validate-credentials";
+import { CredentialsValidationErrorCode, CredentialsValidationException } from "../../api/validate-credentials";
 
 export const CredentialsError: FC<{ exception?: CredentialsValidationException | Error }> = observer(({ exception }) => {
   if (!exception) return null;

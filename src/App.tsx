@@ -1,4 +1,4 @@
-import { FC, ReactElement } from "react";
+import React from "react";
 import { ChakraProvider } from "@chakra-ui/react";
 import { Routes, Route } from "react-router-dom";
 import { observer } from "mobx-react";
@@ -13,7 +13,7 @@ import { Step4 } from "./routes/step4/Step4";
 import { Step5 } from "./routes/step5/Step5";
 import { Step6 } from "./routes/step6/Step6";
 
-const App: FC = () => {
+const App = () => {
   // If the user does a browser refresh, they need to be redirected back to the home page
   const pathname = window.location.pathname;
   if (pathname !== "/") {
@@ -23,7 +23,7 @@ const App: FC = () => {
   }
 
   // A simple wrapper function to allow us to include ChakraProvider with the provided theme
-  const wrap: (theme: any, element: ReactElement) => JSX.Element = (theme, element) => {
+  const wrap: (theme: any, element: React.ReactElement) => JSX.Element = (theme, element) => {
     return <ChakraProvider theme={theme}>{element}</ChakraProvider>;
   };
 

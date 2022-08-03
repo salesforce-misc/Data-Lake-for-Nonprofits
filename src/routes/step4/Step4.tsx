@@ -9,7 +9,7 @@ import { theme } from "themes/pink";
 import { Header } from "components/Header";
 import { CurvedBox } from "components/CurvedBox";
 import { StepsIndicator } from "components/StepsIndicator";
-import { DataModelTablePreview } from "components/DataModelTablePreview";
+import { DataModelTablePreview } from "routes/step4/DataModelTablePreview";
 
 import { ReviewGrid } from "routes/step4/ReviewGrid";
 

@@ -74,6 +74,7 @@ export const Home = observer(() => {
 
         <ResumePanel />
       </Container>
+
       <Box h="50px">&nbsp;</Box>
     </>
   );

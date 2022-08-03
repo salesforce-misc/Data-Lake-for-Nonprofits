@@ -22,12 +22,12 @@ import {
 } from "@chakra-ui/react";
 import { ChevronRightIcon, RepeatIcon } from "@chakra-ui/icons";
 
-import { IObjectImportStatus, useImportStatusStore } from "../models/ImportStatusStore";
-import { niceNumber } from "../helpers/utils";
-import { RetryErrorPanel } from "./RetryErrorPanel";
-import { TimeAgo } from "./TimeAgo";
-import { isStoreLoading, isStoreReLoading } from "../models/BaseStore";
-import { useColorScheme } from "../models/useColorScheme";
+import { IObjectImportStatus, useImportStatusStore } from "../../models/ImportStatusStore";
+import { niceNumber } from "../../helpers/utils";
+import { RetryErrorPanel } from "../../components/RetryErrorPanel";
+import { TimeAgo } from "../../components/TimeAgo";
+import { isStoreLoading, isStoreReLoading } from "../../models/BaseStore";
+import { useColorScheme } from "../../models/useColorScheme";
 
 export const DataImportStatusPanel: FC = observer(() => {
   const { tone, colorScheme } = useColorScheme();
@@ -135,8 +135,14 @@ const SummaryPanel: FC<{ colorScheme: string }> = observer(({ colorScheme }) => 
       </StatGroup>
       {!busy && (
         <Box>
-          <Box cursor="pointer" onClick={() => setExpanded((previous) => !previous)} fontSize="small" fontWeight="normal" color={tone(700)}
-          mb={expanded? 8: 0}>
+          <Box
+            cursor="pointer"
+            onClick={() => setExpanded((previous) => !previous)}
+            fontSize="small"
+            fontWeight="normal"
+            color={tone(700)}
+            mb={expanded ? 8 : 0}
+          >
             <ChevronRightIcon transition="transform 0.2s" transform={expanded ? "rotate(90deg)" : "rotate(0deg)"} />
             see more
           </Box>

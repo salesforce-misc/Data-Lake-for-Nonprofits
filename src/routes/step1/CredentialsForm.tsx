@@ -3,9 +3,9 @@ import isEmpty from "lodash/isEmpty";
 import { Box, Heading, Button, FormErrorMessage, FormControl, Input, Alert, AlertIcon, InputGroup, InputRightElement } from "@chakra-ui/react";
 import { UseFormRegister, FieldErrors, useWatch, Control } from "react-hook-form";
 
-import { useStore } from "../AppContext";
-import { useColorScheme } from "../models/useColorScheme";
-import { accessKey, secretKey } from "../helpers/settings";
+import { useStore } from "../../AppContext";
+import { useColorScheme } from "../../models/useColorScheme";
+import { accessKey, secretKey } from "../../helpers/settings";
 
 export interface ICredentialsFormInput {
   accessKeyId: string;

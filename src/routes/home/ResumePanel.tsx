@@ -4,11 +4,11 @@ import { GiPlug } from "react-icons/gi";
 import { observer } from "mobx-react";
 
 import { OutlineButton } from "components/OutlineButton";
-import { DetectedInstallationSelections } from "components/DetectedInstallationSelections";
+import { DetectedInstallationSelections } from "routes/home/DetectedInstallationSelections";
 import { useDetectedInstallationStore } from "models/DetectedInstallationsStore";
 import { useStore } from "AppContext";
 import { IDetectedInstallation } from "models/helpers/DetectedInstallation";
-import { CredentialsCollectionForm } from "routes/home/CredentialsCollectionForm";
+import { CredentialsCollectionForm } from "routes/step1/CredentialsCollectionForm";
 
 export const ResumePanel = observer(() => {
   const [collectCredentials, setCollectCredentials] = React.useState(false);

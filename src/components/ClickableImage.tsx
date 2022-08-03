@@ -1,4 +1,4 @@
-import { FC } from "react";
+import React from "react";
 import {
   Box,
   BoxProps,
@@ -15,12 +15,12 @@ import {
   useTheme,
 } from "@chakra-ui/react";
 
-interface ClickableImageProps extends BoxProps {
+interface IClickableImageProps extends BoxProps {
   src: string;
   title: string;
 }
 
-export const ClickableImage: FC<ClickableImageProps> = ({ src, title, ...props }) => {
+export const ClickableImage = ({ src, title, ...props }: IClickableImageProps) => {
   const theme = useTheme().clickableImage;
   const { isOpen, onOpen, onClose } = useDisclosure();
 

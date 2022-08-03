@@ -27,7 +27,7 @@ export const steps: TStepInfo[] = [
     desc: `In this step, we will do all the necessary provisioning and data importing. You can sit back and relax and watch the progress of the data import`,
   },
   {
-    title: "Gain access",
-    desc: "This is the final step, you can create users with credentials to access the data lake using Tableau desktop",
+    title: "Connect to Analytics",
+    desc: "This is the final step, you can create users with credentials to access the data lake using Tableau",
   },
 ];

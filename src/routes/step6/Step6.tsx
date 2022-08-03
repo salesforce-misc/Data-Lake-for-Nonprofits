@@ -10,7 +10,7 @@ import { Header } from "components/Header";
 import { CurvedBox } from "components/CurvedBox";
 import { StepsBanner } from "components/StepsBanner";
 import { AccessInformation } from "routes/step6/AccessInformation";
-import { UsersPanel } from "components/UsersPanel";
+import { UsersPanel } from "routes/step6/UsersPanel";
 import { useColorScheme } from "models/useColorScheme";
 import { LaunchYourConnection } from "./LauncYourConnection";
 import { AdminTools } from "./AdminTools";

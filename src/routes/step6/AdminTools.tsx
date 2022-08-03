@@ -4,8 +4,8 @@ import { ChevronRightIcon } from "@chakra-ui/icons";
 import { observer } from "mobx-react";
 
 import { useInstallation } from "AppContext";
-import { CloudwatchDashboardPanel } from "components/CloudwatchDashboardPanel";
-import { SubscribeSNSPanel } from "components/SubscribeSNSPanel";
+import { CloudwatchDashboardPanel } from "routes/step6/CloudwatchDashboardPanel";
+import { SubscribeSNSPanel } from "routes/step6/SubscribeSNSPanel";
 import { useColorScheme } from "models/useColorScheme";
 
 export const AdminTools = observer(() => {

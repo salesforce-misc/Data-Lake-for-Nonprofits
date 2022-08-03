@@ -2,8 +2,8 @@ import { FC } from "react";
 import { Box, Text, UnorderedList, ListItem } from "@chakra-ui/react";
 import { observer } from "mobx-react";
 
-import { niceNumber } from "../helpers/utils";
-import { useMetadataStore } from "../models/MetadataStore";
+import { niceNumber } from "../../helpers/utils";
+import { useMetadataStore } from "../../models/MetadataStore";
 
 export const DataModelDescription: FC = observer(() => {
   const { store } = useMetadataStore();

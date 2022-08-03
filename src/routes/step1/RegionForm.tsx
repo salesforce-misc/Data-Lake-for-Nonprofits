@@ -3,8 +3,8 @@ import { FieldErrors, UseFormRegister } from "react-hook-form";
 import { Box, FormControl, FormErrorMessage, Heading, Select, Text } from "@chakra-ui/react";
 
 import { ICredentialsFormInput } from "./CredentialsForm";
-import { awsRegions } from "../data/aws-regions";
-import { useColorScheme } from "../models/useColorScheme";
+import { awsRegions } from "../../data/aws-regions";
+import { useColorScheme } from "../../models/useColorScheme";
 
 export const RegionForm: FC<{
   register: UseFormRegister<ICredentialsFormInput>;

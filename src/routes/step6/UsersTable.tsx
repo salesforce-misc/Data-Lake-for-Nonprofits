@@ -24,7 +24,7 @@ import { CheckIcon, ChevronRightIcon, DeleteIcon, NotAllowedIcon } from "@chakra
 import { useInstallation } from "AppContext";
 import { useColorScheme } from "models/useColorScheme";
 import { TimeAgo } from "components/TimeAgo";
-import { DownloadableAccessKey } from "components/DownloadableAccessKey";
+import { DownloadableAccessKey } from "routes/step6/DownloadableAccessKey";
 import { delay } from "helpers/utils";
 import { IUser, TUserAccessStatus } from "models/helpers/User";
 import { TAccessKeyStatus, IUserAccessKey } from "models/helpers/UserAccessKey";

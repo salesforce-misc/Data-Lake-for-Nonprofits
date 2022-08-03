@@ -2,14 +2,31 @@ import React, { FC } from "react";
 import range from "lodash/range";
 import isNumber from "lodash/isNumber";
 import isEmpty from "lodash/isEmpty";
-import { Box, Heading, Text, HStack, Stack, StackDivider, Badge, RadioGroup, Radio, Flex, Divider, Tag, Wrap, WrapItem, Alert, AlertIcon } from "@chakra-ui/react";
+import {
+  Box,
+  Heading,
+  Text,
+  HStack,
+  Stack,
+  StackDivider,
+  Badge,
+  RadioGroup,
+  Radio,
+  Flex,
+  Divider,
+  Tag,
+  Wrap,
+  WrapItem,
+  Alert,
+  AlertIcon,
+} from "@chakra-ui/react";
 import { observer } from "mobx-react";
 
-import { useInstallation } from "../AppContext";
-import { useMetadataStore } from "../models/MetadataStore";
-import { ImportFrequency, MonthlySettingsSelection } from "../models/steps/ImportOptionsStep";
-import { TimeInput } from "./TimeInput";
-import { humanDay } from "../helpers/utils";
+import { useInstallation } from "../../AppContext";
+import { useMetadataStore } from "../../models/MetadataStore";
+import { ImportFrequency, MonthlySettingsSelection } from "../../models/steps/ImportOptionsStep";
+import { TimeInput } from "../../components/TimeInput";
+import { humanDay } from "../../helpers/utils";
 
 export const ImportFrequencyPanel: FC = observer(() => {
   const { isReady } = useMetadataStore();
@@ -118,7 +135,6 @@ const DailySettingsPanel: FC = observer(() => {
 
       <TimeInput hour={time.hour} minute={time.minute} onChange={handleTimeChange} />
       {/* <Divider borderColor="purple.200" mb={3} mt={3}/> */}
-
     </Box>
   );
 });

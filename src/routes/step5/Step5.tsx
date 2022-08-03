@@ -1,20 +1,6 @@
-import { FC, useEffect, MouseEventHandler } from "react";
-import {
-  Box,
-  Container,
-  Heading,
-  Text,
-  HStack,
-  Button,
-  ChakraProvider,
-  Alert,
-  AlertIcon,
-  Image,
-  Progress,
-  AlertTitle,
-  AlertDescription,
-} from "@chakra-ui/react";
-import { ArrowForwardIcon, TimeIcon } from "@chakra-ui/icons";
+import React from "react";
+import { Box, Container, Heading, Text, HStack, Button, ChakraProvider, Image, Progress } from "@chakra-ui/react";
+import { ArrowForwardIcon } from "@chakra-ui/icons";
 import { observer } from "mobx-react";
 import { useNavigate } from "react-router-dom";
 
@@ -24,35 +10,37 @@ import sforgImage from "images/processing-sforg-01.png";
 import { useInstallation } from "AppContext";
 import { theme } from "themes/green";
 import { CurvedBox } from "components/CurvedBox";
-import { DataImportStatusPanel } from "components/DataImportStatusPanel";
-import { RetryErrorPanel } from "components/RetryErrorPanel";
 import { StepsBanner } from "components/StepsBanner";
-import { humanProcessingTime } from "helpers/utils";
-import { IOperation } from "models/operations/Operation";
+
+import { DoNotCloseMessagePanel } from "routes/step5/DoNotCloseMessagePanel";
+import { SuccessMessagePanel } from "routes/step5/SuccessMessagePanel";
+import { DeploymentError } from "routes/step5/DeploymentError";
+import { ProgressPanel } from "routes/step5/ProgressPanel";
+import { ImportStatusPanel } from "routes/step5/ImportStatusPanel";
 
 const colorScheme = theme.name;
 
-export const Step5: FC = observer(() => {
+export const Step5 = observer(() => {
   const installation = useInstallation();
   const step = installation.deploymentStep;
   const inProgress = installation.deploymentOperations.isInProgress;
   const navigate = useNavigate();
 
-  const handleSubmit: MouseEventHandler<HTMLButtonElement> = async () => {
+  const handleSubmit: React.MouseEventHandler<HTMLButtonElement> = async () => {
     step.markCompleted();
     navigate("/steps/6");
   };
 
-  useEffect(() => {
+  React.useEffect(() => {
     step.markStarted();
     window.scrollTo(0, 0);
   }, [step]);
 
-  useEffect(() => {
+  React.useEffect(() => {
     installation.triggerDeployment();
   }, [installation]);
 
-  useEffect(() => {
+  React.useEffect(() => {
     window.onbeforeunload = (e) => {
       if (installation.deploymentOperations.isInProgress) {
         e.preventDefault();
@@ -151,140 +139,4 @@ export const Step5: FC = observer(() => {
       </Box>
     </ChakraProvider>
   );
-});
-
-const ImportStatusPanel: FC = observer(() => {
-  const installation = useInstallation();
-  if (!installation.deploymentOperations.isSuccess) return null;
-
-  return (
-    <Box borderRadius="lg" boxShadow="base" bg="green.25" mt={6} p={7} pb={6}>
-      <DataImportStatusPanel />
-    </Box>
-  );
-});
-
-const DoNotCloseMessagePanel: FC = observer(() => {
-  const installation = useInstallation();
-  const deployment = installation.deploymentOperations;
-
-  if (!deployment.isInProgress) return null;
-
-  return (
-    <Box my={5} px={3}>
-      <Alert status="warning" borderRadius="lg" fontSize="sm" color="orange.700">
-        <AlertDescription>Don't close the browser tab, otherwise the provisioning will pause before it's fully completed.</AlertDescription>
-      </Alert>
-    </Box>
-  );
-});
-
-const SuccessMessagePanel: FC = observer(() => {
-  const installation = useInstallation();
-  const deployment = installation.deploymentOperations;
-
-  if (!deployment.isSuccess) return null;
-
-  return (
-    <Alert
-      mb={6}
-      status="success"
-      variant="subtle"
-      flexDirection="column"
-      alignItems="center"
-      justifyContent="center"
-      textAlign="center"
-      height="180px"
-      borderRadius="md"
-    >
-      <AlertIcon boxSize="40px" mr={0} />
-      <AlertTitle mt={4} mb={1} fontSize="lg">
-        Data Lake is ready!
-      </AlertTitle>
-      <AlertDescription maxWidth="sm">Great news! we got everything in place and you are ready to proceed to the next step</AlertDescription>
-    </Alert>
-  );
-});
-
-const ProgressPanel: FC = observer(() => {
-  const installation = useInstallation();
-  const deployment = installation.deploymentOperations;
-
-  return (
-    <Box p={3} pb={4}>
-      {deployment.operations.map((operation, index) => (
-        <OperationProgressPanel key={index} operation={operation} />
-      ))}
-      <Box mt="60px">
-        <OperationProgressPanel operation={deployment} message="Overall Progress" />
-      </Box>
-    </Box>
-  );
-});
-
-const OperationProgressPanel: FC<{ operation: IOperation; message?: string }> = observer(({ operation, message }) => {
-  let targetColorScheme = colorScheme;
-  const percentage = Math.floor(operation ? operation.progressPercentage : 0);
-  const failure = operation.isFailure;
-  const hasStripe = !failure && operation.isInProgress;
-  const isAnimated = hasStripe;
-
-  let fontColor = `${colorScheme}.700`;
-  let bg = `${colorScheme}.75`;
-
-  if (operation.isNotStarted) {
-    fontColor = "gray.400";
-    targetColorScheme = "gray";
-    bg = "gray.75";
-  } else if (failure) {
-    fontColor = "red.700";
-    targetColorScheme = "red";
-    bg = "red.50";
-  }
-
-  const progressProps = {
-    colorScheme: targetColorScheme,
-    size: "sm",
-    mt: 1,
-    borderRadius: "lg",
-    bg,
-    isAnimated,
-    hasStripe,
-  };
-
-  return (
-    <HStack fontSize="sm" color={fontColor} mb={4} alignContent="space-between">
-      <Box w="full">
-        <Text float="right" fontWeight="bold">
-          {percentage}%
-        </Text>
-        <Text>
-          {!message && operation.progressMessage}
-          {message}
-        </Text>
-
-        <Progress value={percentage} {...progressProps} />
-      </Box>
-      <Box w="110px" textAlign="right" alignSelf="center">
-        <TimeIcon mr={2} />
-        <ProcessingTime operation={operation} />
-      </Box>
-    </HStack>
-  );
-});
-
-const ProcessingTime: FC<{ operation: IOperation }> = observer(({ operation }) => {
-  return <>{humanProcessingTime(operation.processingTime)}</>;
-});
-
-const DeploymentError: FC = observer(() => {
-  const installation = useInstallation();
-  const deployment = installation.deploymentOperations;
-  const errorDetail = deployment.errorDetail;
-  const message =
-    "Oops, things did not go smoothly, we are unable to provision the data lake. This might be an intermittent problem. Wait for a few minutes  and try again.";
-
-  if (!deployment.isFailure) return null;
-
-  return <RetryErrorPanel errorMessage={message} errorDetail={errorDetail} onRetry={() => installation.triggerDeployment()} />;
 });

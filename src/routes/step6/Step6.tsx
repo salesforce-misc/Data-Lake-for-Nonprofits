@@ -9,11 +9,11 @@ import { useInstallation } from "AppContext";
 import { Header } from "components/Header";
 import { CurvedBox } from "components/CurvedBox";
 import { StepsBanner } from "components/StepsBanner";
-import { TableauAccessPanel } from "components/TableauAccessPanel";
+import { AccessInformation } from "routes/step6/AccessInformation";
 import { UsersPanel } from "components/UsersPanel";
-import { SubscribeSNSPanel } from "components/SubscribeSNSPanel";
-import { CloudwatchDashboardPanel } from "components/CloudwatchDashboardPanel";
 import { useColorScheme } from "models/useColorScheme";
+import { LaunchYourConnection } from "./LauncYourConnection";
+import { AdminTools } from "./AdminTools";
 
 export const Step6 = observer(() => {
   const { tone, colorScheme } = useColorScheme();
@@ -47,24 +47,28 @@ export const Step6 = observer(() => {
           </Box>
 
           <Heading display="inline-block" size="lg" pt="0px" pb="10px" color="white" letterSpacing="-1px">
-            Gain access
+            Connect to Analytics
           </Heading>
-          <Box color={tone(50)}>Now that you have the data lake provisioned, you can create users to access the data lake using Tableau Desktop.</Box>
+
+          <Box color={tone(50)}>
+            Now that you have the data lake provisioned, you can connect to Tableau for analytics. Here you will gather all the necessary information
+            needed to make that connection.
+          </Box>
 
           <Box borderRadius="lg" boxShadow="base" bg={tone(25)} mt={4} p={10} pb={4} position="relative">
             <UsersPanel />
           </Box>
 
           <Box borderRadius="lg" boxShadow="base" bg={tone(25)} mt={4} p={10} pb={4} position="relative">
-            <TableauAccessPanel />
+            <AccessInformation />
           </Box>
 
           <Box borderRadius="lg" boxShadow="base" bg={tone(25)} mt={4} p={10} pb={4} position="relative">
-            <CloudwatchDashboardPanel region={installation.region} id={installation.id} />
+            <LaunchYourConnection />
           </Box>
 
-          <Box borderRadius="lg" boxShadow="base" bg={tone(25)} mt={4} p={10} pb={10} position="relative">
-            <SubscribeSNSPanel />
+          <Box borderRadius="lg" boxShadow="base" bg={tone(25)} mt={4} p={10} pb={4} position="relative">
+            <AdminTools />
           </Box>
 
           <HStack justifyContent="space-between" p={3} pt={6} mb={12}>

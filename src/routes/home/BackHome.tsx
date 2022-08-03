@@ -12,7 +12,7 @@ import { useInstallation, useStore } from "../../AppContext";
 import { isCompleted } from "../../models/Installation";
 import { useColorScheme } from "../../models/useColorScheme";
 import { awsRegionsMap } from "../../data/aws-regions";
-import { TableauAccessPanel } from "../../components/TableauAccessPanel";
+import { AccessInformation } from "../step6/AccessInformation";
 import { CredentialsForm, ICredentialsFormInput } from "../../components/CredentialsForm";
 import { CredentialsValidationException } from "../../api/validate-credentials";
 import { CredentialsError } from "../../components/CredentialsError";
@@ -106,7 +106,7 @@ export const BackHome: FC = observer(() => {
         </Box>
         {completedProvisioning && (
           <Box borderRadius="lg" boxShadow="base" bg={tone(25)} mt={6} p={10} pb={10}>
-            <TableauAccessPanel />
+            <AccessInformation />
           </Box>
         )}
         {completedProvisioning && credentialsAvailable && (

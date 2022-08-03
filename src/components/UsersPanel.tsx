@@ -37,6 +37,7 @@ export const UsersPanel = observer(() => {
         </Heading>
         <RefreshButton />
       </HStack>
+
       <Box mb={4} color={tone(800)}>
         Create users who will need access to the data. These users will have <i>least privilege</i> credentials to access only the data and resources
         they need.
@@ -60,8 +61,10 @@ const InfoBanner = observer(() => {
   return (
     <Box bg={tone(75)} p={3} borderRadius="md" mb={5} color={tone(700)}>
       <Text display="block" fontSize="sm" mb={2}>
-        When connecting to your data lake, you need access keys. Access keys are associated with users. Add a user to obtain the access keys.
+        When using Tableau to connect to your data lake, you need AWS IAM access keys. Access keys are associated with users. Add a user to obtain the
+        access keys.
       </Text>
+
       {!isAdding && (
         <Box textAlign="right">
           <Button colorScheme={colorScheme} size="sm" disabled={isError || isLoading || isReloading || isAdding} onClick={() => setAdding(true)}>

@@ -7,11 +7,11 @@
     "@aws-sdk/client-cloudformation": "^3.56.0",
     "@aws-sdk/client-cloudwatch": "^3.78.0",
     "@aws-sdk/client-iam": "^3.53.0",
+    "@aws-sdk/client-rds": "^3.53.0",
     "@aws-sdk/client-s3": "^3.58.0",
     "@aws-sdk/client-sfn": "^3.58.0",
     "@aws-sdk/client-sns": "^3.78.0",
     "@aws-sdk/client-sts": "^3.53.0",
-    "@aws-sdk/client-rds": "^3.53.0",
     "@chakra-ui/icons": "1.1.7",
     "@chakra-ui/react": "1.8.5",
     "@chakra-ui/system": "1.12.1",
@@ -99,6 +99,7 @@
     "inquirer": "^8.2.2",
     "klaw": "^4.0.1",
     "postcss": "^8.1.0",
+    "react-test-renderer": "^18.2.0",
     "ts-node": "^10.7.0"
   }
 }

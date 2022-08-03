@@ -113,42 +113,13 @@ These mocks can be found under `src/__mocks__` -->
 - Unit test to check rendering password text properly
 - Unit test to check click event for password text -->
 
-### CloudwatchDashboardPanel
-
-<!-- - Unit test to check rendering properly -->
-
-### CredentialsError
-
-<!-- - Unit test to check rendering properly without an exception
-- Unit test to check rendering properly with an invalid key exception
-- Unit test to check rendering properly with a non-admin key exception
-- Unit test to check rendering properly with an account mismatch exception
-- Unit test to check rendering properly with a default exception
-- Unit test to check rendering properly with an unknown exception -->
-
-### CredentialsForm
-
 ### CurvedBox
 
 <!-- - Unit test to check rendering properly -->
 
-### DataImportStatusPanel
-
-<!-- - Unit test to check CountBadge rendering properly -->
-
-### DataModelDescription
-
-### DataModelTable
-
-### DataModelTablePreview
-
-### DetectedInstallationSelections
-
-### DownloadableAccessKey
-
 ### FieldsTable
 
-### ImportFrequencyPanel
+### Header
 
 ### Markdown
 
@@ -158,31 +129,32 @@ These mocks can be found under `src/__mocks__` -->
 
 ### PaginationButtons
 
-### RegionForm
-
 ### RetryErrorPanel
 
 ### StepsBanner
 
 ### StepsIndicator
 
-### SubscribeSNSPanel
-
-### TableauAccessPanel
-
 ### TimeAgo
 
 ### TimeInput
-
-### UsersPanel
-
-### UsersTable
 
 ## Pages
 
 ### Home Page
 
 ### Step1 Page
+
+#### CredentialsError
+
+<!-- - Unit test to check rendering properly without an exception
+- Unit test to check rendering properly with an invalid key exception
+- Unit test to check rendering properly with a non-admin key exception
+- Unit test to check rendering properly with an account mismatch exception
+- Unit test to check rendering properly with a default exception
+- Unit test to check rendering properly with an unknown exception -->
+
+### CredentialsForm
 
 ### Step2 Page
 

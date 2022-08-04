@@ -5,8 +5,12 @@ For information about running tests for create-react-app applications
 
 ## Mocks
 
-<!-- Since Jest has not fully supported ESM yet, we used mocks for some third party libraries.
-These mocks can be found under `src/__mocks__` -->
+Since Jest has not fully supported ESM yet, we used mocks for some third party libraries.
+These mocks can be found under `src/__mocks__`
+Following modules are being mocked here.
+
+- react-markdown
+- remark-gfm
 
 ## Models
 

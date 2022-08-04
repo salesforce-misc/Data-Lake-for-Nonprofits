@@ -1,11 +1,15 @@
-import { FC } from "react";
+import React from "react";
 import { Heading, Link } from "@chakra-ui/react";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
 import { observer } from "mobx-react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
-export const Markdown: FC<{ content: string }> = observer(({ content }) => {
+interface IMarkdown {
+  content: string;
+}
+
+export const Markdown = observer(({ content }: IMarkdown) => {
   return (
     <ReactMarkdown
       remarkPlugins={[remarkGfm]}

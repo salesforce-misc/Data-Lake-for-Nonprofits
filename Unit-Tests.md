@@ -160,6 +160,11 @@ Following modules are being mocked here.
 
 #### ObjectsTable -> EmptyMessage
 
+- snapshot
+- render null if objects prop is not empty
+- render no mathces are found if search text is not empty
+- render no objects are found
+
 #### ObjectsTable -> ObjectRow
 
 #### ObjectsTable -> ObjectsPanel

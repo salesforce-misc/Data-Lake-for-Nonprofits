@@ -15,6 +15,7 @@ interface IEmptyMessage {
 
 export const EmptyMessage = observer(({ viewOption, objects, searchText }: IEmptyMessage) => {
   const { tone } = useColorScheme();
+
   if (objects.length > 0) return null;
   let content = "No objects are found";
 

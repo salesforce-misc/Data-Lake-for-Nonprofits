@@ -121,7 +121,28 @@ These mocks can be found under `src/__mocks__` -->
 - snapshot
 - render properly
 
-### FieldsTable
+### FieldsTable Component
+
+- snapshot
+
+#### FieldsTable Sub Components
+
+##### EmptyMessage
+
+- snapshot
+- render null if fields prop is not empty
+- render no mathces are found if search text is not empty
+- render no fields are found
+
+##### FieldsGrid
+
+##### FieldsViewOptionsPanel
+
+##### ImmutableField
+
+##### ImmutableFieldsGrid
+
+##### SelectableField
 
 ### Header
 

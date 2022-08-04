@@ -34,7 +34,7 @@ import { useMetadataStore } from "models/MetadataStore";
 import { useColorScheme } from "models/useColorScheme";
 import { ObjectsViewOptions, useObjectsTable } from "models/useObjectsTable";
 import { PaginationButtons } from "components/PaginationButtons";
-import { FieldsTable } from "components/FieldsTable";
+import { FieldsTable } from "components/fields-table/FieldsTable";
 import { ISFObject } from "models/helpers/SFObject";
 
 export const ObjectsTable: FC = observer(() => {

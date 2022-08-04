@@ -105,7 +105,9 @@ These mocks can be found under `src/__mocks__` -->
 
 ### ClickableImage
 
-<!-- - Unit test to check rendering properly -->
+- snapshot
+- render properly
+- click event
 
 ### ClipboardField
 

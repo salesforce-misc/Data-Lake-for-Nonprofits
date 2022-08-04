@@ -41,7 +41,8 @@ export const ClickableImage = ({ src, title, ...props }: IClickableImageProps) =
           </ModalFooter>
         </ModalContent>
       </Modal>
-      <Image src={src} boxShadow="md" borderRadius="lg" onClick={onOpen} cursor="pointer" />
+
+      <Image src={src} alt={title} boxShadow="md" borderRadius="lg" onClick={onOpen} cursor="pointer" />
     </Box>
   );
 };

@@ -6,7 +6,6 @@ import { storage } from "helpers/utils";
 import { IInstallation, Installation, isCompleted } from "models/Installation";
 import { Credentials, ICredentials } from "models/helpers/Credentials";
 import { IDetectedInstallation } from "models/helpers/DetectedInstallation";
-// import { installationData } from "../data/installation-data";
 
 /**
  * The root store for the whole application

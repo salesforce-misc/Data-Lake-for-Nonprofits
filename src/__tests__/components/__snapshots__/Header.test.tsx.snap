@@ -1,16 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`EmptyMessage component snapshot 1`] = `
-Array [
-  <div
-    className="css-1y07nh"
-  >
-    No fields are found
-  </div>,
-  <span />,
-]
-`;
-
 exports[`Header component snapshot 1`] = `
 Array [
   <div
@@ -23,21 +12,21 @@ Array [
         className="chakra-stack css-18lyn6q"
       >
         <div
-          className="css-8jnlyl"
+          className="css-1i3fafl"
         >
           <img
             className="chakra-image css-0"
-            src="Salesforce-dot-org-Logo-CMYK-Hrzl.png"
+            src="Salesforce_Corporate_Logo_RGB.png"
           />
         </div>
         <div
           className="chakra-stack__divider css-r2vkku"
         />
         <div
-          className="css-kezrx0"
+          className="css-nutmff"
         >
           <img
-            className="chakra-image css-dmitns"
+            className="chakra-image css-ir5tdx"
             src="AWS_logo_RGB_BLK.png"
           />
         </div>
@@ -49,7 +38,7 @@ Array [
           className="css-18n4g2t"
         >
           <h2
-            className="chakra-heading css-1k0fmo1"
+            className="chakra-heading css-1opsxio"
           >
             Datalake for Nonprofits, Powered by AWS
           </h2>

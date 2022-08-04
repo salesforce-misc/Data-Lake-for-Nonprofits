@@ -125,28 +125,26 @@ Following modules are being mocked here.
 - snapshot
 - render properly
 
-### FieldsTable Component
+### FieldsTable
 
 - snapshot
 
-#### FieldsTable Sub Components
-
-##### EmptyMessage
+#### FieldsTable -> EmptyMessage
 
 - snapshot
 - render null if fields prop is not empty
 - render no mathces are found if search text is not empty
 - render no fields are found
 
-##### FieldsGrid
+#### FieldsTable -> FieldsGrid
 
-##### FieldsViewOptionsPanel
+#### FieldsTable -> FieldsViewOptionsPanel
 
-##### ImmutableField
+#### FieldsTable -> ImmutableField
 
-##### ImmutableFieldsGrid
+#### FieldsTable -> ImmutableFieldsGrid
 
-##### SelectableField
+#### FieldsTable -> SelectableField
 
 ### Header
 
@@ -155,7 +153,18 @@ Following modules are being mocked here.
 
 ### Markdown
 
+- snapshot
+- render properly
+
 ### ObjectsTable
+
+#### ObjectsTable -> EmptyMessage
+
+#### ObjectsTable -> ObjectRow
+
+#### ObjectsTable -> ObjectsPanel
+
+#### ObjectsTable -> ObjectsViewOptionsPanel
 
 ### OutlineButton
 

@@ -3,7 +3,7 @@ import { Box, Heading, Text, Alert, AlertDescription, AlertTitle, Badge } from "
 import { observer } from "mobx-react";
 
 import { DataModelDescription } from "routes/step3/DataModelDescription";
-import { ObjectsTable } from "components/ObjectsTable";
+import { ObjectsTable } from "components/objects-table/ObjectsTable";
 import { niceNumber } from "helpers/utils";
 import { useMetadataStore } from "models/MetadataStore";
 import { useColorScheme } from "models/useColorScheme";

@@ -111,9 +111,10 @@ These mocks can be found under `src/__mocks__` -->
 
 ### ClipboardField
 
-<!-- - Unit test to check rendering non-password text properly
-- Unit test to check rendering password text properly
-- Unit test to check click event for password text -->
+- snapshot
+- render text properly
+- render password properly
+- can copy a text
 
 ### CurvedBox
 

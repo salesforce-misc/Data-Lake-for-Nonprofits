@@ -13,3 +13,5 @@ const customRender = (ui: React.ReactElement, options?: Omit<RenderOptions, "wra
 export * from "@testing-library/react";
 
 export { customRender as render };
+
+export const RenderWithChakra = ({ children }: { children: React.ReactNode }) => <ChakraProvider theme={theme}>{children}</ChakraProvider>;

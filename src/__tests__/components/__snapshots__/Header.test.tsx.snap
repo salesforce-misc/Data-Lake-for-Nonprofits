@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EmptyMessage component snapshot 1`] = `
+Array [
+  <div
+    className="css-1y07nh"
+  >
+    No fields are found
+  </div>,
+  <span />,
+]
+`;
+
+exports[`Header component snapshot 1`] = `
+Array [
+  <div
+    className="chakra-container css-1szj4qk"
+  >
+    <div
+      className="chakra-stack css-1ujrv8r"
+    >
+      <div
+        className="chakra-stack css-18lyn6q"
+      >
+        <div
+          className="css-8jnlyl"
+        >
+          <img
+            className="chakra-image css-0"
+            src="Salesforce-dot-org-Logo-CMYK-Hrzl.png"
+          />
+        </div>
+        <div
+          className="chakra-stack__divider css-r2vkku"
+        />
+        <div
+          className="css-kezrx0"
+        >
+          <img
+            className="chakra-image css-dmitns"
+            src="AWS_logo_RGB_BLK.png"
+          />
+        </div>
+      </div>
+      <div
+        className="chakra-stack css-1n7gsjr"
+      >
+        <div
+          className="css-18n4g2t"
+        >
+          <h2
+            className="chakra-heading css-1k0fmo1"
+          >
+            Datalake for Nonprofits, Powered by AWS
+          </h2>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <span />,
+]
+`;

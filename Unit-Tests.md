@@ -146,6 +146,9 @@ These mocks can be found under `src/__mocks__` -->
 
 ### Header
 
+- snapshot
+- render app title
+
 ### Markdown
 
 ### ObjectsTable

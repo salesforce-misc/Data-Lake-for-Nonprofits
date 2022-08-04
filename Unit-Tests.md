@@ -118,7 +118,8 @@ These mocks can be found under `src/__mocks__` -->
 
 ### CurvedBox
 
-<!-- - Unit test to check rendering properly -->
+- snapshot
+- render properly
 
 ### FieldsTable
 

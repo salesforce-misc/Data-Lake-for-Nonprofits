@@ -18,13 +18,18 @@ const storeRemotely = throttle(() => appStore.saveRemote(), 30000);
 
 // The initialization function for the root store
 export function initializeStore() {
-  // TODO - When we detect that isLocalDev is true but windows.location is not http://localhost:xxx
-  //        then we display an error and the app shouldn't run
   if (!isEmpty(secretKey)) console.warn("Access key is bundled!");
+
   if (isLocalDev) {
     console.log(`isLocalDev '${isLocalDev}'`);
     console.log(`websiteUrlOrigin '${websiteUrlOrigin}'`);
     console.log(`assetWebsiteUrl '${assetWebsiteUrl}'`);
+
+    if (window.location.host !== "localhost:3000") {
+      console.warn("You should run the app on localhost!");
+
+      throw new Error("App should run on localhost for development mode!");
+    }
   }
 
   appStore.loadLocal();
@@ -35,7 +40,7 @@ export function initializeStore() {
 }
 
 // Create the store context
-const StoreContext = createContext<IAppStore | undefined>(undefined);
+export const StoreContext = createContext<IAppStore | undefined>(undefined);
 
 // Create the store provider component
 export const StoreProvider: React.FunctionComponent = ({ children }) => {
@@ -45,6 +50,7 @@ export const StoreProvider: React.FunctionComponent = ({ children }) => {
 // useStore hook
 export function useStore(): IAppStore {
   const store = useContext(StoreContext);
+
   if (!store) {
     throw new Error("useStore() must be used within a StoreProvider");
   }

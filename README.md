@@ -1,7 +1,3 @@
-# Datalake for Nonprofits, Powered by AWS
+# Data Lake for Nonprofit Cloud, Powered by Amazon Web Services
 
-```javascript
-npm start
-npm test
-npm run build
-```
+See the `docs/` folder for more in depth documentation.

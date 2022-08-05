@@ -1,0 +1,35 @@
+{
+  "name": "@amzn/lambdas",
+  "private": true,
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "jest",
+    "postinstall": "npm run build",
+    "build": "tsc -p tsconfig.build.json && npm run zip",
+    "clean": "rm -rf ./dist ../assets/step-function-lambdas.zip",
+    "zip": "zip -r -g -u ../assets/step-function-lambdas.zip ."
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@aws-sdk/client-appflow": "^3.54.1",
+    "@aws-sdk/client-s3": "^3.54.1",
+    "@aws-sdk/client-secrets-manager": "^3.55.0",
+    "event-stream": "^4.0.1",
+    "lodash": "^4.17.21",
+    "node-pg-format": "^1.2.8",
+    "ts-postgres": "^1.2.1"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.93",
+    "@types/event-stream": "^4.0.0",
+    "@types/jest": "^27.4.1",
+    "@types/lodash": "^4.14.180",
+    "@types/node": "^17.0.21",
+    "aws-sdk-client-mock": "^0.6.2",
+    "jest": "^27.5.1",
+    "ts-jest": "^27.1.4",
+    "typescript": "^4.6.3"
+  }
+}

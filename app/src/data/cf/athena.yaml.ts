@@ -1,0 +1,533 @@
+export const yaml = `---
+AWSTemplateFormatVersion: "2010-09-09"
+Description: "Salesforce Athena Stack"
+Metadata:
+  "AWS::CloudFormation::Interface":
+    ParameterGroups:
+      - Label:
+          default: "** REQUIRED FIELDS **"
+        Parameters:
+          - ParentVPCStack
+          - ParentDataStack
+          - ParentBucketStack
+          - InstallationId
+      - Label:
+          default: "Athena Settings"
+        Parameters:
+          - AthenaConnectorAssetZip
+          - MaximumAthenaCostPerQueryInBytes
+      - Label:
+          default: "Lambda Settings"
+        Parameters:
+          - LambdaTimeout
+          - LambdaMemory
+Parameters:
+  ParentVPCStack:
+    Description: "Stack name of parent VPC stack"
+    Type: String
+    AllowedPattern: ".{3,}"
+  ParentDataStack:
+    Description: "The name of the Datastore stack."
+    Type: String
+    AllowedPattern: ".{3,}"
+  ParentBucketStack:
+    Description: "The name of the bucket stack."
+    Type: String
+    AllowedPattern: ".{3,}"
+  AthenaConnectorAssetZip:
+    Description: "The source code for the Athena RDS Connector zip or jar file."
+    Type: String
+    Default: "assets/athena-rds-connector.zip"
+    AllowedPattern: ".{3,}"
+  InstallationId:
+    Description: "The unique name for this system such that it will not conflict globally with any other installation of this system. Must only contain alphanumeric characters (no special punctuation such as _ , _ . & ! + = etc.)"
+    Type: String
+    AllowedPattern: "[a-z0-9]{8,}"
+  LambdaTimeout:
+    Description: Maximum Lambda invocation runtime in seconds. (min 1 - 900 max)
+    Default: 900
+    Type: Number
+  LambdaMemory:
+    Description: Lambda memory in MB (min 128 - 10240 max).
+    Default: 1024
+    Type: Number
+  MaximumAthenaCostPerQueryInBytes:
+    Description: "Puts a cost cap on each Athena query by limiting the bytes scanned per query. This will force the query to fail if it scans too much data. For 10 GB (default) this would have a max cost per query of \$0.048 @ \$5 per TB. See current pricing information at https://aws.amazon.com/athena/pricing/"
+    MinValue: 1000
+    Default: 10737418240 # 10 GB
+    Type: Number
+  CustomResourcesAssetZip:
+    Description: "The source code for the Athena RDS Connector zip or jar file."
+    Type: String
+    Default: "assets/cloudformation-custom-resources.zip"
+    AllowedPattern: ".{3,}"
+  LambdaDynamicEnvOn:
+    Description: "Adds/removes the lambda dynamic env custom component"
+    Type: String
+    Default: "true"
+    AllowedValues:
+      - "true"
+      - "false"
+Conditions:
+  IsLambdaDynamicEnvOn: !Equals [!Ref LambdaDynamicEnvOn, "true"]
+Resources:
+  # Using a SAM application has like the following:
+  #     ApplicationId: arn:aws:serverlessrepo:us-east-1:292517598671:applications/AthenaPostgreSQLConnector
+  #     SemanticVersion: 2022.7.1
+  # Has issues due to the fact that the Role cannot be modified (to access KMS) since its name its not a stack output.
+  # Additionally, the lambda needs a dynamically created environment variable which cannot be added (even if it were
+  # static) in order to know the connection string to access the database. The \`default\` environment variable, which
+  # should work, seems to be ignored.
+  AthenaPostgreSQLConnector:
+    Type: "AWS::Lambda::Function"
+    Properties:
+      Code:
+        S3Bucket:
+          Fn::ImportValue: !Sub "\${ParentBucketStack}-AssetsBucket"
+        S3Key: !Ref AthenaConnectorAssetZip
+      Description: "Enables Amazon Athena to communicate with PostgreSQL using JDBC"
+      FunctionName: !Join
+        - "_"
+        - - "sf"
+          - "athena_rds"
+          - !Ref InstallationId
+      Handler: "com.amazonaws.athena.connectors.postgresql.PostGreSqlMuxCompositeHandler"
+      MemorySize: !Ref LambdaMemory
+      Role: !GetAtt AthenaPostgreSQLConnectorRole.Arn
+      Runtime: "java11"
+      Timeout: !Ref LambdaTimeout
+      VpcConfig:
+        SecurityGroupIds:
+          - Fn::ImportValue: !Sub "\${ParentDataStack}-LambdaSecurityGroup"
+        SubnetIds: !Split
+          - ","
+          - Fn::ImportValue: !Sub "\${ParentVPCStack}-Subnets"
+      Environment:
+        Variables:
+          ATHENA_FEDERATION_SDK_LOG_LEVEL: info
+          disable_spill_encryption: false
+          spill_bucket:
+            Fn::ImportValue: !Sub "\${ParentBucketStack}-AthenaDataBucket"
+          spill_prefix: "athena/spill" # Note that / will be appended automatically
+          # Note that just the plain "default" environment variable does not work like the documentation
+          # reads that it should. The code instead looks for a <LambdaName>_connection_string only. See
+          # the custom resource LambdaDynamicEnvCustomResource below for how this gets updated.
+          default: !Join
+            - ""
+            - - "postgres://jdbc:postgresql://"
+              - Fn::ImportValue: !Sub "\${ParentDataStack}-ClusterAddress"
+              - ":"
+              - Fn::ImportValue: !Sub "\${ParentDataStack}-ClusterPort"
+              - "/"
+              - Fn::ImportValue: !Sub "\${ParentDataStack}-ClusterDbName"
+              - "?\${"
+              - Fn::ImportValue: !Sub "\${ParentDataStack}-Secret"
+              - "}"
+    Metadata:
+      cfn_nag:
+        rules_to_suppress:
+          - id: W92
+            reason: Not using ReservedConcurrentExecutions because the amount of cannot be known, so unreserved concurrency should be used
+          - id: W58
+            reason: Permissions to write logs is in managed policy
+  AthenaPostgreSQLConnectorRole:
+    Type: "AWS::IAM::Role"
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Action:
+              - "sts:AssumeRole"
+            Effect: "Allow"
+            Principal:
+              Service:
+                - "lambda.amazonaws.com"
+      ManagedPolicyArns:
+        - Fn::ImportValue: !Sub "\${ParentVPCStack}-LambdaManagedPolicy"
+        - Fn::ImportValue: !Sub "\${ParentVPCStack}-VPCLambdaManagedPolicy"
+      Policies:
+        - PolicyName: "SecretManagerAccess"
+          PolicyDocument:
+            Statement:
+              - Action:
+                  - "secretsmanager:GetSecretValue"
+                Effect: "Allow"
+                Resource: !Sub
+                  - "arn:\${AWS::Partition}:secretsmanager:\${AWS::Region}:\${AWS::AccountId}:secret:\${SecretNamePrefix}*"
+                  - SecretNamePrefix:
+                      Fn::ImportValue: !Sub "\${ParentDataStack}-Secret"
+            Version: "2012-10-17"
+        - PolicyName: "SetupCloudWatch"
+          PolicyDocument:
+            Statement:
+              - Action:
+                  - "logs:CreateLogGroup"
+                Effect: "Allow"
+                Resource:
+                  Fn::Sub: "arn:\${AWS::Partition}:logs:\${AWS::Region}:\${AWS::AccountId}:*"
+            Version: "2012-10-17"
+        - PolicyName: "Athena"
+          PolicyDocument:
+            Statement:
+              - Action:
+                  - "athena:GetQueryExecution"
+                Effect: "Allow"
+                Resource: !Sub "arn:\${AWS::Partition}:athena:\${AWS::Region}:\${AWS::AccountId}:*"
+            Version: "2012-10-17"
+        - PolicyName: "ListMyBuckets"
+          PolicyDocument:
+            Statement:
+              - Action:
+                  - "s3:ListAllMyBuckets"
+                Effect: Allow
+                Resource: !Sub "arn:\${AWS::Partition}:s3:::*"
+        - PolicyName: "S3"
+          PolicyDocument:
+            Statement:
+              - Effect: "Allow"
+                Action:
+                  - "s3:GetObject"
+                  - "s3:ListBucket"
+                  - "s3:GetBucketLocation"
+                  - "s3:GetObjectVersion"
+                  - "s3:PutObject"
+                  - "s3:PutObjectAcl"
+                  - "s3:GetLifecycleConfiguration"
+                  - "s3:PutLifecycleConfiguration"
+                  - "s3:DeleteObject"
+                Resource:
+                  - Fn::Sub:
+                      - "arn:\${AWS::Partition}:s3:::\${bucketName}"
+                      - bucketName:
+                          Fn::ImportValue: !Sub "\${ParentBucketStack}-AthenaDataBucket"
+                  - Fn::Sub:
+                      - "arn:\${AWS::Partition}:s3:::\${bucketName}/*"
+                      - bucketName:
+                          Fn::ImportValue: !Sub "\${ParentBucketStack}-AthenaDataBucket"
+        - PolicyName: "EC2"
+          PolicyDocument:
+            Statement:
+              - Effect: "Allow"
+                Action:
+                  - "ec2:CreateNetworkInterface"
+                  - "ec2:DeleteNetworkInterface"
+                  - "ec2:DescribeNetworkInterfaces"
+                  - "ec2:DetachNetworkInterface"
+                Resource: !Sub "arn:\${AWS::Partition}:ec2:\${AWS::Region}:\${AWS::AccountId}:*"
+        - PolicyName: "KMS"
+          PolicyDocument:
+            Statement:
+              - Action:
+                  - "kms:Encrypt"
+                  - "kms:Decrypt"
+                  - "kms:DescribeKey"
+                  - "kms:Generate*"
+                Effect: "Allow"
+                Resource:
+                  - !Sub
+                    - "arn:\${AWS::Partition}:kms:\${AWS::Region}:\${AWS::AccountId}:key/\${KeyName}"
+                    - KeyName:
+                        Fn::ImportValue: !Sub "\${ParentBucketStack}-AthenaDataBucketKey"
+                  - !Sub
+                    - "arn:\${AWS::Partition}:kms:\${AWS::Region}:\${AWS::AccountId}:key/\${KeyName}"
+                    - KeyName:
+                        Fn::ImportValue: !Sub "\${ParentDataStack}-SecretKey"
+  QueryAthenaManagedPolicy:
+    Type: "AWS::IAM::ManagedPolicy"
+    Properties:
+      Description: Policy for querying Athena and accessing the output
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Sid: "S3forAthena"
+            Action:
+              - "s3:GetBucketLocation"
+              - "s3:ListBucket"
+              - "s3:ListBucketMultipartUploads"
+              - "s3:AbortMultipartUpload"
+              - "s3:PutObject"
+              - "s3:ListMultipartUploadParts"
+            Effect: "Allow"
+            Resource:
+              - !Sub
+                - "arn:\${AWS::Partition}:s3:::\${BucketName}"
+                - BucketName:
+                    Fn::ImportValue: !Sub "\${ParentBucketStack}-AthenaDataBucket"
+              - !Sub
+                - "arn:\${AWS::Partition}:s3:::\${BucketName}/athena/*"
+                - BucketName:
+                    Fn::ImportValue: !Sub "\${ParentBucketStack}-AthenaDataBucket"
+          - Sid: "S3forUser"
+            Action:
+              - s3:GetObject
+            Effect: "Allow"
+            Resource:
+              - !Sub
+                - "arn:\${AWS::Partition}:s3:::\${BucketName}/athena/*"
+                - BucketName:
+                    Fn::ImportValue: !Sub "\${ParentBucketStack}-AthenaDataBucket"
+          - Sid: "KMS"
+            Action:
+              - "kms:Encrypt"
+              - "kms:Decrypt"
+              - "kms:GenerateDataKey"
+            Effect: "Allow"
+            Resource:
+              - !Sub
+                - "arn:\${AWS::Partition}:kms:\${AWS::Region}:\${AWS::AccountId}:key/\${KeyName}"
+                - KeyName:
+                    Fn::ImportValue: !Sub "\${ParentBucketStack}-AthenaDataBucketKey"
+          - Sid: "Athena"
+            Action:
+              - "athena:CreateNamedQuery"
+              - "athena:UpdateNamedQuery"
+              - "athena:DeleteNamedQuery"
+              - "athena:CreatePreparedStatement"
+              - "athena:UpdatePreparedStatement"
+              - "athena:DeletePreparedStatement"
+              - "athena:Get*"
+              - "athena:Batch*"
+              - "athena:List*"
+              - "athena:StartQueryExecution"
+              - "athena:StopQueryExecution"
+            Effect: "Allow"
+            Resource:
+              - !Sub "arn:\${AWS::Partition}:athena:\${AWS::Region}:\${AWS::AccountId}:*"
+          - Sid: "AthenaListDataCatalogs"
+            Action:
+              - "athena:ListDataCatalogs"
+              - "athena:ListWorkGroups"
+              - "athena:ListEngineVersions"
+            Effect: Allow
+            Resource: "*"
+          - Sid: "Lambda"
+            Action:
+              - "lambda:InvokeFunction"
+            Effect: "Allow"
+            Resource:
+              - !GetAtt AthenaPostgreSQLConnector.Arn
+          - Sid: Glue
+            Action:
+              - glue:GetDatabase
+            Effect: Allow
+            Resource: !Sub "arn:\${AWS::Partition}:glue:\${AWS::Region}:\${AWS::AccountId}:database/*"
+    Metadata:
+      cfn_nag:
+        rules_to_suppress:
+          - id: W13
+            reason: "athena:ListDataCatalogs does not work with ARN like arn:\${AWS::Partition}:athena:\${AWS::Region}:\${AWS::AccountId}:* when connecting with Tableau"
+  VPCESecurityGroup:
+    Type: "AWS::EC2::SecurityGroup"
+    Properties:
+      GroupDescription: !Sub "\${AWS::StackName} VPC Endpoint(s) security group"
+      VpcId:
+        Fn::ImportValue: !Sub "\${ParentVPCStack}-VPC"
+    Metadata:
+      cfn_nag:
+        rules_to_suppress:
+          - id: W29
+            reason: Outbound connections are unrestricted
+          - id: W5
+            reason: Outbound connections are unrestricted
+  VPCESecurityGroupIngress:
+    Type: "AWS::EC2::SecurityGroupIngress"
+    Properties:
+      GroupId: !Ref VPCESecurityGroup
+      IpProtocol: tcp
+      FromPort: 443
+      ToPort: 443
+      SourceSecurityGroupId:
+        Fn::ImportValue: !Sub "\${ParentDataStack}-LambdaSecurityGroup"
+      Description: !Join
+        - "-"
+        - - "sf"
+          - "vpce"
+          - !Ref InstallationId
+  VPCESecurityGroupEgress:
+    Type: AWS::EC2::SecurityGroupEgress
+    Properties:
+      GroupId: !Ref VPCESecurityGroup
+      IpProtocol: tcp
+      FromPort: 0
+      ToPort: 65535
+      CidrIp: 0.0.0.0/0
+      Description: !Join
+        - "-"
+        - - "sf"
+          - "vpce"
+          - !Ref InstallationId
+  LambdaToSecretsManagerEndpoint:
+    Type: AWS::EC2::VPCEndpoint
+    Properties:
+      PrivateDnsEnabled: true
+      SecurityGroupIds:
+        - !Ref VPCESecurityGroup
+      ServiceName: !Sub "com.amazonaws.\${AWS::Region}.secretsmanager"
+      SubnetIds:
+        Fn::Split:
+          - ","
+          - Fn::ImportValue: !Sub "\${ParentVPCStack}-Subnets"
+      VpcEndpointType: Interface
+      VpcId:
+        Fn::ImportValue: !Sub "\${ParentVPCStack}-VPC"
+  LambdaToS3Endpoint:
+    Type: AWS::EC2::VPCEndpoint
+    Properties:
+      ServiceName: !Sub "com.amazonaws.\${AWS::Region}.s3"
+      VpcEndpointType: Gateway
+      RouteTableIds:
+        Fn::Split:
+          - ","
+          - Fn::ImportValue: !Sub "\${ParentVPCStack}-RouteTables"
+      VpcId:
+        Fn::ImportValue: !Sub "\${ParentVPCStack}-VPC"
+  LambdaDynamicEnvFunction:
+    Type: "AWS::Lambda::Function"
+    Properties:
+      Code:
+        S3Bucket:
+          Fn::ImportValue: !Sub "\${ParentBucketStack}-AssetsBucket"
+        S3Key: !Ref CustomResourcesAssetZip
+      Runtime: nodejs14.x
+      Role: !GetAtt LambdaDynamicEnvRole.Arn
+      Handler: dist/lambdaDynamicEnv.handler
+      Description: "Dynamically creates environment variable names for a Lambda function"
+      FunctionName: !Join
+        - "_"
+        - - "sf"
+          - "dynamic_env"
+          - !Ref InstallationId
+    Metadata:
+      cfn_nag:
+        rules_to_suppress:
+          - id: W89
+            reason: Deploying inside of a VPC would require VPC Endpoints to talk to AWS which would incur more monthly cost
+          - id: W92
+            reason: Not using ReservedConcurrentExecutions because this is only executed once, so unreserved concurrency should be used
+          - id: W58
+            reason: Permissions to write logs is in managed policy
+  LambdaDynamicEnvRole:
+    Type: "AWS::IAM::Role"
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: "Allow"
+            Principal:
+              Service: "lambda.amazonaws.com"
+            Action: "sts:AssumeRole"
+      ManagedPolicyArns:
+        - Fn::ImportValue: !Sub "\${ParentVPCStack}-LambdaManagedPolicy"
+      Policies:
+        - PolicyName: "LambdaUpdateAccess"
+          PolicyDocument:
+            Statement:
+              - Action:
+                  - "lambda:GetFunctionConfiguration"
+                  - "lambda:UpdateFunctionConfiguration"
+                Effect: "Allow"
+                Resource: !GetAtt AthenaPostgreSQLConnector.Arn
+  LambdaDynamicEnvCustomResource:
+    Condition: IsLambdaDynamicEnvOn
+    Type: "Custom::LambdaDynamicEnv"
+    DependsOn: AthenaPostgreSQLConnector
+    Properties:
+      ServiceToken: !GetAtt
+        - LambdaDynamicEnvFunction
+        - Arn
+      Region: !Ref "AWS::Region"
+      # <WorkgroupName>_connection_string
+      SetKeyAs: !Join
+        - "_"
+        - - !Ref AthenaDataCatalog
+          - "connection_string"
+      CopyValueFrom: "default"
+      LambdaFunctionName: !Ref AthenaPostgreSQLConnector
+  AthenaPrimaryWorkGroup:
+    Type: AWS::Athena::WorkGroup
+    DeletionPolicy: Delete
+    Properties:
+      Name: !Join
+        - "-"
+        - - "sf"
+          - "workgroup"
+          - !Ref InstallationId
+      State: ENABLED
+      WorkGroupConfiguration:
+        BytesScannedCutoffPerQuery: !Ref MaximumAthenaCostPerQueryInBytes
+        EnforceWorkGroupConfiguration: true
+        PublishCloudWatchMetricsEnabled: true
+        RequesterPaysEnabled: false
+        ResultConfiguration:
+          EncryptionConfiguration:
+            EncryptionOption: SSE_KMS
+            KmsKey:
+              Fn::ImportValue: !Sub "\${ParentBucketStack}-AthenaDataBucketKey"
+          OutputLocation: !Join
+            - ""
+            - - "s3://"
+              - Fn::ImportValue: !Sub "\${ParentBucketStack}-AthenaDataBucket"
+              - "/athena/output/"
+      WorkGroupConfigurationUpdates:
+        BytesScannedCutoffPerQuery: !Ref MaximumAthenaCostPerQueryInBytes
+        EnforceWorkGroupConfiguration: true
+        PublishCloudWatchMetricsEnabled: true
+        RequesterPaysEnabled: false
+        ResultConfigurationUpdates:
+          EncryptionConfiguration:
+            EncryptionOption: SSE_KMS
+            KmsKey:
+              Fn::ImportValue: !Sub "\${ParentBucketStack}-AthenaDataBucketKey"
+          OutputLocation: !Join
+            - ""
+            - - "s3://"
+              - Fn::ImportValue: !Sub "\${ParentBucketStack}-AthenaDataBucket"
+              - "/athena/output/"
+  AthenaDataCatalog:
+    Type: AWS::Athena::DataCatalog
+    DeletionPolicy: Delete
+    Properties:
+      Description: "Salesforce data catalog for current and historical data"
+      Name: !Join
+        - "_"
+        - - "sf"
+          - "data"
+          - !Ref InstallationId
+      Type: "LAMBDA"
+      Parameters:
+        function: !Sub
+          - "arn:\${AWS::Partition}:lambda:\${AWS::Region}:\${AWS::AccountId}:function:\${LambdaName}"
+          - LambdaName: !Join
+              - "_"
+              - - "sf"
+                - "athena_rds"
+                - !Ref InstallationId
+Outputs:
+  StackName:
+    Description: "Stack name."
+    Value: !Sub "\${AWS::StackName}"
+  QueryAthenaManagedPolicy:
+    Description: "A managed policy which can be used to create users or roles which can access the data within RDS via Athena."
+    Value: !Ref QueryAthenaManagedPolicy
+    Export:
+      Name: !Sub "\${AWS::StackName}-QueryAthenaManagedPolicy"
+  AthenaPrimaryWorkGroup:
+    Description: "The Athena workgroup to use for this system"
+    Value: !Ref AthenaPrimaryWorkGroup
+    Export:
+      Name: !Sub "\${AWS::StackName}-AthenaPrimaryWorkGroup"
+  AthenaDataCatalog:
+    Description: "The Athena data catalog to use for this system"
+    Value: !Ref AthenaDataCatalog
+    Export:
+      Name: !Sub "\${AWS::StackName}-AthenaDataCatalog"
+  AthenaOutput:
+    Description: "The S3 location for where output from Athena comes out"
+    Value: !Join
+      - ""
+      - - "s3://"
+        - Fn::ImportValue: !Sub "\${ParentBucketStack}-AthenaDataBucket"
+        - "/athena/output/"
+    Export:
+      Name: !Sub "\${AWS::StackName}-AthenaOutput"
+`

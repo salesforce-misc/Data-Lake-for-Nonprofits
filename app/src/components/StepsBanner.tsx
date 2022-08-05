@@ -1,11 +1,15 @@
-import { FC } from "react";
+import React from "react";
 import { Box, Container } from "@chakra-ui/react";
 import { observer } from "mobx-react";
 
-import { StepsIndicator } from "./StepsIndicator";
-import { useColorScheme } from "../models/useColorScheme";
+import { StepsIndicator } from "components/StepsIndicator";
+import { useColorScheme } from "models/useColorScheme";
 
-export const StepsBanner: FC<{ current: number }> = observer(({ current }) => {
+interface IStepsBanner {
+  current: number;
+}
+
+export const StepsBanner = observer(({ current }: IStepsBanner) => {
   const { tone } = useColorScheme();
 
   return (

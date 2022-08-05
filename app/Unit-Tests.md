@@ -183,12 +183,17 @@ Following modules are being mocked here.
 ### RetryErrorPanel
 
 - snapshot
-- rende properly
+- render properly
 
 ### StepsBanner
 
+- snapshot
+- render properly
+
 ### StepsIndicator
 
+- snapshot
+- render properly
 ### TimeAgo
 
 ### TimeInput

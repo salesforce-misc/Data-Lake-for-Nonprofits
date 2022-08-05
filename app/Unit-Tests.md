@@ -207,6 +207,11 @@ Following modules are being mocked here.
 
 ### Home Page
 
+#### StepBox component
+
+- snapshot
+- render properly
+
 ### Step1 Page
 
 #### CredentialsError

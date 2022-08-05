@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StepBox component snapshot 1`] = `
+Array [
+  <div
+    className="css-11ew3nf"
+  >
+    <div
+      className="css-7628p4"
+    >
+      <div
+        className="css-1g7wgva"
+      >
+        <span
+          className="css-wr7jay"
+        >
+          1
+        </span>
+      </div>
+      <div
+        className="css-pfuu37"
+      >
+        Connect to your AWS account
+      </div>
+      <div
+        className="css-1pip4vl"
+      >
+        We need your AWS admin credentials.
+      </div>
+    </div>
+  </div>,
+  <span />,
+]
+`;

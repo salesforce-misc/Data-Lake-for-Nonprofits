@@ -201,6 +201,8 @@ Following modules are being mocked here.
 
 ### TimeInput
 
+- snapshot
+
 ## Pages
 
 ### Home Page

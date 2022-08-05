@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TimeInput component snapshot 1`] = `
+Array [
+  <div
+    className="chakra-stack css-u0e03c"
+  >
+    <div
+      className="chakra-stack css-jp20jv"
+    >
+      <input
+        className="chakra-input css-49q6up"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        placeholder="hh"
+        value="12"
+      />
+      <p
+        className="chakra-text css-dw5ttn"
+      >
+        hour
+      </p>
+    </div>
+    <p
+      className="chakra-text css-0"
+    >
+      :
+    </p>
+    <div
+      className="chakra-stack css-z58je"
+    >
+      <input
+        className="chakra-input css-49q6up"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        placeholder="mm"
+        value="15"
+      />
+      <p
+        className="chakra-text css-dw5ttn"
+      >
+        minute
+      </p>
+    </div>
+    <p
+      className="chakra-text css-1b4xkmm"
+    >
+      UTC
+    </p>
+  </div>,
+  <span />,
+]
+`;

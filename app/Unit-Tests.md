@@ -196,6 +196,9 @@ Following modules are being mocked here.
 - render properly
 ### TimeAgo
 
+- snapshot
+- render properly
+
 ### TimeInput
 
 ## Pages

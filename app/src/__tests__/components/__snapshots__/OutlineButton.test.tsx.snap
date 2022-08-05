@@ -1,12 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Markdown component snapshot 1`] = `
-Array [
-  "test-content",
-  <span />,
-]
-`;
-
 exports[`OutlineButton component snapshot 1`] = `
 Array [
   <button

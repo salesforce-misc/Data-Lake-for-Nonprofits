@@ -212,6 +212,11 @@ Following modules are being mocked here.
 - snapshot
 - render properly
 
+#### ResumePanel component
+
+- snapshot
+- render properly
+
 ### Step1 Page
 
 #### CredentialsError

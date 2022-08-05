@@ -3,12 +3,13 @@ import { Box, Heading, Text } from "@chakra-ui/react";
 import { GiPlug } from "react-icons/gi";
 import { observer } from "mobx-react";
 
-import { OutlineButton } from "components/OutlineButton";
-import { DetectedInstallationSelections } from "routes/home/DetectedInstallationSelections";
-import { useDetectedInstallationStore } from "models/DetectedInstallationsStore";
 import { useStore } from "AppContext";
+import { OutlineButton } from "components/OutlineButton";
+import { useDetectedInstallationStore } from "models/DetectedInstallationsStore";
 import { IDetectedInstallation } from "models/helpers/DetectedInstallation";
+
 import { CredentialsCollectionForm } from "routes/step1/CredentialsCollectionForm";
+import { DetectedInstallationSelections } from "routes/home/DetectedInstallationSelections";
 
 export const ResumePanel = observer(() => {
   const [collectCredentials, setCollectCredentials] = React.useState(false);

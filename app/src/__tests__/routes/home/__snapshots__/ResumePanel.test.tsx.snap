@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ResumePanel component snapshot 1`] = `
+Array [
+  <div
+    className="css-5f40t2"
+  >
+    <div
+      className="css-0"
+    >
+      <h2
+        className="chakra-heading css-5lipfx"
+      >
+        Resume
+      </h2>
+    </div>
+    <p
+      className="chakra-text css-tvzngu"
+    >
+      If you have already created a datalake using the EZ Data Lake app and would like to view or resume its setup, we got you covered. Click the button to reconnect to an existing datalake, we will ask you for your AWS admin credentials so that we can detect the existing datalake setup.
+    </p>
+    <div
+      className="css-18022i5"
+    >
+      <button
+        className="chakra-button css-1bex62d"
+        onClick={[Function]}
+        type="button"
+      >
+        Resume
+        <span
+          className="chakra-button__icon css-1hzyiq5"
+        >
+          <svg
+            aria-hidden={true}
+            fill="currentColor"
+            focusable={false}
+            height="1em"
+            stroke="currentColor"
+            strokeWidth="0"
+            style={
+              Object {
+                "color": undefined,
+              }
+            }
+            viewBox="0 0 512 512"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M382.957 22.023c-2.618.033-5.138.96-7.26 3.082l-67.88 67.883 22.627 22.627 67.882-67.883c5.657-5.657 2.83-14.142-2.828-19.8-3.535-3.534-8.177-5.964-12.54-5.91zm-131.71 37.023l-21.92 21.92 203.648 203.647 21.92-21.92-11.315-11.315L262.56 70.36 251.25 59.047zm-23.335 45.96l-55.86 55.863v90.508l-22.628 22.63c-11.314 11.313-11.315 33.94.092 45.347l45.164 45.162c11.314 11.314 33.94 11.314 45.254 0l22.627-22.63h90.51l55.862-55.86-181.02-181.02zm245.555 7.527c-2.62.033-5.138.96-7.26 3.082l-67.88 67.883 22.626 22.626 67.883-67.882c5.657-5.657 2.83-14.142-2.828-19.8-3.536-3.535-8.177-5.965-12.54-5.91zM148.08 349.25l-128 128 12.727 12.728 128-128-12.727-12.727z"
+            />
+          </svg>
+        </span>
+      </button>
+    </div>
+  </div>,
+  <span />,
+]
+`;

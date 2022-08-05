@@ -3,9 +3,7 @@ import { create } from "react-test-renderer";
 
 import { render, RenderWithChakra } from "test-utils";
 
-import { TimeInput } from "components/TimeInput";
 import { StepBox } from "routes/home/StepBox";
-import { steps } from "routes/home/Steps";
 
 describe("StepBox component", () => {
   afterEach(cleanup);

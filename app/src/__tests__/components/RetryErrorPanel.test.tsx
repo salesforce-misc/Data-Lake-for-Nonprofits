@@ -3,8 +3,6 @@ import { create } from "react-test-renderer";
 
 import { render, RenderWithChakra } from "test-utils";
 
-import { Markdown } from "components/Markdown";
-import { PaginationButtons } from "components/PaginationButtons";
 import { RetryErrorPanel } from "components/RetryErrorPanel";
 
 describe("RetryErrorPanel component", () => {

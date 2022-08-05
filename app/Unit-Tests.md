@@ -12,6 +12,11 @@ Following modules are being mocked here.
 - react-markdown
 - remark-gfm
 
+## AppContext
+
+- useStore hook
+- useInstallation hook
+
 ## Models
 
 ### Field Model

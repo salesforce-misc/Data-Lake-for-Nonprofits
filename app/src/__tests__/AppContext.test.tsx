@@ -1,5 +1,5 @@
 import { cleanup, render, screen } from "@testing-library/react";
-import { initializeStore, StoreProvider, useStore } from "AppContext";
+import { initializeStore, StoreProvider, useInstallation, useStore } from "AppContext";
 
 describe("AppContext", () => {
   beforeEach(() => {

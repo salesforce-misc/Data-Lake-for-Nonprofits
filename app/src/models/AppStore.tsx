@@ -19,6 +19,7 @@ export const AppStore = types
   .views((self) => ({
     get completedStep1() {
       if (!self.installation) return false;
+      
       return isCompleted(self.installation.connectToAwsStep);
     },
   }))

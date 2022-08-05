@@ -1,5 +1,6 @@
 import React from "react";
 import { Box, Grid, GridItem, Tag } from "@chakra-ui/react";
+
 import { TStepInfo } from "routes/home/Steps";
 
 interface IStepBox {

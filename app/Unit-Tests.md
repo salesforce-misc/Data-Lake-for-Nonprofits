@@ -182,6 +182,9 @@ Following modules are being mocked here.
 
 ### RetryErrorPanel
 
+- snapshot
+- rende properly
+
 ### StepsBanner
 
 ### StepsIndicator

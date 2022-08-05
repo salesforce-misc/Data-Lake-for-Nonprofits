@@ -1,18 +1,18 @@
-import { FC } from "react";
+import React from "react";
 import { Button, ButtonProps, useTheme } from "@chakra-ui/react";
-
-interface OutlineButtonProps extends ButtonProps {
-  selected?: boolean;
-}
 
 /**
  * A Button with an outline that uses the color ranges that we need
  */
-export const OutlineButton: FC<OutlineButtonProps> = ({ selected = false, ...props }) => {
+interface IOutlineButton extends ButtonProps {
+  selected?: boolean;
+}
+
+export const OutlineButton = ({ selected = false, ...props }: IOutlineButton) => {
   const theme = useTheme();
   const outline = theme.outlineButton;
 
-  const allProps: OutlineButtonProps = {
+  const allProps: IOutlineButton = {
     colorScheme: outline.scheme,
     size: "md",
     variant: "outline",

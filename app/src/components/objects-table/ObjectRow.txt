@@ -5,11 +5,30 @@ import { render, RenderWithChakra } from "test-utils";
 
 import { SFObject } from "models/helpers/SFObject";
 
-import { EmptyMessage } from "components/objects-table/EmptyMessage";
-import { ObjectsViewOptions } from "models/useObjectsTable";
 import { ObjectRow } from "components/objects-table/ObjectRow";
+import { AppStore } from "models/AppStore";
+import { initializeStore } from "AppContext";
+
+// import * as metadataStoreHooks from "models/MetadataStore";
 
 describe("ObjectRow component", () => {
+  beforeEach(() => {
+    const appStore = AppStore.create({});
+    const installation = appStore.newInstallation();
+    appStore.setInstallation(installation);
+
+    initializeStore();
+
+    // jest.spyOn(metadataStoreHooks, "useMetadataStore").mockImplementation(() => ({
+    //   isError: false,
+    //   isReady: false,
+    //   store: installation.metadataStore,
+    // }));
+    // jest.spyOn(installationHooks, "useInstallation").mockImplementation(() => {
+    //   return installation;
+    // });
+  });
+
   afterEach(cleanup);
 
   test("snapshot", () => {
@@ -29,40 +48,5 @@ describe("ObjectRow component", () => {
     ).toJSON();
 
     expect(tree).toMatchSnapshot();
-  });
-
-  test("render null if objects prop is not empty", () => {
-    const testDiv = document.createElement("div");
-    testDiv.id = "root";
-
-    const sfModel = SFObject.create({
-      name: "TestField",
-      label: "Test Field",
-      fields: {},
-      fieldsLoaded: false,
-      selected: false,
-      stale: false,
-    });
-
-    render(<EmptyMessage objects={[sfModel]} viewOption={ObjectsViewOptions.All} searchText="" />, {
-      container: document.body.appendChild(testDiv),
-    });
-
-    // eslint-disable-next-line testing-library/no-node-access
-    expect(document.getElementById("root")).toBeInTheDocument();
-    // eslint-disable-next-line testing-library/no-node-access
-    expect(document.getElementById("root")).toHaveTextContent("");
-  });
-
-  test("render no mathces are found if search text is not empty", () => {
-    render(<EmptyMessage objects={[]} viewOption={ObjectsViewOptions.All} searchText="test-search-text" />);
-
-    expect(screen.getByText(/no matches are found/i)).toBeInTheDocument();
-  });
-
-  test("render no objects are found", () => {
-    render(<EmptyMessage objects={[]} viewOption={ObjectsViewOptions.All} searchText="" />);
-
-    expect(screen.getByText(/no objects are found/i)).toBeInTheDocument();
   });
 });

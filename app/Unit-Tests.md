@@ -178,6 +178,8 @@ Following modules are being mocked here.
 
 ### OutlineButton
 
+- snapshot
+
 ### PaginationButtons
 
 ### RetryErrorPanel

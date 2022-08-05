@@ -1,4 +1,5 @@
 import { cleanup, render, screen } from "@testing-library/react";
+
 import { initializeStore, StoreProvider, useInstallation, useStore } from "AppContext";
 import { AppStore } from "models/AppStore";
 
@@ -7,10 +8,10 @@ describe("AppContext", () => {
     const appStore = AppStore.create({});
     const installation = appStore.newInstallation();
     appStore.setInstallation(installation);
-    
+
     initializeStore();
   });
-  
+
   afterEach(cleanup);
 
   test("useStore hook", () => {

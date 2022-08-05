@@ -3,6 +3,10 @@ import { render, RenderOptions } from "@testing-library/react";
 import { ChakraProvider } from "@chakra-ui/react";
 
 import { theme } from "themes/orange";
+import { AppStore } from "models/AppStore";
+import { initializeStore } from "AppContext";
+
+export const RenderWithChakra = ({ children }: { children: React.ReactNode }) => <ChakraProvider theme={theme}>{children}</ChakraProvider>;
 
 const CustomProvider = ({ children }: { children: React.ReactNode }) => {
   return <ChakraProvider theme={theme}>{children}</ChakraProvider>;
@@ -13,5 +17,3 @@ const customRender = (ui: React.ReactElement, options?: Omit<RenderOptions, "wra
 export * from "@testing-library/react";
 
 export { customRender as render };
-
-export const RenderWithChakra = ({ children }: { children: React.ReactNode }) => <ChakraProvider theme={theme}>{children}</ChakraProvider>;

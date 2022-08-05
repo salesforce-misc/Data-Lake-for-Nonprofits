@@ -1,3 +1,4 @@
+// Deprecated
 import React from "react";
 import { Box, Flex, IconButton, Text } from "@chakra-ui/react";
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";

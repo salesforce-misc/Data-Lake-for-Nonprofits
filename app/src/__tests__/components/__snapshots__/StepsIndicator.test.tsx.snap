@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StepsIndicator component snapshot 1`] = `
+Array [
+  <div
+    className="chakra-stack css-84zodg"
+  >
+    <span
+      className="css-9xsoz7"
+    >
+      0
+    </span>
+    <span
+      className="css-hfqsm"
+    >
+      1
+    </span>
+    <span
+      className="css-ulmpab"
+    >
+      2
+    </span>
+    <span
+      className="css-ulmpab"
+    >
+      3
+    </span>
+    <span
+      className="css-ulmpab"
+    >
+      4
+    </span>
+    <span
+      className="css-ulmpab"
+    >
+      5
+    </span>
+  </div>,
+  <span />,
+]
+`;

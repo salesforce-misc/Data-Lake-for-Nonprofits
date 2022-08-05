@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RetryErrorPanel component snapshot 1`] = `
+Array [
+  <div
+    className="chakra-alert css-1tw40yj"
+    role="alert"
+  >
+    <span
+      className="chakra-alert__icon css-h3n5qb"
+    >
+      <svg
+        className="chakra-icon css-fi0ww0"
+        focusable={false}
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M11.983,0a12.206,12.206,0,0,0-8.51,3.653A11.8,11.8,0,0,0,0,12.207,11.779,11.779,0,0,0,11.8,24h.214A12.111,12.111,0,0,0,24,11.791h0A11.766,11.766,0,0,0,11.983,0ZM10.5,16.542a1.476,1.476,0,0,1,1.449-1.53h.027a1.527,1.527,0,0,1,1.523,1.47,1.475,1.475,0,0,1-1.449,1.53h-.027A1.529,1.529,0,0,1,10.5,16.542ZM11,12.5v-6a1,1,0,0,1,2,0v6a1,1,0,1,1-2,0Z"
+          fill="currentColor"
+        />
+      </svg>
+    </span>
+    <div
+      className="css-0"
+    >
+      <div
+        className="css-0"
+      >
+        An error occurred!
+      </div>
+      <div
+        className="css-9o3y5k"
+      >
+        <div
+          className="css-0"
+        />
+        <button
+          className="chakra-button css-ybbvti"
+          onClick={[Function]}
+          type="button"
+        >
+          Try Again
+        </button>
+      </div>
+    </div>
+  </div>,
+  <span />,
+]
+`;

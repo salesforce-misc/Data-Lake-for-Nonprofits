@@ -180,8 +180,6 @@ Following modules are being mocked here.
 
 - snapshot
 
-### PaginationButtons
-
 ### RetryErrorPanel
 
 ### StepsBanner

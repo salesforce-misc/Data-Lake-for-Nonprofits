@@ -2,27 +2,27 @@ import isEmpty from "lodash/isEmpty";
 import uniq from "lodash/uniq";
 import { types, Instance, getParent } from "mobx-state-tree";
 
-import { genId } from "../helpers/id-gen";
-import { MetadataStore } from "./MetadataStore";
-import { ConnectionsStore } from "./ConnectionsStore";
-import { ConnectToAWS } from "./steps/ConnectToAWS";
-import { ConnectToSalesforce } from "./steps/ConnectToSalesforce";
-import { ImportOptionsStep } from "./steps/ImportOptionsStep";
-import { ICredentials } from "./helpers/Credentials";
-import { IAppStore } from "./AppStore";
-import { SequentialOperations } from "./operations/SequentialOperations";
-import { BaseStep, IBaseStep, StepStatus } from "./steps/BaseStep";
-import { OperationContext } from "./operations/utils";
-import { ProvisionBucketsStack } from "./operations/ProvisionBucketsStack";
-import { ProvisionVpcStack } from "./operations/ProvisionVpcStack";
-import { ProvisionDatastoreStack } from "./operations/ProvisionDatastoreStack";
-import { ProvisionAthenaStack } from "./operations/ProvisionAthenaStack";
-import { ProvisionStepFnStack } from "./operations/ProvisionStepFnStack";
-import { UploadSchema } from "./operations/UploadSchema";
-import { StartImport } from "./operations/StartImport";
-import { ProvisionMethod } from "./operations/ProvisionStack";
-import { ImportStatusStore } from "./ImportStatusStore";
-import { PutDashboard } from "./operations/PutDashboard";
+import { genId } from "helpers/id-gen";
+import { MetadataStore } from "models/MetadataStore";
+import { ConnectionsStore } from "models/ConnectionsStore";
+import { ConnectToAWS } from "models/steps/ConnectToAWS";
+import { ConnectToSalesforce } from "models/steps/ConnectToSalesforce";
+import { ImportOptionsStep } from "models/steps/ImportOptionsStep";
+import { ICredentials } from "models/helpers/Credentials";
+import { IAppStore } from "models/AppStore";
+import { SequentialOperations } from "models/operations/SequentialOperations";
+import { BaseStep, IBaseStep, StepStatus } from "models/steps/BaseStep";
+import { OperationContext } from "models/operations/utils";
+import { ProvisionBucketsStack } from "models/operations/ProvisionBucketsStack";
+import { ProvisionVpcStack } from "models/operations/ProvisionVpcStack";
+import { ProvisionDatastoreStack } from "models/operations/ProvisionDatastoreStack";
+import { ProvisionAthenaStack } from "models/operations/ProvisionAthenaStack";
+import { ProvisionStepFnStack } from "models/operations/ProvisionStepFnStack";
+import { UploadSchema } from "models/operations/UploadSchema";
+import { StartImport } from "models/operations/StartImport";
+import { ProvisionMethod } from "models/operations/ProvisionStack";
+import { ImportStatusStore } from "models/ImportStatusStore";
+import { PutDashboard } from "models/operations/PutDashboard";
 
 export const isCompleted = (step: IBaseStep) => step.status === StepStatus.Completed;
 export const BucketsStackNamePrefix = "sforg-buckets-";
@@ -61,10 +61,10 @@ export const Installation = types
     deploymentStep: types.optional(BaseStep, {}),
     createUsersStep: types.optional(BaseStep, {}),
 
-    metadataStore: types.optional(MetadataStore, {}),
     connectionsStore: types.optional(ConnectionsStore, {}),
     deploymentOperations: types.optional(SequentialOperations, {}),
     importStatusStore: types.optional(ImportStatusStore, {}),
+    metadataStore: types.optional(MetadataStore, {}),
   })
   .actions(() => ({
     // We need this, see https://github.com/mobxjs/mobx-state-tree/issues/915

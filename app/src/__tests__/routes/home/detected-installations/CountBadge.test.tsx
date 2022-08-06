@@ -42,7 +42,7 @@ describe("DetectedInstallations -> CountBadge component", () => {
       </StoreProvider>
     );
 
-    expect(screen.findAllByRole("body")).toBeTruthy();
+    expect(screen.findByRole("body")).toBeTruthy();
   });
 
   test("render properly with installations", () => {

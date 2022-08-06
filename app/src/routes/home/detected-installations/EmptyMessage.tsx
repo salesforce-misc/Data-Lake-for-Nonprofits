@@ -12,6 +12,8 @@ interface IEmptyMessage {
 export const EmptyMessage = observer(({ onCancel }: IEmptyMessage) => {
   const { tone, colorScheme } = useColorScheme();
   const { store, isError, isLoading, isReloading, isReady } = useDetectedInstallationStore();
+
+  console.log(store);
   if (isError || isLoading || isReloading || !isReady) return null;
   if (!store.empty) return null;
 

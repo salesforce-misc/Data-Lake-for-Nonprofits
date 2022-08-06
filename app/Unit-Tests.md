@@ -223,9 +223,15 @@ Following modules are being mocked here.
 
 - snapshot
 - render properly with no installation
-- render properly with installations
 
 ##### EmptyMessage
+- snapshot
+- render properly with an error
+- render properly with installations
+- render properly with reloading
+- render properly with not ready
+- render properly with empty store
+- render properly with empty message
 
 ##### ErrorPanel
 

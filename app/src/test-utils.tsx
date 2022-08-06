@@ -3,8 +3,6 @@ import { render, RenderOptions } from "@testing-library/react";
 import { ChakraProvider } from "@chakra-ui/react";
 
 import { theme } from "themes/orange";
-import { AppStore } from "models/AppStore";
-import { initializeStore } from "AppContext";
 
 export const RenderWithChakra = ({ children }: { children: React.ReactNode }) => <ChakraProvider theme={theme}>{children}</ChakraProvider>;
 

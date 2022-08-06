@@ -13,11 +13,12 @@ import { describeStack } from "api/describe-stack";
 import { s3GetJson } from "api/s3-get-json";
 import { awsRegions } from "data/aws-regions";
 
-import { BaseStore, isStoreError, isStoreLoading, isStoreReady, isStoreReLoading } from "models/BaseStore";
+import { BaseStore } from "models/BaseStore";
 import { Credentials, ICredentials } from "models/helpers/Credentials";
 import { BucketsStackNamePrefix } from "models/Installation";
 import { getOutputValue, getParamValue } from "models/operations/utils";
 import { DetectedInstallation, IDetectedInstallation } from "models/helpers/DetectedInstallation";
+
 interface IDetectionInfo {
   id: string;
   installationJson?: IInstallationJson;
@@ -154,16 +155,3 @@ export const DetectedInstallationStore = BaseStore.named("DetectedInstallationSt
 
 // see https://mobx-state-tree.js.org/tips/typescript
 export interface IDetectedInstallationStore extends Instance<typeof DetectedInstallationStore> {}
-
-// Create an instance of this store
-const store = DetectedInstallationStore.create({});
-
-export function useDetectedInstallationStore() {
-  return {
-    isError: isStoreError(store),
-    isReady: isStoreReady(store),
-    isLoading: isStoreLoading(store),
-    isReloading: isStoreReLoading(store),
-    store,
-  };
-}

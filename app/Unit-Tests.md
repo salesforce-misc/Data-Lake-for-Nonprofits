@@ -221,6 +221,10 @@ Following modules are being mocked here.
 
 ##### CountBadge
 
+- snapshot
+- render properly with no installation
+- render properly with installations
+
 ##### EmptyMessage
 
 ##### ErrorPanel

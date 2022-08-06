@@ -217,6 +217,20 @@ Following modules are being mocked here.
 - snapshot
 - render properly
 
+#### Detected Installations
+
+##### CountBadge
+
+##### EmptyMessage
+
+##### ErrorPanel
+
+##### ListingPanel
+
+##### ProgressPanel
+##### Row
+
+
 ### Step1 Page
 
 #### CredentialsError

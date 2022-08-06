@@ -9,7 +9,7 @@ import { useDetectedInstallationStore } from "models/DetectedInstallationsStore"
 import { IDetectedInstallation } from "models/helpers/DetectedInstallation";
 
 import { CredentialsCollectionForm } from "routes/step1/CredentialsCollectionForm";
-import { DetectedInstallationSelections } from "routes/home/DetectedInstallationSelections";
+import { DetectedInstallations } from "routes/home/detected-installations/DetectedInstallations";
 
 export const ResumePanel = observer(() => {
   const [collectCredentials, setCollectCredentials] = React.useState(false);
@@ -38,7 +38,7 @@ export const ResumePanel = observer(() => {
     <>
       {credentialsAvailable && (
         <Box boxShadow="base" borderRadius="lg" bg="orange.50" p={6} mt="40px">
-          <DetectedInstallationSelections onCancel={handleCancel} onResume={handleResume} />
+          <DetectedInstallations onCancel={handleCancel} onResume={handleResume} />
         </Box>
       )}
       {!credentialsAvailable && (

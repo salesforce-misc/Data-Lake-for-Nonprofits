@@ -2,7 +2,7 @@ import React from "react";
 import { Box, Heading } from "@chakra-ui/react";
 import { observer } from "mobx-react";
 
-import { useDetectedInstallationStore } from "models/DetectedInstallationsStore";
+import { useDetectedInstallationStore } from "models/useDetectedInstallationStore";
 import { useColorScheme } from "models/useColorScheme";
 import { IDetectedInstallation } from "models/helpers/DetectedInstallation";
 

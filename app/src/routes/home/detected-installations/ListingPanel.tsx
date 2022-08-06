@@ -3,7 +3,7 @@ import { Box, Button } from "@chakra-ui/react";
 import React from "react";
 import { observer } from "mobx-react";
 
-import { useDetectedInstallationStore } from "models/DetectedInstallationsStore";
+import { useDetectedInstallationStore } from "models/useDetectedInstallationStore";
 import { useColorScheme } from "models/useColorScheme";
 
 import { Row } from "./Row";

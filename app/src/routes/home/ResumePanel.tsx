@@ -5,7 +5,7 @@ import { observer } from "mobx-react";
 
 import { useStore } from "AppContext";
 import { OutlineButton } from "components/OutlineButton";
-import { useDetectedInstallationStore } from "models/DetectedInstallationsStore";
+import { useDetectedInstallationStore } from "models/useDetectedInstallationStore";
 import { IDetectedInstallation } from "models/helpers/DetectedInstallation";
 
 import { CredentialsCollectionForm } from "routes/step1/CredentialsCollectionForm";

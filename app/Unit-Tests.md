@@ -12,6 +12,69 @@ Following modules are being mocked here.
 - react-markdown
 - remark-gfm
 
+## Test Utilities
+
+We have test utilities defined in `test-utils.tsx` file.
+
+We use custom renderer to apply `ChakraProvider` to unit tests.
+
+```javascript
+const CustomProvider = ({ children }: { children: React.ReactNode }) => {
+  return <ChakraProvider theme={theme}>{children}</ChakraProvider>;
+};
+
+const customRender = (ui: React.ReactElement, options?: Omit<RenderOptions, "wrapper">) => render(ui, { wrapper: CustomProvider, ...options });
+
+```
+
+For some cases, it is very helpful to use some mock components. For such cases, we wrap such components by a mock component in order to render with `ChakraProvider`
+
+```javascript
+export const RenderWithChakra = ({ children }: { children: React.ReactNode }) => <ChakraProvider theme={theme}>{children}</ChakraProvider>;
+```
+
+In all cases, we use `orange` theme to pass into `ChakraProvider`
+
+```javascript
+import { theme } from "themes/orange";
+```
+
+## Mocking App Store
+
+```javascript
+beforeEach(() => {
+    const appStore = AppStore.create({});
+    const installation = appStore.newInstallation();
+    appStore.setInstallation(installation);
+
+    initializeStore();
+});
+
+```
+## Mocking custom hooks
+The most used custom hooks are mocked as follows
+
+```javascript
+import * as detectedInstallationStore from "models/useDetectedInstallationStore";
+
+jest.spyOn(detectedInstallationStore, "useDetectedInstallationStore").mockImplementation(() => {
+    return {
+        isError: false,
+        isReady: true,
+        isLoading: false,
+        isReloading: false,
+        store: {
+            empty: true,
+            credentials: {
+            accountId: "mock-account-id",
+            },
+        },
+    };
+});
+
+```
+
+## The list of unit tests
 ## AppContext
 
 - useStore hook

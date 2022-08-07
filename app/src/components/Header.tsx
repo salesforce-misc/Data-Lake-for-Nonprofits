@@ -10,7 +10,7 @@ import SalesforceLogo from "images/Salesforce_Corporate_Logo_RGB.png";
 export const Header = observer(() => {
   return (
     <Container maxW="container.md" pt="20px" position="relative">
-      <VStack spacing="16px">
+      <VStack spacing="24px">
         <HStack
           direction={{ base: "column", lg: "row" }}
           spacing={{ base: "0", lg: "0" }}

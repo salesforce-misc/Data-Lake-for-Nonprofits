@@ -1,10 +1,9 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { Box, Button, Container, Heading, HStack, Text } from "@chakra-ui/react";
+import { Box, Button, Container, Heading, HStack, Text, useTheme } from "@chakra-ui/react";
 import { ArrowBackIcon } from "@chakra-ui/icons";
 import { observer } from "mobx-react";
 
-import { theme } from "themes/purple";
 import { useInstallation } from "AppContext";
 import { Header } from "components/Header";
 import { CurvedBox } from "components/CurvedBox";
@@ -16,6 +15,7 @@ import { LaunchYourConnection } from "./LauncYourConnection";
 import { AdminTools } from "./AdminTools";
 
 export const Step6 = observer(() => {
+  const theme = useTheme();
   const { tone, colorScheme } = useColorScheme();
   const installation = useInstallation();
   const navigate = useNavigate();

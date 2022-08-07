@@ -1,11 +1,10 @@
 import React from "react";
-import { Box, Container, Heading, HStack, Button, Collapse, Stack } from "@chakra-ui/react";
+import { Box, Container, Heading, HStack, Button, Collapse, Stack, useTheme } from "@chakra-ui/react";
 import { ArrowForwardIcon, ArrowBackIcon } from "@chakra-ui/icons";
 import { observer } from "mobx-react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 
-import { theme } from "themes/orange";
 import { useInstallation, useStore } from "AppContext";
 import { CredentialsValidationException } from "api/validate-credentials";
 import { CurvedBox } from "components/CurvedBox";
@@ -19,6 +18,7 @@ import { InstructionSection } from "routes/step1/InstructionSection";
 import { Header } from "components/Header";
 
 export const Step1 = observer(() => {
+  const theme = useTheme();
   const installation = useInstallation();
   const step = installation.connectToAwsStep;
   const needsAssistance = step.needsAssistance;

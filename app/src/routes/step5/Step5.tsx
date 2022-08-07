@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Container, Heading, Text, HStack, Button, ChakraProvider, Image, Progress, Stack } from "@chakra-ui/react";
+import { Box, Container, Heading, Text, HStack, Button, ChakraProvider, Image, Progress, Stack, useTheme } from "@chakra-ui/react";
 import { ArrowForwardIcon } from "@chakra-ui/icons";
 import { observer } from "mobx-react";
 import { useNavigate } from "react-router-dom";
@@ -8,7 +8,6 @@ import awsImage from "images/processing-aws-01.png";
 import sforgImage from "images/processing-sforg-01.png";
 
 import { useInstallation } from "AppContext";
-import { theme } from "themes/green";
 import { Header } from "components/Header";
 import { CurvedBox } from "components/CurvedBox";
 import { StepsBanner } from "components/StepsBanner";
@@ -19,13 +18,14 @@ import { DeploymentError } from "routes/step5/DeploymentError";
 import { ProgressPanel } from "routes/step5/ProgressPanel";
 import { ImportStatusPanel } from "routes/step5/ImportStatusPanel";
 
-const colorScheme = theme.name;
-
 export const Step5 = observer(() => {
+  const theme = useTheme();
   const installation = useInstallation();
   const step = installation.deploymentStep;
   const inProgress = installation.deploymentOperations.isInProgress;
   const navigate = useNavigate();
+
+  const colorScheme = theme.name;
 
   const handleSubmit: React.MouseEventHandler<HTMLButtonElement> = async () => {
     step.markCompleted();

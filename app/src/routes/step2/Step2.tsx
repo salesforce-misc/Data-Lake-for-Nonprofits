@@ -8,12 +8,12 @@ import {
   HStack,
   Button,
   Link as ChakraLink,
-  ChakraProvider,
   UnorderedList,
   ListItem,
   Stack,
   Collapse,
   Divider,
+  useTheme,
 } from "@chakra-ui/react";
 import { ArrowForwardIcon, ArrowBackIcon, ExternalLinkIcon } from "@chakra-ui/icons";
 import { observer } from "mobx-react";
@@ -25,7 +25,6 @@ import appflowConnectionImage03 from "images/appflow-connection-03.png";
 import appflowConnectionImage04 from "images/appflow-connection-04.png";
 
 import { useInstallation, useStore } from "AppContext";
-import { theme } from "themes/blue";
 import { CurvedBox } from "components/CurvedBox";
 import { StepsIndicator } from "components/StepsIndicator";
 import { ClickableImage } from "components/ClickableImage";
@@ -35,6 +34,7 @@ import { Header } from "components/Header";
 import { AppFlowConnectionSelection } from "routes/step2/AppFlowConnectionSelection";
 
 export const Step2 = observer(() => {
+  const theme = useTheme();
   const installation = useInstallation();
   const region = installation.region;
   const step = installation.connectToSalesforceStep;
@@ -66,7 +66,7 @@ export const Step2 = observer(() => {
   const canProceed = createdConnection === YesNoAnswer.Yes && !isEmpty(installation.appFlowConnectionName);
 
   return (
-    <ChakraProvider theme={theme}>
+    <>
       <CurvedBox bgGradient={theme.gradients.bgLight} />
 
       <Header />
@@ -232,6 +232,6 @@ export const Step2 = observer(() => {
           </HStack>
         </Container>
       </Box>
-    </ChakraProvider>
+    </>
   );
 });

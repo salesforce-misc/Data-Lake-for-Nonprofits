@@ -1,11 +1,10 @@
 import React from "react";
-import { Box, Container, Heading, Text, HStack, Button, ChakraProvider, Stack } from "@chakra-ui/react";
+import { Box, Container, Heading, Text, HStack, Button, ChakraProvider, Stack, useTheme } from "@chakra-ui/react";
 import { ArrowForwardIcon, ArrowBackIcon } from "@chakra-ui/icons";
 import { observer } from "mobx-react";
 import { useNavigate } from "react-router-dom";
 
 import { useInstallation } from "AppContext";
-import { theme } from "themes/pink";
 import { Header } from "components/Header";
 import { CurvedBox } from "components/CurvedBox";
 import { StepsIndicator } from "components/StepsIndicator";
@@ -14,6 +13,7 @@ import { DataModelTablePreview } from "routes/step4/DataModelTablePreview";
 import { ReviewGrid } from "routes/step4/ReviewGrid";
 
 export const Step4 = observer(() => {
+  const theme = useTheme();
   const installation = useInstallation();
   const step = installation.reviewStep;
   const navigate = useNavigate();

@@ -1,13 +1,15 @@
 import React from "react";
 import { observer } from "mobx-react";
-import { Box, Stack, Heading, HStack, Image, VStack, StackDivider, Container } from "@chakra-ui/react";
+import { Box, Stack, Heading, HStack, Image, VStack, StackDivider, Container, useTheme } from "@chakra-ui/react";
 
-import { theme } from "themes/orange";
+// import { theme } from "themes/orange";
 
 import AWSLogo from "images/AWS_logo_RGB_BLK.png";
 import SalesforceLogo from "images/Salesforce_Corporate_Logo_RGB.png";
 
 export const Header = observer(() => {
+  const theme = useTheme();
+
   return (
     <Container maxW="container.md" pt="20px" position="relative">
       <VStack spacing="24px">

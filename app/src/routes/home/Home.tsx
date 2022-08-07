@@ -1,11 +1,10 @@
 import React from "react";
 import isNil from "lodash/isNil";
-import { Box, Container, Heading, Text, Button } from "@chakra-ui/react";
+import { Box, Container, Heading, Text, Button, useTheme } from "@chakra-ui/react";
 import { ArrowForwardIcon } from "@chakra-ui/icons";
 import { observer } from "mobx-react";
 import { useNavigate } from "react-router-dom";
 
-import { theme } from "themes/orange";
 import { Header } from "components/Header";
 import { CurvedBox } from "components/CurvedBox";
 import { useStore } from "AppContext";
@@ -15,6 +14,7 @@ import { StepBox } from "routes/home/StepBox";
 import { ResumePanel } from "routes/home/ResumePanel";
 
 export const Home = observer(() => {
+  const theme = useTheme();
   const appStore = useStore();
   const navigate = useNavigate();
 

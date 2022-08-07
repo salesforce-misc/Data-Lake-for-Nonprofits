@@ -1,10 +1,9 @@
 import React from "react";
-import { Box, Container, Heading, HStack, Button, Stack, Divider } from "@chakra-ui/react";
+import { Box, Container, Heading, HStack, Button, Stack, Divider, useTheme } from "@chakra-ui/react";
 import { ArrowForwardIcon, ArrowBackIcon } from "@chakra-ui/icons";
 import { observer } from "mobx-react";
 import { useNavigate } from "react-router-dom";
 
-import { theme } from "themes/purple";
 import { useInstallation } from "AppContext";
 import { CurvedBox } from "components/CurvedBox";
 import { StepsIndicator } from "components/StepsIndicator";
@@ -17,6 +16,7 @@ import { StoreStatusInfo } from "routes/step3/StoreStatusInfo";
 import { DataModelPanel } from "routes/step3/DataModelPanel";
 
 export const Step3 = observer(() => {
+  const theme = useTheme();
   const { tone, colorScheme } = useColorScheme();
   const installation = useInstallation();
   const step = installation.importOptionsStep;

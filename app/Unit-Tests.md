@@ -234,6 +234,9 @@ Following modules are being mocked here.
 - render properly with empty message
 
 ##### ErrorPanel
+- snapshot
+- render properly with an error
+- render properly with no error
 
 ##### ListingPanel
 

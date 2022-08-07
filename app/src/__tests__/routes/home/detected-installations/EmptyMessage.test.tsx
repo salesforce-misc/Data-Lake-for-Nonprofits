@@ -5,10 +5,9 @@ import { render, RenderWithChakra } from "test-utils";
 
 import { StoreProvider } from "AppContext";
 
-import { CountBadge } from "routes/home/detected-installations/CountBadge";
+import { EmptyMessage } from "routes/home/detected-installations/EmptyMessage";
 
 import * as detectedInstallationStore from "models/useDetectedInstallationStore";
-import { EmptyMessage } from "routes/home/detected-installations/EmptyMessage";
 
 const mockOnCancel = jest.fn();
 

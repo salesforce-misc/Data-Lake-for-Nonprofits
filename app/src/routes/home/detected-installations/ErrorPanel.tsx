@@ -11,10 +11,11 @@ interface IErrorPanel {
 }
 
 export const ErrorPanel = observer(({ onCancel }: IErrorPanel) => {
-  const { isError, store } = useDetectedInstallationStore();
   const { colorScheme } = useColorScheme();
+  const { isError, store } = useDetectedInstallationStore();
 
   if (!isError) return null;
+
   const message = `Something went wrong '${store.errorMessage}'. This might be an intermittent problem. Wait for a few minutes and try again.`;
 
   return (

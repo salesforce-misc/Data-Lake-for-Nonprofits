@@ -8,17 +8,19 @@ import { StoreProvider } from "AppContext";
 import { EmptyMessage } from "routes/home/detected-installations/EmptyMessage";
 
 import * as detectedInstallationStore from "models/useDetectedInstallationStore";
+import { ListingPanel } from "routes/home/detected-installations/ListingPanel";
 
 const mockOnCancel = jest.fn();
+const mockOnResume = jest.fn();
 
-describe("DetectedInstallations -> EmptyMessage component", () => {
+describe("DetectedInstallations -> ListingPanel component", () => {
   afterEach(cleanup);
 
   test("snapshot", () => {
     const tree = create(
       <RenderWithChakra>
         <StoreProvider>
-          <EmptyMessage onCancel={mockOnCancel} />
+          <ListingPanel onCancel={mockOnCancel} onResume={mockOnResume} />
         </StoreProvider>
       </RenderWithChakra>
     ).toJSON();
@@ -39,12 +41,13 @@ describe("DetectedInstallations -> EmptyMessage component", () => {
 
     render(
       <StoreProvider>
-        <EmptyMessage onCancel={mockOnCancel} />
+        <ListingPanel onCancel={mockOnCancel} onResume={mockOnResume} />
       </StoreProvider>
     );
 
     expect(screen.findByRole("body")).toBeTruthy();
-    expect(screen.queryByText(/no data lakes/i)).not.toBeInTheDocument();
+    expect(screen.queryByText(/cancel/i)).not.toBeInTheDocument();
+    expect(screen.queryByText(/resume/i)).not.toBeInTheDocument();
   });
 
   test("render properly with loading", () => {
@@ -60,33 +63,13 @@ describe("DetectedInstallations -> EmptyMessage component", () => {
 
     render(
       <StoreProvider>
-        <EmptyMessage onCancel={mockOnCancel} />
+        <ListingPanel onCancel={mockOnCancel} onResume={mockOnResume} />
       </StoreProvider>
     );
 
     expect(screen.findByRole("body")).toBeTruthy();
-    expect(screen.queryByText(/no data lakes/i)).not.toBeInTheDocument();
-  });
-
-  test("render properly with reloading", () => {
-    // @ts-ignore
-    jest.spyOn(detectedInstallationStore, "useDetectedInstallationStore").mockImplementation(() => {
-      return {
-        isError: false,
-        isLoading: false,
-        isReloading: true,
-        isReady: true,
-      };
-    });
-
-    render(
-      <StoreProvider>
-        <EmptyMessage onCancel={mockOnCancel} />
-      </StoreProvider>
-    );
-
-    expect(screen.findByRole("body")).toBeTruthy();
-    expect(screen.queryByText(/no data lakes/i)).not.toBeInTheDocument();
+    expect(screen.queryByText(/cancel/i)).not.toBeInTheDocument();
+    expect(screen.queryByText(/resume/i)).not.toBeInTheDocument();
   });
 
   test("render properly with not ready", () => {
@@ -102,61 +85,72 @@ describe("DetectedInstallations -> EmptyMessage component", () => {
 
     render(
       <StoreProvider>
-        <EmptyMessage onCancel={mockOnCancel} />
+        <ListingPanel onCancel={mockOnCancel} onResume={mockOnResume} />
       </StoreProvider>
     );
 
     expect(screen.findByRole("body")).toBeTruthy();
-    expect(screen.queryByText(/no data lakes/i)).not.toBeInTheDocument();
+    expect(screen.queryByText(/cancel/i)).not.toBeInTheDocument();
+    expect(screen.queryByText(/resume/i)).not.toBeInTheDocument();
   });
 
-  test("render properly with empty store", () => {
+  test("render properly with an empty store", () => {
     // @ts-ignore
     jest.spyOn(detectedInstallationStore, "useDetectedInstallationStore").mockImplementation(() => {
       return {
         isError: false,
-        isReady: true,
         isLoading: false,
         isReloading: false,
-        store: { empty: false },
-      };
-    });
-
-    render(
-      <StoreProvider>
-        <EmptyMessage onCancel={mockOnCancel} />
-      </StoreProvider>
-    );
-
-    expect(screen.findByRole("body")).toBeTruthy();
-    expect(screen.queryByText(/no data lakes/i)).not.toBeInTheDocument();
-  });
-
-  test("render properly with empty message", () => {
-    // @ts-ignore
-    jest.spyOn(detectedInstallationStore, "useDetectedInstallationStore").mockImplementation(() => {
-      return {
-        isError: false,
         isReady: true,
-        isLoading: false,
-        isReloading: false,
         store: {
           empty: true,
-          credentials: {
-            accountId: "mock-account-id",
-          },
         },
       };
     });
 
     render(
       <StoreProvider>
-        <EmptyMessage onCancel={mockOnCancel} />
+        <ListingPanel onCancel={mockOnCancel} onResume={mockOnResume} />
       </StoreProvider>
     );
 
     expect(screen.findByRole("body")).toBeTruthy();
-    expect(screen.queryByText(/no data lakes/i)).toBeInTheDocument();
-    expect(screen.queryByText(/ok/i)).toBeInTheDocument();
+    expect(screen.queryByText(/cancel/i)).not.toBeInTheDocument();
+    expect(screen.queryByText(/resume/i)).not.toBeInTheDocument();
+  });
+
+  test("render properly with a store", () => {
+    // @ts-ignore
+    jest.spyOn(detectedInstallationStore, "useDetectedInstallationStore").mockImplementation(() => {
+      return {
+        isError: false,
+        isLoading: false,
+        isReloading: false,
+        isReady: true,
+        store: {
+          empty: false,
+          list: [
+            {
+              id: 1,
+              label: "Mock1",
+              webUrlOrigin: "",
+              reachable: true,
+              region: "us-east-1",
+              installationJson: {},
+            },
+          ],
+        },
+      };
+    });
+
+    render(
+      <StoreProvider>
+        <ListingPanel onCancel={mockOnCancel} onResume={mockOnResume} />
+      </StoreProvider>
+    );
+
+    expect(screen.findByRole("body")).toBeTruthy();
+    expect(screen.queryByText(/cancel/i)).toBeInTheDocument();
+    expect(screen.queryByText(/resume/i)).toBeInTheDocument();
   });
 });

@@ -36,7 +36,7 @@
       "last 1 safari version"
     ]
   },
-    "dependencies": {
+  "dependencies": {
     "@aws-sdk/client-appflow": "^3.54.0",
     "@aws-sdk/client-cloudformation": "^3.56.0",
     "@aws-sdk/client-cloudwatch": "^3.78.0",

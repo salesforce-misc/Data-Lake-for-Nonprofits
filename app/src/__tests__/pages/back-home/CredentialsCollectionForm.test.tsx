@@ -7,7 +7,6 @@ import { StoreProvider } from "AppContext";
 
 import { CredentialsCollectionForm } from "pages/back-home/CredentialsCollectionForm";
 
-import * as metadataStore from "models/MetadataStore";
 import * as appContext from "AppContext";
 
 const mockOnCancel = jest.fn();

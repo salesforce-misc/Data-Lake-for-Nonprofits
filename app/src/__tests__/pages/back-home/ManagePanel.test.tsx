@@ -7,9 +7,7 @@ import { StoreProvider } from "AppContext";
 
 import { ManagePanel } from "pages/back-home/ManagePanel";
 
-import * as metadataStore from "models/MetadataStore";
-
-describe("BackHome -> DataTableStatusInfo component", () => {
+describe("BackHome -> ManagePanel component", () => {
   afterEach(cleanup);
 
   test("snapshot", () => {

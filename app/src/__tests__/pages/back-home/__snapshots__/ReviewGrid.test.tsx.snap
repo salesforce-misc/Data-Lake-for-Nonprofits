@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BackHome -> ReviewGrid component snapshot 1`] = `
+Array [
+  <div
+    className="css-iektmo"
+  >
+    <div
+      className="css-1912uuf"
+    >
+      AWS Account Id
+    </div>
+    <div
+      className="css-im2a0n"
+    >
+      test-account-id
+    </div>
+    <div
+      className="css-1912uuf"
+    >
+      AWS Region
+    </div>
+    <div
+      className="css-im2a0n"
+    >
+      US East (Northern Virginia) Region
+    </div>
+    <div
+      className="css-1912uuf"
+    >
+      Connection Name
+    </div>
+    <div
+      className="css-im2a0n"
+    >
+      test-appflow-connection-name
+    </div>
+  </div>,
+  <span />,
+]
+`;

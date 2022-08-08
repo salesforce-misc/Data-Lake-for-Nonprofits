@@ -1,0 +1,188 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BackHome component snapshot 1`] = `
+Array [
+  <div
+    className="css-1v55i00"
+    data-testid="curved-box"
+  />,
+  <div
+    className="chakra-container css-1szj4qk"
+  >
+    <div
+      className="chakra-container css-1szj4qk"
+    >
+      <div
+        className="chakra-stack css-olw0lh"
+      >
+        <div
+          className="chakra-stack css-18lyn6q"
+        >
+          <div
+            className="css-1i3fafl"
+          >
+            <img
+              className="chakra-image css-0"
+              src="Salesforce_Corporate_Logo_RGB.png"
+            />
+          </div>
+          <div
+            className="chakra-stack__divider css-r2vkku"
+          />
+          <div
+            className="css-nutmff"
+          >
+            <img
+              className="chakra-image css-ir5tdx"
+              src="AWS_logo_RGB_BLK.png"
+            />
+          </div>
+        </div>
+        <div
+          className="chakra-stack css-1n7gsjr"
+        >
+          <div
+            className="css-18n4g2t"
+          >
+            <h2
+              className="chakra-heading css-1opsxio"
+            >
+              Datalake for Nonprofits, Powered by AWS
+            </h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    className="chakra-container css-ms16h5"
+  >
+    <div
+      className="css-1w1wwoy"
+    >
+      <div
+        className="css-1dqvb5u"
+      >
+        <div
+          className="css-1rr4qq7"
+        >
+          <h2
+            className="chakra-heading css-1t51nrq"
+          >
+            Data Lake
+          </h2>
+          <div
+            className="css-133irwf"
+          >
+            <time
+              dateTime="2022-01-01T00:00:00.000Z"
+              title="2022-01-01"
+            >
+              7 months ago
+            </time>
+             • by 
+            test-user
+          </div>
+        </div>
+        <div
+          className="css-1t3jdvp"
+        >
+          <p
+            className="chakra-text css-13o7eu2"
+          >
+            Installation Id
+          </p>
+          <p
+            className="chakra-text css-0"
+          >
+            1
+          </p>
+        </div>
+      </div>
+      <div
+        className="css-iektmo"
+      >
+        <div
+          className="css-1912uuf"
+        >
+          AWS Account Id
+        </div>
+        <div
+          className="css-im2a0n"
+        >
+          test-account-id
+        </div>
+        <div
+          className="css-1912uuf"
+        >
+          AWS Region
+        </div>
+        <div
+          className="css-im2a0n"
+        >
+          US East (Northern Virginia) Region
+        </div>
+        <div
+          className="css-1912uuf"
+        >
+          Connection Name
+        </div>
+        <div
+          className="css-im2a0n"
+        >
+          test-appflow-connection-name
+        </div>
+      </div>
+      <p
+        className="chakra-text css-1qo0xie"
+      >
+        Click 
+        <b>
+          Resume
+        </b>
+         to continue the steps of provisioning the data lake
+        . You can also choose to start a new data lake.
+      </p>
+      <div
+        className="css-s6koyw"
+      >
+        <button
+          className="chakra-button css-wd3f61"
+          onClick={[Function]}
+          type="button"
+        >
+          Start New
+        </button>
+        <button
+          className="chakra-button css-mwvyhu"
+          onClick={[Function]}
+          type="button"
+        >
+          Resume
+          <span
+            className="chakra-button__icon css-1hzyiq5"
+          >
+            <svg
+              aria-hidden={true}
+              className="chakra-icon css-onkibi"
+              focusable={false}
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                fill="currentColor"
+              />
+            </svg>
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>,
+  <div
+    className="css-16kb41"
+  >
+     
+  </div>,
+  <span />,
+]
+`;

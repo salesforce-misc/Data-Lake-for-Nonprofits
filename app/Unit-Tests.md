@@ -326,6 +326,8 @@ jest.spyOn(detectedInstallationStore, "useDetectedInstallationStore").mockImplem
 - render properly
 
 ### BackHome Page
+- snapshot
+- render properly
 
 #### CountBadge
 

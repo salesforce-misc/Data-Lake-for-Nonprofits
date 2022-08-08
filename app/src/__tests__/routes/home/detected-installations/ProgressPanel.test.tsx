@@ -5,7 +5,7 @@ import { render, RenderWithChakra } from "test-utils";
 
 import { StoreProvider } from "AppContext";
 
-import { ProgressPanel } from "routes/home/detected-installations/ProgressPanel";
+import { ProgressPanel } from "pages/home/detected-installations/ProgressPanel";
 
 import * as detectedInstallationStore from "models/useDetectedInstallationStore";
 

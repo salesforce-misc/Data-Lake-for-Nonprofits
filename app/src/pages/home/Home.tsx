@@ -8,10 +8,10 @@ import { useNavigate } from "react-router-dom";
 import { Header } from "components/Header";
 import { CurvedBox } from "components/CurvedBox";
 import { useStore } from "AppContext";
-import { BackHome } from "routes/home/BackHome";
-import { steps } from "routes/home/Steps";
-import { StepBox } from "routes/home/StepBox";
-import { ResumePanel } from "routes/home/ResumePanel";
+import { BackHome } from "pages/back-home/BackHome";
+import { steps } from "pages/home/Steps";
+import { StepBox } from "pages/home/StepBox";
+import { ResumePanel } from "pages/home/ResumePanel";
 
 export const Home = observer(() => {
   const theme = useTheme();

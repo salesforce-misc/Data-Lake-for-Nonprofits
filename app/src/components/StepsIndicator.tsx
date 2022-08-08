@@ -1,7 +1,7 @@
 import React from "react";
 import { HStack, Tag, useTheme } from "@chakra-ui/react";
 import { observer } from "mobx-react";
-import { steps, TStepInfo } from "routes/home/Steps";
+import { steps, TStepInfo } from "pages/home/Steps";
 
 interface IStepsIndicator {
   current: number;

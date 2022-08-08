@@ -321,6 +321,7 @@ jest.spyOn(detectedInstallationStore, "useDetectedInstallationStore").mockImplem
 - snapshot
 - render properly
 
+#### BackHome
 ### Step1 Page
 
 #### CredentialsError

@@ -3,7 +3,7 @@ import { Box, Heading } from "@chakra-ui/react";
 import { observer } from "mobx-react";
 
 import { useColorScheme } from "models/useColorScheme";
-import { AthenaProperties } from "routes/step6/AthenaProperties";
+import { AthenaProperties } from "pages/step6/AthenaProperties";
 
 export const LaunchYourConnection = observer(() => {
   const { tone } = useColorScheme();

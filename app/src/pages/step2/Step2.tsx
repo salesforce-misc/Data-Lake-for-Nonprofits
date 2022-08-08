@@ -31,7 +31,7 @@ import { ClickableImage } from "components/ClickableImage";
 import { YesNoAnswer } from "models/steps/BaseStep";
 import { OutlineButton } from "components/OutlineButton";
 import { Header } from "components/Header";
-import { AppFlowConnectionSelection } from "routes/step2/AppFlowConnectionSelection";
+import { AppFlowConnectionSelection } from "pages/step2/AppFlowConnectionSelection";
 
 export const Step2 = observer(() => {
   const theme = useTheme();

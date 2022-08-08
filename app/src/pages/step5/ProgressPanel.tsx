@@ -4,7 +4,7 @@ import { observer } from "mobx-react";
 
 import { useInstallation } from "AppContext";
 
-import { OperationProgressPanel } from "routes/step5/OperationProgressPanel";
+import { OperationProgressPanel } from "pages/step5/OperationProgressPanel";
 
 export const ProgressPanel = observer(() => {
   const installation = useInstallation();

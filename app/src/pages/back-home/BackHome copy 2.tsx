@@ -1,11 +1,10 @@
-import { FC, useEffect, useState } from "react";
-import { Box, Container, Heading, Text, Button, Flex, Grid, GridItem, Alert, AlertIcon, Badge, Progress } from "@chakra-ui/react";
+import React from "react";
+import { Box, Container, Heading, Text, Button, Flex, Grid, GridItem, Alert, AlertIcon, Badge, Progress, useTheme } from "@chakra-ui/react";
 import { ArrowForwardIcon } from "@chakra-ui/icons";
 import { observer } from "mobx-react";
 import { useNavigate } from "react-router-dom";
 import { SubmitHandler, useForm } from "react-hook-form";
 
-import { theme } from "../../themes/orange";
 import { CurvedBox } from "../../components/CurvedBox";
 import { TimeAgo } from "../../components/TimeAgo";
 import { useInstallation, useStore } from "../../AppContext";
@@ -24,13 +23,14 @@ import { DataModelTablePreview } from "../step4/DataModelTablePreview";
 import { useMetadataStore } from "../../models/MetadataStore";
 import { Header } from "components/Header";
 
-export const BackHome: FC = observer(() => {
+export const BackHome = observer(() => {
+  const theme = useTheme();
   const { tone, colorScheme } = useColorScheme();
   const navigate = useNavigate();
   const store = useStore();
   const installation = useInstallation();
-  const [collectCredentials, setCollectCredentials] = useState(false);
-  const [warning, setWarning] = useState(false);
+  const [collectCredentials, setCollectCredentials] = React.useState(false);
+  const [warning, setWarning] = React.useState(false);
   const completedProvisioning = isCompleted(installation.deploymentStep);
   const reviewCompleted = isCompleted(installation.reviewStep);
   const credentialsAvailable = !installation.credentials.empty;
@@ -53,11 +53,11 @@ export const BackHome: FC = observer(() => {
     }
   };
 
-  useEffect(() => {
+  React.useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (collectCredentials || warning) setTimeout(() => window.scrollBy(0, 300), 200);
   }, [collectCredentials, warning]);
 
@@ -149,7 +149,7 @@ export const BackHome: FC = observer(() => {
   );
 });
 
-const DataTablePanel: FC = observer(() => {
+const DataTablePanel = observer(() => {
   const { tone, colorScheme } = useColorScheme();
   const { store, isReady } = useMetadataStore();
   const selectedObjectsCount = store.selectedObjects.length;
@@ -171,7 +171,7 @@ const DataTablePanel: FC = observer(() => {
   );
 });
 
-const DataTableStatusInfo: FC = observer(() => {
+const DataTableStatusInfo = observer(() => {
   const { tone, colorScheme } = useColorScheme();
   const { isReady, isError, store } = useMetadataStore();
   const progress = store.loadingPercentage;
@@ -211,7 +211,7 @@ const DataTableStatusInfo: FC = observer(() => {
   );
 });
 
-const CountBadge: FC = observer(() => {
+const CountBadge = observer(() => {
   const { tone } = useColorScheme();
   const { isError, isReady, store } = useMetadataStore();
 
@@ -224,13 +224,13 @@ const CountBadge: FC = observer(() => {
   );
 });
 
-const ManagePanel: FC = observer(() => {
+const ManagePanel = observer(() => {
   const store = useStore();
   const { tone, colorScheme } = useColorScheme();
-  const [collectCredentials, setCollectCredentials] = useState(false);
-  const [warning, setWarning] = useState(false);
+  const [collectCredentials, setCollectCredentials] = React.useState(false);
+  const [warning, setWarning] = React.useState(false);
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (collectCredentials || warning) setTimeout(() => window.scrollBy(0, 300), 200);
   }, [collectCredentials, warning]);
 
@@ -271,7 +271,7 @@ const ManagePanel: FC = observer(() => {
   );
 });
 
-const StartNewWarning: FC<{ onCancel: () => void; onContinue: () => void }> = observer(({ onCancel, onContinue }) => {
+const StartNewWarning: React.FC<{ onCancel: () => void; onContinue: () => void }> = observer(({ onCancel, onContinue }) => {
   const { tone, colorScheme } = useColorScheme();
 
   return (
@@ -297,10 +297,10 @@ const StartNewWarning: FC<{ onCancel: () => void; onContinue: () => void }> = ob
   );
 });
 
-const CredentialsCollectionForm: FC<{ onCancel: () => void; onDone: () => void; buttonTitle?: string }> = observer(
+const CredentialsCollectionForm: React.FC<{ onCancel: () => void; onDone: () => void; buttonTitle?: string }> = observer(
   ({ onCancel, onDone, buttonTitle = "Resume" }) => {
     const { colorScheme } = useColorScheme();
-    const [error, setError] = useState<CredentialsValidationException | Error>();
+    const [error, setError] = React.useState<CredentialsValidationException | Error>();
     const installation = useInstallation();
     const onSubmit: SubmitHandler<ICredentialsFormInput> = async (values) => {
       setError(undefined);
@@ -358,7 +358,7 @@ const CredentialsCollectionForm: FC<{ onCancel: () => void; onDone: () => void; 
   }
 );
 
-const ReviewGrid: FC = observer(() => {
+const ReviewGrid = observer(() => {
   const { tone } = useColorScheme();
   const installation = useInstallation();
 

@@ -3,8 +3,8 @@ import { Box, Button } from "@chakra-ui/react";
 import { observer } from "mobx-react";
 import { SubmitHandler, useForm } from "react-hook-form";
 
-import { CredentialsForm, ICredentialsFormInput } from "routes/step1/CredentialsForm";
-import { CredentialsError } from "routes/step1/CredentialsError";
+import { CredentialsForm, ICredentialsFormInput } from "pages/step1/CredentialsForm";
+import { CredentialsError } from "pages/step1/CredentialsError";
 import { CredentialsValidationException } from "api/validate-credentials";
 import { useDetectedInstallationStore } from "models/useDetectedInstallationStore";
 import { useColorScheme } from "models/useColorScheme";

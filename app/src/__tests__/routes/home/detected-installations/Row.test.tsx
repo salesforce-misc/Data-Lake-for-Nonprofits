@@ -5,10 +5,10 @@ import { render, RenderWithChakra } from "test-utils";
 
 import { StoreProvider } from "AppContext";
 
-import { ProgressPanel } from "routes/home/detected-installations/ProgressPanel";
+import { ProgressPanel } from "pages/home/detected-installations/ProgressPanel";
 
 import * as detectedInstallationStore from "models/useDetectedInstallationStore";
-import { Row } from "routes/home/detected-installations/Row";
+import { Row } from "pages/home/detected-installations/Row";
 import { DetectedInstallation } from "models/helpers/DetectedInstallation";
 
 const mockOnSelected = jest.fn();

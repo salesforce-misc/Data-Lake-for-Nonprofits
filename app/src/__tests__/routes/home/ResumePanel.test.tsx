@@ -3,7 +3,7 @@ import { create } from "react-test-renderer";
 
 import { render, RenderWithChakra } from "test-utils";
 
-import { ResumePanel } from "routes/home/ResumePanel";
+import { ResumePanel } from "pages/home/ResumePanel";
 import { StoreProvider } from "AppContext";
 
 describe("ResumePanel component", () => {

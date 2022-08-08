@@ -12,11 +12,11 @@ import { Header } from "components/Header";
 import { CurvedBox } from "components/CurvedBox";
 import { StepsBanner } from "components/StepsBanner";
 
-import { DoNotCloseMessagePanel } from "routes/step5/DoNotCloseMessagePanel";
-import { SuccessMessagePanel } from "routes/step5/SuccessMessagePanel";
-import { DeploymentError } from "routes/step5/DeploymentError";
-import { ProgressPanel } from "routes/step5/ProgressPanel";
-import { ImportStatusPanel } from "routes/step5/ImportStatusPanel";
+import { DoNotCloseMessagePanel } from "pages/step5/DoNotCloseMessagePanel";
+import { SuccessMessagePanel } from "pages/step5/SuccessMessagePanel";
+import { DeploymentError } from "pages/step5/DeploymentError";
+import { ProgressPanel } from "pages/step5/ProgressPanel";
+import { ImportStatusPanel } from "pages/step5/ImportStatusPanel";
 
 export const Step5 = observer(() => {
   const theme = useTheme();

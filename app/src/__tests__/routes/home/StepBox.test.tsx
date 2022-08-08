@@ -3,7 +3,7 @@ import { create } from "react-test-renderer";
 
 import { render, RenderWithChakra } from "test-utils";
 
-import { StepBox } from "routes/home/StepBox";
+import { StepBox } from "pages/home/StepBox";
 
 describe("StepBox component", () => {
   afterEach(cleanup);

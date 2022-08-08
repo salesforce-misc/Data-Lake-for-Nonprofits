@@ -20,8 +20,8 @@ import { SubmitHandler, useForm } from "react-hook-form";
 
 import { useInstallation } from "AppContext";
 import { RetryErrorPanel } from "components/RetryErrorPanel";
-import { DownloadableAccessKey } from "routes/step6/DownloadableAccessKey";
-import { UsersTable } from "routes/step6/UsersTable";
+import { DownloadableAccessKey } from "pages/step6/DownloadableAccessKey";
+import { UsersTable } from "pages/step6/UsersTable";
 import { useColorScheme } from "models/useColorScheme";
 import { IUserAccessKey } from "models/helpers/UserAccessKey";
 import { useUsersStore } from "models/useUsersStore";

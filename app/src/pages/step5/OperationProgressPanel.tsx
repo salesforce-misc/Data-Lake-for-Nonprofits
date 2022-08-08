@@ -6,7 +6,7 @@ import { observer } from "mobx-react";
 import { theme } from "themes/green";
 import { IOperation } from "models/operations/Operation";
 
-import { ProcessingTime } from "routes/step5/ProcessingTime";
+import { ProcessingTime } from "pages/step5/ProcessingTime";
 
 const colorScheme = theme.name;
 

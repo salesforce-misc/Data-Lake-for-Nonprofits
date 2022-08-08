@@ -3,7 +3,7 @@ import { Box } from "@chakra-ui/react";
 import { observer } from "mobx-react";
 
 import { useInstallation } from "AppContext";
-import { DataImportStatusPanel } from "routes/step5/DataImportStatusPanel";
+import { DataImportStatusPanel } from "pages/step5/DataImportStatusPanel";
 
 export const ImportStatusPanel = observer(() => {
   const installation = useInstallation();

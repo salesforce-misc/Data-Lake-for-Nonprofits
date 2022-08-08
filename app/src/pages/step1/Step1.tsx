@@ -10,11 +10,11 @@ import { CredentialsValidationException } from "api/validate-credentials";
 import { CurvedBox } from "components/CurvedBox";
 import { StepsIndicator } from "components/StepsIndicator";
 import { OutlineButton } from "components/OutlineButton";
-import { CredentialsForm, ICredentialsFormInput } from "routes/step1/CredentialsForm";
-import { RegionForm } from "routes/step1/RegionForm";
-import { CredentialsError } from "routes/step1/CredentialsError";
+import { CredentialsForm, ICredentialsFormInput } from "pages/step1/CredentialsForm";
+import { RegionForm } from "pages/step1/RegionForm";
+import { CredentialsError } from "pages/step1/CredentialsError";
 import { YesNoAnswer } from "models/steps/BaseStep";
-import { InstructionSection } from "routes/step1/InstructionSection";
+import { InstructionSection } from "pages/step1/InstructionSection";
 import { Header } from "components/Header";
 
 export const Step1 = observer(() => {

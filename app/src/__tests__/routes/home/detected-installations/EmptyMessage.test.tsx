@@ -5,7 +5,7 @@ import { render, RenderWithChakra } from "test-utils";
 
 import { StoreProvider } from "AppContext";
 
-import { EmptyMessage } from "routes/home/detected-installations/EmptyMessage";
+import { EmptyMessage } from "pages/home/detected-installations/EmptyMessage";
 
 import * as detectedInstallationStore from "models/useDetectedInstallationStore";
 

@@ -8,8 +8,8 @@ import { OutlineButton } from "components/OutlineButton";
 import { useDetectedInstallationStore } from "models/useDetectedInstallationStore";
 import { IDetectedInstallation } from "models/helpers/DetectedInstallation";
 
-import { CredentialsCollectionForm } from "routes/step1/CredentialsCollectionForm";
-import { DetectedInstallations } from "routes/home/detected-installations/DetectedInstallations";
+import { CredentialsCollectionForm } from "pages/step1/CredentialsCollectionForm";
+import { DetectedInstallations } from "pages/home/detected-installations/DetectedInstallations";
 
 export const ResumePanel = observer(() => {
   const [collectCredentials, setCollectCredentials] = React.useState(false);

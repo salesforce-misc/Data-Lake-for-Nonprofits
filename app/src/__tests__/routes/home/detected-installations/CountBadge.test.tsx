@@ -5,7 +5,7 @@ import { render, RenderWithChakra } from "test-utils";
 
 import { StoreProvider } from "AppContext";
 
-import { CountBadge } from "routes/home/detected-installations/CountBadge";
+import { CountBadge } from "pages/home/detected-installations/CountBadge";
 
 import * as detectedInstallationStore from "models/useDetectedInstallationStore";
 

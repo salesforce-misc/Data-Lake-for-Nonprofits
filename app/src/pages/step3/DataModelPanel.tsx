@@ -2,7 +2,7 @@ import React from "react";
 import { Box, Heading, Text, Alert, AlertDescription, AlertTitle, Badge } from "@chakra-ui/react";
 import { observer } from "mobx-react";
 
-import { DataModelDescription } from "routes/step3/DataModelDescription";
+import { DataModelDescription } from "pages/step3/DataModelDescription";
 import { ObjectsTable } from "components/objects-table/ObjectsTable";
 import { niceNumber } from "helpers/utils";
 import { useMetadataStore } from "models/MetadataStore";

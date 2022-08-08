@@ -5,7 +5,7 @@ import { render, RenderWithChakra } from "test-utils";
 
 import { StoreProvider } from "AppContext";
 
-import { ErrorPanel } from "routes/home/detected-installations/ErrorPanel";
+import { ErrorPanel } from "pages/home/detected-installations/ErrorPanel";
 
 import * as detectedInstallationStore from "models/useDetectedInstallationStore";
 

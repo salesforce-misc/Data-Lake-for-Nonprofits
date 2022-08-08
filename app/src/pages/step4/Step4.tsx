@@ -8,9 +8,9 @@ import { useInstallation } from "AppContext";
 import { Header } from "components/Header";
 import { CurvedBox } from "components/CurvedBox";
 import { StepsIndicator } from "components/StepsIndicator";
-import { DataModelTablePreview } from "routes/step4/DataModelTablePreview";
+import { DataModelTablePreview } from "pages/step4/DataModelTablePreview";
 
-import { ReviewGrid } from "routes/step4/ReviewGrid";
+import { ReviewGrid } from "pages/step4/ReviewGrid";
 
 export const Step4 = observer(() => {
   const theme = useTheme();

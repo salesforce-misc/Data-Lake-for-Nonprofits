@@ -5,10 +5,10 @@ import { render, RenderWithChakra } from "test-utils";
 
 import { StoreProvider } from "AppContext";
 
-import { EmptyMessage } from "routes/home/detected-installations/EmptyMessage";
+import { EmptyMessage } from "pages/home/detected-installations/EmptyMessage";
 
 import * as detectedInstallationStore from "models/useDetectedInstallationStore";
-import { ListingPanel } from "routes/home/detected-installations/ListingPanel";
+import { ListingPanel } from "pages/home/detected-installations/ListingPanel";
 
 const mockOnCancel = jest.fn();
 const mockOnResume = jest.fn();

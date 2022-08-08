@@ -362,6 +362,10 @@ jest.spyOn(detectedInstallationStore, "useDetectedInstallationStore").mockImplem
 - render properly
 
 ### Step1 Page
+- snapshot
+- render properly
+
+#### CredentialsCollectionForm
 
 #### CredentialsError
 
@@ -373,6 +377,8 @@ jest.spyOn(detectedInstallationStore, "useDetectedInstallationStore").mockImplem
 - Unit test to check rendering properly with an unknown exception -->
 
 ### CredentialsForm
+### InstructionSection
+### RegionForm
 
 ### Step2 Page
 

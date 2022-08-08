@@ -5,7 +5,8 @@ import { BrowserRouter } from "react-router-dom";
 import { render, RenderWithChakra } from "test-utils";
 
 import * as appContext from "AppContext";
-import { Step2 } from "pages/step2/Step2";
+import * as metadataStore from "models/MetadataStore";
+import { Step3 } from "pages/step3/Step3";
 
 describe("Step2 component", () => {
   afterEach(cleanup);
@@ -24,11 +25,21 @@ describe("Step2 component", () => {
         deploymentStep: "1",
         reviewStep: "1",
         nextStepNumber: "2",
-        connectToSalesforceStep: {
-          createdConnection: "Yes",
+        importOptionsStep: {
           markStarted: jest.fn(),
           markCompleted: jest.fn(),
-          setCreatedConnection: jest.fn(),
+        },
+      };
+    });
+    // @ts-ignore
+    jest.spyOn(metadataStore, "useMetadataStore").mockImplementation(() => {
+      return {
+        isReady: true,
+        store: {
+          listAll: [{}],
+          selectedObjects: [{}],
+          missingObjects: [],
+          excludedObjects: [],
         },
       };
     });
@@ -37,7 +48,7 @@ describe("Step2 component", () => {
       <RenderWithChakra>
         <appContext.StoreProvider>
           <BrowserRouter>
-            <Step2 />
+            <Step3 />
           </BrowserRouter>
         </appContext.StoreProvider>
       </RenderWithChakra>
@@ -60,11 +71,21 @@ describe("Step2 component", () => {
         deploymentStep: "1",
         reviewStep: "1",
         nextStepNumber: "2",
-        connectToSalesforceStep: {
-          createdConnection: "Yes",
+        importOptionsStep: {
           markStarted: jest.fn(),
           markCompleted: jest.fn(),
-          setCreatedConnection: jest.fn(),
+        },
+      };
+    });
+    // @ts-ignore
+    jest.spyOn(metadataStore, "useMetadataStore").mockImplementation(() => {
+      return {
+        isReady: true,
+        store: {
+          listAll: [{}],
+          selectedObjects: [{}],
+          missingObjects: [],
+          excludedObjects: [],
         },
       };
     });
@@ -72,14 +93,13 @@ describe("Step2 component", () => {
     render(
       <appContext.StoreProvider>
         <BrowserRouter>
-          <Step2 />
+          <Step3 />
         </BrowserRouter>
       </appContext.StoreProvider>
     );
 
-    expect(screen.getAllByText(/connect to your salesforce organization/i)).toBeTruthy();
-    expect(screen.getByText(/create a dedicated salesforce user/i)).toBeInTheDocument();
-    expect(screen.getByText(/create a dedicated salesforce user/i)).toBeInTheDocument();
+    expect(screen.getAllByText(/select data import options/i)).toBeTruthy();
+    expect(screen.getByText(/you can pick the standard npsp import options/i)).toBeInTheDocument();
     expect(screen.getByText("Previous")).toBeInTheDocument();
     expect(screen.getByText("Next")).toBeInTheDocument();
   });

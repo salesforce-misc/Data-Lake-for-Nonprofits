@@ -318,7 +318,8 @@ jest.spyOn(detectedInstallationStore, "useDetectedInstallationStore").mockImplem
 - render properly with processing when reloading
 
 ##### Row
-
+- snapshot
+- render properly
 
 ### Step1 Page
 

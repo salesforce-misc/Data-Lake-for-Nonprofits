@@ -8,7 +8,6 @@ import { StoreProvider } from "AppContext";
 import { ReviewGrid } from "pages/back-home/ReviewGrid";
 
 import * as appContext from "AppContext";
-import * as metadataStore from "models/MetadataStore";
 
 describe("BackHome -> ReviewGrid component", () => {
   afterEach(cleanup);

@@ -356,6 +356,8 @@ jest.spyOn(detectedInstallationStore, "useDetectedInstallationStore").mockImplem
 - render properly
 
 #### StartNewWarning
+- snapshot
+- render properly
 
 ### Step1 Page
 

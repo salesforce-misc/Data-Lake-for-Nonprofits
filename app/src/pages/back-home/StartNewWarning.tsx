@@ -18,7 +18,7 @@ export const StartNewWarning = observer(({ onCancel, onContinue }: IStartNewWarn
         <Flex>
           <AlertIcon mt={1} />
           <Text flex={1}>
-            You existing data lake is consuming AWS resources that might incur cost, starting a new data lake will <b>not delete</b> these resources
+            Your existing data lake is consuming AWS resources that might incur cost, starting a new data lake will <b>not delete</b> these resources
             and your existing data lake will be left intact. Take additional steps to clean the existing resources if desired.
           </Text>
         </Flex>

@@ -385,13 +385,19 @@ jest.spyOn(detectedInstallationStore, "useDetectedInstallationStore").mockImplem
 - render properly
 
 ### Step3 Page
+- snapshot
+- render properly
 
 ### Step4 Page
+- snapshot
+- render properly
 
 ### Step5 Page
+- snapshot
+- render properly
 
 ### Step6 Page
-
-### BackHome Page
+- snapshot
+- render properly
 
 ### App

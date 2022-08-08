@@ -22,7 +22,7 @@ import {
 } from "@chakra-ui/react";
 import { ChevronRightIcon, RepeatIcon } from "@chakra-ui/icons";
 
-import { IObjectImportStatus, useImportStatusStore } from "../../models/ImportStatusStore";
+import { IObjectImportStatus, useImportStatusStore } from "models/ImportStatusStore";
 import { niceNumber } from "../../helpers/utils";
 import { RetryErrorPanel } from "../../components/RetryErrorPanel";
 import { TimeAgo } from "../../components/TimeAgo";

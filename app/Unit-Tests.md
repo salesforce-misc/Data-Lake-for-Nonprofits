@@ -331,6 +331,8 @@ jest.spyOn(detectedInstallationStore, "useDetectedInstallationStore").mockImplem
 - render properly with 2 selected objects
 
 #### CredentialsCollectionForm
+- snapshot
+- render properly
 
 #### DataTablePanel
 

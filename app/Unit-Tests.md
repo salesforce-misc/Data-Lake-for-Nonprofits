@@ -381,6 +381,8 @@ jest.spyOn(detectedInstallationStore, "useDetectedInstallationStore").mockImplem
 ### RegionForm
 
 ### Step2 Page
+- snapshot
+- render properly
 
 ### Step3 Page
 

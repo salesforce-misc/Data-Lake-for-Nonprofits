@@ -1,0 +1,506 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Step2 component snapshot 1`] = `
+Array [
+  <div
+    className="css-1v55i00"
+    data-testid="curved-box"
+  />,
+  <div
+    className="chakra-container css-1szj4qk"
+  >
+    <div
+      className="chakra-stack css-olw0lh"
+    >
+      <div
+        className="chakra-stack css-18lyn6q"
+      >
+        <div
+          className="css-1i3fafl"
+        >
+          <img
+            className="chakra-image css-0"
+            src="Salesforce_Corporate_Logo_RGB.png"
+          />
+        </div>
+        <div
+          className="chakra-stack__divider css-r2vkku"
+        />
+        <div
+          className="css-nutmff"
+        >
+          <img
+            className="chakra-image css-ir5tdx"
+            src="AWS_logo_RGB_BLK.png"
+          />
+        </div>
+      </div>
+      <div
+        className="chakra-stack css-1n7gsjr"
+      >
+        <div
+          className="css-18n4g2t"
+        >
+          <h2
+            className="chakra-heading css-1opsxio"
+          >
+            Datalake for Nonprofits, Powered by AWS
+          </h2>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    className="css-79elbk"
+  >
+    <div
+      className="css-t7j6xp"
+      data-testid="curved-box"
+    />
+    <div
+      className="css-1hbx7hm"
+    >
+      <div
+        className="chakra-container css-h66qep"
+      >
+        <div
+          className="chakra-stack css-84zodg"
+        >
+          <span
+            className="css-9xsoz7"
+          >
+            0
+          </span>
+          <span
+            className="css-9xsoz7"
+          >
+            1
+          </span>
+          <span
+            className="css-hfqsm"
+          >
+            2
+          </span>
+          <span
+            className="css-ulmpab"
+          >
+            3
+          </span>
+          <span
+            className="css-ulmpab"
+          >
+            4
+          </span>
+          <span
+            className="css-ulmpab"
+          >
+            5
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      className="chakra-container css-11yz6e2"
+    >
+      <h2
+        className="chakra-heading css-h8t1vd"
+      >
+        Connect to your Salesforce organization
+      </h2>
+      <div
+        className="css-1cm40bb"
+      >
+        <div
+          className="chakra-stack css-1wy5s38"
+        >
+          <div
+            className="css-0"
+          >
+            For AWS to access your Salesforce data, we will need your authorization.
+          </div>
+          <div
+            className="css-0"
+          >
+            We will guide you through the steps of setting up Amazon AppFlow which is a service that allows AWS to connect to Salesforce.
+          </div>
+          <div
+            className="css-0"
+          >
+            You will be creating a Salesforce connection, signing in to Salesforce and authorizing access.
+          </div>
+        </div>
+      </div>
+      <div
+        className="css-10a6eoe"
+      >
+        <div
+          className="css-1frymol"
+        >
+          <h2
+            className="chakra-heading css-1yxyor"
+          >
+            Create a dedicated Salesforce user
+          </h2>
+          <p
+            className="chakra-text css-rszk63"
+          >
+            To gain access to your Salesforce data, you need a Salesforce user for authentication purposes. It is best security practice to use a dedicated user for this purpose. This helps ensure business continuity and adheres to the principle of least privilege to help secure your data. For detailed instructions, see  
+            <a
+              className="chakra-link css-oga2ct"
+              href="https://help.salesforce.com/articleView?id=000331470&type=1&mode=1"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Create a secure Salesforce API user 
+              <svg
+                className="chakra-icon css-2y6psj"
+                focusable={false}
+                viewBox="0 0 24 24"
+              >
+                <g
+                  fill="none"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeWidth="2"
+                >
+                  <path
+                    d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                  />
+                  <path
+                    d="M15 3h6v6"
+                  />
+                  <path
+                    d="M10 14L21 3"
+                  />
+                </g>
+              </svg>
+            </a>
+          </p>
+          If you do not have an extra full Salesforce user license available, you can skip this step and instead repurpose a user with a profile or permission set that provides:
+          <ul
+            className="css-12af3b8"
+            role="list"
+          >
+            <li
+              className="css-0"
+            >
+              Access to the objects and fields in Salesforce that you plan to sync
+            </li>
+            <li
+              className="css-0"
+            >
+              System Permission: API Enabled
+            </li>
+            <li
+              className="css-0"
+            >
+               System Permission: Manage Connected Apps
+            </li>
+          </ul>
+          This is likely a user with a System Administrator or similar profile.
+        </div>
+        <div
+          className="css-old1by"
+        >
+          <h2
+            className="chakra-heading css-1yxyor"
+          >
+            Create a Salesforce connection using Amazon AppFlow
+          </h2>
+          <p
+            className="chakra-text css-rszk63"
+          >
+            Amazon AppFlow is a service that allows AWS to connect to Salesforce, for this to work, you need to create a Salesforce connection using Amazon AppFlow.
+          </p>
+        </div>
+        <div
+          className="chakra-stack css-6ig1fh"
+        >
+          <div
+            className="css-0"
+          >
+            <div
+              className="css-1ktikgs"
+            >
+              <img
+                alt="AppFlow Connections Page"
+                className="chakra-image css-1fyy6mf"
+                onClick={[Function]}
+                src="appflow-connection-01.png"
+              />
+            </div>
+          </div>
+          <div
+            className="css-0"
+          >
+            <ul
+              className="css-u3429j"
+              role="list"
+            >
+              <li
+                className="css-0"
+              >
+                Go to the  
+                <a
+                  className="chakra-link css-oga2ct"
+                  href="https://us-east-1.console.aws.amazon.com/appflow/home?region=us-east-1#/connections/salesforce"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  AppFlow connections page 
+                  <svg
+                    className="chakra-icon css-2y6psj"
+                    focusable={false}
+                    viewBox="0 0 24 24"
+                  >
+                    <g
+                      fill="none"
+                      stroke="currentColor"
+                      strokeLinecap="round"
+                      strokeWidth="2"
+                    >
+                      <path
+                        d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                      />
+                      <path
+                        d="M15 3h6v6"
+                      />
+                      <path
+                        d="M10 14L21 3"
+                      />
+                    </g>
+                  </svg>
+                </a>
+              </li>
+              <li
+                className="css-0"
+              >
+                 Click on the Create connection button 
+              </li>
+            </ul>
+          </div>
+        </div>
+        <hr
+          aria-orientation="horizontal"
+          className="chakra-divider css-wcaiv4"
+        />
+        <div
+          className="chakra-stack css-1fsftfy"
+        >
+          <div
+            className="css-0"
+          >
+            <div
+              className="css-1ktikgs"
+            >
+              <img
+                alt="AppFlow Connection Page"
+                className="chakra-image css-1fyy6mf"
+                onClick={[Function]}
+                src="appflow-connection-02.png"
+              />
+            </div>
+          </div>
+          <div
+            className="css-0"
+          >
+            <ul
+              className="css-u3429j"
+              role="list"
+            >
+              <li
+                className="css-0"
+              >
+                Choose the Salesforce environment you want to connect to
+              </li>
+              <li
+                className="css-0"
+              >
+                Leave the Private Link selection as 'Disabled'
+              </li>
+              <li
+                className="css-0"
+              >
+                Leave the Data Encryption setting as is
+              </li>
+              <li
+                className="css-0"
+              >
+                Type a name for the connection, it can be anything you want, then click Continue
+              </li>
+            </ul>
+          </div>
+        </div>
+        <hr
+          aria-orientation="horizontal"
+          className="chakra-divider css-wcaiv4"
+        />
+        <div
+          className="chakra-stack css-1vq7dlv"
+        >
+          <div
+            className="css-0"
+          >
+            <div
+              className="css-1ktikgs"
+            >
+              <img
+                alt="Salesforce Login Page"
+                className="chakra-image css-1fyy6mf"
+                onClick={[Function]}
+                src="appflow-connection-03.png"
+              />
+            </div>
+          </div>
+          <div
+            className="css-0"
+          >
+            <ul
+              className="css-u3429j"
+              role="list"
+            >
+              <li
+                className="css-0"
+              >
+                Provide the user name and password for the dedicated Salesforce user that you created earlier
+              </li>
+            </ul>
+            <div
+              className="css-xbhv25"
+            >
+              Remember to log in using the newly created dedicated Salesforce user
+            </div>
+          </div>
+        </div>
+        <hr
+          aria-orientation="horizontal"
+          className="chakra-divider css-wcaiv4"
+        />
+        <div
+          className="chakra-stack css-1vq7dlv"
+        >
+          <div
+            className="css-0"
+          >
+            <div
+              className="css-1ktikgs"
+            >
+              <img
+                alt="Salesforce Allow Access Page"
+                className="chakra-image css-1fyy6mf"
+                onClick={[Function]}
+                src="appflow-connection-04.png"
+              />
+            </div>
+          </div>
+          <div
+            className="css-0"
+          >
+            <ul
+              className="css-u3429j"
+              role="list"
+            >
+              <li
+                className="css-0"
+              >
+                Allow access to your Salesforce data
+              </li>
+              <li
+                className="css-0"
+              >
+                You will be directed back to the AppFlow connections page, you should see the connection name that you just created. You don't need to do anything else on the AppFlow connections page. Go ahead and select Yes for the next question.
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div
+          className="chakra-stack css-5uflnl"
+        >
+          <h2
+            className="chakra-heading css-wrl52z"
+          >
+            Did you create a Salesforce connection using Amazon AppFlow?
+          </h2>
+          <div
+            className="css-s2uf1z"
+          >
+            <button
+              className="chakra-button css-1ae6t0z"
+              onClick={[Function]}
+              type="button"
+            >
+              Yes
+            </button>
+          </div>
+        </div>
+        <div
+          className="chakra-collapse"
+          style={
+            Object {
+              "display": "none",
+              "height": "0px",
+              "opacity": 0,
+              "overflow": "hidden",
+            }
+          }
+        >
+          <div
+            className="css-0"
+          />
+        </div>
+      </div>
+      <div
+        className="chakra-stack css-1aoc1cb"
+      >
+        <button
+          className="chakra-button css-14g2dfb"
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+        >
+          <span
+            className="chakra-button__icon css-1wh2kri"
+          >
+            <svg
+              aria-hidden={true}
+              className="chakra-icon css-onkibi"
+              focusable={false}
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+                fill="currentColor"
+              />
+            </svg>
+          </span>
+          Previous
+        </button>
+        <button
+          className="chakra-button css-jxg557"
+          disabled={true}
+          onClick={[Function]}
+          type="button"
+        >
+          Next
+          <span
+            className="chakra-button__icon css-1hzyiq5"
+          >
+            <svg
+              aria-hidden={true}
+              className="chakra-icon css-onkibi"
+              focusable={false}
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                fill="currentColor"
+              />
+            </svg>
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>,
+  <span />,
+]
+`;

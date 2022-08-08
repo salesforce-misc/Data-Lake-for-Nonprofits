@@ -6,9 +6,9 @@ import { render, RenderWithChakra } from "test-utils";
 
 import * as appContext from "AppContext";
 import * as metadataStore from "models/MetadataStore";
-import { Step3 } from "pages/step3/Step3";
+import { Step4 } from "pages/step4/Step4";
 
-describe("Step3 component", () => {
+describe("Step4 component", () => {
   afterEach(cleanup);
 
   test("snapshot", () => {
@@ -23,9 +23,12 @@ describe("Step3 component", () => {
         appFlowConnectionName: "test-appflow-connection-name",
         credentials: [],
         deploymentStep: "1",
-        reviewStep: "1",
         nextStepNumber: "2",
         importOptionsStep: {
+          markStarted: jest.fn(),
+          markCompleted: jest.fn(),
+        },
+        reviewStep: {
           markStarted: jest.fn(),
           markCompleted: jest.fn(),
         },
@@ -36,10 +39,7 @@ describe("Step3 component", () => {
       return {
         isReady: true,
         store: {
-          listAll: [{}],
           selectedObjects: [{}],
-          missingObjects: [],
-          excludedObjects: [],
         },
       };
     });
@@ -48,7 +48,7 @@ describe("Step3 component", () => {
       <RenderWithChakra>
         <appContext.StoreProvider>
           <BrowserRouter>
-            <Step3 />
+            <Step4 />
           </BrowserRouter>
         </appContext.StoreProvider>
       </RenderWithChakra>
@@ -69,9 +69,12 @@ describe("Step3 component", () => {
         appFlowConnectionName: "test-appflow-connection-name",
         credentials: [],
         deploymentStep: "1",
-        reviewStep: "1",
         nextStepNumber: "2",
         importOptionsStep: {
+          markStarted: jest.fn(),
+          markCompleted: jest.fn(),
+        },
+        reviewStep: {
           markStarted: jest.fn(),
           markCompleted: jest.fn(),
         },
@@ -82,10 +85,7 @@ describe("Step3 component", () => {
       return {
         isReady: true,
         store: {
-          listAll: [{}],
           selectedObjects: [{}],
-          missingObjects: [],
-          excludedObjects: [],
         },
       };
     });
@@ -93,13 +93,14 @@ describe("Step3 component", () => {
     render(
       <appContext.StoreProvider>
         <BrowserRouter>
-          <Step3 />
+          <Step4 />
         </BrowserRouter>
       </appContext.StoreProvider>
     );
 
-    expect(screen.getAllByText(/select data import options/i)).toBeTruthy();
-    expect(screen.getByText(/you can pick the standard npsp import options/i)).toBeInTheDocument();
+    expect(screen.getAllByText(/review and confirm/i)).toBeTruthy();
+    expect(screen.getAllByText(/installation id/i)).toBeTruthy();
+    expect(screen.getByText(/did we get everything right/i)).toBeInTheDocument();
     expect(screen.getByText("Previous")).toBeInTheDocument();
     expect(screen.getByText("Next")).toBeInTheDocument();
   });

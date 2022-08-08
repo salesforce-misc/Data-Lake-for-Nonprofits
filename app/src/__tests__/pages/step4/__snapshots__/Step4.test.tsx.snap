@@ -1,0 +1,344 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Step4 component snapshot 1`] = `
+Array [
+  <div
+    className="css-1v55i00"
+    data-testid="curved-box"
+  />,
+  <div
+    className="chakra-container css-1szj4qk"
+  >
+    <div
+      className="chakra-stack css-olw0lh"
+    >
+      <div
+        className="chakra-stack css-18lyn6q"
+      >
+        <div
+          className="css-1i3fafl"
+        >
+          <img
+            className="chakra-image css-0"
+            src="Salesforce_Corporate_Logo_RGB.png"
+          />
+        </div>
+        <div
+          className="chakra-stack__divider css-r2vkku"
+        />
+        <div
+          className="css-nutmff"
+        >
+          <img
+            className="chakra-image css-ir5tdx"
+            src="AWS_logo_RGB_BLK.png"
+          />
+        </div>
+      </div>
+      <div
+        className="chakra-stack css-1n7gsjr"
+      >
+        <div
+          className="css-18n4g2t"
+        >
+          <h2
+            className="chakra-heading css-1opsxio"
+          >
+            Datalake for Nonprofits, Powered by AWS
+          </h2>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    className="css-79elbk"
+  >
+    <div
+      className="css-t7j6xp"
+      data-testid="curved-box"
+    />
+    <div
+      className="css-i8uq4t"
+    >
+      <div
+        className="chakra-container css-h66qep"
+      >
+        <div
+          className="chakra-stack css-84zodg"
+        >
+          <span
+            className="css-9xsoz7"
+          >
+            0
+          </span>
+          <span
+            className="css-9xsoz7"
+          >
+            1
+          </span>
+          <span
+            className="css-9xsoz7"
+          >
+            2
+          </span>
+          <span
+            className="css-9xsoz7"
+          >
+            3
+          </span>
+          <span
+            className="css-hfqsm"
+          >
+            4
+          </span>
+          <span
+            className="css-ulmpab"
+          >
+            5
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      className="chakra-container css-8tuq56"
+    >
+      <div
+        className="css-1a8z5lr"
+      >
+        <p
+          className="chakra-text css-0"
+        >
+          Installation ID
+        </p>
+        <p
+          className="chakra-text css-0"
+        >
+          1
+        </p>
+      </div>
+      <h2
+        className="chakra-heading css-1vtzlyn"
+      >
+        Review and confirm
+      </h2>
+      <div
+        className="css-3klikg"
+      >
+        <div
+          className="chakra-stack css-11wh0gm"
+        >
+          <div
+            className="css-12595yo"
+          >
+            Did we get everything right? Take a look at all the answers you provided and confirm your selections.
+          </div>
+        </div>
+      </div>
+      <div
+        className="css-1ikeo3e"
+      >
+        <div
+          className="css-9kpwwf"
+        >
+          <div
+            className="css-1dlsxld"
+          >
+            AWS Region
+          </div>
+          <div
+            className="css-hl0cvm"
+          >
+            US East (Northern Virginia) Region
+          </div>
+          <div
+            className="css-1dlsxld"
+          >
+            Connection Name
+          </div>
+          <div
+            className="css-hl0cvm"
+          >
+            test-appflow-connection-name
+          </div>
+          <div
+            className="css-1dlsxld"
+          >
+            Import Schedule
+          </div>
+          <div
+            className="css-hl0cvm"
+          />
+          <div
+            className="css-1dlsxld"
+          >
+            Data Model
+          </div>
+          <div
+            className="css-hl0cvm"
+          >
+            We will import 
+            1
+             objects
+          </div>
+        </div>
+        <table
+          className="chakra-table css-94ssnp"
+          role="table"
+        >
+          <thead
+            className="css-0"
+          >
+            <tr
+              className="css-0"
+              role="row"
+            >
+              <th
+                className="css-111khnu"
+              >
+                Type
+              </th>
+              <th
+                className="css-111khnu"
+                data-is-numeric={true}
+              >
+                # Fields
+              </th>
+            </tr>
+          </thead>
+          <tbody
+            className="css-0"
+          >
+            <tr
+              className="css-4g6ai3"
+              onClick={[Function]}
+              role="row"
+            >
+              <td
+                className="css-1d5g9w7"
+                role="gridcell"
+              >
+                <div
+                  className="chakra-stack css-snbr68"
+                >
+                  <svg
+                    className="chakra-icon css-m6c8f6"
+                    focusable={false}
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                  <div
+                    className="css-0"
+                  >
+                      
+                    <p
+                      className="chakra-text css-1fk7407"
+                    >
+                      ( 
+                       )
+                    </p>
+                  </div>
+                </div>
+              </td>
+              <td
+                className="css-1d5g9w7"
+                data-is-numeric={true}
+                role="gridcell"
+              >
+                N/A
+                /
+                N/A
+              </td>
+            </tr>
+          </tbody>
+          <tfoot
+            className="css-5wov5z"
+          >
+            <tr
+              className="css-0"
+              role="row"
+            >
+              <th
+                className="css-111khnu"
+              />
+              <th
+                className="css-111khnu"
+                data-is-numeric={true}
+              >
+                N/A
+              </th>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+      <div
+        className="css-1ikeo3e"
+      >
+        <h2
+          className="chakra-heading css-1t5ljy0"
+        >
+          What's next?
+        </h2>
+        <p
+          className="chakra-text css-0"
+        >
+          We will start the process of setting up the datalake at AWS and importing your Salesforce records. Depending on the number of records to import, the next step might take 15 minutes to a few hours to complete.
+        </p>
+      </div>
+      <div
+        className="chakra-stack css-1aoc1cb"
+      >
+        <button
+          className="chakra-button css-1112rcq"
+          onClick={[Function]}
+          type="button"
+        >
+          <span
+            className="chakra-button__icon css-1wh2kri"
+          >
+            <svg
+              aria-hidden={true}
+              className="chakra-icon css-onkibi"
+              focusable={false}
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+                fill="currentColor"
+              />
+            </svg>
+          </span>
+          Previous
+        </button>
+        <button
+          className="chakra-button css-1yog7ax"
+          onClick={[Function]}
+          type="button"
+        >
+          Next
+          <span
+            className="chakra-button__icon css-1hzyiq5"
+          >
+            <svg
+              aria-hidden={true}
+              className="chakra-icon css-onkibi"
+              focusable={false}
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                fill="currentColor"
+              />
+            </svg>
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>,
+  <span />,
+  <span />,
+]
+`;

@@ -734,3 +734,738 @@ Array [
   <span />,
 ]
 `;
+
+exports[`Step3 component snapshot 1`] = `
+Array [
+  <div
+    className="css-1v55i00"
+    data-testid="curved-box"
+  />,
+  <div
+    className="chakra-container css-1szj4qk"
+  >
+    <div
+      className="chakra-stack css-olw0lh"
+    >
+      <div
+        className="chakra-stack css-18lyn6q"
+      >
+        <div
+          className="css-1i3fafl"
+        >
+          <img
+            className="chakra-image css-0"
+            src="Salesforce_Corporate_Logo_RGB.png"
+          />
+        </div>
+        <div
+          className="chakra-stack__divider css-r2vkku"
+        />
+        <div
+          className="css-nutmff"
+        >
+          <img
+            className="chakra-image css-ir5tdx"
+            src="AWS_logo_RGB_BLK.png"
+          />
+        </div>
+      </div>
+      <div
+        className="chakra-stack css-1n7gsjr"
+      >
+        <div
+          className="css-18n4g2t"
+        >
+          <h2
+            className="chakra-heading css-1opsxio"
+          >
+            Datalake for Nonprofits, Powered by AWS
+          </h2>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    className="css-79elbk"
+  >
+    <div
+      className="css-t7j6xp"
+      data-testid="curved-box"
+    />
+    <div
+      className="css-15dboc9"
+    >
+      <div
+        className="chakra-container css-h66qep"
+      >
+        <div
+          className="chakra-stack css-84zodg"
+        >
+          <span
+            className="css-9xsoz7"
+          >
+            0
+          </span>
+          <span
+            className="css-9xsoz7"
+          >
+            1
+          </span>
+          <span
+            className="css-9xsoz7"
+          >
+            2
+          </span>
+          <span
+            className="css-hfqsm"
+          >
+            3
+          </span>
+          <span
+            className="css-ulmpab"
+          >
+            4
+          </span>
+          <span
+            className="css-ulmpab"
+          >
+            5
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      className="chakra-container css-11yz6e2"
+    >
+      <h2
+        className="chakra-heading css-noy8un"
+      >
+        Select data import options
+      </h2>
+      <div
+        className="css-19a4hof"
+      >
+        <div
+          className="chakra-stack css-11wh0gm"
+        >
+          <div
+            className="css-1y0bycm"
+          >
+            In this step, you can pick the standard NPSP import options for your Salesforce data or customize these options to fit your needs. You also get to specify the schedule at which data is imported.
+          </div>
+        </div>
+      </div>
+      <div
+        className="css-1cxlklx"
+      >
+        <div
+          className="css-1ui15d5"
+        >
+          <div
+            className="css-1lpnqa0"
+          >
+            Retrieving your Salesforce data schema, this might take a few minutes
+            <br />
+            NaN
+             %
+          </div>
+          <div
+            className="css-1jer4t"
+          >
+            <div
+              aria-valuemax={100}
+              aria-valuemin={0}
+              className="css-1585z0b"
+              data-indeterminate=""
+              role="progressbar"
+              style={
+                Object {
+                  "width": "0%",
+                }
+              }
+            />
+          </div>
+        </div>
+        <div
+          className="css-1frymol"
+        >
+          <h2
+            className="chakra-heading css-8297jb"
+          >
+            How often should we import the data?
+          </h2>
+          <div
+            className="chakra-stack css-flp588"
+          >
+            <div
+              className="css-2m5dz5"
+            >
+              <div
+                className="chakra-radio-group css-0"
+                role="radiogroup"
+              >
+                <div
+                  className="css-1m6qo81"
+                  onClick={[Function]}
+                >
+                  <div
+                    className="css-1jvs9h2"
+                  >
+                    <label
+                      className="chakra-radio css-1pw4d56"
+                    >
+                      <input
+                        checked={false}
+                        className="chakra-radio__input"
+                        id="radio-1"
+                        name="radio-1"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        onFocus={[Function]}
+                        onKeyDown={[Function]}
+                        onKeyUp={[Function]}
+                        style={
+                          Object {
+                            "border": "0px",
+                            "clip": "rect(0px, 0px, 0px, 0px)",
+                            "height": "1px",
+                            "margin": "-1px",
+                            "overflow": "hidden",
+                            "padding": "0px",
+                            "position": "absolute",
+                            "whiteSpace": "nowrap",
+                            "width": "1px",
+                          }
+                        }
+                        type="radio"
+                      />
+                      <span
+                        aria-hidden={true}
+                        className="chakra-radio__control css-ww8qvl"
+                        onMouseDown={[Function]}
+                        onMouseEnter={[Function]}
+                        onMouseLeave={[Function]}
+                        onMouseUp={[Function]}
+                      />
+                      <span
+                        className="chakra-radio__label css-1i66d7g"
+                        onMouseDown={[Function]}
+                        onTouchStart={[Function]}
+                      >
+                        Monthly
+                      </span>
+                    </label>
+                    <div
+                      className="css-0"
+                    >
+                      <span
+                        className="chakra-badge css-1690ih9"
+                      >
+                        Recommended
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  className="css-1rj9xgn"
+                  onClick={[Function]}
+                >
+                  <label
+                    className="chakra-radio css-1pw4d56"
+                  >
+                    <input
+                      checked={false}
+                      className="chakra-radio__input"
+                      id="radio-1"
+                      name="radio-1"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      onFocus={[Function]}
+                      onKeyDown={[Function]}
+                      onKeyUp={[Function]}
+                      style={
+                        Object {
+                          "border": "0px",
+                          "clip": "rect(0px, 0px, 0px, 0px)",
+                          "height": "1px",
+                          "margin": "-1px",
+                          "overflow": "hidden",
+                          "padding": "0px",
+                          "position": "absolute",
+                          "whiteSpace": "nowrap",
+                          "width": "1px",
+                        }
+                      }
+                      type="radio"
+                    />
+                    <span
+                      aria-hidden={true}
+                      className="chakra-radio__control css-ww8qvl"
+                      onMouseDown={[Function]}
+                      onMouseEnter={[Function]}
+                      onMouseLeave={[Function]}
+                      onMouseUp={[Function]}
+                    />
+                    <span
+                      className="chakra-radio__label css-1i66d7g"
+                      onMouseDown={[Function]}
+                      onTouchStart={[Function]}
+                    >
+                      Weekly
+                    </span>
+                  </label>
+                </div>
+                <div
+                  className="css-1rj9xgn"
+                  onClick={[Function]}
+                >
+                  <label
+                    className="chakra-radio css-1pw4d56"
+                  >
+                    <input
+                      checked={false}
+                      className="chakra-radio__input"
+                      id="radio-1"
+                      name="radio-1"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      onFocus={[Function]}
+                      onKeyDown={[Function]}
+                      onKeyUp={[Function]}
+                      style={
+                        Object {
+                          "border": "0px",
+                          "clip": "rect(0px, 0px, 0px, 0px)",
+                          "height": "1px",
+                          "margin": "-1px",
+                          "overflow": "hidden",
+                          "padding": "0px",
+                          "position": "absolute",
+                          "whiteSpace": "nowrap",
+                          "width": "1px",
+                        }
+                      }
+                      type="radio"
+                    />
+                    <span
+                      aria-hidden={true}
+                      className="chakra-radio__control css-ww8qvl"
+                      onMouseDown={[Function]}
+                      onMouseEnter={[Function]}
+                      onMouseLeave={[Function]}
+                      onMouseUp={[Function]}
+                    />
+                    <span
+                      className="chakra-radio__label css-1i66d7g"
+                      onMouseDown={[Function]}
+                      onTouchStart={[Function]}
+                    >
+                      Daily
+                    </span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div
+              className="chakra-stack__divider css-1gvtail"
+            />
+            <div
+              className="css-1dku7pm"
+            />
+          </div>
+        </div>
+        <hr
+          aria-orientation="horizontal"
+          className="chakra-divider css-zp35to"
+        />
+        <div
+          className="css-1wrpr7j"
+        >
+          <h2
+            className="chakra-heading css-1pprtor"
+          >
+            Salesforce NPSP data model
+          </h2>
+          <div
+            className="chakra-alert css-1y8tq1o"
+            role="alert"
+          >
+            <div
+              className="css-0"
+            >
+              <div
+                className="chakra-alert__title css-1vqyp4x"
+              >
+                Objects to import
+                <span
+                  className="chakra-badge css-ni2gbt"
+                >
+                  1
+                </span>
+              </div>
+              <div
+                className="chakra-alert__desc css-1o140vv"
+              >
+                If needed, you can include or exclude 
+                <b>
+                  objects
+                </b>
+                 by clicking on the object name.
+                <p
+                  className="chakra-text css-1art13b"
+                >
+                  You can also exclude 
+                  <b>
+                    fields
+                  </b>
+                   by clicking on the 'Customize Fields' button.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div
+            className="css-11ycgl2"
+          >
+            <div
+              className="css-eypmdn"
+            >
+              <div
+                className="chakra-radio-group css-15o7o8w"
+                role="radiogroup"
+              >
+                <div
+                  className="css-gdii58"
+                >
+                  <div
+                    className="css-1nda4v5"
+                  >
+                    <p
+                      className="chakra-text css-yii78z"
+                    >
+                      Show
+                    </p>
+                    <label
+                      className="chakra-radio css-fjnot9"
+                      data-checked=""
+                    >
+                      <input
+                        checked={true}
+                        className="chakra-radio__input"
+                        disabled={false}
+                        id="radio-1"
+                        name="radio-1"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        onFocus={[Function]}
+                        onKeyDown={[Function]}
+                        onKeyUp={[Function]}
+                        style={
+                          Object {
+                            "border": "0px",
+                            "clip": "rect(0px, 0px, 0px, 0px)",
+                            "height": "1px",
+                            "margin": "-1px",
+                            "overflow": "hidden",
+                            "padding": "0px",
+                            "position": "absolute",
+                            "whiteSpace": "nowrap",
+                            "width": "1px",
+                          }
+                        }
+                        type="radio"
+                        value="1"
+                      />
+                      <span
+                        aria-hidden={true}
+                        className="chakra-radio__control css-1taemt2"
+                        data-checked=""
+                        onMouseDown={[Function]}
+                        onMouseEnter={[Function]}
+                        onMouseLeave={[Function]}
+                        onMouseUp={[Function]}
+                      />
+                      <span
+                        className="chakra-radio__label css-1i66d7g"
+                        data-checked=""
+                        onMouseDown={[Function]}
+                        onTouchStart={[Function]}
+                      >
+                        <p
+                          className="chakra-text css-surgn5"
+                        >
+                          All Objects
+                          <span
+                            className="chakra-badge css-7hgm7x"
+                          >
+                            1
+                          </span>
+                        </p>
+                      </span>
+                    </label>
+                  </div>
+                  <label
+                    className="chakra-radio css-1pw4d56"
+                  >
+                    <input
+                      checked={false}
+                      className="chakra-radio__input"
+                      disabled={false}
+                      id="radio-1"
+                      name="radio-1"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      onFocus={[Function]}
+                      onKeyDown={[Function]}
+                      onKeyUp={[Function]}
+                      style={
+                        Object {
+                          "border": "0px",
+                          "clip": "rect(0px, 0px, 0px, 0px)",
+                          "height": "1px",
+                          "margin": "-1px",
+                          "overflow": "hidden",
+                          "padding": "0px",
+                          "position": "absolute",
+                          "whiteSpace": "nowrap",
+                          "width": "1px",
+                        }
+                      }
+                      type="radio"
+                      value="2"
+                    />
+                    <span
+                      aria-hidden={true}
+                      className="chakra-radio__control css-1taemt2"
+                      onMouseDown={[Function]}
+                      onMouseEnter={[Function]}
+                      onMouseLeave={[Function]}
+                      onMouseUp={[Function]}
+                    />
+                    <span
+                      className="chakra-radio__label css-1i66d7g"
+                      onMouseDown={[Function]}
+                      onTouchStart={[Function]}
+                    >
+                      <p
+                        className="chakra-text css-surgn5"
+                      >
+                        Included Objects
+                        <span
+                          className="chakra-badge css-7hgm7x"
+                        >
+                          1
+                        </span>
+                      </p>
+                    </span>
+                  </label>
+                  <label
+                    className="chakra-radio css-1pw4d56"
+                  >
+                    <input
+                      checked={false}
+                      className="chakra-radio__input"
+                      disabled={false}
+                      id="radio-1"
+                      name="radio-1"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      onFocus={[Function]}
+                      onKeyDown={[Function]}
+                      onKeyUp={[Function]}
+                      style={
+                        Object {
+                          "border": "0px",
+                          "clip": "rect(0px, 0px, 0px, 0px)",
+                          "height": "1px",
+                          "margin": "-1px",
+                          "overflow": "hidden",
+                          "padding": "0px",
+                          "position": "absolute",
+                          "whiteSpace": "nowrap",
+                          "width": "1px",
+                        }
+                      }
+                      type="radio"
+                      value="3"
+                    />
+                    <span
+                      aria-hidden={true}
+                      className="chakra-radio__control css-1taemt2"
+                      onMouseDown={[Function]}
+                      onMouseEnter={[Function]}
+                      onMouseLeave={[Function]}
+                      onMouseUp={[Function]}
+                    />
+                    <span
+                      className="chakra-radio__label css-1i66d7g"
+                      onMouseDown={[Function]}
+                      onTouchStart={[Function]}
+                    >
+                      <p
+                        className="chakra-text css-gkdncc"
+                      >
+                        Excluded Objects
+                        <span
+                          className="chakra-badge css-7hgm7x"
+                        >
+                          0
+                        </span>
+                      </p>
+                    </span>
+                  </label>
+                </div>
+              </div>
+              <table
+                className="chakra-table css-1ijrwz3"
+                role="table"
+              >
+                <thead
+                  className="css-0"
+                >
+                  <tr
+                    className="css-0"
+                    role="row"
+                  >
+                    <th
+                      className="css-e8a57g"
+                    >
+                      Objects
+                    </th>
+                    <th
+                      className="css-at1ona"
+                    >
+                      Fields
+                    </th>
+                    <th
+                      className="css-1fsrd9l"
+                      data-is-numeric={true}
+                    />
+                  </tr>
+                </thead>
+                <tbody
+                  className="css-0"
+                >
+                  <tr
+                    className="css-4g6ai3"
+                    role="row"
+                  >
+                    <td
+                      className="css-1luj9dq"
+                      colSpan={1}
+                      role="gridcell"
+                    >
+                      <div
+                        className="css-k008qs"
+                      >
+                        <svg
+                          className="chakra-icon css-elgig9"
+                          fill="currentColor"
+                          focusable={false}
+                          height="1em"
+                          onClick={[Function]}
+                          stroke="currentColor"
+                          strokeWidth="0"
+                          style={
+                            Object {
+                              "color": undefined,
+                            }
+                          }
+                          viewBox="0 0 16 16"
+                          width="1em"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+                          />
+                        </svg>
+                        <div
+                          className="css-1nx7hf7"
+                          onClick={[Function]}
+                        >
+                          <div
+                            className="css-11cuipc"
+                          />
+                          <div
+                            className="css-nrq09u"
+                          />
+                        </div>
+                      </div>
+                    </td>
+                    <td
+                      className="css-1luj9dq"
+                      data-is-numeric={true}
+                      role="gridcell"
+                    />
+                    <td
+                      className="css-j803ed"
+                      role="gridcell"
+                    />
+                  </tr>
+                </tbody>
+              </table>
+              <div
+                className="css-qzs98u"
+              >
+                <div
+                  className="css-1p8q2i6"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="chakra-stack css-1aoc1cb"
+      >
+        <button
+          className="chakra-button css-a63yqb"
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+        >
+          <span
+            className="chakra-button__icon css-1wh2kri"
+          >
+            <svg
+              aria-hidden={true}
+              className="chakra-icon css-onkibi"
+              focusable={false}
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+                fill="currentColor"
+              />
+            </svg>
+          </span>
+          Previous
+        </button>
+        <button
+          className="chakra-button css-zb27lh"
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+        >
+          Next
+          <span
+            className="chakra-button__icon css-1hzyiq5"
+          >
+            <svg
+              aria-hidden={true}
+              className="chakra-icon css-onkibi"
+              focusable={false}
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                fill="currentColor"
+              />
+            </svg>
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>,
+  <span />,
+]
+`;

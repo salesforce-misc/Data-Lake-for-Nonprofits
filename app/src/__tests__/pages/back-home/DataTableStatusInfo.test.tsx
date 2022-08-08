@@ -5,10 +5,9 @@ import { render, RenderWithChakra } from "test-utils";
 
 import { StoreProvider } from "AppContext";
 
-import { DataTablePanel } from "pages/back-home/DataTablePanel";
+import { DataTableStatusInfo } from "pages/back-home/DataTableStatusInfo";
 
 import * as metadataStore from "models/MetadataStore";
-import { DataTableStatusInfo } from "pages/back-home/DataTableStatusInfo";
 
 describe("BackHome -> DataTableStatusInfo component", () => {
   afterEach(cleanup);

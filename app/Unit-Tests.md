@@ -348,6 +348,8 @@ jest.spyOn(detectedInstallationStore, "useDetectedInstallationStore").mockImplem
 - render properly with no error and not ready
 
 #### ManagePanel
+- snapshot
+- render properly
 
 #### ReviewGrid
 #### StartNewWarning

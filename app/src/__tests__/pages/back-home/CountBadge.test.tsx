@@ -7,7 +7,6 @@ import { StoreProvider } from "AppContext";
 
 import { CountBadge } from "pages/back-home/CountBadge";
 
-import * as detectedInstallationStore from "models/useDetectedInstallationStore";
 import * as metadataStore from "models/MetadataStore";
 
 describe("BackHome -> CountBadge component", () => {

@@ -6,16 +6,16 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 
 import { useInstallation, useStore } from "AppContext";
-import { CredentialsValidationException } from "api/validate-credentials";
+import { Header } from "components/Header";
 import { CurvedBox } from "components/CurvedBox";
 import { StepsIndicator } from "components/StepsIndicator";
 import { OutlineButton } from "components/OutlineButton";
+import { YesNoAnswer } from "models/steps/BaseStep";
+import { CredentialsValidationException } from "api/validate-credentials";
 import { CredentialsForm, ICredentialsFormInput } from "pages/step1/CredentialsForm";
 import { RegionForm } from "pages/step1/RegionForm";
 import { CredentialsError } from "pages/step1/CredentialsError";
-import { YesNoAnswer } from "models/steps/BaseStep";
 import { InstructionSection } from "pages/step1/InstructionSection";
-import { Header } from "components/Header";
 
 export const Step1 = observer(() => {
   const theme = useTheme();
@@ -39,6 +39,7 @@ export const Step1 = observer(() => {
     const accessKey = values.accessKeyId;
     const secretKey = values.secretAccessKey;
     const region = values.region;
+
     try {
       await step.connectToAws(accessKey, secretKey, region);
       step.markCompleted();

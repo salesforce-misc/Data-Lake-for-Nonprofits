@@ -5,9 +5,9 @@ import { BrowserRouter } from "react-router-dom";
 import { render, RenderWithChakra } from "test-utils";
 
 import * as appContext from "AppContext";
-import { BackHome } from "pages/back-home/BackHome";
+import { Step1 } from "pages/step1/Step1";
 
-describe("BackHome component", () => {
+describe("Step1 component", () => {
   afterEach(cleanup);
 
   test("snapshot", () => {
@@ -25,6 +25,9 @@ describe("BackHome component", () => {
         deploymentStep: "1",
         reviewStep: "1",
         nextStepNumber: "2",
+        connectToAwsStep: {
+          needsAssistance: false,
+        },
       };
     });
 
@@ -32,7 +35,7 @@ describe("BackHome component", () => {
       <RenderWithChakra>
         <appContext.StoreProvider>
           <BrowserRouter>
-            <BackHome />
+            <Step1 />
           </BrowserRouter>
         </appContext.StoreProvider>
       </RenderWithChakra>
@@ -56,21 +59,25 @@ describe("BackHome component", () => {
         deploymentStep: "1",
         reviewStep: "1",
         nextStepNumber: "2",
+        connectToAwsStep: {
+          needsAssistance: false,
+          markStarted: jest.fn(),
+          markCompleted: jest.fn(),
+        },
       };
     });
 
     render(
       <appContext.StoreProvider>
         <BrowserRouter>
-          <BackHome />
+          <Step1 />
         </BrowserRouter>
       </appContext.StoreProvider>
     );
 
-    expect(screen.getByText(/aws account id/i)).toBeInTheDocument();
-    expect(screen.getByText(/test-account-id/i)).toBeInTheDocument();
-    expect(screen.getByText(/aws region/i)).toBeInTheDocument();
-    expect(screen.getByText(/connection name/i)).toBeInTheDocument();
-    expect(screen.getByText(/test-appflow-connection-name/i)).toBeInTheDocument();
+    expect(screen.getAllByText(/connect to your aws account/i)).toBeTruthy();
+    expect(screen.getByText(/we need your aws/i)).toBeInTheDocument();
+    expect(screen.getByText("Previous")).toBeInTheDocument();
+    expect(screen.getByText("Next")).toBeInTheDocument();
   });
 });

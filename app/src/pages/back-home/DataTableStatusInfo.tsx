@@ -14,8 +14,8 @@ export const DataTableStatusInfo = observer(() => {
     store.load();
   };
 
-  return (
-    (isError && (
+  if (isError) {
+    return (
       <Alert status="error" variant="left-accent" mt={6} mb={4} color="red.700" alignItems="flex-end">
         <AlertIcon alignSelf="flex-start" />
         <Box>
@@ -29,16 +29,21 @@ export const DataTableStatusInfo = observer(() => {
           </Box>
         </Box>
       </Alert>
-    )) ||
-    (isReady && null) || (
-      <Box mt={6} mb={4} p={0}>
-        <Box textAlign="center" fontWeight="bold" color={tone(600)} fontSize="md" mb={4}>
-          Retrieving the data schema, this might take a few seconds
-          <br />
-          {Math.ceil(progress)} %
-        </Box>
-        <Progress size="sm" isIndeterminate colorScheme={colorScheme} bg={tone(100)} />
+    );
+  }
+
+  if (isReady) {
+    return null;
+  }
+
+  return (
+    <Box mt={6} mb={4} p={0}>
+      <Box textAlign="center" fontWeight="bold" color={tone(600)} fontSize="md" mb={4}>
+        Retrieving the data schema, this might take a few seconds
+        <br />
+        {Math.ceil(progress)} %
       </Box>
-    )
+      <Progress size="sm" isIndeterminate colorScheme={colorScheme} bg={tone(100)} />
+    </Box>
   );
 });

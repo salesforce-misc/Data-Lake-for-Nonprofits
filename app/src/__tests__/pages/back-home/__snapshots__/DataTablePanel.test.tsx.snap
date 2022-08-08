@@ -12,34 +12,6 @@ Array [
       1
     </span>
   </h2>,
-  <div
-    className="css-8hr4wd"
-  >
-    <div
-      className="css-1lpnqa0"
-    >
-      Retrieving the data schema, this might take a few seconds
-      <br />
-      NaN
-       %
-    </div>
-    <div
-      className="css-1jer4t"
-    >
-      <div
-        aria-valuemax={100}
-        aria-valuemin={0}
-        className="css-1585z0b"
-        data-indeterminate=""
-        role="progressbar"
-        style={
-          Object {
-            "width": "0%",
-          }
-        }
-      />
-    </div>
-  </div>,
   <table
     className="chakra-table css-94ssnp"
     role="table"

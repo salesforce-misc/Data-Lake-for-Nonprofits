@@ -3,6 +3,8 @@
 For information about running tests for create-react-app applications
 <https://create-react-app.dev/docs/running-tests/>
 
+Unit tests have been organized within the same folder structure as the application has under `__tests__` folder.
+
 ## Mocks
 
 Since Jest has not fully supported ESM yet, we used mocks for some third party libraries.
@@ -340,6 +342,11 @@ jest.spyOn(detectedInstallationStore, "useDetectedInstallationStore").mockImplem
 - render properly with no selected objects
 
 #### DataTableStatusInfo
+- snapshot
+- render properly with error
+- render properly with ready
+- render properly with no error and not ready
+
 #### ManagePanel
 
 #### ReviewGrid

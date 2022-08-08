@@ -8,8 +8,7 @@ import { StoreProvider } from "AppContext";
 import { Home } from "pages/home/Home";
 
 import * as detectedInstallationStore from "models/useDetectedInstallationStore";
-
-const mockOnCancel = jest.fn();
+import { BrowserRouter, Router } from "react-router-dom";
 
 describe("Home component", () => {
   afterEach(cleanup);
@@ -18,7 +17,9 @@ describe("Home component", () => {
     const tree = create(
       <RenderWithChakra>
         <StoreProvider>
-          <Home />
+          <BrowserRouter>
+            <Home />
+          </BrowserRouter>
         </StoreProvider>
       </RenderWithChakra>
     ).toJSON();

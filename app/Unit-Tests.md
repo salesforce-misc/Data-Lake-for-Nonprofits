@@ -270,6 +270,8 @@ jest.spyOn(detectedInstallationStore, "useDetectedInstallationStore").mockImplem
 
 ### Home Page
 
+- snapshot
+
 #### StepBox component
 
 - snapshot
@@ -321,7 +323,20 @@ jest.spyOn(detectedInstallationStore, "useDetectedInstallationStore").mockImplem
 - snapshot
 - render properly
 
-#### BackHome
+### BackHome Page
+
+#### CountBadge
+
+#### CredentialsCollectionForm
+
+#### DataTablePanel
+
+#### DataTableStatusInfo
+#### ManagePanel
+
+#### ReviewGrid
+#### StartNewWarning
+
 ### Step1 Page
 
 #### CredentialsError

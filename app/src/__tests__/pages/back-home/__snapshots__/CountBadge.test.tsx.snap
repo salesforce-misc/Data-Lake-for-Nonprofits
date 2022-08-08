@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BackHome -> CountBadge component snapshot 1`] = `
+Array [
+  <span
+    className="chakra-badge css-1hhvihq"
+  >
+    1
+  </span>,
+  <span />,
+]
+`;

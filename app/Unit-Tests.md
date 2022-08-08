@@ -311,6 +311,12 @@ jest.spyOn(detectedInstallationStore, "useDetectedInstallationStore").mockImplem
 - render properly with a store
 
 ##### ProgressPanel
+- snapshot
+- render properly with an error
+- render properly with not loading and not reloading
+- render properly with processing when loading
+- render properly with processing when reloading
+
 ##### Row
 
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, HStack, useClipboard, Tooltip, Text } from "@chakra-ui/react";
+import { Box, HStack, useClipboard, Tooltip, Text, Heading } from "@chakra-ui/react";
 import { CheckCircleIcon, CopyIcon, DownloadIcon } from "@chakra-ui/icons";
 import { observer } from "mobx-react";
 
@@ -23,9 +23,10 @@ export const AthenaProperties = observer(() => {
   return (
     <>
       <HStack color={tone(700)} mb={2}>
-        <Text fontWeight="bold" pl={2} pr={3}>
+        {/* <Text fontWeight="bold" pl={2} pr={3}> */}
+        <Heading cursor="pointer" size="sm" pt="0px" mr={2} color={tone(600)} letterSpacing="-1px">
           athena.properties
-        </Text>
+        </Heading>
 
         <Tooltip label={hasCopied ? "Copied" : "Copy"}>{hasCopied ? <CheckCircleIcon /> : <CopyIcon cursor="pointer" onClick={onCopy} />}</Tooltip>
 

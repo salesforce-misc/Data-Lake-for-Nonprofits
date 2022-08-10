@@ -23,6 +23,7 @@ export const CredentialsCollectionForm = observer(({ onCancel, onDone }: ICreden
     setError(undefined);
     const accessKey = values.accessKeyId;
     const secretKey = values.secretAccessKey;
+
     try {
       await store.connectToAws(accessKey, secretKey);
       try {

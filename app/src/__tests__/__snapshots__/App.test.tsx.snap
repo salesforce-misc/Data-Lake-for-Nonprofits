@@ -1,0 +1,326 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Step6 component snapshot 1`] = `
+Array [
+  <div
+    className="css-1v55i00"
+    data-testid="curved-box"
+  />,
+  <div
+    className="chakra-container css-1szj4qk"
+  >
+    <div
+      className="chakra-stack css-olw0lh"
+    >
+      <div
+        className="chakra-stack css-18lyn6q"
+      >
+        <div
+          className="css-1i3fafl"
+        >
+          <img
+            className="chakra-image css-0"
+            src="Salesforce_Corporate_Logo_RGB.png"
+          />
+        </div>
+        <div
+          className="chakra-stack__divider css-r2vkku"
+        />
+        <div
+          className="css-nutmff"
+        >
+          <img
+            className="chakra-image css-ir5tdx"
+            src="AWS_logo_RGB_BLK.png"
+          />
+        </div>
+      </div>
+      <div
+        className="chakra-stack css-1n7gsjr"
+      >
+        <div
+          className="css-18n4g2t"
+        >
+          <h2
+            className="chakra-heading css-1opsxio"
+          >
+            Datalake for Nonprofits, Powered by AWS
+          </h2>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    className="chakra-container css-ms16h5"
+  >
+    <div
+      className="css-57n2a7"
+    >
+      <div
+        className="css-0"
+      >
+        <h2
+          className="chakra-heading css-1lmbi92"
+        >
+          What to expect
+        </h2>
+      </div>
+      <p
+        className="chakra-text css-tvzngu"
+      >
+        In just a few steps, you can bring your Salesforce data to AWS and keep it in sync. Take a look at the summary of the steps needed, no worries though, we will guide you through each step.
+      </p>
+      <div
+        className="css-1tt2enq"
+      >
+        <button
+          className="chakra-button css-mwvyhu"
+          onClick={[Function]}
+          type="button"
+        >
+          Let's Go
+          <span
+            className="chakra-button__icon css-1hzyiq5"
+          >
+            <svg
+              aria-hidden={true}
+              className="chakra-icon css-onkibi"
+              focusable={false}
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                fill="currentColor"
+              />
+            </svg>
+          </span>
+        </button>
+      </div>
+      <div
+        className="css-11ew3nf"
+      >
+        <div
+          className="css-7628p4"
+        >
+          <div
+            className="css-1g7wgva"
+          >
+            <span
+              className="css-wr7jay"
+            >
+              1
+            </span>
+          </div>
+          <div
+            className="css-pfuu37"
+          >
+            Connect to your AWS account
+          </div>
+          <div
+            className="css-1pip4vl"
+          >
+            We need your AWS admin credentials so that we can connect to your AWS account and provision the resources for the data lake. We will
+  guide you through the process of obtaining the needed credentials
+          </div>
+        </div>
+      </div>
+      <div
+        className="css-11ew3nf"
+      >
+        <div
+          className="css-7628p4"
+        >
+          <div
+            className="css-1g7wgva"
+          >
+            <span
+              className="css-wr7jay"
+            >
+              2
+            </span>
+          </div>
+          <div
+            className="css-pfuu37"
+          >
+            Connect to your Salesforce organization
+          </div>
+          <div
+            className="css-1pip4vl"
+          >
+            For AWS to access your Salesforce data, we will need your authorization. We will guide you through the steps of setting up Amazon AppFlow which
+    is a service that allows AWS to connect to Salesforce, you will be creating a Salesforce connection, signing in to Salesforce and authorizing access
+          </div>
+        </div>
+      </div>
+      <div
+        className="css-11ew3nf"
+      >
+        <div
+          className="css-7628p4"
+        >
+          <div
+            className="css-1g7wgva"
+          >
+            <span
+              className="css-wr7jay"
+            >
+              3
+            </span>
+          </div>
+          <div
+            className="css-pfuu37"
+          >
+            Select data import options
+          </div>
+          <div
+            className="css-1pip4vl"
+          >
+            In this step, you can pick the standard NPSP import options for your Salesforce data or customize these options to fit your needs
+          </div>
+        </div>
+      </div>
+      <div
+        className="css-11ew3nf"
+      >
+        <div
+          className="css-7628p4"
+        >
+          <div
+            className="css-1g7wgva"
+          >
+            <span
+              className="css-wr7jay"
+            >
+              4
+            </span>
+          </div>
+          <div
+            className="css-pfuu37"
+          >
+            Review and confirm
+          </div>
+          <div
+            className="css-1pip4vl"
+          >
+            You get a chance to review and confirm the settings you have provided
+          </div>
+        </div>
+      </div>
+      <div
+        className="css-11ew3nf"
+      >
+        <div
+          className="css-7628p4"
+        >
+          <div
+            className="css-1g7wgva"
+          >
+            <span
+              className="css-wr7jay"
+            >
+              5
+            </span>
+          </div>
+          <div
+            className="css-pfuu37"
+          >
+            Sit back and relax
+          </div>
+          <div
+            className="css-1pip4vl"
+          >
+            In this step, we will do all the necessary provisioning and data importing. You can sit back and relax and watch the progress of the data import
+          </div>
+        </div>
+      </div>
+      <div
+        className="css-11ew3nf"
+      >
+        <div
+          className="css-7628p4"
+        >
+          <div
+            className="css-1g7wgva"
+          >
+            <span
+              className="css-wr7jay"
+            >
+              6
+            </span>
+          </div>
+          <div
+            className="css-pfuu37"
+          >
+            Connect to Analytics
+          </div>
+          <div
+            className="css-1pip4vl"
+          >
+            This is the final step, you can create users with credentials to access the data lake using Tableau
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="css-5f40t2"
+    >
+      <div
+        className="css-0"
+      >
+        <h2
+          className="chakra-heading css-5lipfx"
+        >
+          Resume
+        </h2>
+      </div>
+      <p
+        className="chakra-text css-tvzngu"
+      >
+        If you have already created a datalake using the EZ Data Lake app and would like to view or resume its setup, we got you covered. Click the button to reconnect to an existing datalake, we will ask you for your AWS admin credentials so that we can detect the existing datalake setup.
+      </p>
+      <div
+        className="css-18022i5"
+      >
+        <button
+          className="chakra-button css-1bex62d"
+          onClick={[Function]}
+          type="button"
+        >
+          Resume
+          <span
+            className="chakra-button__icon css-1hzyiq5"
+          >
+            <svg
+              aria-hidden={true}
+              fill="currentColor"
+              focusable={false}
+              height="1em"
+              stroke="currentColor"
+              strokeWidth="0"
+              style={
+                Object {
+                  "color": undefined,
+                }
+              }
+              viewBox="0 0 512 512"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M382.957 22.023c-2.618.033-5.138.96-7.26 3.082l-67.88 67.883 22.627 22.627 67.882-67.883c5.657-5.657 2.83-14.142-2.828-19.8-3.535-3.534-8.177-5.964-12.54-5.91zm-131.71 37.023l-21.92 21.92 203.648 203.647 21.92-21.92-11.315-11.315L262.56 70.36 251.25 59.047zm-23.335 45.96l-55.86 55.863v90.508l-22.628 22.63c-11.314 11.313-11.315 33.94.092 45.347l45.164 45.162c11.314 11.314 33.94 11.314 45.254 0l22.627-22.63h90.51l55.862-55.86-181.02-181.02zm245.555 7.527c-2.62.033-5.138.96-7.26 3.082l-67.88 67.883 22.626 22.626 67.883-67.882c5.657-5.657 2.83-14.142-2.828-19.8-3.536-3.535-8.177-5.965-12.54-5.91zM148.08 349.25l-128 128 12.727 12.728 128-128-12.727-12.727z"
+              />
+            </svg>
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>,
+  <div
+    className="css-16kb41"
+  >
+     
+  </div>,
+  <span />,
+  <span />,
+]
+`;

@@ -4,9 +4,11 @@ import { observer } from "mobx-react";
 
 import { useColorScheme } from "models/useColorScheme";
 import { AthenaProperties } from "pages/step6/AthenaProperties";
+import { ChevronRightIcon } from "@chakra-ui/icons";
 
 export const LaunchYourConnection = observer(() => {
   const { tone } = useColorScheme();
+  const [expanded, setExpanded] = React.useState(false);
 
   return (
     <>
@@ -19,12 +21,29 @@ export const LaunchYourConnection = observer(() => {
         inside of Tableau Desktop or Tableau Cloud.
       </Box>
 
-      <Box display="block" fontSize="sm" mb={6}>
-        If you are using Tableau desktop you will need to modify your JDBC connection using a properties file before starting the setup steps in the
-        help document.
-      </Box>
+      <Heading
+        cursor="pointer"
+        onClick={() => setExpanded((previous) => !previous)}
+        size="sm"
+        pt="0px"
+        pb="20px"
+        color={tone(600)}
+        letterSpacing="-1px"
+      >
+        Special Considerations for using Tableau Desktop
+        <ChevronRightIcon transition="transform 0.2s" transform={expanded ? "rotate(0deg)" : "rotate(90deg)"} />
+      </Heading>
 
-      <AthenaProperties />
+      {expanded && (
+        <>
+          <Box display="block" fontSize="sm" mb={6}>
+            If you are using Tableau desktop you will need to modify your JDBC connection using a properties file before starting the setup steps in
+            the help document.
+          </Box>
+
+          <AthenaProperties />
+        </>
+      )}
 
       <Box display="block" fontSize="sm" mb={6}>
         {/* @TODO fill this based on testing */}

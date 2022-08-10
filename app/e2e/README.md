@@ -1,0 +1,2 @@
+Before we can automatically control the browser, we need Selenium WebDriver for the specific web browser to automate (IE/Firefox/Chrome/Edge). 
+Here, we will work on an example with gecko driver for Firefox. You can obtain a suitable driver for a desired operating system from their <a href="https://github.com/mozilla/geckodriver/releases/">Github project</a>:

@@ -51,8 +51,7 @@ export const CredentialsCollectionForm = observer(({ onCancel, onDone }: ICreden
       <CredentialsError exception={error} />
 
       <Box pt={6}>
-        {/* @ts-ignore */}
-        <CredentialsForm {...{ register, errors, isSubmitting, control }} />
+        <CredentialsForm register={register} errors={errors} isSubmitting={isSubmitting} control={control} />
       </Box>
 
       <Box textAlign="right" w="full" mt={6} mb={0}>

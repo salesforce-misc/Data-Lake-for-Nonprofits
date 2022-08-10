@@ -3,22 +3,23 @@ import isEmpty from "lodash/isEmpty";
 import { Box, Heading, Button, FormErrorMessage, FormControl, Input, Alert, AlertIcon, InputGroup, InputRightElement } from "@chakra-ui/react";
 import { UseFormRegister, FieldErrors, useWatch, Control } from "react-hook-form";
 
-import { useStore } from "../../AppContext";
-import { useColorScheme } from "../../models/useColorScheme";
-import { accessKey, secretKey } from "../../helpers/settings";
+import { useStore } from "AppContext";
+import { useColorScheme } from "models/useColorScheme";
+import { accessKey, secretKey } from "helpers/settings";
 
 export interface ICredentialsFormInput {
   accessKeyId: string;
   secretAccessKey: string;
   region: string;
 }
-
-export const CredentialsForm: FC<{
+export interface ICredentialsForm {
   register: UseFormRegister<ICredentialsFormInput>;
-  errors: FieldErrors;
+  errors: FieldErrors<ICredentialsFormInput>;
   isSubmitting: boolean;
   control: Control<ICredentialsFormInput>;
-}> = ({ register, errors, isSubmitting, control }) => {
+}
+
+export const CredentialsForm = ({ register, errors, isSubmitting, control }: ICredentialsForm) => {
   const store = useStore();
   const { tone, colorScheme } = useColorScheme();
   const credentials = store.credentials;

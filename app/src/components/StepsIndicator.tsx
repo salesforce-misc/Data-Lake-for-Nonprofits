@@ -18,8 +18,8 @@ export const StepsIndicator = observer(({ current }: IStepsIndicator) => {
   };
 
   const elements = steps.map((step: TStepInfo, index: number) => (
-    <Tag key={index} {...getProps(index)} borderRadius="full" size="lg" fontWeight="bold">
-      {index}
+    <Tag key={index} {...getProps(index + 1)} borderRadius="full" size="lg" fontWeight="bold">
+      {index + 1}
     </Tag>
   ));
 

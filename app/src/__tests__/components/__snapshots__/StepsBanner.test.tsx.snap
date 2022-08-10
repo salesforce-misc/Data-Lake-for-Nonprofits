@@ -12,11 +12,6 @@ Array [
         className="chakra-stack css-84zodg"
       >
         <span
-          className="css-9xsoz7"
-        >
-          0
-        </span>
-        <span
           className="css-hfqsm"
         >
           1
@@ -40,6 +35,11 @@ Array [
           className="css-ulmpab"
         >
           5
+        </span>
+        <span
+          className="css-ulmpab"
+        >
+          6
         </span>
       </div>
     </div>

@@ -69,11 +69,6 @@ Array [
           <span
             className="css-9xsoz7"
           >
-            0
-          </span>
-          <span
-            className="css-9xsoz7"
-          >
             1
           </span>
           <span
@@ -95,6 +90,11 @@ Array [
             className="css-9xsoz7"
           >
             5
+          </span>
+          <span
+            className="css-hfqsm"
+          >
+            6
           </span>
         </div>
       </div>

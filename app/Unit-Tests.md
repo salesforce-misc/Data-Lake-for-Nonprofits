@@ -366,6 +366,8 @@ jest.spyOn(detectedInstallationStore, "useDetectedInstallationStore").mockImplem
 - render properly
 
 #### CredentialsCollectionForm
+- snapshot
+- render properly
 
 #### CredentialsError
 
@@ -401,3 +403,4 @@ jest.spyOn(detectedInstallationStore, "useDetectedInstallationStore").mockImplem
 - render properly
 
 ### App
+- snapshot

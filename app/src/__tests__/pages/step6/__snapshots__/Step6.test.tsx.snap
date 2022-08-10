@@ -417,10 +417,43 @@ Array [
         <div
           className="css-bsg1we"
         >
-          Launch your Tableau application. Utilize the User and Access Information from above to complete the steps outlined in this help document inside of Tableau Desktop or Tableau Cloud.
+          Launch your Tableau application.
+           
+          <a
+            className="chakra-link css-157cndf"
+            href="https://help.tableau.com/current/pro/desktop/en-us/examples_amazonathena.htm"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Utilize the User and Access Information from above to complete the steps outlined in this help document 
+            <svg
+              className="chakra-icon css-onkibi"
+              focusable={false}
+              viewBox="0 0 24 24"
+            >
+              <g
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeWidth="2"
+              >
+                <path
+                  d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                />
+                <path
+                  d="M15 3h6v6"
+                />
+                <path
+                  d="M10 14L21 3"
+                />
+              </g>
+            </svg>
+          </a>
+           
+          inside of Tableau Desktop or Tableau Cloud.
         </div>
         <h2
-          className="chakra-heading css-5ig38"
+          className="chakra-heading css-2c3uw2"
           onClick={[Function]}
         >
           Special Considerations for using Tableau Desktop
@@ -435,11 +468,22 @@ Array [
             />
           </svg>
         </h2>
-        <div
-          className="css-bsg1we"
+        <h2
+          className="chakra-heading css-5ig38"
+          onClick={[Function]}
         >
           If you are using Tableau Cloud you will need to...
-        </div>
+          <svg
+            className="chakra-icon css-xbxoa7"
+            focusable={false}
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+              fill="currentColor"
+            />
+          </svg>
+        </h2>
       </div>
       <div
         className="css-1jkeem6"

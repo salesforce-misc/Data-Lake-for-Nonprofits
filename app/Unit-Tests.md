@@ -370,13 +370,13 @@ jest.spyOn(detectedInstallationStore, "useDetectedInstallationStore").mockImplem
 - render properly
 
 #### CredentialsError
-
-<!-- - Unit test to check rendering properly without an exception
-- Unit test to check rendering properly with an invalid key exception
-- Unit test to check rendering properly with a non-admin key exception
-- Unit test to check rendering properly with an account mismatch exception
-- Unit test to check rendering properly with a default exception
-- Unit test to check rendering properly with an unknown exception -->
+- snapshot
+- render properly without an exception
+- render properly with an invalid key exception
+- render properly with a non-admin key exception
+- render properly with an account mismatch exception
+- render properly with a default exception
+- render properly with an unknown exception
 
 ### CredentialsForm
 ### InstructionSection

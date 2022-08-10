@@ -5,7 +5,6 @@ import { render, RenderWithChakra } from "test-utils";
 
 import { StoreProvider } from "AppContext";
 
-import { CredentialsCollectionForm } from "pages/step1/CredentialsCollectionForm";
 import { CredentialsError } from "pages/step1/CredentialsError";
 import { CredentialsValidationErrorCode, CredentialsValidationException } from "api/validate-credentials";
 

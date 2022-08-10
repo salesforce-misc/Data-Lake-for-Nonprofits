@@ -379,6 +379,9 @@ jest.spyOn(detectedInstallationStore, "useDetectedInstallationStore").mockImplem
 - render properly with an unknown exception
 
 ### CredentialsForm
+- snapshot
+- render properly
+
 ### InstructionSection
 ### RegionForm
 

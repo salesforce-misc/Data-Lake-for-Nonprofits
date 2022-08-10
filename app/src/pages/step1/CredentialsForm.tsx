@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import React from "react";
 import isEmpty from "lodash/isEmpty";
 import { Box, Heading, Button, FormErrorMessage, FormControl, Input, Alert, AlertIcon, InputGroup, InputRightElement } from "@chakra-ui/react";
 import { UseFormRegister, FieldErrors, useWatch, Control } from "react-hook-form";
@@ -26,7 +26,7 @@ export const CredentialsForm = ({ register, errors, isSubmitting, control }: ICr
   const accessKeyDefaultValue = credentials.accessKey || accessKey;
   const secretKeyDefaultValue = credentials.secretKey || secretKey;
   const secretKeyValue = useWatch({ control, name: "secretAccessKey", defaultValue: secretKeyDefaultValue });
-  const [show, setShow] = useState(false);
+  const [show, setShow] = React.useState(false);
   const handleClick = () => setShow(!show);
 
   return (

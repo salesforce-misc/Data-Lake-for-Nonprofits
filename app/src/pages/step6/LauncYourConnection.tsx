@@ -3,7 +3,6 @@ import { Box, Heading, Link } from "@chakra-ui/react";
 import { observer } from "mobx-react";
 
 import { useColorScheme } from "models/useColorScheme";
-import { AthenaProperties } from "pages/step6/AthenaProperties";
 import { ChevronRightIcon, ExternalLinkIcon } from "@chakra-ui/icons";
 import { SetupInstructions } from "./SetupInstructions";
 

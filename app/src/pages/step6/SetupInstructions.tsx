@@ -1,10 +1,9 @@
 // Deprecated
 import React from "react";
-import { Box, Grid, GridItem, Text, Link, Tag, Alert, AlertIcon, AlertTitle, AlertDescription, Select, Image } from "@chakra-ui/react";
+import { Box, Text, Link, Alert, AlertIcon, AlertTitle, AlertDescription, Select } from "@chakra-ui/react";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
 import { observer } from "mobx-react";
 
-import { useInstallation } from "AppContext";
 import { useColorScheme } from "models/useColorScheme";
 
 import { SetupInstructionsMac } from "./SetupInstructionsMac";
@@ -26,8 +25,6 @@ export const SetupInstructions = observer(() => {
   const { tone } = useColorScheme();
   const os = getOperatingSystem();
   const [selectedOs, setSelectedOs] = React.useState(os || SUPPORTED_OS.WINDOWS);
-  const installation = useInstallation();
-  const indexOffset = 0;
 
   return (
     <>

@@ -1,13 +1,14 @@
 {
-  "name": "@amzn/ez-datalake",
+  "name": "datalake-for-nonprofits-powered-by-aws",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "start": "npm run copy && react-scripts start",
+    "format": "prettier --config .prettierrc --write \"src/**/*.{ts,tsx,js,jsx,json,yml,yaml,md}\"",
     "build": "npm run copy && npm run move-env-up && react-scripts build && npm run move-env-down",
     "postinstall": "npm run build && npm run zip",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
+    "test": "react-scripts test --testPathPattern=\"(\\.|/)(test)\\.[jt]sx?$\"",
+    "test:e2e": "wait-on http://localhost:3000/ && react-scripts test --testPathPattern=\"(\\.|/)e2e\\.(spec)\\.[jt]sx?$\" --testTimeout=30000 --runInBand --watchAll=false",
     "clean": "rm -rf build/ amplify.zip public/assets/*.zip",
     "copy": "npm run copy-assets && npm run copy-cf",
     "copy-cf": "npx ts-node scripts/copy-cf --project scripts/",
@@ -100,8 +101,10 @@
     "inquirer": "^8.2.2",
     "klaw": "^4.0.1",
     "postcss": "^8.1.0",
+    "prettier": "^2.7.1",
     "react-test-renderer": "^17.0.2",
     "selenium-webdriver": "^4.4.0",
-    "ts-node": "^10.7.0"
+    "ts-node": "^10.7.0",
+    "wait-on": "^6.0.1"
   }
 }

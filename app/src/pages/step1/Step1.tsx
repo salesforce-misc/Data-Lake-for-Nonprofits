@@ -105,10 +105,19 @@ export const Step1 = observer(() => {
                 Would you need assistance in creating AWS admin access and secret keys?
               </Heading>
               <Box textAlign="right" w="full" mb={4}>
-                <OutlineButton selected={needsAssistance === YesNoAnswer.Yes} onClick={handleAnswer(YesNoAnswer.Yes)}>
+                <OutlineButton
+                  id="step1-btn-need-assistance-yes"
+                  selected={needsAssistance === YesNoAnswer.Yes}
+                  onClick={handleAnswer(YesNoAnswer.Yes)}
+                >
                   Yes
                 </OutlineButton>
-                <OutlineButton selected={needsAssistance === YesNoAnswer.No} onClick={handleAnswer(YesNoAnswer.No)} ml={3}>
+                <OutlineButton
+                  id="step1-btn-need-assistance-no"
+                  selected={needsAssistance === YesNoAnswer.No}
+                  onClick={handleAnswer(YesNoAnswer.No)}
+                  ml={3}
+                >
                   No
                 </OutlineButton>
               </Box>

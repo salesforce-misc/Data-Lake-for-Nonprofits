@@ -43,6 +43,7 @@ Array [
         >
           <h2
             className="chakra-heading css-1opsxio"
+            id="h2-title"
           >
             Datalake for Nonprofits, Powered by AWS
           </h2>
@@ -75,6 +76,7 @@ Array [
       >
         <button
           className="chakra-button css-mwvyhu"
+          id="home-btn-lets-go"
           onClick={[Function]}
           type="button"
         >

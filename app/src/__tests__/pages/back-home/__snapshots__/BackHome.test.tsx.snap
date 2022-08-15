@@ -46,6 +46,7 @@ Array [
           >
             <h2
               className="chakra-heading css-1opsxio"
+              id="h2-title"
             >
               Datalake for Nonprofits, Powered by AWS
             </h2>
@@ -78,7 +79,7 @@ Array [
               dateTime="2022-01-01T00:00:00.000Z"
               title="2022-01-01"
             >
-              7 months ago
+              8 months ago
             </time>
              • by 
             test-user

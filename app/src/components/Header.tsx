@@ -28,7 +28,7 @@ export const Header = observer(() => {
         </HStack>
         <Stack direction={{ base: "column", lg: "row" }} spacing={{ base: "0", lg: "0" }} width="100%">
           <Box maxH="160px" marginBottom="32px">
-            <Heading display="inline-block" size="lg" pb="10px" bgGradient={theme.gradients.bgDark} bgClip="text" letterSpacing="-1px">
+            <Heading id="h2-title" display="inline-block" size="lg" pb="10px" bgGradient={theme.gradients.bgDark} bgClip="text" letterSpacing="-1px">
               Datalake for Nonprofits, Powered by AWS
             </Heading>
           </Box>

@@ -62,7 +62,7 @@ export const Home = observer(() => {
             worries though, we will guide you through each step.
           </Text>
           <Box textAlign="right" w="full" mt={4} mb={8}>
-            <Button colorScheme="orange" size="md" rightIcon={<ArrowForwardIcon />} onClick={handleNewInstallation}>
+            <Button id="home-btn-lets-go" colorScheme="orange" size="md" rightIcon={<ArrowForwardIcon />} onClick={handleNewInstallation}>
               Let's Go
             </Button>
           </Box>

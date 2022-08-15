@@ -83,6 +83,7 @@
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^12.1.2",
     "@testing-library/react-hooks": "^8.0.1",
+    "@tpio/javascript-opensdk": "^0.1.1",
     "@types/fs-extra": "^9.0.13",
     "@types/inquirer": "^8.2.0",
     "@types/jest": "^28.1.6",
@@ -100,6 +101,7 @@
     "klaw": "^4.0.1",
     "postcss": "^8.1.0",
     "react-test-renderer": "^17.0.2",
+    "selenium-webdriver": "^4.4.0",
     "ts-node": "^10.7.0"
   }
 }

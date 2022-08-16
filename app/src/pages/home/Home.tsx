@@ -35,7 +35,7 @@ export const Home = observer(() => {
   };
 
   return (
-    <>
+    <Box id="home">
       <CurvedBox bgGradient={theme.gradients.bgLight} />
 
       <Header />
@@ -76,6 +76,6 @@ export const Home = observer(() => {
       </Container>
 
       <Box h="50px">&nbsp;</Box>
-    </>
+    </Box>
   );
 });

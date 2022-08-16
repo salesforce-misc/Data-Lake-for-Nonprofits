@@ -67,7 +67,7 @@ export const Step1 = observer(() => {
     "AWS has many data centers grouped by geographical regions. Select a region that is closest to your location. We will keep your data in the region you select. If you are not sure, you can select the US East (Ohio) Region";
 
   return (
-    <>
+    <Box id="step1">
       <CurvedBox bgGradient={theme.gradients.bgLight} />
 
       <Header />
@@ -150,6 +150,7 @@ export const Step1 = observer(() => {
             </Button>
 
             <Button
+              id="step1-btn-next"
               colorScheme="orange"
               size="md"
               loadingText="Connecting"
@@ -164,6 +165,6 @@ export const Step1 = observer(() => {
           </HStack>
         </Container>
       </Box>
-    </>
+    </Box>
   );
 });

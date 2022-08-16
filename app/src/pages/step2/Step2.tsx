@@ -66,7 +66,7 @@ export const Step2 = observer(() => {
   const canProceed = createdConnection === YesNoAnswer.Yes && !isEmpty(installation.appFlowConnectionName);
 
   return (
-    <>
+    <Box id="step2">
       <CurvedBox bgGradient={theme.gradients.bgLight} />
 
       <Header />
@@ -232,6 +232,6 @@ export const Step2 = observer(() => {
           </HStack>
         </Container>
       </Box>
-    </>
+    </Box>
   );
 });

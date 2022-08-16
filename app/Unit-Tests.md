@@ -76,6 +76,16 @@ jest.spyOn(detectedInstallationStore, "useDetectedInstallationStore").mockImplem
 
 ```
 
+## How to Run
+
+Unit tests can be run by the following command.
+
+```javascript
+yarn test
+```
+
+This command will run all unit tests listed below.
+
 ## The list of unit tests
 ## AppContext
 

@@ -8,7 +8,7 @@
     "build": "npm run copy && npm run move-env-up && react-scripts build && npm run move-env-down",
     "postinstall": "npm run build && npm run zip",
     "test": "react-scripts test --testPathPattern=\"(\\.|/)(test)\\.[jt]sx?$\"",
-    "test:e2e": "wait-on http://localhost:3000/ && react-scripts test --testPathPattern=\"(\\.|/)e2e\\.(spec)\\.[jt]sx?$\" --testTimeout=30000 --runInBand --watchAll=false",
+    "test:e2e": "wait-on http://localhost:3000/ && react-scripts test --testPathPattern=\"(\\.|/)e2e\\.(spec)\\.[jt]sx?$\" --testTimeout=300000 --runInBand --watchAll=false",
     "clean": "rm -rf build/ amplify.zip public/assets/*.zip",
     "copy": "npm run copy-assets && npm run copy-cf",
     "copy-cf": "npx ts-node scripts/copy-cf --project scripts/",

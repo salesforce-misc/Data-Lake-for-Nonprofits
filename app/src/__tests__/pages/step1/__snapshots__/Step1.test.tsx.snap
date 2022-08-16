@@ -3,182 +3,352 @@
 exports[`Step1 component snapshot 1`] = `
 Array [
   <div
-    className="css-1v55i00"
-    data-testid="curved-box"
-  />,
-  <div
-    className="chakra-container css-1szj4qk"
+    className="css-0"
+    id="step1"
   >
     <div
-      className="chakra-stack css-olw0lh"
-    >
-      <div
-        className="chakra-stack css-18lyn6q"
-      >
-        <div
-          className="css-1i3fafl"
-        >
-          <img
-            className="chakra-image css-0"
-            src="Salesforce_Corporate_Logo_RGB.png"
-          />
-        </div>
-        <div
-          className="chakra-stack__divider css-r2vkku"
-        />
-        <div
-          className="css-nutmff"
-        >
-          <img
-            className="chakra-image css-ir5tdx"
-            src="AWS_logo_RGB_BLK.png"
-          />
-        </div>
-      </div>
-      <div
-        className="chakra-stack css-1n7gsjr"
-      >
-        <div
-          className="css-18n4g2t"
-        >
-          <h2
-            className="chakra-heading css-1opsxio"
-            id="h2-title"
-          >
-            Datalake for Nonprofits, Powered by AWS
-          </h2>
-        </div>
-      </div>
-    </div>
-  </div>,
-  <div
-    className="css-79elbk"
-  >
-    <div
-      className="css-t7j6xp"
+      className="css-1v55i00"
       data-testid="curved-box"
     />
     <div
-      className="css-4e82ru"
+      className="chakra-container css-1szj4qk"
     >
       <div
-        className="chakra-container css-h66qep"
+        className="chakra-stack css-olw0lh"
       >
         <div
-          className="chakra-stack css-84zodg"
+          className="chakra-stack css-18lyn6q"
         >
-          <span
-            className="css-hfqsm"
+          <div
+            className="css-1i3fafl"
           >
-            1
-          </span>
-          <span
-            className="css-ulmpab"
+            <img
+              className="chakra-image css-0"
+              src="Salesforce_Corporate_Logo_RGB.png"
+            />
+          </div>
+          <div
+            className="chakra-stack__divider css-r2vkku"
+          />
+          <div
+            className="css-nutmff"
           >
-            2
-          </span>
-          <span
-            className="css-ulmpab"
+            <img
+              className="chakra-image css-ir5tdx"
+              src="AWS_logo_RGB_BLK.png"
+            />
+          </div>
+        </div>
+        <div
+          className="chakra-stack css-1n7gsjr"
+        >
+          <div
+            className="css-18n4g2t"
           >
-            3
-          </span>
-          <span
-            className="css-ulmpab"
-          >
-            4
-          </span>
-          <span
-            className="css-ulmpab"
-          >
-            5
-          </span>
-          <span
-            className="css-ulmpab"
-          >
-            6
-          </span>
+            <h2
+              className="chakra-heading css-1opsxio"
+              id="h2-title"
+            >
+              Datalake for Nonprofits, Powered by AWS
+            </h2>
+          </div>
         </div>
       </div>
     </div>
     <div
-      className="chakra-container css-11yz6e2"
+      className="css-79elbk"
     >
-      <h2
-        className="chakra-heading css-h8t1vd"
-      >
-        Connect to your AWS account
-      </h2>
       <div
-        className="css-1cm40bb"
+        className="css-t7j6xp"
+        data-testid="curved-box"
+      />
+      <div
+        className="css-4e82ru"
       >
         <div
-          className="chakra-stack css-1wy5s38"
+          className="chakra-container css-h66qep"
         >
           <div
-            className="css-0"
+            className="chakra-stack css-84zodg"
           >
-            We need your AWS 
-            <b>
-              admin
-            </b>
-             credentials, specifically the 
-            <b>
-              access keys
-            </b>
-            , so that we can connect to your AWS account and provision the resources for the data lake.
-          </div>
-          <div
-            className="css-0"
-          >
-            Access keys consist of two parts: an access key id and a secret access key. These access keys must be for a user with admin permissions.
-          </div>
-          <div
-            className="css-0"
-          >
-            If you haven't created access keys before, we will guide you through the process of obtaining the needed credentials.
+            <span
+              className="css-hfqsm"
+            >
+              1
+            </span>
+            <span
+              className="css-ulmpab"
+            >
+              2
+            </span>
+            <span
+              className="css-ulmpab"
+            >
+              3
+            </span>
+            <span
+              className="css-ulmpab"
+            >
+              4
+            </span>
+            <span
+              className="css-ulmpab"
+            >
+              5
+            </span>
+            <span
+              className="css-ulmpab"
+            >
+              6
+            </span>
           </div>
         </div>
       </div>
       <div
-        className="css-mw0myd"
+        className="chakra-container css-11yz6e2"
       >
-        <div
-          className="css-old1by"
+        <h2
+          className="chakra-heading css-h8t1vd"
         >
-          <h2
-            className="chakra-heading css-1081m9x"
-          >
-            Would you need assistance in creating AWS admin access and secret keys?
-          </h2>
+          Connect to your AWS account
+        </h2>
+        <div
+          className="css-1cm40bb"
+        >
           <div
-            className="css-epheoc"
+            className="chakra-stack css-1wy5s38"
           >
-            <button
-              className="chakra-button css-1bex62d"
-              id="step1-btn-need-assistance-yes"
-              onClick={[Function]}
-              type="button"
+            <div
+              className="css-0"
             >
-              Yes
-            </button>
-            <button
-              className="chakra-button css-1ae6t0z"
-              id="step1-btn-need-assistance-no"
-              onClick={[Function]}
-              type="button"
+              We need your AWS 
+              <b>
+                admin
+              </b>
+               credentials, specifically the 
+              <b>
+                access keys
+              </b>
+              , so that we can connect to your AWS account and provision the resources for the data lake.
+            </div>
+            <div
+              className="css-0"
             >
-              No
-            </button>
+              Access keys consist of two parts: an access key id and a secret access key. These access keys must be for a user with admin permissions.
+            </div>
+            <div
+              className="css-0"
+            >
+              If you haven't created access keys before, we will guide you through the process of obtaining the needed credentials.
+            </div>
+          </div>
+        </div>
+        <div
+          className="css-mw0myd"
+        >
+          <div
+            className="css-old1by"
+          >
+            <h2
+              className="chakra-heading css-1081m9x"
+            >
+              Would you need assistance in creating AWS admin access and secret keys?
+            </h2>
+            <div
+              className="css-epheoc"
+            >
+              <button
+                className="chakra-button css-1bex62d"
+                id="step1-btn-need-assistance-yes"
+                onClick={[Function]}
+                type="button"
+              >
+                Yes
+              </button>
+              <button
+                className="chakra-button css-1ae6t0z"
+                id="step1-btn-need-assistance-no"
+                onClick={[Function]}
+                type="button"
+              >
+                No
+              </button>
+            </div>
+          </div>
+          <div
+            className="chakra-collapse"
+            style={
+              Object {
+                "display": "none",
+                "height": "0px",
+                "opacity": 0,
+                "overflow": "hidden",
+              }
+            }
+          >
+            <div
+              className="css-4lei0w"
+            >
+              <div
+                className="css-5okrym"
+              >
+                <div
+                  className="chakra-stack css-kdrggd"
+                >
+                  <div
+                    className="css-0"
+                  >
+                    <div
+                      className="css-1ktikgs"
+                    >
+                      <img
+                        alt="AWS Console Login Page"
+                        className="chakra-image css-1fyy6mf"
+                        onClick={[Function]}
+                        src="aws-connect-01.png"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    className="css-0"
+                  >
+                    <ul
+                      className="css-1u0gtrd"
+                      role="list"
+                    >
+                      <li
+                        className="css-0"
+                      >
+                        Log in to the  
+                        <a
+                          className="chakra-link css-1rz4eof"
+                          href="https://aws.amazon.com/console/"
+                          rel="noopener noreferrer"
+                          target="_blank"
+                        >
+                          AWS console 
+                          <svg
+                            className="chakra-icon css-2y6psj"
+                            focusable={false}
+                            viewBox="0 0 24 24"
+                          >
+                            <g
+                              fill="none"
+                              stroke="currentColor"
+                              strokeLinecap="round"
+                              strokeWidth="2"
+                            >
+                              <path
+                                d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                              />
+                              <path
+                                d="M15 3h6v6"
+                              />
+                              <path
+                                d="M10 14L21 3"
+                              />
+                            </g>
+                          </svg>
+                        </a>
+                          using an admin user, not the root user.
+                      </li>
+                    </ul>
+                    <div
+                      className="css-13e3kxi"
+                    >
+                      Remember to log in using an admin user and not the root user
+                    </div>
+                  </div>
+                </div>
+                <hr
+                  aria-orientation="horizontal"
+                  className="chakra-divider css-5egonm"
+                />
+                <div
+                  className="chakra-stack css-pxnjzh"
+                >
+                  <div
+                    className="css-0"
+                  >
+                    <div
+                      className="css-1ktikgs"
+                    >
+                      <img
+                        alt="AWS Console IAM Page"
+                        className="chakra-image css-1fyy6mf"
+                        onClick={[Function]}
+                        src="aws-connect-02.png"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    className="css-0"
+                  >
+                    <ul
+                      className="css-qmejj6"
+                      role="list"
+                    >
+                      <li
+                        className="css-0"
+                      >
+                        Then, head over to the
+                         
+                        <a
+                          className="chakra-link css-1rz4eof"
+                          href="https://console.aws.amazon.com/iamv2/home#/users"
+                          rel="noopener noreferrer"
+                          target="_blank"
+                        >
+                          Identity and Management section (IAM) 
+                          <svg
+                            className="chakra-icon css-2y6psj"
+                            focusable={false}
+                            viewBox="0 0 24 24"
+                          >
+                            <g
+                              fill="none"
+                              stroke="currentColor"
+                              strokeLinecap="round"
+                              strokeWidth="2"
+                            >
+                              <path
+                                d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                              />
+                              <path
+                                d="M15 3h6v6"
+                              />
+                              <path
+                                d="M10 14L21 3"
+                              />
+                            </g>
+                          </svg>
+                        </a>
+                      </li>
+                      <li
+                        className="css-1ayfwcb"
+                      >
+                        Pick the user name that you used to log in. The user should have admin permissions. Then, select the Security Credentials tab.
+                      </li>
+                      <li
+                        className="css-1ayfwcb"
+                      >
+                        Click on the Create access key button to generate the access keys, you will get a chance to view and download the access keys. You can now use the access keys to fill in the information below.
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <div
           className="chakra-collapse"
           style={
             Object {
-              "display": "none",
-              "height": "0px",
-              "opacity": 0,
-              "overflow": "hidden",
+              "display": "block",
+              "height": "auto",
+              "opacity": 1,
+              "overflow": "initial",
             }
           }
         >
@@ -186,388 +356,229 @@ Array [
             className="css-4lei0w"
           >
             <div
-              className="css-5okrym"
+              className="css-19alo4x"
             >
-              <div
-                className="chakra-stack css-kdrggd"
+              <h2
+                className="chakra-heading css-1s3g4fq"
               >
-                <div
-                  className="css-0"
-                >
-                  <div
-                    className="css-1ktikgs"
-                  >
-                    <img
-                      alt="AWS Console Login Page"
-                      className="chakra-image css-1fyy6mf"
-                      onClick={[Function]}
-                      src="aws-connect-01.png"
-                    />
-                  </div>
-                </div>
-                <div
-                  className="css-0"
-                >
-                  <ul
-                    className="css-1u0gtrd"
-                    role="list"
-                  >
-                    <li
-                      className="css-0"
-                    >
-                      Log in to the  
-                      <a
-                        className="chakra-link css-1rz4eof"
-                        href="https://aws.amazon.com/console/"
-                        rel="noopener noreferrer"
-                        target="_blank"
-                      >
-                        AWS console 
-                        <svg
-                          className="chakra-icon css-2y6psj"
-                          focusable={false}
-                          viewBox="0 0 24 24"
-                        >
-                          <g
-                            fill="none"
-                            stroke="currentColor"
-                            strokeLinecap="round"
-                            strokeWidth="2"
-                          >
-                            <path
-                              d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
-                            />
-                            <path
-                              d="M15 3h6v6"
-                            />
-                            <path
-                              d="M10 14L21 3"
-                            />
-                          </g>
-                        </svg>
-                      </a>
-                        using an admin user, not the root user.
-                    </li>
-                  </ul>
-                  <div
-                    className="css-13e3kxi"
-                  >
-                    Remember to log in using an admin user and not the root user
-                  </div>
-                </div>
-              </div>
-              <hr
-                aria-orientation="horizontal"
-                className="chakra-divider css-5egonm"
-              />
+                Access Key ID & Secret Access Key
+              </h2>
               <div
-                className="chakra-stack css-pxnjzh"
-              >
-                <div
-                  className="css-0"
-                >
-                  <div
-                    className="css-1ktikgs"
-                  >
-                    <img
-                      alt="AWS Console IAM Page"
-                      className="chakra-image css-1fyy6mf"
-                      onClick={[Function]}
-                      src="aws-connect-02.png"
-                    />
-                  </div>
-                </div>
-                <div
-                  className="css-0"
-                >
-                  <ul
-                    className="css-qmejj6"
-                    role="list"
-                  >
-                    <li
-                      className="css-0"
-                    >
-                      Then, head over to the
-                       
-                      <a
-                        className="chakra-link css-1rz4eof"
-                        href="https://console.aws.amazon.com/iamv2/home#/users"
-                        rel="noopener noreferrer"
-                        target="_blank"
-                      >
-                        Identity and Management section (IAM) 
-                        <svg
-                          className="chakra-icon css-2y6psj"
-                          focusable={false}
-                          viewBox="0 0 24 24"
-                        >
-                          <g
-                            fill="none"
-                            stroke="currentColor"
-                            strokeLinecap="round"
-                            strokeWidth="2"
-                          >
-                            <path
-                              d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
-                            />
-                            <path
-                              d="M15 3h6v6"
-                            />
-                            <path
-                              d="M10 14L21 3"
-                            />
-                          </g>
-                        </svg>
-                      </a>
-                    </li>
-                    <li
-                      className="css-1ayfwcb"
-                    >
-                      Pick the user name that you used to log in. The user should have admin permissions. Then, select the Security Credentials tab.
-                    </li>
-                    <li
-                      className="css-1ayfwcb"
-                    >
-                      Click on the Create access key button to generate the access keys, you will get a chance to view and download the access keys. You can now use the access keys to fill in the information below.
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        className="chakra-collapse"
-        style={
-          Object {
-            "display": "block",
-            "height": "auto",
-            "opacity": 1,
-            "overflow": "initial",
-          }
-        }
-      >
-        <div
-          className="css-4lei0w"
-        >
-          <div
-            className="css-19alo4x"
-          >
-            <h2
-              className="chakra-heading css-1s3g4fq"
-            >
-              Access Key ID & Secret Access Key
-            </h2>
-            <div
-              className="chakra-form-control css-1kxonj9"
-              role="group"
-            >
-              <input
-                className="chakra-input css-1rvlvqs"
-                defaultValue=""
-                disabled={false}
-                id="accessKeyId"
-                name="accessKeyId"
-                onBlur={[Function]}
-                onChange={[Function]}
-                onFocus={[Function]}
-                placeholder="Access key id"
-                readOnly={false}
-                required={false}
-              />
-              <div
-                className="chakra-input__group css-yymdw1"
+                className="chakra-form-control css-1kxonj9"
+                role="group"
               >
                 <input
-                  className="chakra-input css-1h1dmm0"
+                  className="chakra-input css-1rvlvqs"
                   defaultValue=""
                   disabled={false}
-                  id="secretAccessKey"
-                  name="secretAccessKey"
+                  id="accessKeyId"
+                  name="accessKeyId"
                   onBlur={[Function]}
                   onChange={[Function]}
                   onFocus={[Function]}
-                  placeholder="Secret access key"
+                  placeholder="Access key id"
                   readOnly={false}
                   required={false}
-                  type="password"
                 />
                 <div
-                  className="chakra-input__right-element css-ohd79a"
-                  size="md"
+                  className="chakra-input__group css-yymdw1"
                 >
-                  <button
-                    className="chakra-button css-1qo2nbo"
-                    disabled={true}
-                    onClick={[Function]}
-                    type="button"
+                  <input
+                    className="chakra-input css-1h1dmm0"
+                    defaultValue=""
+                    disabled={false}
+                    id="secretAccessKey"
+                    name="secretAccessKey"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    onFocus={[Function]}
+                    placeholder="Secret access key"
+                    readOnly={false}
+                    required={false}
+                    type="password"
+                  />
+                  <div
+                    className="chakra-input__right-element css-ohd79a"
+                    size="md"
                   >
-                    Show
-                  </button>
+                    <button
+                      className="chakra-button css-1qo2nbo"
+                      disabled={true}
+                      onClick={[Function]}
+                      type="button"
+                    >
+                      Show
+                    </button>
+                  </div>
+                </div>
+                <div
+                  className="chakra-alert css-7lx40g"
+                  role="alert"
+                >
+                  <span
+                    className="chakra-alert__icon css-15539z7"
+                  >
+                    <svg
+                      className="chakra-icon css-fi0ww0"
+                      focusable={false}
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M11.983,0a12.206,12.206,0,0,0-8.51,3.653A11.8,11.8,0,0,0,0,12.207,11.779,11.779,0,0,0,11.8,24h.214A12.111,12.111,0,0,0,24,11.791h0A11.766,11.766,0,0,0,11.983,0ZM10.5,16.542a1.476,1.476,0,0,1,1.449-1.53h.027a1.527,1.527,0,0,1,1.523,1.47,1.475,1.475,0,0,1-1.449,1.53h-.027A1.529,1.529,0,0,1,10.5,16.542ZM11,12.5v-6a1,1,0,0,1,2,0v6a1,1,0,1,1-2,0Z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                  </span>
+                  Secret access keys are sensitive information, keep them secured and protected, never post them on public platforms or leave them unsecured as this can compromise your account security
                 </div>
               </div>
-              <div
-                className="chakra-alert css-7lx40g"
-                role="alert"
+            </div>
+          </div>
+          <div
+            className="css-4lei0w"
+          >
+            <div
+              className="css-xmm0aq"
+            >
+              <h2
+                className="chakra-heading css-1bltaqc"
               >
-                <span
-                  className="chakra-alert__icon css-15539z7"
+                AWS Region
+              </h2>
+              <p
+                className="chakra-text css-1pnhx6x"
+              >
+                AWS has many data centers grouped by geographical regions. Select a region that is closest to your location. We will keep your data in the region you select. If you are not sure, you can select the US East (Ohio) Region
+              </p>
+              <div
+                className="chakra-form-control css-1kxonj9"
+                role="group"
+              >
+                <div
+                  className="chakra-select__wrapper css-42b2qy"
                 >
-                  <svg
-                    className="chakra-icon css-fi0ww0"
-                    focusable={false}
-                    viewBox="0 0 24 24"
+                  <select
+                    className="chakra-select css-zm14t1"
+                    defaultValue="us-east-1"
+                    disabled={false}
+                    id="region"
+                    name="region"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    onFocus={[Function]}
+                    readOnly={false}
+                    required={false}
                   >
-                    <path
-                      d="M11.983,0a12.206,12.206,0,0,0-8.51,3.653A11.8,11.8,0,0,0,0,12.207,11.779,11.779,0,0,0,11.8,24h.214A12.111,12.111,0,0,0,24,11.791h0A11.766,11.766,0,0,0,11.983,0ZM10.5,16.542a1.476,1.476,0,0,1,1.449-1.53h.027a1.527,1.527,0,0,1,1.523,1.47,1.475,1.475,0,0,1-1.449,1.53h-.027A1.529,1.529,0,0,1,10.5,16.542ZM11,12.5v-6a1,1,0,0,1,2,0v6a1,1,0,1,1-2,0Z"
-                      fill="currentColor"
-                    />
-                  </svg>
-                </span>
-                Secret access keys are sensitive information, keep them secured and protected, never post them on public platforms or leave them unsecured as this can compromise your account security
+                    <option
+                      className="us-east-1"
+                      value="us-east-1"
+                    >
+                      US East (Northern Virginia) Region
+                    </option>
+                    <option
+                      className="us-west-2"
+                      value="us-west-2"
+                    >
+                      US West (Oregon) Region
+                    </option>
+                    <option
+                      className="eu-west-1"
+                      value="eu-west-1"
+                    >
+                      Europe (Ireland) Region
+                    </option>
+                    <option
+                      className="us-east-2"
+                      value="us-east-2"
+                    >
+                      US East (Ohio) Region
+                    </option>
+                    <option
+                      className="us-west-1"
+                      value="us-west-1"
+                    >
+                      US West (Northern California) Region
+                    </option>
+                  </select>
+                  <div
+                    className="chakra-select__icon-wrapper css-zj2dqk"
+                  >
+                    <svg
+                      aria-hidden={true}
+                      className="chakra-select__icon"
+                      focusable={false}
+                      role="presentation"
+                      style={
+                        Object {
+                          "color": "currentColor",
+                          "height": "1em",
+                          "width": "1em",
+                        }
+                      }
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
         <div
-          className="css-4lei0w"
+          className="chakra-stack css-1aoc1cb"
         >
-          <div
-            className="css-xmm0aq"
+          <button
+            className="chakra-button css-7c7vkr"
+            disabled={false}
+            onClick={[Function]}
+            type="button"
           >
-            <h2
-              className="chakra-heading css-1bltaqc"
+            <span
+              className="chakra-button__icon css-1wh2kri"
             >
-              AWS Region
-            </h2>
-            <p
-              className="chakra-text css-1pnhx6x"
-            >
-              AWS has many data centers grouped by geographical regions. Select a region that is closest to your location. We will keep your data in the region you select. If you are not sure, you can select the US East (Ohio) Region
-            </p>
-            <div
-              className="chakra-form-control css-1kxonj9"
-              role="group"
-            >
-              <div
-                className="chakra-select__wrapper css-42b2qy"
+              <svg
+                aria-hidden={true}
+                className="chakra-icon css-onkibi"
+                focusable={false}
+                viewBox="0 0 24 24"
               >
-                <select
-                  className="chakra-select css-zm14t1"
-                  defaultValue="us-east-1"
-                  disabled={false}
-                  id="region"
-                  name="region"
-                  onBlur={[Function]}
-                  onChange={[Function]}
-                  onFocus={[Function]}
-                  readOnly={false}
-                  required={false}
-                >
-                  <option
-                    value="us-east-1"
-                  >
-                    US East (Northern Virginia) Region
-                  </option>
-                  <option
-                    value="us-west-2"
-                  >
-                    US West (Oregon) Region
-                  </option>
-                  <option
-                    value="eu-west-1"
-                  >
-                    Europe (Ireland) Region
-                  </option>
-                  <option
-                    value="us-east-2"
-                  >
-                    US East (Ohio) Region
-                  </option>
-                  <option
-                    value="us-west-1"
-                  >
-                    US West (Northern California) Region
-                  </option>
-                </select>
-                <div
-                  className="chakra-select__icon-wrapper css-zj2dqk"
-                >
-                  <svg
-                    aria-hidden={true}
-                    className="chakra-select__icon"
-                    focusable={false}
-                    role="presentation"
-                    style={
-                      Object {
-                        "color": "currentColor",
-                        "height": "1em",
-                        "width": "1em",
-                      }
-                    }
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
-                      fill="currentColor"
-                    />
-                  </svg>
-                </div>
-              </div>
-            </div>
-          </div>
+                <path
+                  d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+                  fill="currentColor"
+                />
+              </svg>
+            </span>
+            Previous
+          </button>
+          <button
+            className="chakra-button css-zb27lh"
+            disabled={false}
+            id="step1-btn-next"
+            onClick={[Function]}
+            type="button"
+          >
+            Next
+            <span
+              className="chakra-button__icon css-1hzyiq5"
+            >
+              <svg
+                aria-hidden={true}
+                className="chakra-icon css-onkibi"
+                focusable={false}
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                  fill="currentColor"
+                />
+              </svg>
+            </span>
+          </button>
         </div>
-      </div>
-      <div
-        className="chakra-stack css-1aoc1cb"
-      >
-        <button
-          className="chakra-button css-7c7vkr"
-          disabled={false}
-          onClick={[Function]}
-          type="button"
-        >
-          <span
-            className="chakra-button__icon css-1wh2kri"
-          >
-            <svg
-              aria-hidden={true}
-              className="chakra-icon css-onkibi"
-              focusable={false}
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
-                fill="currentColor"
-              />
-            </svg>
-          </span>
-          Previous
-        </button>
-        <button
-          className="chakra-button css-zb27lh"
-          disabled={false}
-          onClick={[Function]}
-          type="button"
-        >
-          Next
-          <span
-            className="chakra-button__icon css-1hzyiq5"
-          >
-            <svg
-              aria-hidden={true}
-              className="chakra-icon css-onkibi"
-              focusable={false}
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
-                fill="currentColor"
-              />
-            </svg>
-          </span>
-        </button>
       </div>
     </div>
   </div>,

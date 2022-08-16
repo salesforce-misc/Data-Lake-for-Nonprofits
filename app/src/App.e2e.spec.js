@@ -1,10 +1,11 @@
 import { By } from "selenium-webdriver";
 import { Builder } from "@tpio/javascript-opensdk";
 
-const waitFor3Seconds = async () => new Promise(r => setTimeout(r, 3000));
+const waitFor3Seconds = async () => new Promise(r => setTimeout(r, 1000));
 
 describe("App", () => {
-  const testUrl = "http://localhost:3000";
+  // const testUrl = "http://localhost:3000";
+  const testUrl = "https://dev.d1nqubar29ak76.amplifyapp.com/";
 
   let driver;
 
@@ -16,9 +17,10 @@ describe("App", () => {
     await driver.quit();
   });
 
-  it("application runs properly", async () => {
+  test("application runs properly", async () => {
     // Go to home page
     await driver.get(testUrl);
+    await driver.findElement(By.css("#home")).isDisplayed();
     await driver.findElement(By.css("#h2-title")).isDisplayed();
     await waitFor3Seconds();
     await driver.findElement(By.css("#home-btn-lets-go")).isDisplayed();
@@ -28,7 +30,7 @@ describe("App", () => {
     await waitFor3Seconds();
 
     // Go to step1
-    await driver.get(`${testUrl}/steps/1`);
+    await driver.findElement(By.css("#step1")).isDisplayed();
     await driver.findElement(By.css("#h2-title")).isDisplayed();
     await waitFor3Seconds();
     await driver.findElement(By.css("#step1-btn-need-assistance-yes")).click();
@@ -36,6 +38,24 @@ describe("App", () => {
     await driver.findElement(By.css("#step1-btn-need-assistance-yes")).click();
     await waitFor3Seconds();
     await driver.findElement(By.css("#step1-btn-need-assistance-no")).click();
-    await new Promise(r => setTimeout(r, 30000));
+    await waitFor3Seconds();
+    await driver.findElement(By.css("#accessKeyId")).sendKeys(process.env.AWS_ACCESS_KEY);
+    await driver.findElement(By.css("#secretAccessKey")).sendKeys(process.env.AWS_SECRET_KEY);
+    await waitFor3Seconds();
+    await driver.findElement(By.css("#region")).click();
+    await waitFor3Seconds();
+    await driver.findElement(By.css("#region")).click();
+    await waitFor3Seconds();
+    await driver.findElement(By.css("#region"))
+    await driver.findElement(By.className("us-east-1")).click();
+    await waitFor3Seconds();
+    await driver.findElement(By.css("#step1-btn-next")).click();
+
+        // Go to step2
+    await driver.findElement(By.css("#step2")).isDisplayed();
+    await driver.findElement(By.css("#h2-title")).isDisplayed();
+    await waitFor3Seconds();
+
+    await new Promise(r => setTimeout(r, 15000));
   });
 });

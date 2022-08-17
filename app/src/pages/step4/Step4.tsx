@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Container, Heading, Text, HStack, Button, ChakraProvider, Stack, useTheme } from "@chakra-ui/react";
+import { Box, Container, Heading, Text, HStack, Button, Stack, useTheme } from "@chakra-ui/react";
 import { ArrowForwardIcon, ArrowBackIcon } from "@chakra-ui/icons";
 import { observer } from "mobx-react";
 import { useNavigate } from "react-router-dom";
@@ -33,7 +33,7 @@ export const Step4 = observer(() => {
   }, [step]);
 
   return (
-    <ChakraProvider theme={theme}>
+    <Box id="step4">
       <CurvedBox bgGradient={theme.gradients.bgLight} />
 
       <Header />
@@ -88,6 +88,6 @@ export const Step4 = observer(() => {
           </HStack>
         </Container>
       </Box>
-    </ChakraProvider>
+    </Box>
   );
 });

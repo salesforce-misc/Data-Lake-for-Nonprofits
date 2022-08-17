@@ -33,7 +33,7 @@ export const StoreStatusInfo = observer(() => {
     )) ||
     (isReady && null) || (
       <Box mt={2} mb={4} p={8}>
-        <Box textAlign="center" fontWeight="bold" color={tone(600)} fontSize="md" mb={4}>
+        <Box id="step3-store-status-info" textAlign="center" fontWeight="bold" color={tone(600)} fontSize="md" mb={4}>
           Retrieving your Salesforce data schema, this might take a few minutes
           <br />
           {Math.ceil(progress)} %

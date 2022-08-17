@@ -202,7 +202,12 @@ export const Step2 = observer(() => {
                 Did you create a Salesforce connection using Amazon AppFlow?
               </Heading>
               <Box textAlign="right">
-                <OutlineButton selected={createdConnection === YesNoAnswer.Yes} onClick={handleAnswer(YesNoAnswer.Yes)} ml={3}>
+                <OutlineButton
+                  id="step2-btn-appflow-created-yes"
+                  selected={createdConnection === YesNoAnswer.Yes}
+                  onClick={handleAnswer(YesNoAnswer.Yes)}
+                  ml={3}
+                >
                   Yes
                 </OutlineButton>
               </Box>
@@ -218,6 +223,7 @@ export const Step2 = observer(() => {
               Previous
             </Button>
             <Button
+              id="step2-btn-next"
               colorScheme="blue"
               size="md"
               loadingText="Processing"

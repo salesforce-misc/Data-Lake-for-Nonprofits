@@ -79,7 +79,7 @@ export const AppFlowConnectionSelection = observer(() => {
       </Alert>
     )) || (
       <Box bg="blue.75" p={6} mb={8} borderRadius="lg" border="1px" borderColor="blue.100">
-        <Heading size="sm" pb="10px" color="blue.600">
+        <Heading id="step2-h2-select-connection" size="sm" pb="10px" color="blue.600">
           Select the connection name
         </Heading>
 
@@ -93,6 +93,7 @@ export const AppFlowConnectionSelection = observer(() => {
             ))}
           </Select>
           <IconButton
+            id="step2-button-reload-connections"
             colorScheme="blue"
             variant="outline"
             aria-label="Search database"

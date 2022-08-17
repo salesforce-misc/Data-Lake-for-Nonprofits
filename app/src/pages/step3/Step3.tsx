@@ -43,7 +43,7 @@ export const Step3 = observer(() => {
   const canProceed = isReady && selectedObjectsCount > 0;
 
   return (
-    <>
+    <Box id="step3">
       <CurvedBox bgGradient={theme.gradients.bgLight} />
 
       <Header />
@@ -90,6 +90,7 @@ export const Step3 = observer(() => {
               Previous
             </Button>
             <Button
+              id="step3-btn-next"
               colorScheme={colorScheme}
               size="md"
               loadingText="Processing"
@@ -104,6 +105,6 @@ export const Step3 = observer(() => {
           </HStack>
         </Container>
       </Box>
-    </>
+    </Box>
   );
 });

@@ -431,6 +431,7 @@ Array [
             >
               <button
                 className="chakra-button css-1ae6t0z"
+                id="step2-btn-appflow-created-yes"
                 onClick={[Function]}
                 type="button"
               >
@@ -483,6 +484,7 @@ Array [
           <button
             className="chakra-button css-jxg557"
             disabled={true}
+            id="step2-btn-next"
             onClick={[Function]}
             type="button"
           >

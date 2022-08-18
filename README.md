@@ -1,3 +1,3 @@
-# Data Lake for Nonprofit Cloud, Powered by Amazon Web Services
+# Data Lake for Nonprofits, Powered by AWS
 
 See the `docs/` folder for more in depth documentation.

@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React from "react";
 import range from "lodash/range";
 import isNumber from "lodash/isNumber";
 import isEmpty from "lodash/isEmpty";
@@ -22,13 +22,13 @@ import {
 } from "@chakra-ui/react";
 import { observer } from "mobx-react";
 
-import { useInstallation } from "../../AppContext";
-import { useMetadataStore } from "../../models/MetadataStore";
-import { ImportFrequency, MonthlySettingsSelection } from "../../models/steps/ImportOptionsStep";
-import { TimeInput } from "../../components/TimeInput";
-import { humanDay } from "../../helpers/utils";
+import { useInstallation } from "AppContext";
+import { useMetadataStore } from "models/MetadataStore";
+import { ImportFrequency, MonthlySettingsSelection } from "models/steps/ImportOptionsStep";
+import { TimeInput } from "components/TimeInput";
+import { humanDay } from "helpers/utils";
 
-export const ImportFrequencyPanel: FC = observer(() => {
+export const ImportFrequencyPanel = observer(() => {
   const { isReady } = useMetadataStore();
   const installation = useInstallation();
   if (!isReady) return null;
@@ -102,7 +102,7 @@ export const ImportFrequencyPanel: FC = observer(() => {
   );
 });
 
-const DailySettingsPanel: FC = observer(() => {
+const DailySettingsPanel = observer(() => {
   const installation = useInstallation();
   const step = installation.importOptionsStep;
   const settings = step.dailySettings;
@@ -139,7 +139,7 @@ const DailySettingsPanel: FC = observer(() => {
   );
 });
 
-const WeeklySettingsPanel: FC = observer(() => {
+const WeeklySettingsPanel = observer(() => {
   const installation = useInstallation();
   const step = installation.importOptionsStep;
   const settings = step.weeklySettings;
@@ -198,7 +198,7 @@ const WeeklySettingsPanel: FC = observer(() => {
   );
 });
 
-const MonthlySettingsPanel: FC = observer(() => {
+const MonthlySettingsPanel = observer(() => {
   const installation = useInstallation();
   const step = installation.importOptionsStep;
   const settings = step.monthlySettings;
@@ -259,7 +259,7 @@ const MonthlySettingsPanel: FC = observer(() => {
   );
 });
 
-const DayOfMonthGrid: FC = observer(() => {
+const DayOfMonthGrid = observer(() => {
   const installation = useInstallation();
   const step = installation.importOptionsStep;
   const settings = step.monthlySettings;
@@ -296,7 +296,7 @@ const DayOfMonthGrid: FC = observer(() => {
     return common;
   };
 
-  const NumBox: FC<{ num: number }> = observer(({ num }) => (
+  const NumBox = observer(({ num }: { num: number }) => (
     <Box {...getProps(num)} textAlign="center">
       {num}
     </Box>

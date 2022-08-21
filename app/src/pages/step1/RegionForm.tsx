@@ -1,4 +1,4 @@
-import { FC } from "react";
+import React from "react";
 import { FieldErrors, UseFormRegister } from "react-hook-form";
 import { Box, FormControl, FormErrorMessage, Heading, Select, Text } from "@chakra-ui/react";
 
@@ -6,13 +6,15 @@ import { ICredentialsFormInput } from "./CredentialsForm";
 import { awsRegions } from "../../data/aws-regions";
 import { useColorScheme } from "../../models/useColorScheme";
 
-export const RegionForm: FC<{
+interface IRegionForm {
   register: UseFormRegister<ICredentialsFormInput>;
   errors: FieldErrors;
   isSubmitting: boolean;
   description: string;
   defaultRegion: string;
-}> = ({ register, errors, isSubmitting, description, defaultRegion }) => {
+}
+
+export const RegionForm = ({ register, errors, isSubmitting, description, defaultRegion }: IRegionForm) => {
   const { tone } = useColorScheme();
 
   return (

@@ -1,15 +1,17 @@
+import React from "react";
+
+import { observer } from "mobx-react";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
 import { Box, Button, Heading, HStack, Link, Text } from "@chakra-ui/react";
-import { observer } from "mobx-react";
-import { FC } from "react";
-import { useColorScheme } from "../../models/useColorScheme";
+
+import { useColorScheme } from "models/useColorScheme";
 
 export interface CloudwatchDashboardPanelProps {
   region: string;
   id: string;
 }
 
-export const CloudwatchDashboardPanel: FC<CloudwatchDashboardPanelProps> = observer(({ region, id }: CloudwatchDashboardPanelProps) => {
+export const CloudwatchDashboardPanel = observer(({ region, id }: CloudwatchDashboardPanelProps) => {
   const { tone, colorScheme } = useColorScheme();
 
   return (

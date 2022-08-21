@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import React from "react";
 import { observer } from "mobx-react";
 import {
   Box,
@@ -23,13 +23,13 @@ import {
 import { ChevronRightIcon, RepeatIcon } from "@chakra-ui/icons";
 
 import { IObjectImportStatus, useImportStatusStore } from "models/ImportStatusStore";
-import { niceNumber } from "../../helpers/utils";
-import { RetryErrorPanel } from "../../components/RetryErrorPanel";
-import { TimeAgo } from "../../components/TimeAgo";
-import { isStoreLoading, isStoreReLoading } from "../../models/BaseStore";
-import { useColorScheme } from "../../models/useColorScheme";
+import { isStoreLoading, isStoreReLoading } from "models/BaseStore";
+import { useColorScheme } from "models/useColorScheme";
+import { niceNumber } from "helpers/utils";
+import { RetryErrorPanel } from "components/RetryErrorPanel";
+import { TimeAgo } from "components/TimeAgo";
 
-export const DataImportStatusPanel: FC = observer(() => {
+export const DataImportStatusPanel = observer(() => {
   const { tone, colorScheme } = useColorScheme();
   return (
     <>
@@ -52,7 +52,7 @@ export const DataImportStatusPanel: FC = observer(() => {
   );
 });
 
-const CountBadge: FC<{ colorScheme: string }> = observer(({ colorScheme }) => {
+const CountBadge = observer(({ colorScheme }: { colorScheme: string }) => {
   const { isError, store } = useImportStatusStore();
   if (store.isGettingSchemas && isStoreLoading(store)) return null;
   if (isError) return null;
@@ -65,7 +65,7 @@ const CountBadge: FC<{ colorScheme: string }> = observer(({ colorScheme }) => {
   );
 });
 
-const RefreshButton: FC<{ colorScheme: string }> = observer(({ colorScheme }) => {
+const RefreshButton = observer(({ colorScheme }: { colorScheme: string }) => {
   const { isError, store } = useImportStatusStore();
   if (store.isGettingSchemas && isStoreLoading(store)) return null;
   if (isError) return null;
@@ -84,7 +84,7 @@ const RefreshButton: FC<{ colorScheme: string }> = observer(({ colorScheme }) =>
   );
 });
 
-const StartTime: FC = observer(() => {
+const StartTime = observer(() => {
   const { store } = useImportStatusStore();
   if (store.isGettingSchemas) return null;
   if (store.startTime === 0) return null;
@@ -92,9 +92,9 @@ const StartTime: FC = observer(() => {
   return <TimeAgo time={store.startTime} />;
 });
 
-const SummaryPanel: FC<{ colorScheme: string }> = observer(({ colorScheme }) => {
+const SummaryPanel = observer(({ colorScheme }: { colorScheme: string }) => {
   const { isError, store } = useImportStatusStore();
-  const [expanded, setExpanded] = useState(false);
+  const [expanded, setExpanded] = React.useState(false);
   const { tone } = useColorScheme();
 
   if (isError) return null;
@@ -153,7 +153,7 @@ const SummaryPanel: FC<{ colorScheme: string }> = observer(({ colorScheme }) => 
   );
 });
 
-const ObjectsPanel: FC<{ colorScheme: string }> = observer(({ colorScheme }) => {
+const ObjectsPanel = observer(({ colorScheme }: { colorScheme: string }) => {
   const { store } = useImportStatusStore();
   const empty = store.empty;
 
@@ -189,7 +189,13 @@ const ObjectsPanel: FC<{ colorScheme: string }> = observer(({ colorScheme }) => 
   );
 });
 
-const ObjectRow: FC<{ object: IObjectImportStatus; colorScheme: string; index: number }> = observer(({ object, colorScheme, index }) => {
+interface IObjectRow {
+  object: IObjectImportStatus;
+  colorScheme: string;
+  index: number;
+}
+
+const ObjectRow = observer(({ object, colorScheme, index }: IObjectRow) => {
   const warn = object.warning;
   return (
     <>
@@ -217,7 +223,7 @@ const ObjectRow: FC<{ object: IObjectImportStatus; colorScheme: string; index: n
   );
 });
 
-const ProgressPanel: FC<{ colorScheme: string }> = observer(({ colorScheme }) => {
+const ProgressPanel = observer(({ colorScheme }: { colorScheme: string }) => {
   const { isError, store } = useImportStatusStore();
 
   if (isError) return null;
@@ -226,7 +232,7 @@ const ProgressPanel: FC<{ colorScheme: string }> = observer(({ colorScheme }) =>
   return <Progress size="sm" isIndeterminate colorScheme={colorScheme} bg={`${colorScheme}.100`} borderRadius="lg" mb={3} />;
 });
 
-const ErrorPanel: FC = observer(() => {
+const ErrorPanel = observer(() => {
   const { isError, store } = useImportStatusStore();
 
   if (!isError) return null;

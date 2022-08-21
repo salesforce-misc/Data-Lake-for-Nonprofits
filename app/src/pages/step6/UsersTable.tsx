@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import React from "react";
 import { observer } from "mobx-react";
 import {
   Table,
@@ -30,7 +30,7 @@ import { IUser, TUserAccessStatus } from "models/helpers/User";
 import { TAccessKeyStatus, IUserAccessKey } from "models/helpers/UserAccessKey";
 import { useUsersStore } from "models/useUsersStore";
 
-export const UsersTable: FC = observer(() => {
+export const UsersTable = observer(() => {
   const { colorScheme } = useColorScheme();
   const installation = useInstallation();
   const { isLoading, store } = useUsersStore(installation);
@@ -57,16 +57,16 @@ export const UsersTable: FC = observer(() => {
   );
 });
 
-const UserRow: FC<{ user: IUser }> = observer(({ user }) => {
+const UserRow = observer(({ user }: { user: IUser }) => {
   const installation = useInstallation();
   const { store } = useUsersStore(installation);
   const { tone } = useColorScheme();
   const toast = useToast();
-  const [deleteSelected, setSelectDelete] = useState(false);
-  const [doneDeleting, setDoneDeleting] = useState(false);
-  const [processing, setProcessing] = useState(false);
-  const [error, setError] = useState("");
-  const [expanded, setExpanded] = useState(false);
+  const [deleteSelected, setSelectDelete] = React.useState(false);
+  const [doneDeleting, setDoneDeleting] = React.useState(false);
+  const [processing, setProcessing] = React.useState(false);
+  const [error, setError] = React.useState("");
+  const [expanded, setExpanded] = React.useState(false);
   const userName = user.name;
 
   const handleDelete = async () => {
@@ -182,13 +182,13 @@ const UserRow: FC<{ user: IUser }> = observer(({ user }) => {
   );
 });
 
-const AccessDetail: FC<{ user: IUser }> = observer(({ user }) => {
+const AccessDetail = observer(({ user }: { user: IUser }) => {
   const { tone, colorScheme } = useColorScheme();
   const installation = useInstallation();
   const { store } = useUsersStore(installation);
-  const [addingAccessKey, setAddingAccessKey] = useState(false);
-  const [accessKey, setAccessKey] = useState<IUserAccessKey>();
-  const [error, setError] = useState("");
+  const [addingAccessKey, setAddingAccessKey] = React.useState(false);
+  const [accessKey, setAccessKey] = React.useState<IUserAccessKey>();
+  const [error, setError] = React.useState("");
   const toast = useToast();
 
   const accessKeys = user.listAccessKeys;
@@ -270,12 +270,12 @@ const AccessDetail: FC<{ user: IUser }> = observer(({ user }) => {
   );
 });
 
-const WarningBanner: FC<{ user: IUser }> = observer(({ user }) => {
+const WarningBanner = observer(({ user }: { user: IUser }) => {
   const { colorScheme } = useColorScheme();
   const installation = useInstallation();
   const { store } = useUsersStore(installation);
-  const [processing, setProcessing] = useState(false);
-  const [error, setError] = useState("");
+  const [processing, setProcessing] = React.useState(false);
+  const [error, setError] = React.useState("");
   const toast = useToast();
 
   const handleAttachPolicy = async () => {
@@ -359,14 +359,19 @@ const WarningBanner: FC<{ user: IUser }> = observer(({ user }) => {
   );
 });
 
-const AccessKeyDetailRow: FC<{ user: IUser; userAccessKey: IUserAccessKey }> = observer(({ user, userAccessKey }) => {
+interface IAccessKeyDetailRow {
+  user: IUser;
+  userAccessKey: IUserAccessKey;
+}
+
+const AccessKeyDetailRow = observer(({ user, userAccessKey }: IAccessKeyDetailRow) => {
   const { tone, colorScheme } = useColorScheme();
   const installation = useInstallation();
   const { store } = useUsersStore(installation);
-  const [deleteSelected, setSelectDelete] = useState(false);
-  const [processing, setProcessing] = useState(false);
-  const [deleted, setDeleted] = useState(false);
-  const [error, setError] = useState("");
+  const [deleteSelected, setSelectDelete] = React.useState(false);
+  const [processing, setProcessing] = React.useState(false);
+  const [deleted, setDeleted] = React.useState(false);
+  const [error, setError] = React.useState("");
   const toast = useToast();
 
   if (deleted) return null;
@@ -465,59 +470,64 @@ const AccessKeyDetailRow: FC<{ user: IUser; userAccessKey: IUserAccessKey }> = o
   );
 });
 
-const DeleteAccessKeyPanel: FC<{ user: IUser; userAccessKey: IUserAccessKey; onCancel: () => void; onDeleted: () => void }> = observer(
-  ({ user, userAccessKey, onCancel, onDeleted }) => {
-    const installation = useInstallation();
-    const { store } = useUsersStore(installation);
-    const [processing, setProcessing] = useState(false);
-    const [error, setError] = useState("");
-    const toast = useToast();
+interface IDeleteAccessKeyPanel {
+  user: IUser;
+  userAccessKey: IUserAccessKey;
+  onCancel: () => void;
+  onDeleted: () => void;
+}
 
-    const handleDelete = async () => {
-      setError("");
-      setProcessing(true);
-      try {
-        await delay(1); // To give a better visual cue
-        await store.deleteAccessKey(user, userAccessKey, installation);
-        toast({
-          status: "warning",
-          description: `Deleted ${userAccessKey.id}`,
-          isClosable: false,
-          duration: 1000,
-        });
-        onDeleted();
-      } catch (err: any) {
-        console.log(err);
-        setError(err.message);
-      }
-      setProcessing(false);
-    };
+const DeleteAccessKeyPanel = observer(({ user, userAccessKey, onCancel, onDeleted }: IDeleteAccessKeyPanel) => {
+  const installation = useInstallation();
+  const { store } = useUsersStore(installation);
+  const [processing, setProcessing] = React.useState(false);
+  const [error, setError] = React.useState("");
+  const toast = useToast();
 
-    return (
-      <Box mt={4} mb={10}>
-        {error && (
-          <Alert status="error" variant="left-accent" mt={0} mb={4} color="red.700" alignItems="flex-start" fontSize="sm">
-            <AlertDescription>{error}</AlertDescription>
-          </Alert>
-        )}
+  const handleDelete = async () => {
+    setError("");
+    setProcessing(true);
+    try {
+      await delay(1); // To give a better visual cue
+      await store.deleteAccessKey(user, userAccessKey, installation);
+      toast({
+        status: "warning",
+        description: `Deleted ${userAccessKey.id}`,
+        isClosable: false,
+        duration: 1000,
+      });
+      onDeleted();
+    } catch (err: any) {
+      console.log(err);
+      setError(err.message);
+    }
+    setProcessing(false);
+  };
 
-        <Alert status="error" borderRadius="md" color="red.800">
-          <Box w="full">
-            <AlertTitle>Delete {userAccessKey.id}?</AlertTitle>
-            <AlertDescription fontSize="sm" display="block" mt={2}>
-              Deleting an access key is permanent and it can not be undone. You will no longer be able to use this access key to query the data lake.
-            </AlertDescription>
-            <Box textAlign="right" mt={3}>
-              <Button colorScheme="red" variant="outline" size="sm" disabled={processing} onClick={onCancel} mr={4}>
-                Cancel
-              </Button>
-              <Button colorScheme="red" size="sm" isLoading={processing} onClick={handleDelete}>
-                Delete
-              </Button>
-            </Box>
-          </Box>
+  return (
+    <Box mt={4} mb={10}>
+      {error && (
+        <Alert status="error" variant="left-accent" mt={0} mb={4} color="red.700" alignItems="flex-start" fontSize="sm">
+          <AlertDescription>{error}</AlertDescription>
         </Alert>
-      </Box>
-    );
-  }
-);
+      )}
+
+      <Alert status="error" borderRadius="md" color="red.800">
+        <Box w="full">
+          <AlertTitle>Delete {userAccessKey.id}?</AlertTitle>
+          <AlertDescription fontSize="sm" display="block" mt={2}>
+            Deleting an access key is permanent and it can not be undone. You will no longer be able to use this access key to query the data lake.
+          </AlertDescription>
+          <Box textAlign="right" mt={3}>
+            <Button colorScheme="red" variant="outline" size="sm" disabled={processing} onClick={onCancel} mr={4}>
+              Cancel
+            </Button>
+            <Button colorScheme="red" size="sm" isLoading={processing} onClick={handleDelete}>
+              Delete
+            </Button>
+          </Box>
+        </Box>
+      </Alert>
+    </Box>
+  );
+});

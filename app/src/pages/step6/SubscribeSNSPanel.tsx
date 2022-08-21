@@ -1,12 +1,13 @@
+import React from "react";
 import { Alert, AlertDescription, Box, Button, FormControl, FormErrorMessage, Heading, HStack, Input, Text, useToast } from "@chakra-ui/react";
 import { observer } from "mobx-react";
-import { FC, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { subscribeSNS } from "../../api/subscribe-sns";
-import { useInstallation } from "../../AppContext";
-import { useColorScheme } from "../../models/useColorScheme";
 
-export const SubscribeSNSPanel: FC = observer(() => {
+import { useInstallation } from "AppContext";
+import { subscribeSNS } from "api/subscribe-sns";
+import { useColorScheme } from "models/useColorScheme";
+
+export const SubscribeSNSPanel = observer(() => {
   const { tone } = useColorScheme();
 
   return (
@@ -31,11 +32,11 @@ interface IFormInput {
   email: string;
 }
 
-const SubscribeForm: FC = observer(() => {
+const SubscribeForm = observer(() => {
   const installation = useInstallation();
   const toast = useToast();
   const { tone, colorScheme } = useColorScheme();
-  const [error, setError] = useState("");
+  const [error, setError] = React.useState("");
 
   const {
     handleSubmit,

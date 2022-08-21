@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import React from "react";
 import { Box, Text, HStack, Badge, Table, TableCaption, Thead, Tr, Th, Tbody, Td, Collapse, Tag, Tfoot } from "@chakra-ui/react";
 import { ChevronRightIcon } from "@chakra-ui/icons";
 import { observer } from "mobx-react";
@@ -7,7 +7,12 @@ import { niceNumber } from "helpers/utils";
 import { useMetadataStore } from "models/MetadataStore";
 import { ISFObject } from "models/helpers/SFObject";
 
-export const DataModelTablePreview: FC<{ colorScheme: string; showCaption?: boolean }> = observer(({ colorScheme, showCaption = true }) => {
+interface IDataModelTablePreview {
+  colorScheme: string;
+  showCaption?: boolean;
+}
+
+export const DataModelTablePreview = observer(({ colorScheme, showCaption = true }: IDataModelTablePreview) => {
   const { store } = useMetadataStore();
   const selectedObjectsCount = store.selectedObjects.length;
   const isEmptyModel = selectedObjectsCount === 0;
@@ -48,8 +53,13 @@ export const DataModelTablePreview: FC<{ colorScheme: string; showCaption?: bool
   );
 });
 
-const ObjectRow: FC<{ object: ISFObject; colorScheme: string }> = observer(({ object, colorScheme }) => {
-  const [expanded, setExpanded] = useState(false);
+interface IObjectRow {
+  object: ISFObject;
+  colorScheme: string;
+}
+
+const ObjectRow = observer(({ object, colorScheme }: IObjectRow) => {
+  const [expanded, setExpanded] = React.useState(false);
   const hasExcludedFields = object.excludedFieldsCount > 0;
 
   return (

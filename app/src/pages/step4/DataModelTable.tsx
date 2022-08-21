@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import React from "react";
 import isEmpty from "lodash/isEmpty";
 import {
   Box,
@@ -37,7 +37,7 @@ import { ISFObject } from "models/helpers/SFObject";
 import { IField } from "models/helpers/Field";
 import { PaginationButtons } from "components/PaginationButtons";
 
-export const DataModelTable: FC = observer(() => {
+export const DataModelTable = observer(() => {
   const { colorScheme } = useColorScheme();
   const { store } = useMetadataStore();
   const selectedObjectsCount = store.selectedObjects.length;
@@ -71,8 +71,8 @@ export const DataModelTable: FC = observer(() => {
   );
 });
 
-const ObjectRow: FC<{ object: ISFObject }> = observer(({ object }) => {
-  const [expanded, setExpanded] = useState(false);
+const ObjectRow = observer(({ object }: { object: ISFObject }) => {
+  const [expanded, setExpanded] = React.useState(false);
 
   return (
     <>
@@ -101,7 +101,7 @@ const ObjectRow: FC<{ object: ISFObject }> = observer(({ object }) => {
   );
 });
 
-const FieldsPanel: FC<{ object: ISFObject }> = observer(({ object }) => {
+const FieldsPanel = observer(({ object }: { object: ISFObject }) => {
   const { tone, colorScheme } = useColorScheme();
   const { fields, viewOption, setViewOption, totalPages, currentPage, setCurrentPage, searchText, setSearchText, totalMatches } = useFieldsTable({
     object,
@@ -149,103 +149,111 @@ const FieldsPanel: FC<{ object: ISFObject }> = observer(({ object }) => {
   );
 });
 
-const EmptyMessage: FC<{ object: ISFObject; viewOption: FieldsViewOptions; fields: IField[]; searchText: string }> = observer(
-  ({ object, viewOption, fields, searchText }) => {
-    const { tone } = useColorScheme();
-    if (fields.length > 0) return null;
-    let content = "No fields are found";
-    let size = 0;
+interface IEmptyMessage {
+  object: ISFObject;
+  viewOption: FieldsViewOptions;
+  fields: IField[];
+  searchText: string;
+}
 
-    if (!isEmpty(searchText)) content = "No matches are found";
-    else {
-      switch (viewOption) {
-        case FieldsViewOptions.All:
-          size = object.immutableFields.length;
-          if (size > 0) {
-            content = `There are ${size} included fields. They are mandatory.`;
-          } else {
-            content = "No fields are found";
-          }
-          break;
-        case FieldsViewOptions.Only_Included:
-          size = object.immutableFields.length;
-          if (size > 0) {
-            content = `There are ${size} included fields. They are mandatory.`;
-          } else {
-            content = "No included fields are found";
-          }
-          break;
-        case FieldsViewOptions.Only_Excluded:
-          content = "No excluded fields are found";
-      }
+const EmptyMessage = observer(({ object, viewOption, fields, searchText }: IEmptyMessage) => {
+  const { tone } = useColorScheme();
+  if (fields.length > 0) return null;
+  let content = "No fields are found";
+  let size = 0;
+
+  if (!isEmpty(searchText)) content = "No matches are found";
+  else {
+    switch (viewOption) {
+      case FieldsViewOptions.All:
+        size = object.immutableFields.length;
+        if (size > 0) {
+          content = `There are ${size} included fields. They are mandatory.`;
+        } else {
+          content = "No fields are found";
+        }
+        break;
+      case FieldsViewOptions.Only_Included:
+        size = object.immutableFields.length;
+        if (size > 0) {
+          content = `There are ${size} included fields. They are mandatory.`;
+        } else {
+          content = "No included fields are found";
+        }
+        break;
+      case FieldsViewOptions.Only_Excluded:
+        content = "No excluded fields are found";
     }
-
-    return (
-      <Box bg={tone(100)} textAlign="center" p={4} fontSize="xs" color={tone(600)} borderRadius="md">
-        {content}
-      </Box>
-    );
   }
-);
 
-const FieldsViewOptionsPanel: FC<{ object: ISFObject; viewOption: FieldsViewOptions; setViewOption: (option: FieldsViewOptions) => void }> = observer(
-  ({ object, viewOption, setViewOption }) => {
-    const { tone, colorScheme } = useColorScheme();
-    const is = (option: FieldsViewOptions) => option === viewOption;
+  return (
+    <Box bg={tone(100)} textAlign="center" p={4} fontSize="xs" color={tone(600)} borderRadius="md">
+      {content}
+    </Box>
+  );
+});
 
-    return (
-      <RadioGroup defaultValue="1" mb={6}>
-        <Flex fontSize="sm" justifyContent="space-between" pr={2}>
-          <Flex pl={1}>
-            Show
-            <Radio
-              ml={6}
-              value="1"
-              colorScheme={colorScheme}
-              isChecked={is(FieldsViewOptions.All)}
-              onChange={() => setViewOption(FieldsViewOptions.All)}
-            >
-              <Text color={tone(700)} fontSize="sm" mr={4}>
-                All Fields
-                <Badge ml={2} bg={tone(75)} fontSize="xs" borderRadius="full" fontWeight="normal">
-                  {object.fieldsCount}
-                </Badge>
-              </Text>
-            </Radio>
-          </Flex>
+interface IFieldsViewOptionsPanel {
+  object: ISFObject;
+  viewOption: FieldsViewOptions;
+  setViewOption: (option: FieldsViewOptions) => void;
+}
+const FieldsViewOptionsPanel = observer(({ object, viewOption, setViewOption }: IFieldsViewOptionsPanel) => {
+  const { tone, colorScheme } = useColorScheme();
+  const is = (option: FieldsViewOptions) => option === viewOption;
+
+  return (
+    <RadioGroup defaultValue="1" mb={6}>
+      <Flex fontSize="sm" justifyContent="space-between" pr={2}>
+        <Flex pl={1}>
+          Show
           <Radio
-            value="2"
+            ml={6}
+            value="1"
             colorScheme={colorScheme}
-            isChecked={is(FieldsViewOptions.Only_Included)}
-            onChange={() => setViewOption(FieldsViewOptions.Only_Included)}
+            isChecked={is(FieldsViewOptions.All)}
+            onChange={() => setViewOption(FieldsViewOptions.All)}
           >
             <Text color={tone(700)} fontSize="sm" mr={4}>
-              Included Fields
+              All Fields
               <Badge ml={2} bg={tone(75)} fontSize="xs" borderRadius="full" fontWeight="normal">
-                {object.selectedFieldsCount}
-              </Badge>
-            </Text>
-          </Radio>
-          <Radio
-            value="3"
-            colorScheme={colorScheme}
-            isChecked={is(FieldsViewOptions.Only_Excluded)}
-            onChange={() => setViewOption(FieldsViewOptions.Only_Excluded)}
-          >
-            <Text fontSize="sm" color={tone(700)}>
-              Excluded Fields
-              <Badge ml={2} bg={tone(75)} fontSize="xs" borderRadius="full" fontWeight="normal">
-                {object.excludedFieldsCount}
+                {object.fieldsCount}
               </Badge>
             </Text>
           </Radio>
         </Flex>
-      </RadioGroup>
-    );
-  }
-);
+        <Radio
+          value="2"
+          colorScheme={colorScheme}
+          isChecked={is(FieldsViewOptions.Only_Included)}
+          onChange={() => setViewOption(FieldsViewOptions.Only_Included)}
+        >
+          <Text color={tone(700)} fontSize="sm" mr={4}>
+            Included Fields
+            <Badge ml={2} bg={tone(75)} fontSize="xs" borderRadius="full" fontWeight="normal">
+              {object.selectedFieldsCount}
+            </Badge>
+          </Text>
+        </Radio>
+        <Radio
+          value="3"
+          colorScheme={colorScheme}
+          isChecked={is(FieldsViewOptions.Only_Excluded)}
+          onChange={() => setViewOption(FieldsViewOptions.Only_Excluded)}
+        >
+          <Text fontSize="sm" color={tone(700)}>
+            Excluded Fields
+            <Badge ml={2} bg={tone(75)} fontSize="xs" borderRadius="full" fontWeight="normal">
+              {object.excludedFieldsCount}
+            </Badge>
+          </Text>
+        </Radio>
+      </Flex>
+    </RadioGroup>
+  );
+});
 
-const FieldsGrid: FC<{ fields: IField[] }> = observer(({ fields }) => {
+const FieldsGrid = observer(({ fields }: { fields: IField[] }) => {
   if (fields.length < 1) return null;
   return (
     <SimpleGrid minChildWidth="200px" spacing="15px" mt={6}>
@@ -256,7 +264,12 @@ const FieldsGrid: FC<{ fields: IField[] }> = observer(({ fields }) => {
   );
 });
 
-const ImmutableFieldsGrid: FC<{ object: ISFObject; viewOption: FieldsViewOptions }> = observer(({ object, viewOption }) => {
+interface IImmutableFieldsGrid {
+  object: ISFObject;
+  viewOption: FieldsViewOptions;
+}
+
+const ImmutableFieldsGrid = observer(({ object, viewOption }: IImmutableFieldsGrid) => {
   const { tone, colorScheme } = useColorScheme();
   const immutableFields = object.immutableFields;
 
@@ -281,7 +294,7 @@ const ImmutableFieldsGrid: FC<{ object: ISFObject; viewOption: FieldsViewOptions
   );
 });
 
-const SelectableField: FC<{ field: IField }> = observer(({ field }) => {
+const SelectableField = observer(({ field }: { field: IField }) => {
   const { tone } = useColorScheme();
   const handleClick = () => field.toggleExclude();
   const getProps = () => {
@@ -323,7 +336,7 @@ const SelectableField: FC<{ field: IField }> = observer(({ field }) => {
   );
 });
 
-const ImmutableField: FC<{ field: IField }> = observer(({ field }) => {
+const ImmutableField = observer(({ field }: { field: IField }) => {
   const { tone } = useColorScheme();
 
   const props = {

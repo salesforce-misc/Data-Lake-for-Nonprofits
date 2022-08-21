@@ -1,11 +1,11 @@
-import { FC } from "react";
+import React from "react";
 import { Box, Text, UnorderedList, ListItem } from "@chakra-ui/react";
 import { observer } from "mobx-react";
 
 import { niceNumber } from "../../helpers/utils";
 import { useMetadataStore } from "../../models/MetadataStore";
 
-export const DataModelDescription: FC = observer(() => {
+export const DataModelDescription = observer(() => {
   const { store } = useMetadataStore();
   const missingObjects = store.missingObjects;
   const missingCount = missingObjects.length;

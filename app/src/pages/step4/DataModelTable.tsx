@@ -56,7 +56,7 @@ export const DataModelTable: FC = observer(() => {
           </Thead>
           <Tbody>
             {store.selectedObjects.map((item) => (
-              <ObjectRow key={item.name} object={item} />
+              <ObjectRow key={`${item.label}-${item.name}`} object={item} />
             ))}
           </Tbody>
           <Tfoot>

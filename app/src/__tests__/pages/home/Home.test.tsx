@@ -1,14 +1,12 @@
-import { cleanup, screen } from "@testing-library/react";
+import { cleanup } from "@testing-library/react";
 import { create } from "react-test-renderer";
+import { BrowserRouter } from "react-router-dom";
 
-import { render, RenderWithChakra } from "test-utils";
+import { RenderWithChakra } from "test-utils";
 
 import { StoreProvider } from "AppContext";
 
 import { Home } from "pages/home/Home";
-
-import * as detectedInstallationStore from "models/useDetectedInstallationStore";
-import { BrowserRouter, Router } from "react-router-dom";
 
 describe("Home component", () => {
   afterEach(cleanup);

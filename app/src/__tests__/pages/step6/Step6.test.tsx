@@ -9,8 +9,17 @@ import * as metadataStore from "models/MetadataStore";
 import * as importStatusStore from "models/ImportStatusStore";
 import { Step6 } from "pages/step6/Step6";
 
+const spyScrollTo = jest.fn();
+
 describe("Step6 component", () => {
-  afterEach(cleanup);
+  beforeEach(() => {
+    Object.defineProperty(global.window, "scrollTo", { value: spyScrollTo });
+  });
+
+  afterEach(() => {
+    spyScrollTo.mockClear();
+    cleanup;
+  });
 
   test("snapshot", () => {
     // @ts-ignore

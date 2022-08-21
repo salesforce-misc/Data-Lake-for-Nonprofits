@@ -1,17 +1,14 @@
 {
-  "name": "@amzn/custom_resources",
-  "private": true,
+  "name": "@salesforce-misc/data-lake-for-nonprofit-cloud",
   "version": "1.0.0",
-  "description": "",
+  "license": "BSD-3-Clause",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "npm run build",
-    "build": "tsc && npm run zip",
+    "postinstall": "yarn build",
+    "build": "tsc && yarn zip",
     "clean": "rm -rf dist/* ../assets/cloudformation-custom-resources.zip",
     "zip": "zip -r -g -u ../assets/cloudformation-custom-resources.zip ."
   },
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
     "aws-sdk": "^2.1088.0",
     "cfn-response": "^1.0.1",

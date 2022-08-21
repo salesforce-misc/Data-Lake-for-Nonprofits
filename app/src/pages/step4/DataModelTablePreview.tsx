@@ -33,7 +33,7 @@ export const DataModelTablePreview: FC<{ colorScheme: string; showCaption?: bool
           </Thead>
           <Tbody>
             {store.selectedObjects.map((item) => (
-              <ObjectRow key={item.name} object={item} colorScheme={colorScheme} />
+              <ObjectRow key={`${item.label}-${item.name}`} object={item} colorScheme={colorScheme} />
             ))}
           </Tbody>
           <Tfoot>
@@ -82,7 +82,7 @@ const ObjectRow: FC<{ object: ISFObject; colorScheme: string }> = observer(({ ob
                   </Badge>
                 </Text>
                 {object.selectedFields.map((field) => (
-                  <Tag colorScheme={`${colorScheme}`} bg={`${colorScheme}.75`} mr={2} mb={2} key={field.name}>
+                  <Tag key={`${field.label}-${field.name}`} colorScheme={`${colorScheme}`} bg={`${colorScheme}.75`} mr={2} mb={2}>
                     {field.label} &nbsp;
                     <Text fontSize="0.6rem" display="inline-block">
                       {field.name}
@@ -98,7 +98,7 @@ const ObjectRow: FC<{ object: ISFObject; colorScheme: string }> = observer(({ ob
                       </Badge>
                     </Text>
                     {object.excludedFields.map((field) => (
-                      <Tag colorScheme={`${colorScheme}`} bg={`${colorScheme}.75`} mr={2} mb={2} key={field.name}>
+                      <Tag key={`${field.label}-${field.name}`} colorScheme={`${colorScheme}`} bg={`${colorScheme}.75`} mr={2} mb={2}>
                         {field.label} &nbsp;
                         <Text fontSize="0.6rem" display="inline-block">
                           {field.name}

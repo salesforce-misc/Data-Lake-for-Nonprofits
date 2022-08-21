@@ -7,8 +7,17 @@ import { render, RenderWithChakra } from "test-utils";
 import * as appContext from "AppContext";
 import { Step1 } from "pages/step1/Step1";
 
+const spyScrollTo = jest.fn();
+
 describe("Step1 component", () => {
-  afterEach(cleanup);
+  beforeEach(() => {
+    Object.defineProperty(global.window, "scrollTo", { value: spyScrollTo });
+  });
+
+  afterEach(() => {
+    spyScrollTo.mockClear();
+    cleanup;
+  });
 
   test("snapshot", () => {
     // @ts-ignore

@@ -6,18 +6,6 @@ import { render, RenderWithChakra } from "test-utils";
 import { TimeAgo } from "components/TimeAgo";
 
 describe("TimeAgo component", () => {
-  afterEach(cleanup);
-
-  test("snapshot", () => {
-    const tree = create(
-      <RenderWithChakra>
-        <TimeAgo time={new Date("2020-12-15 15:00:00")} />
-      </RenderWithChakra>
-    ).toJSON();
-
-    expect(tree).toMatchSnapshot();
-  });
-
   test("render properly", () => {
     render(<TimeAgo time={new Date()} />);
 

@@ -75,7 +75,7 @@ export const ObjectsPanel = observer(() => {
             </Thead>
             <Tbody>
               {objects.map((object) => (
-                <ObjectRow key={object.name} object={object} isProcessing={isProcessing} setProcessing={setProcessing} />
+                <ObjectRow key={`${object.label}-${object.name}`} object={object} isProcessing={isProcessing} setProcessing={setProcessing} />
               ))}
             </Tbody>
           </Table>

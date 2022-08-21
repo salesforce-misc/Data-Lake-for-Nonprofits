@@ -90,7 +90,7 @@ export const BaseStore = types
               self.loadingError = err;
               loadingPromise = undefined;
             });
-            console.error(err);
+
             resolve(); // We always resolve in a store because its error status is captured already
           }
         });

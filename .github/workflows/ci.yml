@@ -1,0 +1,77 @@
+name: Continuous Integration
+
+on:
+  pull_request:
+  push:
+    branches-ignore:
+      - "skip-ci/**"
+
+env:
+  NODE_VERSION: 18.7.0
+
+jobs:
+  install:
+    name: Install
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./app
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Use node_modules cache
+        uses: actions/cache@v3
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('yarn.lock') }}
+
+      - name: Install dependencies
+        run: yarn install
+
+  test:
+    name: Test
+    needs: [install]
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./app
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Use node_modules cache
+        uses: actions/cache@v3
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('yarn.lock') }}
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Run typecheck
+        run: yarn typecheck
+
+      - name: Run unit tests
+        run: yarn test
+
+      - name: Upload failed snapshot diffs
+        uses: actions/upload-artifact@v3
+        if: failure()
+        with: 
+          name: image-snapshot-diffs
+          path: src/__tests__/__diff_output__/*

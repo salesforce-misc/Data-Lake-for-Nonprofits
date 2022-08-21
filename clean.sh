@@ -3,16 +3,16 @@
 set -eou pipefail
 
 cd app
-npm run clean
+yarn clean
 cd ..
 
 cd infra/
 
 cd custom_resources
-npm run clean
+yarn clean
 cd ..
 cd lambdas
-npm run clean
+yarn clean
 cd ..
 
 cd ..

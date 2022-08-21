@@ -1,17 +1,14 @@
 {
-  "name": "@amzn/lambdas",
-  "private": true,
+  "name": "@salesforce-misc/data-lake-for-nonprofit-cloud",
   "version": "1.0.0",
-  "description": "",
+  "license": "BSD-3-Clause",
   "scripts": {
     "test": "jest",
-    "postinstall": "npm run build",
-    "build": "tsc -p tsconfig.build.json && npm run zip",
+    "postinstall": "yarn build",
+    "build": "tsc -p tsconfig.build.json && yarn zip",
     "clean": "rm -rf ./dist ../assets/step-function-lambdas.zip",
     "zip": "zip -r -g -u ../assets/step-function-lambdas.zip ."
   },
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "@aws-sdk/client-appflow": "^3.54.1",
     "@aws-sdk/client-s3": "^3.54.1",

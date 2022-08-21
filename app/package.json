@@ -1,16 +1,24 @@
 {
-  "name": "datalake-for-nonprofits-powered-by-aws",
-  "version": "0.1.0",
-  "private": true,
+  "name": "@salesforce-misc/data-lake-for-nonprofit-cloud",
+  "version": "1.0.0",
+  "license": "BSD-3-Clause",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/salesforce-misc/Data-Lake-for-Nonprofit-Cloud"
+  },
+  "publishConfig": {
+    "registry":"https://npm.pkg.github.com"
+  },
   "scripts": {
-    "start": "npm run copy && react-scripts start",
+    "start": "yarn copy && react-scripts start",
+    "postinstall": "yarn build && yarn zip",
+    "typecheck": "tsc --project tsconfig.json --noEmit",
     "format": "prettier --config .prettierrc --write \"src/**/*.{ts,tsx,js,jsx,json,yml,yaml,md}\"",
-    "build": "npm run copy && npm run move-env-up && react-scripts build && npm run move-env-down",
-    "postinstall": "npm run build && npm run zip",
+    "build": "yarn copy && yarn move-env-up && react-scripts build && yarn move-env-down",
     "test": "react-scripts test --testPathPattern=\"(\\.|/)(test)\\.[jt]sx?$\"",
     "test:e2e": "wait-on http://localhost:3000/ && react-scripts test --testPathPattern=\"(\\.|/)e2e\\.(spec)\\.[jt]sx?$\" --testTimeout=300000 --runInBand --watchAll=false",
     "clean": "rm -rf build/ amplify.zip public/assets/*.zip",
-    "copy": "npm run copy-assets && npm run copy-cf",
+    "copy": "yarn copy-assets && yarn copy-cf",
     "copy-cf": "npx ts-node scripts/copy-cf --project scripts/",
     "copy-assets": "cp ../infra/assets/* public/assets/ && cp ../infra/cf/* public/cf/",
     "delete-stack": "npx ts-node scripts/delete-stack --project scripts/",

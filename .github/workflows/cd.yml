@@ -55,7 +55,7 @@ jobs:
 
       - name: Set up NPM authentication
         run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.NODE_AUTH_TOKEN }}" >> .npmrc
-      
+
       - name: Set up NPM registry
         run: echo "registry=https://npm.pkg.github.com/@salesforce-misc/Data-Lake-for-Nonprofit-Cloud" >> .npmrc
 
@@ -71,15 +71,15 @@ jobs:
         with:
           name: amplify-${{ steps.date.outputs.date }}
 
-      - name: Rename amplify artifact
-        run: mv amplify.zip amplify-${{ steps.date.outputs.date }}.zip
-
       - name: Create version
         run: git config --global user.email "simsek97@gmail.com" && git config --global user.name "Simsek Mert" && yarn version --minor
-      
+
       - name: Get latest tag
         id: tag-version
         run: echo "::set-output name=LATEST_TAG::$(git describe --abbrev=0 --tags)"
+
+      - name: Rename amplify artifact
+        run: mv amplify.zip amplify-${{ steps.tag-version.outputs.LATEST_TAG }}.zip
 
       - name: Create Release
         uses: ncipollo/release-action@v1

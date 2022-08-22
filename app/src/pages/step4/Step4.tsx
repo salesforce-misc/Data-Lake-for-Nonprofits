@@ -8,7 +8,7 @@ import { useInstallation } from "AppContext";
 import { Header } from "components/Header";
 import { CurvedBox } from "components/CurvedBox";
 import { StepsIndicator } from "components/StepsIndicator";
-import { DataModelTablePreview } from "pages/step4/DataModelTablePreview";
+import { DataModelTablePreview } from "pages/step4/data-model-table-preview/DataModelTablePreview";
 
 import { ReviewGrid } from "pages/step4/ReviewGrid";
 

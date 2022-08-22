@@ -5,7 +5,7 @@ import { observer } from "mobx-react";
 import { useColorScheme } from "models/useColorScheme";
 import { useMetadataStore } from "models/MetadataStore";
 
-import { DataModelTablePreview } from "pages/step4/DataModelTablePreview";
+import { DataModelTablePreview } from "pages/step4/data-model-table-preview/DataModelTablePreview";
 
 import { CountBadge } from "./CountBadge";
 import { DataTableStatusInfo } from "./DataTableStatusInfo";

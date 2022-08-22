@@ -31,7 +31,7 @@ jobs:
           cache-name: cache-node-modules
         with:
           path: node_modules
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('yarn.lock') }}
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package.json') }}
 
       - name: Install dependencies
         run: yarn install
@@ -58,7 +58,7 @@ jobs:
           cache-name: cache-node-modules
         with:
           path: node_modules
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('yarn.lock') }}
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package.json') }}
 
       - name: Install dependencies
         run: yarn install
@@ -72,6 +72,6 @@ jobs:
       - name: Upload failed snapshot diffs
         uses: actions/upload-artifact@v3
         if: failure()
-        with: 
+        with:
           name: image-snapshot-diffs
           path: src/__tests__/__diff_output__/*

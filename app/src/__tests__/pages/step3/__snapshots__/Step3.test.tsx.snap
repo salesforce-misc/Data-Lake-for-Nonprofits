@@ -129,35 +129,6 @@ Array [
           className="css-1cxlklx"
         >
           <div
-            className="css-1ui15d5"
-          >
-            <div
-              className="css-1lpnqa0"
-              id="step3-store-status-info"
-            >
-              Retrieving your Salesforce data schema, this might take a few minutes
-              <br />
-              NaN
-               %
-            </div>
-            <div
-              className="css-1jer4t"
-            >
-              <div
-                aria-valuemax={100}
-                aria-valuemin={0}
-                className="css-1585z0b"
-                data-indeterminate=""
-                role="progressbar"
-                style={
-                  Object {
-                    "width": "0%",
-                  }
-                }
-              />
-            </div>
-          </div>
-          <div
             className="css-1frymol"
           >
             <h2

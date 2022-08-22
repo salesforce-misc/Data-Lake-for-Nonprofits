@@ -14,6 +14,10 @@ export const StoreStatusInfo = observer(() => {
     store.load();
   };
 
+  if (isReady) {
+    return null;
+  }
+
   return (
     (isError && (
       <Alert status="error" variant="left-accent" mt={0} mb={0} color="red.700" alignItems="flex-end">
@@ -30,8 +34,7 @@ export const StoreStatusInfo = observer(() => {
           </Box>
         </Box>
       </Alert>
-    )) ||
-    (isReady && null) || (
+    )) || (
       <Box mt={2} mb={4} p={8}>
         <Box id="step3-store-status-info" textAlign="center" fontWeight="bold" color={tone(600)} fontSize="md" mb={4}>
           Retrieving your Salesforce data schema, this might take a few minutes

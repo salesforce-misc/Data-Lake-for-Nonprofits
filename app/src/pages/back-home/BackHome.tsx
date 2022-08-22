@@ -14,7 +14,7 @@ import { AccessInformation } from "pages/step6/AccessInformation";
 import { UsersPanel } from "pages/step6/UsersPanel";
 import { CloudwatchDashboardPanel } from "pages/step6/CloudwatchDashboardPanel";
 import { SubscribeSNSPanel } from "pages/step6/SubscribeSNSPanel";
-import { DataImportStatusPanel } from "pages/step5/DataImportStatusPanel";
+import { DataImportStatusPanel } from "pages/step5/data-import-status-panel/DataImportStatusPanel";
 
 import { ReviewGrid } from "./ReviewGrid";
 import { DataTablePanel } from "./DataTablePanel";

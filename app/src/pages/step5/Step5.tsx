@@ -47,8 +47,7 @@ export const Step5 = observer(() => {
         e.preventDefault();
         // Return string and mutate event to cover all browser types
         // This custom message is not supported in Chrome, Firefox or Safari
-        return (e.returnValue =
-          "Closing the window now will pause the EZ Datalake installation. Please leave the window open until it is completed.");
+        return (e.returnValue = "Closing the window now will pause the Datalake installation. Please leave the window open until it is completed.");
       }
     };
     const beforeUnload = window.onbeforeunload;

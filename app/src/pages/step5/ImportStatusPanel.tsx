@@ -8,11 +8,13 @@ import { DataImportStatusPanel } from "pages/step5/data-import-status-panel/Data
 export const ImportStatusPanel = observer(() => {
   const installation = useInstallation();
 
+  if (!installation.deploymentOperations.isSuccess) {
+    return null;
+  }
+
   return (
-    (!installation.deploymentOperations.isSuccess && null) || (
-      <Box borderRadius="lg" boxShadow="base" bg="green.25" mt={6} p={7} pb={6}>
-        <DataImportStatusPanel />
-      </Box>
-    )
+    <Box borderRadius="lg" boxShadow="base" bg="green.25" mt={6} p={7} pb={6}>
+      <DataImportStatusPanel />
+    </Box>
   );
 });

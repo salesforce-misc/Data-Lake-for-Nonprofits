@@ -9,9 +9,9 @@ import { Header } from "components/Header";
 import { CurvedBox } from "components/CurvedBox";
 import { StepsBanner } from "components/StepsBanner";
 import { AccessInformation } from "pages/step6/AccessInformation";
-import { UsersPanel } from "pages/step6/UsersPanel";
+import { UsersPanel } from "pages/step6/users-panel/UsersPanel";
 import { useColorScheme } from "models/useColorScheme";
-import { LaunchYourConnection } from "./LauncYourConnection";
+import { LaunchYourConnection } from "./LaunchYourConnection";
 import { AdminTools } from "./AdminTools";
 
 export const Step6 = observer(() => {

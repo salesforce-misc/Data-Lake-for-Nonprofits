@@ -11,7 +11,7 @@ import { Header } from "components/Header";
 import { isCompleted } from "models/Installation";
 import { useColorScheme } from "models/useColorScheme";
 import { AccessInformation } from "pages/step6/AccessInformation";
-import { UsersPanel } from "pages/step6/UsersPanel";
+import { UsersPanel } from "pages/step6/users-panel/UsersPanel";
 import { CloudwatchDashboardPanel } from "pages/step6/CloudwatchDashboardPanel";
 import { SubscribeSNSPanel } from "pages/step6/SubscribeSNSPanel";
 import { DataImportStatusPanel } from "pages/step5/data-import-status-panel/DataImportStatusPanel";

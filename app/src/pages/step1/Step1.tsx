@@ -16,6 +16,7 @@ import { CredentialsForm, ICredentialsFormInput } from "pages/step1/CredentialsF
 import { RegionForm } from "pages/step1/RegionForm";
 import { CredentialsError } from "pages/step1/CredentialsError";
 import { InstructionSection } from "pages/step1/InstructionSection";
+import { awsRegions } from "data/aws-regions";
 
 export const Step1 = observer(() => {
   const theme = useTheme();
@@ -63,8 +64,10 @@ export const Step1 = observer(() => {
     formState: { errors, isSubmitting },
   } = useForm<ICredentialsFormInput>();
 
-  const regionDescription =
-    "AWS has many data centers grouped by geographical regions. Select a region that is closest to your location. We will keep your data in the region you select. If you are not sure, you can select the US East (Ohio) Region";
+  const defaultRegion = awsRegions.find((r) => r.default);
+  const regionDescription = `AWS has many data centers grouped by geographical regions. Select a region that is closest to your location. We will keep your data in the region you select. If you are not sure, you can select the ${
+    defaultRegion?.label || "US East (N. Virginia)"
+  } Region`;
 
   return (
     <Box id="step1">
@@ -134,12 +137,10 @@ export const Step1 = observer(() => {
             <CredentialsError exception={stepException} />
 
             <Box pt={6}>
-              {/* @ts-ignore */}
               <CredentialsForm {...{ register, errors, isSubmitting, control }} />
             </Box>
 
             <Box pt={6}>
-              {/* @ts-ignore */}
               <RegionForm {...{ register, errors, isSubmitting }} description={regionDescription} defaultRegion={installation.region} />
             </Box>
           </Collapse>

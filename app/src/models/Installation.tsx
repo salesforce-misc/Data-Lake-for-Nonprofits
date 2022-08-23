@@ -37,7 +37,7 @@ export const Installation = types
     startDate: types.optional(types.Date, () => new Date()),
     startedBy: types.maybe(types.string),
     accountId: types.maybe(types.string),
-    region: "us-east-2",
+    region: "us-east-1",
     appFlowConnectionName: "",
     assetBucket: "",
     metadataBucket: "",

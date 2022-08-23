@@ -1,29 +1,37 @@
 import keyBy from "lodash/keyBy";
 
-export const awsRegions: {name: string; label: string }[] = [
+interface IAWSRegion {
+  name: string;
+  label: string;
+  default?: boolean;
+}
+
+export const awsRegions: IAWSRegion[] = [
   {
     name: "us-east-1",
-    label: "US East (Northern Virginia) Region",
+    label: "US East (N. Virginia)",
+    default: true,
   },
   {
     name: "us-west-2",
-    label: "US West (Oregon) Region",
+    label: "US West (Oregon)",
+    default: false,
   },
   {
     name: "eu-west-1",
-    label: "Europe (Ireland) Region"
+    label: "Europe (Ireland)",
+    default: false,
   },
-
-  // Keep at end, these regions are not preferred to above regions
   {
     name: "us-east-2",
-    label: "US East (Ohio) Region",
+    label: "US East (Ohio)",
+    default: false,
   },
   {
     name: "us-west-1",
-    label: "US West (Northern California) Region",
+    label: "US West (N. California)",
+    default: false,
   },
-  
 ];
 
 export const awsRegionsMap = keyBy(awsRegions, "name");

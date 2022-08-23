@@ -12,6 +12,7 @@ export interface ICredentialsFormInput {
   secretAccessKey: string;
   region: string;
 }
+
 export interface ICredentialsForm {
   register: UseFormRegister<ICredentialsFormInput>;
   errors: FieldErrors<ICredentialsFormInput>;

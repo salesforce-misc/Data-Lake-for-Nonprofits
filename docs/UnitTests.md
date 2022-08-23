@@ -25,14 +25,20 @@ const CustomProvider = ({ children }: { children: React.ReactNode }) => {
   return <ChakraProvider theme={theme}>{children}</ChakraProvider>;
 };
 
-const customRender = (ui: React.ReactElement, options?: Omit<RenderOptions, "wrapper">) => render(ui, { wrapper: CustomProvider, ...options });
-
+const customRender = (
+  ui: React.ReactElement,
+  options?: Omit<RenderOptions, "wrapper">
+) => render(ui, { wrapper: CustomProvider, ...options });
 ```
 
 For some cases, it is very helpful to use some mock components. For such cases, we wrap such components by a mock component in order to render with `ChakraProvider`
 
 ```javascript
-export const RenderWithChakra = ({ children }: { children: React.ReactNode }) => <ChakraProvider theme={theme}>{children}</ChakraProvider>;
+export const RenderWithChakra = ({
+  children,
+}: {
+  children: React.ReactNode,
+}) => <ChakraProvider theme={theme}>{children}</ChakraProvider>;
 ```
 
 In all cases, we use `orange` theme to pass into `ChakraProvider`
@@ -45,35 +51,37 @@ import { theme } from "themes/orange";
 
 ```javascript
 beforeEach(() => {
-    const appStore = AppStore.create({});
-    const installation = appStore.newInstallation();
-    appStore.setInstallation(installation);
+  const appStore = AppStore.create({});
+  const installation = appStore.newInstallation();
+  appStore.setInstallation(installation);
 
-    initializeStore();
+  initializeStore();
 });
-
 ```
+
 ## Mocking custom hooks
+
 The most used custom hooks are mocked as follows
 
 ```javascript
 import * as detectedInstallationStore from "models/useDetectedInstallationStore";
 
-jest.spyOn(detectedInstallationStore, "useDetectedInstallationStore").mockImplementation(() => {
+jest
+  .spyOn(detectedInstallationStore, "useDetectedInstallationStore")
+  .mockImplementation(() => {
     return {
-        isError: false,
-        isReady: true,
-        isLoading: false,
-        isReloading: false,
-        store: {
-            empty: true,
-            credentials: {
-            accountId: "mock-account-id",
-            },
+      isError: false,
+      isReady: true,
+      isLoading: false,
+      isReloading: false,
+      store: {
+        empty: true,
+        credentials: {
+          accountId: "mock-account-id",
         },
+      },
     };
-});
-
+  });
 ```
 
 ## How to Run
@@ -87,6 +95,7 @@ yarn test
 This command will run all unit tests listed below.
 
 ## The list of unit tests
+
 ## AppContext
 
 - useStore hook
@@ -269,9 +278,9 @@ This command will run all unit tests listed below.
 
 - snapshot
 - render properly
+
 ### TimeAgo
 
-- snapshot
 - render properly
 
 ### TimeInput
@@ -302,6 +311,7 @@ This command will run all unit tests listed below.
 - render properly with no installation
 
 ##### EmptyMessage
+
 - snapshot
 - render properly with an error
 - render properly with installations
@@ -311,6 +321,7 @@ This command will run all unit tests listed below.
 - render properly with empty message
 
 ##### ErrorPanel
+
 - snapshot
 - render properly with an error
 - render properly with no error
@@ -325,6 +336,7 @@ This command will run all unit tests listed below.
 - render properly with a store
 
 ##### ProgressPanel
+
 - snapshot
 - render properly with an error
 - render properly with not loading and not reloading
@@ -332,10 +344,12 @@ This command will run all unit tests listed below.
 - render properly with processing when reloading
 
 ##### Row
+
 - snapshot
 - render properly
 
 ### BackHome Page
+
 - snapshot
 - render properly
 
@@ -345,41 +359,50 @@ This command will run all unit tests listed below.
 - render properly with 2 selected objects
 
 #### CredentialsCollectionForm
+
 - snapshot
 - render properly
 
 #### DataTablePanel
+
 - snapshot
 - render properly with 2 selected objects
 - render properly with no selected objects
 
 #### DataTableStatusInfo
+
 - snapshot
 - render properly with error
 - render properly with ready
 - render properly with no error and not ready
 
 #### ManagePanel
+
 - snapshot
 - render properly
 
 #### ReviewGrid
+
 - snapshot
 - render properly
 
 #### StartNewWarning
+
 - snapshot
 - render properly
 
 ### Step1 Page
+
 - snapshot
 - render properly
 
 #### CredentialsCollectionForm
+
 - snapshot
 - render properly
 
 #### CredentialsError
+
 - snapshot
 - render properly without an exception
 - render properly with an invalid key exception
@@ -389,31 +412,39 @@ This command will run all unit tests listed below.
 - render properly with an unknown exception
 
 ### CredentialsForm
+
 - snapshot
 - render properly
 
 ### InstructionSection
+
 ### RegionForm
 
 ### Step2 Page
+
 - snapshot
 - render properly
 
 ### Step3 Page
+
 - snapshot
 - render properly
 
 ### Step4 Page
+
 - snapshot
 - render properly
 
 ### Step5 Page
+
 - snapshot
 - render properly
 
 ### Step6 Page
+
 - snapshot
 - render properly
 
 ### App
+
 - snapshot

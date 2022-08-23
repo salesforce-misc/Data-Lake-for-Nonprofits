@@ -85,6 +85,7 @@ export const Step5 = observer(() => {
           </Box>
 
           {inProgress && <Box mt="80px" />}
+
           <Box borderRadius="lg" boxShadow="base" bg="green.25" mt={4} p={4} pb={6} position="relative">
             {inProgress && (
               <>

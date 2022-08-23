@@ -10,7 +10,7 @@ In order to deploy the application to AWS Amplify,
 
 ## Local Development
 
-Follow the instruction <a href="https://github.com/salesforce-misc/Data-Lake-for-Nonprofit-Cloud/blob/main/docs/Development.md">here</a>
+Follow the instructions <a href="https://github.com/salesforce-misc/Data-Lake-for-Nonprofit-Cloud/blob/main/docs/Development.md">here</a>
 
 ## Unit Tests for Frontend Application
 

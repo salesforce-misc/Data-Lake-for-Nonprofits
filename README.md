@@ -1,4 +1,4 @@
-# Data Lake for Nonprofits, Powered by AWS
+# Datalake for Nonprofits, Powered by AWS
 
 ## Deploying to AWS Amplify
 

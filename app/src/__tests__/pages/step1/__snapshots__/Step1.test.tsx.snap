@@ -448,7 +448,7 @@ Array [
               <p
                 className="chakra-text css-1pnhx6x"
               >
-                AWS has many data centers grouped by geographical regions. Select a region that is closest to your location. We will keep your data in the region you select. If you are not sure, you can select the US East (Ohio) Region
+                AWS has many data centers grouped by geographical regions. Select a region that is closest to your location. We will keep your data in the region you select. If you are not sure, you can select the US East (N. Virginia) Region
               </p>
               <div
                 className="chakra-form-control css-1kxonj9"
@@ -471,33 +471,48 @@ Array [
                   >
                     <option
                       className="us-east-1"
+                      selected={true}
                       value="us-east-1"
                     >
-                      US East (Northern Virginia) Region
+                      US East (N. Virginia)
+                       | 
+                      us-east-1
                     </option>
                     <option
                       className="us-west-2"
+                      selected={false}
                       value="us-west-2"
                     >
-                      US West (Oregon) Region
+                      US West (Oregon)
+                       | 
+                      us-west-2
                     </option>
                     <option
                       className="eu-west-1"
+                      selected={false}
                       value="eu-west-1"
                     >
-                      Europe (Ireland) Region
+                      Europe (Ireland)
+                       | 
+                      eu-west-1
                     </option>
                     <option
                       className="us-east-2"
+                      selected={false}
                       value="us-east-2"
                     >
-                      US East (Ohio) Region
+                      US East (Ohio)
+                       | 
+                      us-east-2
                     </option>
                     <option
                       className="us-west-1"
+                      selected={false}
                       value="us-west-1"
                     >
-                      US West (Northern California) Region
+                      US West (N. California)
+                       | 
+                      us-west-1
                     </option>
                   </select>
                   <div

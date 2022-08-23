@@ -72,7 +72,7 @@ jobs:
           name: amplify-${{ steps.date.outputs.date }}
 
       - name: Create version
-        run: git config --global user.email "simsek97@gmail.com" && git config --global user.name "Simsek Mert" && yarn version --minor
+        run: git config --global user.email "simsek97@gmail.com" && git config --global user.name "Simsek Mert" && yarn version --patch
 
       - name: Get latest tag
         id: tag-version

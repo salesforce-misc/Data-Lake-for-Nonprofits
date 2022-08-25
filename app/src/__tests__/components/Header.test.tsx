@@ -21,6 +21,6 @@ describe("Header component", () => {
   test("render app title", () => {
     render(<Header />);
 
-    expect(screen.getByText("Datalake for Nonprofits, Powered by AWS")).toBeInTheDocument();
+    expect(screen.getByText("Data Lake for Nonprofits, Powered by AWS")).toBeInTheDocument();
   });
 });

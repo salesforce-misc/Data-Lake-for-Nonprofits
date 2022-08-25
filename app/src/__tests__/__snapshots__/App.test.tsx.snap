@@ -49,7 +49,7 @@ Array [
               className="chakra-heading css-1opsxio"
               id="h2-title"
             >
-              Datalake for Nonprofits, Powered by AWS
+              Data Lake for Nonprofits, Powered by AWS
             </h2>
           </div>
         </div>
@@ -282,7 +282,7 @@ Array [
         <p
           className="chakra-text css-tvzngu"
         >
-          If you have already created a datalake and would like to view or resume its setup, we got you covered. Click the button to reconnect to an existing datalake, we will ask for your AWS admin credentials so that we can detect the existing datalake setup.
+          If you have already created a data lake and would like to view or resume its setup, we got you covered. Click the button to reconnect to an existing data lake, we will ask for your AWS admin credentials so that we can detect the existing data lake setup.
         </p>
         <div
           className="css-18022i5"

@@ -73,8 +73,8 @@ export const Step4 = observer(() => {
             </Heading>
 
             <Text>
-              We will start the process of setting up the datalake at AWS and importing your Salesforce records. Depending on the number of records to
-              import, the next step might take 15 minutes to a few hours to complete.
+              We will start the process of setting up the data lake at AWS and importing your Salesforce records. Depending on the number of records
+              to import, the next step might take 15 minutes to a few hours to complete.
             </Text>
           </Box>
 

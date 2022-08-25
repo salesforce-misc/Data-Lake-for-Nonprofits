@@ -49,7 +49,7 @@ Array [
               className="chakra-heading css-1opsxio"
               id="h2-title"
             >
-              Datalake for Nonprofits, Powered by AWS
+              Data Lake for Nonprofits, Powered by AWS
             </h2>
           </div>
         </div>
@@ -290,7 +290,7 @@ Array [
           <p
             className="chakra-text css-0"
           >
-            We will start the process of setting up the datalake at AWS and importing your Salesforce records. Depending on the number of records to import, the next step might take 15 minutes to a few hours to complete.
+            We will start the process of setting up the data lake at AWS and importing your Salesforce records. Depending on the number of records to import, the next step might take 15 minutes to a few hours to complete.
           </p>
         </div>
         <div

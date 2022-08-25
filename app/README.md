@@ -1,4 +1,4 @@
-# Datalake for Nonprofits, Powered by AWS
+# Data Lake for Nonprofits, Powered by AWS
 
 ```javascript
 npm start

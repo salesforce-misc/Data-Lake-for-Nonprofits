@@ -58,9 +58,8 @@ export const ResumePanel = observer(() => {
             </Heading>
           </Box>
           <Text pl={2}>
-            If you have already created a datalake using the EZ Data Lake app and would like to view or resume its setup, we got you covered. Click
-            the button to reconnect to an existing datalake, we will ask you for your AWS admin credentials so that we can detect the existing
-            datalake setup.
+            If you have already created a datalake and would like to view or resume its setup, we got you covered. Click the button to reconnect to an
+            existing datalake, we will ask for your AWS admin credentials so that we can detect the existing datalake setup.
           </Text>
           {!collectCredentials && (
             <Box textAlign="right" w="full" mt={4} mb={0}>

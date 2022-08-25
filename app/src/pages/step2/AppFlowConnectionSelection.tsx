@@ -85,7 +85,6 @@ export const AppFlowConnectionSelection = observer(() => {
 
         <HStack>
           <Select bg="blue.50" id="appFlowConnectionName" value={connectionName} onChange={handleChange} disabled={isLoading || isReloading}>
-            <option value="">Select a connection name</option>
             {connectionNames?.map((name, index) => (
               <option value={name} key={index}>
                 {name}

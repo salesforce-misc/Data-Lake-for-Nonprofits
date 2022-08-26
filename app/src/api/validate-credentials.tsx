@@ -129,7 +129,7 @@ export async function validateCredentials({ accessKey, secretKey, region }: Cred
     return { accountId, userArn: arn, userName };
   } catch (err) {
     let code = CredentialsValidationErrorCode.Unknown;
-    
+
     if (err instanceof IAMServiceException) {
       if (err.name === "AccessDenied") code = CredentialsValidationErrorCode.NotAdmin;
     }

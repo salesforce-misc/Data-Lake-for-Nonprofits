@@ -82,7 +82,15 @@ export const Step4 = observer(() => {
             <Button colorScheme="pink" size="md" _hover={{ bg: "pink.100" }} leftIcon={<ArrowBackIcon />} variant="ghost" onClick={handlePrevious}>
               Previous
             </Button>
-            <Button colorScheme="pink" size="md" loadingText="Processing" rightIcon={<ArrowForwardIcon />} ml={3} onClick={handleSubmit}>
+            <Button
+              id="step4-btn-next"
+              colorScheme="pink"
+              size="md"
+              loadingText="Processing"
+              rightIcon={<ArrowForwardIcon />}
+              ml={3}
+              onClick={handleSubmit}
+            >
               Next
             </Button>
           </HStack>

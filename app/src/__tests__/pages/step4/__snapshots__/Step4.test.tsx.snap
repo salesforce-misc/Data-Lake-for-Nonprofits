@@ -320,6 +320,7 @@ Array [
           </button>
           <button
             className="chakra-button css-1yog7ax"
+            id="step4-btn-next"
             onClick={[Function]}
             type="button"
           >

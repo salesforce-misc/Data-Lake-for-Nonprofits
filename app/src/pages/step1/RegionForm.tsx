@@ -35,7 +35,7 @@ export const RegionForm = ({ register, errors, isSubmitting, description, defaul
       <FormControl isInvalid={Boolean(errors["region"])}>
         <Select bg={tone(75)} id="region" {...register("region", { required: "Required" })} defaultValue={defaultRegion} disabled={isSubmitting}>
           {awsRegions.map((item) => (
-            <option key={item.name} className={item.name} value={item.name} selected={item.default}>
+            <option key={item.name} className={item.name} value={item.name}>
               {item.label} | {item.name}
             </option>
           ))}

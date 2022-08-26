@@ -31,7 +31,7 @@ export const Step6 = observer(() => {
   };
 
   return (
-    <>
+    <Box id="step6">
       <CurvedBox bgGradient={theme.gradients.bgLight} />
 
       <Header />
@@ -85,6 +85,6 @@ export const Step6 = observer(() => {
           </HStack>
         </Container>
       </Box>
-    </>
+    </Box>
   );
 });

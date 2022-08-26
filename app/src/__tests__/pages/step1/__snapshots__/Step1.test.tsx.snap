@@ -471,7 +471,6 @@ Array [
                   >
                     <option
                       className="us-east-1"
-                      selected={true}
                       value="us-east-1"
                     >
                       US East (N. Virginia)
@@ -480,7 +479,6 @@ Array [
                     </option>
                     <option
                       className="us-west-2"
-                      selected={false}
                       value="us-west-2"
                     >
                       US West (Oregon)
@@ -489,7 +487,6 @@ Array [
                     </option>
                     <option
                       className="eu-west-1"
-                      selected={false}
                       value="eu-west-1"
                     >
                       Europe (Ireland)
@@ -498,7 +495,6 @@ Array [
                     </option>
                     <option
                       className="us-east-2"
-                      selected={false}
                       value="us-east-2"
                     >
                       US East (Ohio)
@@ -507,7 +503,6 @@ Array [
                     </option>
                     <option
                       className="us-west-1"
-                      selected={false}
                       value="us-west-1"
                     >
                       US West (N. California)

@@ -49,7 +49,7 @@ export const ImportFrequencyPanel = observer(() => {
         justifyContent="flex-start"
       >
         <Box w={{ base: "100%", md: "40%" }}>
-          <RadioGroup>
+          <RadioGroup id="import-frequency-radio-group">
             <Box {...getProps(ImportFrequency.Monthly)}>
               <Flex mr={2} justifyContent="space-between">
                 <Radio isChecked={step.isMonthly} colorScheme="purple">

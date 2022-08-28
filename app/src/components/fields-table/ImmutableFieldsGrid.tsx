@@ -18,6 +18,7 @@ export const ImmutableFieldsGrid = observer(({ object, viewOption }: IImmutableF
   const immutableFields = object.immutableFields;
 
   if (viewOption === FieldsViewOptions.Only_Excluded) return null;
+
   if (immutableFields.length < 1) return null;
 
   return (

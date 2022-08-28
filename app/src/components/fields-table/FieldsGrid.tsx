@@ -12,6 +12,7 @@ interface IFieldsGrid {
 
 export const FieldsGrid = observer(({ fields }: IFieldsGrid) => {
   if (fields.length < 1) return null;
+
   return (
     <SimpleGrid minChildWidth="200px" spacing="15px" mt={6}>
       {fields.map((field) => (

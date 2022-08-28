@@ -26,6 +26,7 @@ export const ObjectsPanel = observer(() => {
   return (
     <Box mt={6} mb={4}>
       <ObjectsViewOptionsPanel viewOption={viewOption} setViewOption={setViewOption} isProcessing={isProcessing} />
+
       {(totalPages > 1 || !isEmpty(searchText)) && (
         <Box position="relative" mb={8}>
           <Flex mb={0}>
@@ -49,13 +50,12 @@ export const ObjectsPanel = observer(() => {
             </InputGroup>
             <PaginationButtons totalPages={totalPages} currentPage={currentPage} setCurrentPage={setCurrentPage} isProcessing={isProcessing} />
           </Flex>
-          <Box p={0} m={0} fontSize="0.6rem" position="absolute" bottom="-20px" left="10px">
-            {!isEmpty(searchText) && (
-              <>
-                Found <b>{totalMatches}</b> matches
-              </>
-            )}
-          </Box>
+
+          {!isEmpty(searchText) && (
+            <Box p={0} m={0} fontSize="0.6rem" position="absolute" bottom="-20px" left="10px">
+              Found <b>{totalMatches}</b> matches
+            </Box>
+          )}
         </Box>
       )}
 
@@ -79,6 +79,7 @@ export const ObjectsPanel = observer(() => {
               ))}
             </Tbody>
           </Table>
+
           <Flex mb={0} direction="row-reverse">
             <PaginationButtons totalPages={totalPages} currentPage={currentPage} setCurrentPage={setCurrentPage} isProcessing={isProcessing} />
           </Flex>

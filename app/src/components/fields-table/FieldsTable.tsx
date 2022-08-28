@@ -23,11 +23,13 @@ export const FieldsTable = observer(({ object }: IFieldsTable) => {
   const { fields, viewOption, setViewOption, totalPages, currentPage, setCurrentPage, searchText, setSearchText, totalMatches } = useFieldsTable({
     object,
   });
+
   const handleTextChange: React.ChangeEventHandler<HTMLInputElement> = (event) => setSearchText(event.target.value);
 
   return (
     <Box p={3} borderRadius="md" borderWidth="1px" borderColor={tone(100)}>
       <FieldsViewOptionsPanel object={object} viewOption={viewOption} setViewOption={setViewOption} />
+
       {(totalPages > 1 || !isEmpty(searchText)) && (
         <Box position="relative" mb={8}>
           <Flex mb={0}>
@@ -50,13 +52,12 @@ export const FieldsTable = observer(({ object }: IFieldsTable) => {
             </InputGroup>
             <PaginationButtons totalPages={totalPages} currentPage={currentPage} setCurrentPage={setCurrentPage} />
           </Flex>
-          <Box p={0} m={0} fontSize="0.6rem" position="absolute" bottom="-20px" left="10px">
-            {!isEmpty(searchText) && (
-              <>
-                Found <b>{totalMatches}</b> matches
-              </>
-            )}
-          </Box>
+
+          {!isEmpty(searchText) && (
+            <Box p={0} m={0} fontSize="0.6rem" position="absolute" bottom="-20px" left="10px">
+              Found <b>{totalMatches}</b> matches
+            </Box>
+          )}
         </Box>
       )}
       <EmptyMessage object={object} fields={fields} viewOption={viewOption} searchText={searchText} />

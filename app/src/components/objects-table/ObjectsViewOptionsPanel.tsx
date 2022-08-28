@@ -15,10 +15,14 @@ interface IObjectsViewOptionsPanel {
 export const ObjectsViewOptionsPanel = observer(({ viewOption, setViewOption, isProcessing }: IObjectsViewOptionsPanel) => {
   const { tone, colorScheme } = useColorScheme();
   const { store } = useMetadataStore();
+
   const cursor = isProcessing ? "not-allowed" : "pointer";
-  const is = (option: ObjectsViewOptions) => option === viewOption;
+
+  const isSelected = (option: ObjectsViewOptions): boolean => option === viewOption;
+
   const changeOption = (option: ObjectsViewOptions) => {
     if (isProcessing) return;
+
     setViewOption(option);
   };
 
@@ -30,9 +34,9 @@ export const ObjectsViewOptionsPanel = observer(({ viewOption, setViewOption, is
         </Flex>
 
         <Radio
-          value="2"
+          value="1"
           colorScheme={colorScheme}
-          isChecked={is(ObjectsViewOptions.Only_Included)}
+          isChecked={isSelected(ObjectsViewOptions.Only_Included)}
           onChange={() => changeOption(ObjectsViewOptions.Only_Included)}
           isDisabled={isProcessing}
           cursor={cursor}
@@ -47,9 +51,9 @@ export const ObjectsViewOptionsPanel = observer(({ viewOption, setViewOption, is
 
         <Radio
           ml={6}
-          value="1"
+          value="2"
           colorScheme={colorScheme}
-          isChecked={is(ObjectsViewOptions.All)}
+          isChecked={isSelected(ObjectsViewOptions.All)}
           onChange={() => changeOption(ObjectsViewOptions.All)}
           isDisabled={isProcessing}
           cursor={cursor}
@@ -65,7 +69,7 @@ export const ObjectsViewOptionsPanel = observer(({ viewOption, setViewOption, is
         <Radio
           value="3"
           colorScheme={colorScheme}
-          isChecked={is(ObjectsViewOptions.Only_Excluded)}
+          isChecked={isSelected(ObjectsViewOptions.Only_Excluded)}
           onChange={() => changeOption(ObjectsViewOptions.Only_Excluded)}
           isDisabled={isProcessing}
           cursor={cursor}

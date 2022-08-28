@@ -205,16 +205,17 @@ export const MetadataStore = BaseStore.named("MetadataStore")
         self.objects.clear();
       },
 
+      /**
+       * Summary of the logic:
+       * - Get the list of all objects (if we haven't done so)
+       * - If we are loading the store pre deployment, then:
+       *   - Get the intersection of all objects and the default objects
+       *   - Find the objects that don't have their fields loaded yet
+       *   - Create chunks of these objects and get their fields
+       * - Otherwise, if we are loading the store post deployment, then:
+       *   - Get all the json objects from S3
+       */
       async doLoad() {
-        // Summary of the logic:
-        // - Get the list of all objects (if we haven't done so)
-        // - If we are loading the store pre deployment, then:
-        //   - Get the intersection of all objects and the default objects
-        //     - Find the objects that don't have their fields loaded yet
-        //       - Create chunks of these objects and get their fields
-        // - Otherwise, if we are loading the store post deployment, then:
-        //   - Get all the json objects from S3
-
         const accessKey = self.credentials.accessKey;
         const secretKey = self.credentials.secretKey;
         const region = self.region;
@@ -227,6 +228,7 @@ export const MetadataStore = BaseStore.named("MetadataStore")
           self.markStale();
 
           const rawObjects = await listSalesforceObjects({ accessKey, secretKey, region, connectionName });
+
           self.runInAction(() => {
             // Create SFObject models from the raw objects and mark the them selected if they are default
             for (const rawObject of rawObjects) {

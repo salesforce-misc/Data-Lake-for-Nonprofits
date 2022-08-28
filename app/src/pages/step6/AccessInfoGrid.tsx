@@ -2,9 +2,9 @@ import React from "react";
 import { Grid, GridItem } from "@chakra-ui/react";
 import { observer } from "mobx-react";
 
-import { useInstallation } from "../../AppContext";
-import { useColorScheme } from "../../models/useColorScheme";
-import { ClipboardField } from "../../components/ClipboardField";
+import { useInstallation } from "AppContext";
+import { useColorScheme } from "models/useColorScheme";
+import { ClipboardField } from "components/ClipboardField";
 
 export const AccessInfoGrid = observer(() => {
   const { tone } = useColorScheme();

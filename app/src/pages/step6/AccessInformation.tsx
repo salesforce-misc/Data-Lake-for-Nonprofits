@@ -2,7 +2,8 @@ import React from "react";
 import { Box, Heading } from "@chakra-ui/react";
 import { observer } from "mobx-react";
 
-import { useColorScheme } from "../../models/useColorScheme";
+import { useColorScheme } from "models/useColorScheme";
+
 import { AccessInfoGrid } from "./AccessInfoGrid";
 
 export const AccessInformation = observer(() => {
@@ -10,7 +11,7 @@ export const AccessInformation = observer(() => {
 
   return (
     <>
-      <Heading size="md" pt="0px" pb="30px" color={tone(600)} letterSpacing="-1px">
+      <Heading id="step6-h2-access-information" size="md" pt="0px" pb="30px" color={tone(600)} letterSpacing="-1px">
         Access Information
       </Heading>
 

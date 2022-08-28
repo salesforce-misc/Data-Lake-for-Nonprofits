@@ -11,13 +11,34 @@ In order to run e2e tests in your local environment, follow these steps
 - Once downloaded, install and start running the agent.
 - <a href="https://app.testproject.io/#/agents">Register</a> your agent to link your agent to your TestProject account.
 - Generate a developer token to use in the project. Create `.env` file in your `app` root folder and add your developer token as following.
-    ```shell
-    TP_DEV_TOKEN=<YOUR_DEVELOPER_TOKEN>
-    ```
+  ```shell
+  TP_DEV_TOKEN=<YOUR_DEVELOPER_TOKEN>
+  ```
 - Deploy your application using Amplify. You may want to run some basic e2e tests using localhost but we recommend to use a deployed application for the full experience.
 - Update `testUrl` variable in `App.e2e.spec.js` file on line 7 using your deployment url.
 - Run e2e tests using the command `yarn test:e2e`
 
+## Supported regions and browsers
+
+Application has been tested successfully using e2e automated testing for following region and browsers
+
+| Region/Browser           |                | Chrome                   | Firefox | Safari | Edge |
+| ------------------------ | -------------- | ------------------------ | ------- | ------ | ---- |
+| US East (N. Virginia)    | us-east-1      | <center>&check;</center> |         |        |      |
+| US East (Ohio)           | us-east-2      | <center>&check;</center> |         |        |      |
+| US West (N. California)  | us-west-1      | <center>&check;</center> |         |        |      |
+| US West (Oregon)         | us-west-2      | <center>&check;</center> |         |        |      |
+| Asia Pacific (Mumbai)    | ap-south-1     | <center>&check;</center> |         |        |      |
+| Asia Pacific (Seoul)     | ap-northeast-2 | <center>&check;</center> |         |        |      |
+| Asia Pacific (Singapore) | ap-southeast-1 | <center>&check;</center> |         |        |      |
+| Asia Pacific (Sydney)    | ap-southeast-2 | <center>&check;</center> |         |        |      |
+| Asia Pacific (Tokyo)     | ap-northeast-1 | <center>&check;</center> |         |        |      |
+| Canada (Central)         | ca-central-1   | <center>&check;</center> |         |        |      |
+| Europe (Frankfurt)       | eu-central-1   | <center>&check;</center> |         |        |      |
+| Europe (Ireland)         | eu-west-1      | <center>&check;</center> |         |        |      |
+| Europe (London)          | eu-west-2      | <center>&check;</center> |         |        |      |
+| Europe (Paris)           | eu-west-3      | <center>&check;</center> |         |        |      |
+
 ## Further development for e2e testing
 
-Even though, e2e tests in `App.e2e.spec.js` file run the most common use cases, more specific e2e test cases can be developed using the same pattern.
+Even though, e2e tests in `App.e2e.spec.ts` file run the most common use cases, more specific e2e test cases can be developed using the same pattern.

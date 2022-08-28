@@ -8,16 +8,23 @@ const waitFor = async (s: number) => new Promise((r) => setTimeout(r, s));
 // Set timeout to 60 minutes since this is a long running test
 jest.setTimeout(60 * 60 * 1000);
 
+const useChrome = (driver: WebDriver) => {
+  let options = new chrome.Options();
+  return new Builder().setChromeOptions(options).forBrowser("chrome").build();
+};
+
+const useFirefox = (driver: WebDriver) => {
+  let options = new firefox.Options();
+  return new Builder().setFirefoxOptions(options).forBrowser("firefox").build();
+};
+
 describe("App", () => {
   const testUrl = "http://localhost:3000";
 
   let driver: WebDriver;
 
   beforeEach(async () => {
-    let options = new chrome.Options();
-    driver = await new Builder().setChromeOptions(options).forBrowser("chrome").build();
-    // let options = new firefox.Options();
-    // driver = await new Builder().setFirefoxOptions(options).forBrowser("firefox").build();
+    driver = await useFirefox(driver);
   });
 
   afterEach(async () => {
@@ -25,7 +32,7 @@ describe("App", () => {
   });
 
   test("e2e testing", async () => {
-    const region = awsRegions[0].name;
+    const region = awsRegions[2].name; // You can use just the region name as us-east-1 as well.
     await AppTest(driver, testUrl, region);
   });
 });

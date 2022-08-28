@@ -3,14 +3,21 @@ import { awsRegionsMap } from "../src/data/aws-regions";
 import { cleanup, consolidateCleanup, CleanupItems } from "./lib/cleanup";
 import { deleteStack } from "./lib/delete-stack";
 
+interface IAnswers {
+  region: string;
+  profile: string;
+  installationId: string;
+}
 
-async function cli() {
-  const answers = await prompt([
-    { type: "list", name: "region", message: "AWS Region", choices: Object.keys(awsRegionsMap).sort(), default: "us-east-1"},
+export const prompts = async (): Promise<IAnswers> => {
+  return await prompt([
+    { type: "list", name: "region", message: "AWS Region", choices: Object.keys(awsRegionsMap).sort(), default: "us-east-1" },
     { type: "input", name: "profile", message: "AWS Profile", default: "sforg" },
-    { type: "input", name: "installationId", message: "Installation ID"}
+    { type: "input", name: "installationId", message: "Installation ID" },
   ]);
+};
 
+export const cli = async (answers: IAnswers) => {
   const { region, profile, installationId } = answers;
 
   let cleanupItems: CleanupItems = { lambdas: [], dbClusters: [] };
@@ -22,6 +29,6 @@ async function cli() {
   cleanupItems = consolidateCleanup(cleanupItems, await deleteStack({ region, profile, stackName: `sforg-buckets-${installationId}` }));
 
   await cleanup({ region, profile, cleanupItems, installationId });
-}
+};
 
-cli();
+prompts().then((a) => cli(a));

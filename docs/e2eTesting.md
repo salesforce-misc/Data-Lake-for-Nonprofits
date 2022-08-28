@@ -22,23 +22,27 @@ In order to run e2e tests in your local environment, follow these steps
 
 Application has been tested successfully using e2e automated testing for following region and browsers
 
-| Region/Browser           |                | Chrome                   | Firefox | Safari | Edge |
-| ------------------------ | -------------- | ------------------------ | ------- | ------ | ---- |
-| US East (N. Virginia)    | us-east-1      | <center>&check;</center> |         |        |      |
-| US East (Ohio)           | us-east-2      | <center>&check;</center> |         |        |      |
-| US West (N. California)  | us-west-1      | <center>&check;</center> |         |        |      |
-| US West (Oregon)         | us-west-2      | <center>&check;</center> |         |        |      |
-| Asia Pacific (Mumbai)    | ap-south-1     | <center>&check;</center> |         |        |      |
-| Asia Pacific (Seoul)     | ap-northeast-2 | <center>&check;</center> |         |        |      |
-| Asia Pacific (Singapore) | ap-southeast-1 | <center>&check;</center> |         |        |      |
-| Asia Pacific (Sydney)    | ap-southeast-2 | <center>&check;</center> |         |        |      |
-| Asia Pacific (Tokyo)     | ap-northeast-1 | <center>&check;</center> |         |        |      |
-| Canada (Central)         | ca-central-1   | <center>&check;</center> |         |        |      |
-| Europe (Frankfurt)       | eu-central-1   | <center>&check;</center> |         |        |      |
-| Europe (Ireland)         | eu-west-1      | <center>&check;</center> |         |        |      |
-| Europe (London)          | eu-west-2      | <center>&check;</center> |         |        |      |
-| Europe (Paris)           | eu-west-3      | <center>&check;</center> |         |        |      |
+| Region/Browser           |                | Chrome  | Firefox | Safari | Edge |
+| ------------------------ | -------------- | ------- | ------- | ------ | ---- |
+| US East (N. Virginia)    | us-east-1      | &check; | &check; |        |      |
+| US East (Ohio)           | us-east-2      | &check; |         |        |      |
+| US West (N. California)  | us-west-1      | &check; |         |        |      |
+| US West (Oregon)         | us-west-2      | &check; |         |        |      |
+| Asia Pacific (Mumbai)    | ap-south-1     | &check; |         |        |      |
+| Asia Pacific (Seoul)     | ap-northeast-2 | &check; |         |        |      |
+| Asia Pacific (Singapore) | ap-southeast-1 | &check; |         |        |      |
+| Asia Pacific (Sydney)    | ap-southeast-2 | &check; |         |        |      |
+| Asia Pacific (Tokyo)     | ap-northeast-1 | &check; |         |        |      |
+| Canada (Central)         | ca-central-1   | &check; |         |        |      |
+| Europe (Frankfurt)       | eu-central-1   | &check; |         |        |      |
+| Europe (Ireland)         | eu-west-1      | &check; |         |        |      |
+| Europe (London)          | eu-west-2      | &check; |         |        |      |
+| Europe (Paris)           | eu-west-3      | &check; |         |        |      |
 
 ## Further development for e2e testing
 
-Even though, e2e tests in `App.e2e.spec.ts` file run the most common use cases, more specific e2e test cases can be developed using the same pattern.
+Even though, e2e test in `App.e2e.spec.ts` file run the most common use cases, more specific e2e tests can be developed using the same pattern.
+
+## Warning
+
+Keep in mind that running e2e tests will incur cost in your AWS account.

@@ -16,66 +16,66 @@ Array [
           className="css-np5eqa"
         >
           Show
-          <label
-            className="chakra-radio css-fjnot9"
-            data-checked=""
-          >
-            <input
-              checked={true}
-              className="chakra-radio__input"
-              id="radio-1"
-              name="radio-1"
-              onBlur={[Function]}
-              onChange={[Function]}
-              onFocus={[Function]}
-              onKeyDown={[Function]}
-              onKeyUp={[Function]}
-              style={
-                Object {
-                  "border": "0px",
-                  "clip": "rect(0px, 0px, 0px, 0px)",
-                  "height": "1px",
-                  "margin": "-1px",
-                  "overflow": "hidden",
-                  "padding": "0px",
-                  "position": "absolute",
-                  "whiteSpace": "nowrap",
-                  "width": "1px",
-                }
-              }
-              type="radio"
-              value="1"
-            />
-            <span
-              aria-hidden={true}
-              className="chakra-radio__control css-1upy29y"
-              data-checked=""
-              onMouseDown={[Function]}
-              onMouseEnter={[Function]}
-              onMouseLeave={[Function]}
-              onMouseUp={[Function]}
-            />
-            <span
-              className="chakra-radio__label css-1i66d7g"
-              data-checked=""
-              onMouseDown={[Function]}
-              onTouchStart={[Function]}
-            >
-              <p
-                className="chakra-text css-9f98jw"
-              >
-                All Fields
-                <span
-                  className="chakra-badge css-7hgm7x"
-                >
-                  0
-                </span>
-              </p>
-            </span>
-          </label>
         </div>
         <label
           className="chakra-radio css-1pw4d56"
+          data-checked=""
+        >
+          <input
+            checked={true}
+            className="chakra-radio__input"
+            id="radio-1"
+            name="radio-1"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            style={
+              Object {
+                "border": "0px",
+                "clip": "rect(0px, 0px, 0px, 0px)",
+                "height": "1px",
+                "margin": "-1px",
+                "overflow": "hidden",
+                "padding": "0px",
+                "position": "absolute",
+                "whiteSpace": "nowrap",
+                "width": "1px",
+              }
+            }
+            type="radio"
+            value="1"
+          />
+          <span
+            aria-hidden={true}
+            className="chakra-radio__control css-1upy29y"
+            data-checked=""
+            onMouseDown={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+          />
+          <span
+            className="chakra-radio__label css-1i66d7g"
+            data-checked=""
+            onMouseDown={[Function]}
+            onTouchStart={[Function]}
+          >
+            <p
+              className="chakra-text css-9f98jw"
+            >
+              NPSP Fields
+              <span
+                className="chakra-badge css-7hgm7x"
+              >
+                0
+              </span>
+            </p>
+          </span>
+        </label>
+        <label
+          className="chakra-radio css-fjnot9"
         >
           <input
             checked={false}
@@ -119,7 +119,7 @@ Array [
             <p
               className="chakra-text css-9f98jw"
             >
-              Included Fields
+              All Fields
               <span
                 className="chakra-badge css-7hgm7x"
               >

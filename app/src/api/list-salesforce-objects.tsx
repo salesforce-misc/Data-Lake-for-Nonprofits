@@ -6,6 +6,13 @@ export interface IRawSalesforceObject {
   label: string;
 }
 
+interface IListSalesforceObjects {
+  accessKey: string;
+  secretKey: string;
+  region: string;
+  connectionName: string;
+}
+
 /**
  * Returns a list of all objects in Salesforce
  */
@@ -14,12 +21,7 @@ export async function listSalesforceObjects({
   secretKey,
   region,
   connectionName,
-}: {
-  accessKey: string;
-  secretKey: string;
-  region: string;
-  connectionName: string;
-}): Promise<IRawSalesforceObject[]> {
+}: IListSalesforceObjects): Promise<IRawSalesforceObject[]> {
   const appFlowClient = new AppflowClient({
     region,
     credentials: {

@@ -1,6 +1,7 @@
 import { Builder, By, Key, until, WebDriver } from "selenium-webdriver";
 import * as chrome from "selenium-webdriver/chrome";
-// const chrome = require("selenium-webdriver/chrome");
+import * as firefox from "selenium-webdriver/firefox";
+import { awsRegions } from "data/aws-regions";
 
 const waitFor = async (s: number) => new Promise((r) => setTimeout(r, s));
 
@@ -15,6 +16,8 @@ describe("App", () => {
   beforeEach(async () => {
     let options = new chrome.Options();
     driver = await new Builder().setChromeOptions(options).forBrowser("chrome").build();
+    // let options = new firefox.Options();
+    // driver = await new Builder().setFirefoxOptions(options).forBrowser("firefox").build();
   });
 
   afterEach(async () => {
@@ -22,7 +25,8 @@ describe("App", () => {
   });
 
   test("e2e testing", async () => {
-    await AppTest(driver, testUrl, "us-east-1");
+    const region = awsRegions[0].name;
+    await AppTest(driver, testUrl, region);
   });
 });
 
@@ -60,7 +64,7 @@ const AppTest = async (driver: WebDriver, testUrl: string, region: string) => {
   await driver.findElement(By.id("h2-title")).isDisplayed();
   await driver.findElement(By.id("step2-btn-appflow-created-yes")).click();
 
-  await waitFor(500);
+  await waitFor(1500);
   await driver.wait(until.elementIsVisible(driver.findElement(By.id("step2-h2-select-connection"))));
 
   // Reload connection
@@ -105,6 +109,9 @@ const AppTest = async (driver: WebDriver, testUrl: string, region: string) => {
 
   await driver.findElement(By.id("step6")).isDisplayed();
   await driver.findElement(By.id("h2-title")).isDisplayed();
+
+  const accessInformation = await driver.findElement(By.id("step6-h2-access-information"));
+  expect(await accessInformation.getText()).toBe("Access Information");
 
   await waitFor(500);
 };

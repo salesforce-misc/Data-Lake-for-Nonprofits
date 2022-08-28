@@ -49,7 +49,7 @@ function search(searchText: string, objects: ISFObject[]): ISFObject[] {
 
 export function useObjectsTable({
   store,
-  viewOption = ObjectsViewOptions.All,
+  viewOption = ObjectsViewOptions.Only_Included,
   searchText = "",
   pageSize = 20,
 }: IUseObjectsTableInput): IUseObjectsTableOutput {

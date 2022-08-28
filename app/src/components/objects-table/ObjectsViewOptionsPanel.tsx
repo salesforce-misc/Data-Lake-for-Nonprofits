@@ -27,23 +27,8 @@ export const ObjectsViewOptionsPanel = observer(({ viewOption, setViewOption, is
       <Flex fontSize="sm" justifyContent="space-between" pr={2} cursor={cursor}>
         <Flex pl={1} cursor={cursor}>
           <Text color={isProcessing ? tone(300) : tone(800)}>Show</Text>
-          <Radio
-            ml={6}
-            value="1"
-            colorScheme={colorScheme}
-            isChecked={is(ObjectsViewOptions.All)}
-            onChange={() => changeOption(ObjectsViewOptions.All)}
-            isDisabled={isProcessing}
-            cursor={cursor}
-          >
-            <Text color={tone(700)} fontSize="sm" mr={4} cursor={cursor}>
-              All Objects
-              <Badge ml={2} bg={tone(75)} fontSize="xs" borderRadius="full" fontWeight="normal">
-                {store.listAll.length}
-              </Badge>
-            </Text>
-          </Radio>
         </Flex>
+
         <Radio
           value="2"
           colorScheme={colorScheme}
@@ -53,12 +38,30 @@ export const ObjectsViewOptionsPanel = observer(({ viewOption, setViewOption, is
           cursor={cursor}
         >
           <Text color={tone(700)} fontSize="sm" mr={4} cursor={cursor}>
-            Included Objects
+            NPSP Objects
             <Badge ml={2} bg={tone(75)} fontSize="xs" borderRadius="full" fontWeight="normal">
               {store.selectedObjects.length}
             </Badge>
           </Text>
         </Radio>
+
+        <Radio
+          ml={6}
+          value="1"
+          colorScheme={colorScheme}
+          isChecked={is(ObjectsViewOptions.All)}
+          onChange={() => changeOption(ObjectsViewOptions.All)}
+          isDisabled={isProcessing}
+          cursor={cursor}
+        >
+          <Text color={tone(700)} fontSize="sm" mr={4} cursor={cursor}>
+            All Objects
+            <Badge ml={2} bg={tone(75)} fontSize="xs" borderRadius="full" fontWeight="normal">
+              {store.listAll.length}
+            </Badge>
+          </Text>
+        </Radio>
+
         <Radio
           value="3"
           colorScheme={colorScheme}

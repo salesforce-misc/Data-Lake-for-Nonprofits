@@ -204,6 +204,7 @@ Array [
         >
           <h2
             className="chakra-heading css-1081m9x"
+            id="step6-h2-access-information"
           >
             Access Information
           </h2>

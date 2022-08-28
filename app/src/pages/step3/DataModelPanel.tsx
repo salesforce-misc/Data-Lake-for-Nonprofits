@@ -18,7 +18,7 @@ export const DataModelPanel = observer(() => {
     (!isReady && null) || (
       <Box p={0} mb={6} pt={15} color={tone(800)}>
         <Heading size="md" pt="0px" pb="20px" color={tone(600)} letterSpacing="-1px">
-          Salesforce NPSP data model
+          Salesforce Data
         </Heading>
 
         {hasMissingObjects && (

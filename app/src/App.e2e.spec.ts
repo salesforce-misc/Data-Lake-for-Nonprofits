@@ -32,7 +32,7 @@ describe("App", () => {
   });
 
   test("e2e testing", async () => {
-    const region = awsRegions[2].name; // You can use just the region name as us-east-1 as well.
+    const region = awsRegions[3].name; // You can use just the region name as us-east-1 as well.
     await AppTest(driver, testUrl, region);
   });
 });
@@ -56,9 +56,9 @@ const AppTest = async (driver: WebDriver, testUrl: string, region: string) => {
   await waitFor(500);
 
   await driver.findElement(By.id("accessKeyId")).clear();
-  await driver.findElement(By.id("accessKeyId")).sendKeys(process.env?.AWS_ACCESS_KEY || "");
+  await driver.findElement(By.id("accessKeyId")).sendKeys(process.env?.REACT_APP_ACCESS_KEY || "");
   await driver.findElement(By.id("secretAccessKey")).clear();
-  await driver.findElement(By.id("secretAccessKey")).sendKeys(process.env?.AWS_SECRET_KEY || "");
+  await driver.findElement(By.id("secretAccessKey")).sendKeys(process.env?.REACT_APP_SECRET_KEY || "");
 
   // Select the region
   await driver.findElement(By.className(region)).click();

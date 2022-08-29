@@ -63,7 +63,7 @@ Array [
         data-testid="curved-box"
       />
       <div
-        className="css-15dboc9"
+        className="css-4e82ru"
       >
         <div
           className="chakra-container css-h66qep"
@@ -104,220 +104,177 @@ Array [
           </div>
         </div>
       </div>
+    </div>
+    <div
+      className="chakra-container css-11yz6e2"
+    >
       <div
-        className="chakra-container css-8tuq56"
+        className="css-1efnwyh"
+      >
+        <p
+          className="chakra-text css-0"
+        >
+          Region: 
+          us-east-1
+        </p>
+        <p
+          className="chakra-text css-0"
+        >
+          ID: 
+          1
+        </p>
+      </div>
+      <h2
+        className="chakra-heading css-noy8un"
+      >
+        Sit back and relax
+      </h2>
+      <div
+        className="css-vfbt1y"
       >
         <div
-          className="css-141wk90"
-        >
-          <p
-            className="chakra-text css-0"
-          >
-            Installation ID
-          </p>
-          <p
-            className="chakra-text css-0"
-          >
-            1
-          </p>
-        </div>
-        <h2
-          className="chakra-heading css-1vtzlyn"
-        >
-          Sit back and relax
-        </h2>
-        <div
-          className="css-1fynaiw"
+          className="chakra-stack css-1s6236i"
         >
           <div
-            className="chakra-stack css-1wy5s38"
+            className="css-1y0bycm"
           >
             <div
-              className="css-12595yo"
+              className="css-0"
             >
               We are provisioning the data lake and importing the data. You can sit back and relax and watch the progress of the data import.
             </div>
             <div
-              className="css-12595yo"
+              className="css-rltemf"
+            >
+              Don't close the browser tab, otherwise the provisioning will pause before it's fully completed.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="css-ib9iq6"
+      />
+      <div
+        className="css-1eqgnj9"
+      >
+        <div
+          className="css-1wzwgz0"
+        />
+        <div
+          className="css-tr1ws2"
+        >
+          <div
+            aria-valuemax={100}
+            aria-valuemin={0}
+            className="css-1sf4lro"
+            data-indeterminate=""
+            role="progressbar"
+            style={
+              Object {
+                "width": "0%",
+              }
+            }
+          />
+        </div>
+        <img
+          className="chakra-image css-ju4org"
+          src="processing-sforg-01.png"
+        />
+        <img
+          className="chakra-image css-1i9i4ra"
+          src="processing-aws-01.png"
+        />
+        <div
+          className="css-z7ff2d"
+        />
+        <div
+          className="css-11aidz8"
+        >
+          <div
+            className="chakra-alert css-b003kq"
+            role="alert"
+          >
+            <div
+              className="chakra-alert__desc css-zzks76"
             >
               Don't close the browser tab, otherwise the provisioning will pause before it's fully completed.
             </div>
           </div>
         </div>
         <div
-          className="css-ib9iq6"
-        />
-        <div
-          className="css-1eqgnj9"
+          className="chakra-alert css-1liun4e"
+          role="alert"
         >
-          <div
-            className="css-1wzwgz0"
-          />
-          <div
-            className="css-tr1ws2"
+          <span
+            className="chakra-alert__icon css-roekqd"
           >
-            <div
-              aria-valuemax={100}
-              aria-valuemin={0}
-              className="css-z89zyo"
-              data-indeterminate=""
-              role="progressbar"
-              style={
-                Object {
-                  "width": "0%",
-                }
-              }
-            />
-          </div>
-          <img
-            className="chakra-image css-ju4org"
-            src="processing-sforg-01.png"
-          />
-          <img
-            className="chakra-image css-1i9i4ra"
-            src="processing-aws-01.png"
-          />
-          <div
-            className="css-z7ff2d"
-          />
-          <div
-            className="css-11aidz8"
-          >
-            <div
-              className="chakra-alert css-b003kq"
-              role="alert"
+            <svg
+              className="chakra-icon css-fi0ww0"
+              focusable={false}
+              viewBox="0 0 24 24"
             >
-              <div
-                className="chakra-alert__desc css-zzks76"
-              >
-                Don't close the browser tab, otherwise the provisioning will pause before it's fully completed.
-              </div>
-            </div>
+              <path
+                d="M12,0A12,12,0,1,0,24,12,12.014,12.014,0,0,0,12,0Zm6.927,8.2-6.845,9.289a1.011,1.011,0,0,1-1.43.188L5.764,13.769a1,1,0,1,1,1.25-1.562l4.076,3.261,6.227-8.451A1,1,0,1,1,18.927,8.2Z"
+                fill="currentColor"
+              />
+            </svg>
+          </span>
+          <div
+            className="chakra-alert__title css-1vkxl5k"
+          >
+            Data Lake is ready!
           </div>
           <div
-            className="chakra-alert css-1liun4e"
-            role="alert"
+            className="chakra-alert__desc css-1oa6yzk"
           >
-            <span
-              className="chakra-alert__icon css-roekqd"
-            >
-              <svg
-                className="chakra-icon css-fi0ww0"
-                focusable={false}
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M12,0A12,12,0,1,0,24,12,12.014,12.014,0,0,0,12,0Zm6.927,8.2-6.845,9.289a1.011,1.011,0,0,1-1.43.188L5.764,13.769a1,1,0,1,1,1.25-1.562l4.076,3.261,6.227-8.451A1,1,0,1,1,18.927,8.2Z"
-                  fill="currentColor"
-                />
-              </svg>
-            </span>
-            <div
-              className="chakra-alert__title css-1vkxl5k"
-            >
-              Data Lake is ready!
-            </div>
-            <div
-              className="chakra-alert__desc css-1oa6yzk"
-            >
-              Great news! we got everything in place and you are ready to proceed to the next step
-            </div>
-          </div>
-          <div
-            className="css-1pjjc6w"
-          >
-            <div
-              className="css-1o3oomb"
-            >
-              <div
-                className="chakra-stack css-103t9v7"
-              >
-                <div
-                  className="css-1ki54i"
-                >
-                  <p
-                    className="chakra-text css-xytqcl"
-                  >
-                    NaN
-                    %
-                  </p>
-                  <p
-                    className="chakra-text css-0"
-                  >
-                    Overall Progress
-                  </p>
-                  <div
-                    className="css-2cscy"
-                  >
-                    <div
-                      aria-valuemax={100}
-                      aria-valuemin={0}
-                      aria-valuenow={NaN}
-                      className="css-pez42p"
-                      role="progressbar"
-                      style={
-                        Object {
-                          "width": "NaN%",
-                        }
-                      }
-                    />
-                  </div>
-                </div>
-                <div
-                  className="css-1budavu"
-                >
-                  <svg
-                    className="chakra-icon css-xcmdz3"
-                    focusable={false}
-                    viewBox="0 0 24 24"
-                  >
-                    <g
-                      fill="currentColor"
-                    >
-                      <path
-                        d="M12,0A12,12,0,1,0,24,12,12.014,12.014,0,0,0,12,0Zm0,22A10,10,0,1,1,22,12,10.011,10.011,0,0,1,12,22Z"
-                      />
-                      <path
-                        d="M17.134,15.81,12.5,11.561V6.5a1,1,0,0,0-2,0V12a1,1,0,0,0,.324.738l4.959,4.545a1.01,1.01,0,0,0,1.413-.061A1,1,0,0,0,17.134,15.81Z"
-                      />
-                    </g>
-                  </svg>
-                  0:00:00
-                </div>
-              </div>
-            </div>
+            Great news! we got everything in place and you are ready to proceed to the next step
           </div>
         </div>
         <div
-          className="css-14wb451"
+          className="css-1pjjc6w"
         >
           <div
-            className="chakra-stack css-1y0z9d0"
+            className="css-1o3oomb"
           >
-            <h2
-              className="chakra-heading css-lx7khp"
-            >
-              Latest Data Import
-              <span
-                className="css-1jdvr3r"
-              />
-            </h2>
             <div
-              className="chakra-stack css-84zodg"
+              className="chakra-stack css-103t9v7"
             >
-              <p
-                className="chakra-text css-bxgqra"
-              />
-              <button
-                aria-label="Check again"
-                className="chakra-button css-xroa0q"
-                disabled={false}
-                onClick={[Function]}
-                type="button"
+              <div
+                className="css-1ki54i"
+              >
+                <p
+                  className="chakra-text css-xytqcl"
+                >
+                  NaN
+                  %
+                </p>
+                <p
+                  className="chakra-text css-0"
+                >
+                  Overall Progress
+                </p>
+                <div
+                  className="css-2cscy"
+                >
+                  <div
+                    aria-valuemax={100}
+                    aria-valuemin={0}
+                    aria-valuenow={NaN}
+                    className="css-pez42p"
+                    role="progressbar"
+                    style={
+                      Object {
+                        "width": "NaN%",
+                      }
+                    }
+                  />
+                </div>
+              </div>
+              <div
+                className="css-1budavu"
               >
                 <svg
-                  aria-hidden={true}
-                  className="chakra-icon css-onkibi"
+                  className="chakra-icon css-xcmdz3"
                   focusable={false}
                   viewBox="0 0 24 24"
                 >
@@ -325,127 +282,45 @@ Array [
                     fill="currentColor"
                   >
                     <path
-                      d="M10.319,4.936a7.239,7.239,0,0,1,7.1,2.252,1.25,1.25,0,1,0,1.872-1.657A9.737,9.737,0,0,0,9.743,2.5,10.269,10.269,0,0,0,2.378,9.61a.249.249,0,0,1-.271.178l-1.033-.13A.491.491,0,0,0,.6,9.877a.5.5,0,0,0-.019.526l2.476,4.342a.5.5,0,0,0,.373.248.43.43,0,0,0,.062,0,.5.5,0,0,0,.359-.152l3.477-3.593a.5.5,0,0,0-.3-.844L5.15,10.172a.25.25,0,0,1-.2-.333A7.7,7.7,0,0,1,10.319,4.936Z"
+                      d="M12,0A12,12,0,1,0,24,12,12.014,12.014,0,0,0,12,0Zm0,22A10,10,0,1,1,22,12,10.011,10.011,0,0,1,12,22Z"
                     />
                     <path
-                      d="M23.406,14.1a.5.5,0,0,0,.015-.526l-2.5-4.329A.5.5,0,0,0,20.546,9a.489.489,0,0,0-.421.151l-3.456,3.614a.5.5,0,0,0,.3.842l1.848.221a.249.249,0,0,1,.183.117.253.253,0,0,1,.023.216,7.688,7.688,0,0,1-5.369,4.9,7.243,7.243,0,0,1-7.1-2.253,1.25,1.25,0,1,0-1.872,1.656,9.74,9.74,0,0,0,9.549,3.03,10.261,10.261,0,0,0,7.369-7.12.251.251,0,0,1,.27-.179l1.058.127a.422.422,0,0,0,.06,0A.5.5,0,0,0,23.406,14.1Z"
+                      d="M17.134,15.81,12.5,11.561V6.5a1,1,0,0,0-2,0V12a1,1,0,0,0,.324.738l4.959,4.545a1.01,1.01,0,0,0,1.413-.061A1,1,0,0,0,17.134,15.81Z"
                     />
                   </g>
                 </svg>
-              </button>
-            </div>
-          </div>
-          <div
-            className="chakra-stat__group css-1t3qzs9"
-            role="group"
-          >
-            <div
-              className="chakra-stat css-1wqpdlj"
-            >
-              <dl>
-                <dt
-                  className="chakra-stat__label css-1bsgmhw"
-                >
-                  Objects
-                </dt>
-                <dd
-                  className="chakra-stat__number css-1t2gott"
-                >
-                  N/A
-                </dd>
-              </dl>
-            </div>
-            <div
-              className="chakra-stat css-1mbo1ls"
-            >
-              <dl>
-                <dt
-                  className="chakra-stat__label css-1bsgmhw"
-                >
-                  Records
-                </dt>
-                <dd
-                  className="chakra-stat__number css-1t2gott"
-                />
-              </dl>
-            </div>
-            <div
-              className="chakra-stat css-1mbo1ls"
-            >
-              <dl>
-                <dt
-                  className="chakra-stat__label css-1bsgmhw"
-                >
-                  Fields
-                </dt>
-                <dd
-                  className="chakra-stat__number css-1t2gott"
-                />
-              </dl>
-            </div>
-            <div
-              className="chakra-stat css-1mbo1ls"
-            >
-              <dl>
-                <dt
-                  className="chakra-stat__label css-1bsgmhw"
-                >
-                  Size
-                </dt>
-                <dd
-                  className="chakra-stat__number css-1t2gott"
-                />
-              </dl>
-            </div>
-            <div
-              className="chakra-stat css-1mbo1ls"
-            >
-              <dl>
-                <dt
-                  className="chakra-stat__label css-1bsgmhw"
-                >
-                  Time
-                </dt>
-                <dd
-                  className="chakra-stat__number css-1t2gott"
-                />
-              </dl>
-            </div>
-          </div>
-          <div
-            className="css-0"
-          >
-            <div
-              className="css-qwmnd6"
-              onClick={[Function]}
-            >
-              <svg
-                className="chakra-icon css-m6c8f6"
-                focusable={false}
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
-                  fill="currentColor"
-                />
-              </svg>
-              see more
+                0:00:00
+              </div>
             </div>
           </div>
         </div>
+      </div>
+      <div
+        className="css-14wb451"
+      >
         <div
-          className="chakra-stack css-10428nh"
+          className="chakra-stack css-1y0z9d0"
         >
-          <button
-            className="chakra-button css-zb27lh"
-            disabled={false}
-            id="step5-btn-next"
-            onClick={[Function]}
-            type="button"
+          <h2
+            className="chakra-heading css-lx7khp"
           >
-            Next
+            Latest Data Import
             <span
-              className="chakra-button__icon css-1hzyiq5"
+              className="css-1jdvr3r"
+            />
+          </h2>
+          <div
+            className="chakra-stack css-84zodg"
+          >
+            <p
+              className="chakra-text css-bxgqra"
+            />
+            <button
+              aria-label="Check again"
+              className="chakra-button css-xroa0q"
+              disabled={false}
+              onClick={[Function]}
+              type="button"
             >
               <svg
                 aria-hidden={true}
@@ -453,17 +328,147 @@ Array [
                 focusable={false}
                 viewBox="0 0 24 24"
               >
-                <path
-                  d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                <g
                   fill="currentColor"
-                />
+                >
+                  <path
+                    d="M10.319,4.936a7.239,7.239,0,0,1,7.1,2.252,1.25,1.25,0,1,0,1.872-1.657A9.737,9.737,0,0,0,9.743,2.5,10.269,10.269,0,0,0,2.378,9.61a.249.249,0,0,1-.271.178l-1.033-.13A.491.491,0,0,0,.6,9.877a.5.5,0,0,0-.019.526l2.476,4.342a.5.5,0,0,0,.373.248.43.43,0,0,0,.062,0,.5.5,0,0,0,.359-.152l3.477-3.593a.5.5,0,0,0-.3-.844L5.15,10.172a.25.25,0,0,1-.2-.333A7.7,7.7,0,0,1,10.319,4.936Z"
+                  />
+                  <path
+                    d="M23.406,14.1a.5.5,0,0,0,.015-.526l-2.5-4.329A.5.5,0,0,0,20.546,9a.489.489,0,0,0-.421.151l-3.456,3.614a.5.5,0,0,0,.3.842l1.848.221a.249.249,0,0,1,.183.117.253.253,0,0,1,.023.216,7.688,7.688,0,0,1-5.369,4.9,7.243,7.243,0,0,1-7.1-2.253,1.25,1.25,0,1,0-1.872,1.656,9.74,9.74,0,0,0,9.549,3.03,10.261,10.261,0,0,0,7.369-7.12.251.251,0,0,1,.27-.179l1.058.127a.422.422,0,0,0,.06,0A.5.5,0,0,0,23.406,14.1Z"
+                  />
+                </g>
               </svg>
-            </span>
-          </button>
+            </button>
+          </div>
+        </div>
+        <div
+          className="chakra-stat__group css-1t3qzs9"
+          role="group"
+        >
+          <div
+            className="chakra-stat css-1wqpdlj"
+          >
+            <dl>
+              <dt
+                className="chakra-stat__label css-1bsgmhw"
+              >
+                Objects
+              </dt>
+              <dd
+                className="chakra-stat__number css-1t2gott"
+              >
+                N/A
+              </dd>
+            </dl>
+          </div>
+          <div
+            className="chakra-stat css-1mbo1ls"
+          >
+            <dl>
+              <dt
+                className="chakra-stat__label css-1bsgmhw"
+              >
+                Records
+              </dt>
+              <dd
+                className="chakra-stat__number css-1t2gott"
+              />
+            </dl>
+          </div>
+          <div
+            className="chakra-stat css-1mbo1ls"
+          >
+            <dl>
+              <dt
+                className="chakra-stat__label css-1bsgmhw"
+              >
+                Fields
+              </dt>
+              <dd
+                className="chakra-stat__number css-1t2gott"
+              />
+            </dl>
+          </div>
+          <div
+            className="chakra-stat css-1mbo1ls"
+          >
+            <dl>
+              <dt
+                className="chakra-stat__label css-1bsgmhw"
+              >
+                Size
+              </dt>
+              <dd
+                className="chakra-stat__number css-1t2gott"
+              />
+            </dl>
+          </div>
+          <div
+            className="chakra-stat css-1mbo1ls"
+          >
+            <dl>
+              <dt
+                className="chakra-stat__label css-1bsgmhw"
+              >
+                Time
+              </dt>
+              <dd
+                className="chakra-stat__number css-1t2gott"
+              />
+            </dl>
+          </div>
+        </div>
+        <div
+          className="css-0"
+        >
+          <div
+            className="css-qwmnd6"
+            onClick={[Function]}
+          >
+            <svg
+              className="chakra-icon css-m6c8f6"
+              focusable={false}
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+                fill="currentColor"
+              />
+            </svg>
+            see more
+          </div>
         </div>
       </div>
+      <div
+        className="chakra-stack css-10428nh"
+      >
+        <button
+          className="chakra-button css-1ndt3ub"
+          disabled={false}
+          id="step5-btn-next"
+          onClick={[Function]}
+          type="button"
+        >
+          Next
+          <span
+            className="chakra-button__icon css-1hzyiq5"
+          >
+            <svg
+              aria-hidden={true}
+              className="chakra-icon css-onkibi"
+              focusable={false}
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                fill="currentColor"
+              />
+            </svg>
+          </span>
+        </button>
+      </div>
     </div>
-    <span />
   </div>,
   <span />,
 ]

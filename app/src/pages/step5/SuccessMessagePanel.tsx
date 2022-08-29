@@ -26,7 +26,7 @@ export const SuccessMessagePanel = observer(() => {
       <AlertTitle mt={4} mb={1} fontSize="lg">
         Data Lake is ready!
       </AlertTitle>
-      <AlertDescription maxWidth="sm">Great news! we got everything in place and you are ready to proceed to the next step</AlertDescription>
+      <AlertDescription maxWidth="sm">Great news! We got everything in place and you are ready to proceed to the next step</AlertDescription>
     </Alert>
   );
 });

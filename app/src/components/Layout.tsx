@@ -11,11 +11,13 @@ import { StepsIndicator } from "./StepsIndicator";
 interface ILayout {
   step: number;
   title: string;
-  description: string | React.ReactNode;
+  description: string;
+  explanation?: string;
+  warning?: string;
   children: React.ReactNode;
 }
 
-export const Layout = observer(({ step, title, description, children }: ILayout) => {
+export const Layout = observer(({ step, title, description, explanation, warning, children }: ILayout) => {
   const theme = useTheme();
   const { tone } = useColorScheme();
 
@@ -27,7 +29,7 @@ export const Layout = observer(({ step, title, description, children }: ILayout)
 
       <Box position="relative">
         <CurvedBox />
-        <Box bg={tone(600)} w="full" position="relative">
+        <Box bg={tone(400)} w="full" position="relative">
           <Container maxW="container.md" pt="15px" pb="15px">
             <StepsIndicator current={step} />
           </Container>
@@ -39,9 +41,13 @@ export const Layout = observer(({ step, title, description, children }: ILayout)
           {title}
         </Heading>
 
-        <Box color={tone(50)}>
-          <Stack direction="row" spacing="0" align="left" justifyContent="space-between">
-            <Box mb={6}>{description}</Box>
+        <Box color={tone(50)} mb={4}>
+          <Stack direction="row" spacing="8px" align="left" justifyContent="space-between">
+            <Box mb={6}>
+              <Box>{description}</Box>
+              {explanation && <Box sx={{ mt: 2 }}>{explanation}</Box>}
+              {warning && <Box sx={{ mt: 2 }}>{warning}</Box>}
+            </Box>
           </Stack>
         </Box>
 

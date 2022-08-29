@@ -4,10 +4,11 @@ import { Routes, Route } from "react-router-dom";
 import { observer } from "mobx-react";
 
 import { theme as orange } from "themes/orange";
-import { theme as purple } from "themes/purple";
 import { theme as blue } from "themes/blue";
+import { theme as purple } from "themes/purple";
 import { theme as pink } from "themes/pink";
 import { theme as green } from "themes/green";
+import { theme as teal } from "themes/teal";
 
 import { Home } from "pages/home/Home";
 import { Step1 } from "pages/step1/Step1";
@@ -45,7 +46,7 @@ const App = () => {
       <Route path="/steps/3" element={<ChakraWrapper theme={purple} children={<Step3 />} />} />
       <Route path="/steps/4" element={<ChakraWrapper theme={pink} children={<Step4 />} />} />
       <Route path="/steps/5" element={<ChakraWrapper theme={green} children={<Step5 />} />} />
-      <Route path="/steps/6" element={<ChakraWrapper theme={purple} children={<Step6 />} />} />
+      <Route path="/steps/6" element={<ChakraWrapper theme={teal} children={<Step6 />} />} />
       <Route
         path="*"
         element={

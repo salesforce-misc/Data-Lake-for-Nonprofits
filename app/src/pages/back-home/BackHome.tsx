@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Text, Button, useTheme } from "@chakra-ui/react";
+import { Box, Text, Button } from "@chakra-ui/react";
 import { ArrowForwardIcon } from "@chakra-ui/icons";
 import { observer } from "mobx-react";
 import { useNavigate } from "react-router-dom";
@@ -22,7 +22,6 @@ import { StartNewWarning } from "./StartNewWarning";
 import { CredentialsCollectionForm } from "./CredentialsCollectionForm";
 
 export const BackHome = observer(() => {
-  const theme = useTheme();
   const { tone, colorScheme } = useColorScheme();
   const navigate = useNavigate();
   const store = useStore();

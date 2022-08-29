@@ -1,8 +1,10 @@
 import React from "react";
 import { observer } from "mobx-react";
-import { Box, Container, Heading, Stack, useTheme } from "@chakra-ui/react";
+import { Box, Container, Heading, Stack, Text, useTheme } from "@chakra-ui/react";
 
 import { useColorScheme } from "models/useColorScheme";
+
+import { useInstallation } from "AppContext";
 
 import { CurvedBox } from "./CurvedBox";
 import { Header } from "./Header";
@@ -19,6 +21,7 @@ interface ILayout {
 
 export const Layout = observer(({ step, title, description, explanation, warning, children }: ILayout) => {
   const theme = useTheme();
+  const installation = useInstallation();
   const { tone } = useColorScheme();
 
   return (
@@ -37,6 +40,13 @@ export const Layout = observer(({ step, title, description, explanation, warning
       </Box>
 
       <Container maxW="container.md" pt="0px" position="relative">
+        {step > 3 && (
+          <Box sx={{ mt: 4 }} float="right" fontSize="small" textAlign="center" color={tone(100)}>
+            <Text>Region: {installation.region}</Text>
+            <Text>ID: {installation.id}</Text>
+          </Box>
+        )}
+
         <Heading display="inline-block" size="lg" pt="16px" pb="30px" color={tone(50)} letterSpacing="-1px">
           {title}
         </Heading>

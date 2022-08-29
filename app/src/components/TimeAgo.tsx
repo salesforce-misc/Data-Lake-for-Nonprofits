@@ -11,7 +11,9 @@ interface ITimeAgo {
 
 export const TimeAgo = observer(({ time }: ITimeAgo) => {
   if (isNil(time)) return null;
+
   if (time === 0) return null;
+
   if (isString(time) && isEmpty(time)) return null;
 
   return <ReactTimeAgo date={time} />;

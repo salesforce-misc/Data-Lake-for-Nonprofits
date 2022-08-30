@@ -31,11 +31,11 @@ Application has been tested successfully using e2e automated testing for followi
 | US East (N. Virginia)    | us-east-1      | &check; | &check; |        |      |
 | US East (Ohio)           | us-east-2      | &check; | &check; |        |      |
 | US West (N. California)  | us-west-1      | &check; | &check; |        |      |
-| US West (Oregon)         | us-west-2      | &check; |         |        |      |
-| Asia Pacific (Mumbai)    | ap-south-1     | &check; |         |        |      |
-| Asia Pacific (Seoul)     | ap-northeast-2 | &check; |         |        |      |
-| Asia Pacific (Singapore) | ap-southeast-1 | &check; |         |        |      |
-| Asia Pacific (Sydney)    | ap-southeast-2 | &check; |         |        |      |
+| US West (Oregon)         | us-west-2      | &check; | &check; |        |      |
+| Asia Pacific (Mumbai)    | ap-south-1     | &check; | &check; |        |      |
+| Asia Pacific (Seoul)     | ap-northeast-2 | &check; | &check; |        |      |
+| Asia Pacific (Singapore) | ap-southeast-1 | &check; | &check; |        |      |
+| Asia Pacific (Sydney)    | ap-southeast-2 | &check; | &check; |        |      |
 | Asia Pacific (Tokyo)     | ap-northeast-1 | &check; |         |        |      |
 | Canada (Central)         | ca-central-1   | &check; |         |        |      |
 | Europe (Frankfurt)       | eu-central-1   | &check; |         |        |      |

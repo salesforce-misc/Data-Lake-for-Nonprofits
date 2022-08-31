@@ -36,12 +36,12 @@ Application has been tested successfully using e2e automated testing for followi
 | Asia Pacific (Seoul)     | ap-northeast-2 | &check; | &check; |        |      |
 | Asia Pacific (Singapore) | ap-southeast-1 | &check; | &check; |        |      |
 | Asia Pacific (Sydney)    | ap-southeast-2 | &check; | &check; |        |      |
-| Asia Pacific (Tokyo)     | ap-northeast-1 | &check; |         |        |      |
-| Canada (Central)         | ca-central-1   | &check; |         |        |      |
-| Europe (Frankfurt)       | eu-central-1   | &check; |         |        |      |
-| Europe (Ireland)         | eu-west-1      | &check; |         |        |      |
-| Europe (London)          | eu-west-2      | &check; |         |        |      |
-| Europe (Paris)           | eu-west-3      | &check; |         |        |      |
+| Asia Pacific (Tokyo)     | ap-northeast-1 | &check; | &check; |        |      |
+| Canada (Central)         | ca-central-1   | &check; | &check; |        |      |
+| Europe (Frankfurt)       | eu-central-1   | &check; | &check; |        |      |
+| Europe (Ireland)         | eu-west-1      | &check; | &check; |        |      |
+| Europe (London)          | eu-west-2      | &check; | &check; |        |      |
+| Europe (Paris)           | eu-west-3      | &check; | &check; |        |      |
 
 ## Further development for e2e testing
 

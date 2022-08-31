@@ -1,6 +1,8 @@
 import { Builder, By, Key, until, WebDriver } from "selenium-webdriver";
 import * as chrome from "selenium-webdriver/chrome";
 import * as firefox from "selenium-webdriver/firefox";
+import * as safari from "selenium-webdriver/safari";
+
 import { awsRegions } from "data/aws-regions";
 
 const waitFor = async (s: number) => new Promise((r) => setTimeout(r, s));
@@ -18,13 +20,18 @@ const useFirefox = (driver: WebDriver) => {
   return new Builder().setFirefoxOptions(options).forBrowser("firefox").build();
 };
 
+const useSafari = (driver: WebDriver) => {
+  let options = new safari.Options();
+  return new Builder().setSafariOptions(options).forBrowser("safari").build();
+};
+
 describe("App", () => {
   const testUrl = "http://localhost:3000";
 
   let driver: WebDriver;
 
   beforeEach(async () => {
-    driver = await useFirefox(driver);
+    driver = await useSafari(driver);
   });
 
   afterEach(async () => {
@@ -32,7 +39,7 @@ describe("App", () => {
   });
 
   test("e2e testing", async () => {
-    const region = awsRegions[3].name; // You can use just the region name as us-east-1 as well.
+    const region = awsRegions[13].name; // You can use just the region name as us-east-1 as well.
     await AppTest(driver, testUrl, region);
   });
 });

@@ -168,6 +168,7 @@ Resources:
         ExcludeCharacters: " %+:;{}/\\@\"'"
   SecretRotation:
     Type: AWS::SecretsManager::RotationSchedule
+    DependsOn: SecretRotationLambda
     Properties:
       RotateImmediatelyOnUpdate: false
       RotationLambdaARN: !GetAtt SecretRotationLambda.Arn

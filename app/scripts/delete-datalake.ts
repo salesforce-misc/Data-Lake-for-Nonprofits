@@ -1,5 +1,6 @@
 import { prompt } from "inquirer";
 import { awsRegionsMap } from "../src/data/aws-regions";
+import { getProfiles } from "./get-credentials";
 import { cleanup, consolidateCleanup, CleanupItems } from "./lib/cleanup";
 import { deleteStack } from "./lib/delete-stack";
 
@@ -12,7 +13,7 @@ interface IAnswers {
 export const prompts = async (): Promise<IAnswers> => {
   return await prompt([
     { type: "list", name: "region", message: "AWS Region", choices: Object.keys(awsRegionsMap).sort(), default: "us-east-1" },
-    { type: "input", name: "profile", message: "AWS Profile", default: "sforg" },
+    { type: "list", name: "profile", message: "AWS Profile", choices: await getProfiles() },
     { type: "input", name: "installationId", message: "Installation ID" },
   ]);
 };

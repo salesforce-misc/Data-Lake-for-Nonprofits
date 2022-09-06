@@ -2,6 +2,8 @@ import { Builder, By, Key, until, WebDriver } from "selenium-webdriver";
 import * as chrome from "selenium-webdriver/chrome";
 import * as firefox from "selenium-webdriver/firefox";
 import * as safari from "selenium-webdriver/safari";
+import * as edge from "selenium-webdriver/edge";
+import * as edgedriver from "@sitespeed.io/edgedriver";
 
 import { awsRegions } from "data/aws-regions";
 
@@ -25,13 +27,22 @@ const useSafari = (driver: WebDriver) => {
   return new Builder().setSafariOptions(options).forBrowser("safari").build();
 };
 
+const useEdge = (driver: WebDriver) => {
+  let options = new edge.Options();
+  return new Builder()
+    .setEdgeOptions(options)
+    .forBrowser("MicrosoftEdge")
+    .setEdgeService(new edge.ServiceBuilder(edgedriver.binPath("/usr/local/bin/msedgedriver")))
+    .build();
+};
+
 describe("App", () => {
   const testUrl = "http://localhost:3000";
 
   let driver: WebDriver;
 
   beforeEach(async () => {
-    driver = await useSafari(driver);
+    driver = await useEdge(driver);
   });
 
   afterEach(async () => {
@@ -39,12 +50,15 @@ describe("App", () => {
   });
 
   test("e2e testing", async () => {
-    const region = awsRegions[13].name; // You can use just the region name as us-east-1 as well.
+    const region = awsRegions[0].name; // You can use just the region name as us-east-1 as well.
     await AppTest(driver, testUrl, region);
   });
 });
 
 const AppTest = async (driver: WebDriver, testUrl: string, region: string) => {
+  // Maximize the window
+  driver.manage().window().maximize();
+
   // Go to home page
   await driver.get(testUrl);
   await driver.findElement(By.id("home")).isDisplayed();

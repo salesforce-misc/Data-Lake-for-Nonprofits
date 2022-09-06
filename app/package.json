@@ -7,7 +7,7 @@
     "url": "https://github.com/salesforce-misc/Data-Lake-for-Nonprofit-Cloud"
   },
   "publishConfig": {
-    "registry":"https://npm.pkg.github.com"
+    "registry": "https://npm.pkg.github.com"
   },
   "scripts": {
     "start": "yarn copy && react-scripts start",
@@ -112,6 +112,7 @@
     "prettier": "^2.7.1",
     "react-test-renderer": "^17.0.2",
     "selenium-webdriver": "^4.4.0",
+    "sitespeed.io": "^25.10.0",
     "ts-node": "^10.7.0",
     "wait-on": "^6.0.1"
   }

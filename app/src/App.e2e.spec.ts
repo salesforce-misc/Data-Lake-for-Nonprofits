@@ -42,7 +42,7 @@ describe("App", () => {
   let driver: WebDriver;
 
   beforeEach(async () => {
-    driver = await useEdge(driver);
+    driver = await useChrome(driver);
   });
 
   afterEach(async () => {
@@ -50,7 +50,7 @@ describe("App", () => {
   });
 
   test("e2e testing", async () => {
-    const region = awsRegions[0].name; // You can use just the region name as us-east-1 as well.
+    const region = awsRegions[5].name; // You can use just the region name as us-east-1 as well.
     await AppTest(driver, testUrl, region);
   });
 });
@@ -91,6 +91,8 @@ const AppTest = async (driver: WebDriver, testUrl: string, region: string) => {
   await driver.findElement(By.id("step2")).isDisplayed();
   await driver.findElement(By.id("h2-title")).isDisplayed();
   await driver.findElement(By.id("step2-btn-appflow-created-yes")).click();
+
+  await driver.wait(until.elementIsNotVisible(driver.findElement(By.id("appflow-connection-loader"))));
 
   await waitFor(1500);
   await driver.wait(until.elementIsVisible(driver.findElement(By.id("step2-h2-select-connection"))));

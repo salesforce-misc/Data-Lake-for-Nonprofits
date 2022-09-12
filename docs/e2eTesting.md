@@ -26,22 +26,22 @@ In order to run e2e tests in your local environment, follow these steps.
 
 Application has been tested successfully using e2e automated testing for following region and browsers
 
-| Region/Browser           |                | Chrome  | Firefox | Safari | Edge |
-| ------------------------ | -------------- | ------- | ------- | ------ | ---- |
-| US East (N. Virginia)    | us-east-1      | &check; | &check; |        |      |
-| US East (Ohio)           | us-east-2      | &check; | &check; |        |      |
-| US West (N. California)  | us-west-1      | &check; | &check; |        |      |
-| US West (Oregon)         | us-west-2      | &check; | &check; |        |      |
-| Asia Pacific (Mumbai)    | ap-south-1     | &check; | &check; |        |      |
-| Asia Pacific (Seoul)     | ap-northeast-2 | &check; | &check; |        |      |
-| Asia Pacific (Singapore) | ap-southeast-1 | &check; | &check; |        |      |
-| Asia Pacific (Sydney)    | ap-southeast-2 | &check; | &check; |        |      |
-| Asia Pacific (Tokyo)     | ap-northeast-1 | &check; | &check; |        |      |
-| Canada (Central)         | ca-central-1   | &check; | &check; |        |      |
-| Europe (Frankfurt)       | eu-central-1   | &check; | &check; |        |      |
-| Europe (Ireland)         | eu-west-1      | &check; | &check; |        |      |
-| Europe (London)          | eu-west-2      | &check; | &check; |        |      |
-| Europe (Paris)           | eu-west-3      | &check; | &check; |        |      |
+| Region/Browser           | Applied Qouta |                | Chrome  | Firefox | Safari  | Edge    |
+| ------------------------ | ------------- | -------------- | ------- | ------- | ------- | ------- |
+| US East (N. Virginia)    | 10            | us-east-1      | &check; | &check; | &check; | &check; |
+| US East (Ohio)           | 1000          | us-east-2      | &check; | &check; | &check; | &check; |
+| US West (N. California)  | 1000          | us-west-1      | &check; | &check; | &check; | &check; |
+| US West (Oregon)         | 1000          | us-west-2      | &check; | &check; | &check; | &check; |
+| Asia Pacific (Mumbai)    | 1000          | ap-south-1     | &check; | &check; | &check; | &check; |
+| Asia Pacific (Seoul)     | 1000          | ap-northeast-2 | &check; | &check; | &check; | &check; |
+| Asia Pacific (Singapore) | 1000          | ap-southeast-1 | &check; | &check; | &check; | &check; |
+| Asia Pacific (Sydney)    | 1000          | ap-southeast-2 | &check; | &check; | &check; | &check; |
+| Asia Pacific (Tokyo)     | 1000          | ap-northeast-1 | &check; | &check; | &check; | &check; |
+| Canada (Central)         | 1000          | ca-central-1   | &check; | &check; | &check; | &check; |
+| Europe (Frankfurt)       | 1000          | eu-central-1   | &check; | &check; | &check; | &check; |
+| Europe (Ireland)         | 1000          | eu-west-1      | &check; | &check; | &check; | &check; |
+| Europe (London)          | 1000          | eu-west-2      | &check; | &check; | &check; | &check; |
+| Europe (Paris)           | 10            | eu-west-3      | &check; | &check; | &check; | &check; |
 
 ## Further development for e2e testing
 
@@ -50,3 +50,15 @@ Even though, e2e test in `App.e2e.spec.ts` file run the most common use cases, m
 ## Warning
 
 Keep in mind that running e2e tests will incur cost in your AWS account.
+
+## How to delete a datalake
+
+To delete the datalake and all resources provisioned, run the following command in `app` folder.
+
+`yarn delete-datalake`
+
+You will have to select the AWS Region as well as the AWS profile to connect to your AWS account. Lastly, you will have to input the datalake installation ID to initiate deletion.
+
+## Salesforce limits during Testing
+
+During testing, certain limits may affect the application. One such limit is the refresh token limit per connected app which is 5. This results in AppFlow connectors to Salesforce needing to be refreshed/reconnected which may affect periodic data imports. In real use cases, this does not affect NPO Users since they are not expected to use more than 5 connectors. However, this limit could be exceeded during testing. More details on this can be read <a href="https://developer.salesforce.com/forums/?id=9060G000000UUjlQAG">here</a>

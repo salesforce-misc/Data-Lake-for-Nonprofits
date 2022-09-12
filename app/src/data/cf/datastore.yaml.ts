@@ -243,6 +243,7 @@ Resources:
               - Sid: "SecretManagerAccess"
                 Action:
                   - "secretsmanager:GetSecretValue"
+                  - "secretsmanager:DescribeSecret"
                 Effect: "Allow"
                 Resource: !Sub
                   - "arn:\${AWS::Partition}:secretsmanager:\${AWS::Region}:\${AWS::AccountId}:secret:\${SecretNamePrefix}*"

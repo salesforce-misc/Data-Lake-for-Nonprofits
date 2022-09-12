@@ -108,8 +108,13 @@ Array [
     <div
       className="chakra-container css-11yz6e2"
     >
+      <h2
+        className="chakra-heading css-noy8un"
+      >
+        Sit back and relax
+      </h2>
       <div
-        className="css-1efnwyh"
+        className="css-1kveix6"
       >
         <p
           className="chakra-text css-0"
@@ -124,11 +129,6 @@ Array [
           1
         </p>
       </div>
-      <h2
-        className="chakra-heading css-noy8un"
-      >
-        Sit back and relax
-      </h2>
       <div
         className="css-vfbt1y"
       >
@@ -227,7 +227,7 @@ Array [
           <div
             className="chakra-alert__desc css-1oa6yzk"
           >
-            Great news! we got everything in place and you are ready to proceed to the next step
+            Great news! We got everything in place and you are ready to proceed to the next step
           </div>
         </div>
         <div

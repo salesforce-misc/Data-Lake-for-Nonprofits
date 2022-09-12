@@ -131,7 +131,7 @@ describe("Step5 component", () => {
     );
 
     expect(screen.getAllByText(/sit back and relax/i)).toBeTruthy();
-    expect(screen.getAllByText(/installation id/i)).toBeTruthy();
+    expect(screen.getAllByText(/region/i)).toBeTruthy();
     expect(screen.getByText(/we are provisioning the data lake/i)).toBeInTheDocument();
     expect(screen.queryByText("Previous")).not.toBeInTheDocument();
     expect(screen.getByText("Next")).toBeInTheDocument();

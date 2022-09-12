@@ -108,7 +108,7 @@ describe("Step4 component", () => {
     );
 
     expect(screen.getAllByText(/review and confirm/i)).toBeTruthy();
-    expect(screen.getAllByText(/installation id/i)).toBeTruthy();
+    expect(screen.getAllByText(/region/i)).toBeTruthy();
     expect(screen.getByText(/did we get everything right/i)).toBeInTheDocument();
     expect(screen.getByText("Previous")).toBeInTheDocument();
     expect(screen.getByText("Next")).toBeInTheDocument();

@@ -125,7 +125,7 @@ describe("Step6 component", () => {
     );
 
     expect(screen.getAllByText(/connect to analytics/i)).toBeTruthy();
-    expect(screen.getAllByText(/installation id/i)).toBeTruthy();
+    expect(screen.getAllByText(/region/i)).toBeTruthy();
     expect(screen.getByText(/now that you have the data lake provisioned/i)).toBeInTheDocument();
     expect(screen.getByText("Previous")).toBeInTheDocument();
     expect(screen.queryByText("Next")).not.toBeInTheDocument();

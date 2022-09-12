@@ -1,10 +1,11 @@
 import { Instance } from "mobx-state-tree";
 import { Parameter, Stack } from "@aws-sdk/client-cloudformation";
 
-import { yaml } from "../../data/cf/buckets.yaml";
-import { OperationContext, getOutputValue } from "./utils";
+import { yaml } from "data/cf/buckets.yaml";
+import { websiteUrlOrigin, assetWebsiteUrl } from "helpers/settings";
+
 import { ProvisionStack, param } from "./ProvisionStack";
-import { websiteUrlOrigin, assetWebsiteUrl } from "../../helpers/settings";
+import { OperationContext, getOutputValue } from "./utils";
 
 export const ProvisionBucketsStack = ProvisionStack.named("ProvisionBucketsStack")
   .props({

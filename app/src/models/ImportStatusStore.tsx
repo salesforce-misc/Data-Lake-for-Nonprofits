@@ -10,16 +10,17 @@ import { types, Instance, getParent } from "mobx-state-tree";
 import { values } from "mobx";
 import { useEffect } from "react";
 
-import { useInstallation } from "../AppContext";
+import { useInstallation } from "AppContext";
+import { s3GetJson } from "api/s3-get-json";
+import { describeSFN } from "api/describe-sfn";
+import { getExecutionFailureInfo, getSFNHistory, isExecutionFailureEvent } from "api/get-sfn-history";
+import { s3ListObjects, S3Object } from "api/list-s3-objects";
+import { getLatestSFN } from "api/get-lastest-sfn";
+import { delay, niceByte, niceNumber } from "helpers/utils";
+
 import { BaseStore, isStoreError, isStoreLoading, isStoreNew, isStoreReady, isStoreReLoading } from "./BaseStore";
 import { ICredentials } from "./helpers/Credentials";
 import { IInstallation } from "./Installation";
-import { describeSFN } from "../api/describe-sfn";
-import { delay, niceByte, niceNumber } from "../helpers/utils";
-import { getExecutionFailureInfo, getSFNHistory, isExecutionFailureEvent } from "../api/get-sfn-history";
-import { s3ListObjects, S3Object } from "../api/list-s3-objects";
-import { s3GetJson } from "../api/s3-get-json";
-import { getLatestSFN } from "../api/get-lastest-sfn";
 
 const isSuccessStatus = (status: ExecutionStatus) => {
   // For all statuses, see https://docs.aws.amazon.com/step-functions/latest/apireference/API_DescribeExecution.html

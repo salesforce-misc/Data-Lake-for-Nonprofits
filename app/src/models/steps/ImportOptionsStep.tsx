@@ -3,8 +3,9 @@ import isNumber from "lodash/isNumber";
 import padStart from "lodash/padStart";
 import { types, Instance } from "mobx-state-tree";
 
+import { humanDay } from "helpers/utils";
+
 import { BaseStep } from "./BaseStep";
-import { humanDay } from "../../helpers/utils";
 
 /**
  * Represents the import frequency

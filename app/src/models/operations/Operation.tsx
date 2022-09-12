@@ -1,6 +1,6 @@
 import isEmpty from "lodash/isEmpty";
 import { types, Instance } from "mobx-state-tree";
-import { genId } from "../../helpers/id-gen";
+import { genId } from "helpers/id-gen";
 
 import { OperationContext } from "./utils";
 
@@ -123,8 +123,7 @@ export const Operation = types
 
     get runId(): string {
       return RUN_ID;
-    }
-
+    },
   }))
 
   .views((self) => ({
@@ -147,12 +146,12 @@ export const Operation = types
     get progressPercentage() {
       let value = self._progressPercentage;
       // Relax a bit on precision
-      if (value > (Math.floor(value) + 0.99)) value = Math.floor(value) + 1;
-      return value > 100? 100: value;
+      if (value > Math.floor(value) + 0.99) value = Math.floor(value) + 1;
+      return value > 100 ? 100 : value;
     },
 
     get progressMessage() {
-      if  (isEmpty(self._progressMessage)) return self.notStartedMessage;
+      if (isEmpty(self._progressMessage)) return self.notStartedMessage;
       return self._progressMessage;
     },
 
@@ -183,11 +182,11 @@ export const Operation = types
         self.setProgressPercentage(0);
         self._errorDetail = "";
         self.startInterval();
-        
+
         const promise: Promise<void> = new Promise(async (resolve) => {
           try {
             await self.doRun(context);
-            
+
             self.setProgressPercentage(100);
             self.setStatus(OperationStatus.Success);
             self.setProgressMessage(self.successMessage);

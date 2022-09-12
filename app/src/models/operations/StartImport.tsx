@@ -1,11 +1,12 @@
 import isEmpty from "lodash/isEmpty";
 import { Instance } from "mobx-state-tree";
 
-import { startSFN } from "../../api/start-sfn";
+import { isStoreReady, isStoreError } from "models/BaseStore";
+import { startSFN } from "api/start-sfn";
+import { delay } from "helpers/utils";
+
 import { Operation } from "./Operation";
 import { OperationContext } from "./utils";
-import { delay } from "../../helpers/utils";
-import { isStoreReady, isStoreError } from "../BaseStore";
 
 export const StartImport = Operation.named("StartImport")
   .props({
@@ -124,7 +125,7 @@ export const StartImport = Operation.named("StartImport")
       await self.startWorkflow(context);
 
       await delay(10); // Give SFN a chance to start
-      
+
       // Trigger the status store loading
       statusStore.load({ executionArn: self.executionArn, startTime: self.startTime });
 

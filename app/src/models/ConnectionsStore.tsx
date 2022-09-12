@@ -2,8 +2,9 @@ import { useEffect } from "react";
 import isEmpty from "lodash/isEmpty";
 import { types, Instance, getParent } from "mobx-state-tree";
 
-import { listAppflowConnections } from "../api/list-appflow-connections";
-import { useInstallation } from "../AppContext";
+import { useInstallation } from "AppContext";
+import { listAppflowConnections } from "api/list-appflow-connections";
+
 import { BaseStore, isStoreNew, isStoreError, isStoreReady, isStoreLoading, isStoreReLoading } from "./BaseStore";
 import { ICredentials } from "./helpers/Credentials";
 import { IInstallation } from "./Installation";

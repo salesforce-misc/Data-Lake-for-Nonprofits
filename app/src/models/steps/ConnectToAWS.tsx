@@ -1,10 +1,11 @@
 import { getParent, types } from "mobx-state-tree";
 import isEmpty from "lodash/isEmpty";
 
+import { CredentialsValidationErrorCode, CredentialsValidationException, validateCredentials } from "api/validate-credentials";
+import { IInstallation } from "models/Installation";
+import { IAppStore } from "models/AppStore";
+
 import { BaseStep, YesNoAnswer } from "./BaseStep";
-import { CredentialsValidationErrorCode, CredentialsValidationException, validateCredentials } from "../../api/validate-credentials";
-import { IInstallation } from "../Installation";
-import { IAppStore } from "../AppStore";
 
 /**
  * A step model for the step where we ask the user to connect to AWS
@@ -22,9 +23,10 @@ export const ConnectToAWS = BaseStep.named("ConnectToAWS")
       async connectToAws(accessKey: string, secretKey: string, region: string) {
         const { accountId, userArn, userName } = await validateCredentials({ accessKey, secretKey, region });
         const parent = getParent<IInstallation>(self);
-        
+
         self.runInAction(() => {
-          if (!isEmpty(parent.accountId) && parent.accountId !== accountId) throw new CredentialsValidationException(CredentialsValidationErrorCode.AccountMismatch);
+          if (!isEmpty(parent.accountId) && parent.accountId !== accountId)
+            throw new CredentialsValidationException(CredentialsValidationErrorCode.AccountMismatch);
           parent.setAccountId(accountId);
           parent.setRegion(region);
 

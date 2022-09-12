@@ -43,7 +43,7 @@ export const AppFlowConnectionSelection = observer(() => {
         <Box textAlign="center" fontWeight="bold" color="blue.500" fontSize="sm" mb={2}>
           Retrieving AppFlow Connection Names
         </Box>
-        <Progress size="sm" isIndeterminate colorScheme="blue" bg="blue.75" />
+        <Progress id="appflow-connection-loader" size="sm" isIndeterminate colorScheme="blue" bg="blue.75" />
       </Box>
     )) ||
     (isError && !isReloading && (

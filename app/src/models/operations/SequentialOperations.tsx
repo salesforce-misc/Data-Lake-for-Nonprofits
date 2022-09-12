@@ -1,9 +1,8 @@
 import last from "lodash/last";
 import { Instance } from "mobx-state-tree";
-import { OperationContext } from "./utils";
 
 import { IOperation, Operation, OperationStatus } from "./Operation";
-import { mstOperationsType } from "./utils";
+import { mstOperationsType, OperationContext } from "./utils";
 
 /**
  * A model that represents sequential operations.

@@ -39,7 +39,12 @@ describe("BackHome -> DataTablePanel component", () => {
       return {
         isError: false,
         isReady: true,
-        store: { selectedObjects: [{}, {}] },
+        store: {
+          selectedObjects: [
+            { label: "test1", name: "Test1" },
+            { label: "test2", name: "Test2" },
+          ],
+        },
       };
     });
 

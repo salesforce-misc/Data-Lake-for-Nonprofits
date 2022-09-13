@@ -16,6 +16,7 @@
     "format": "prettier --config .prettierrc --write \"src/**/*.{ts,tsx,js,jsx,json,yml,yaml,md}\"",
     "build": "yarn copy && yarn move-env-up && react-scripts build && yarn move-env-down",
     "test": "react-scripts test --testPathPattern=\"(\\.|/)(test)\\.[jt]sx?$\"",
+    "test:coverage": "react-scripts --collectCoverage test --testPathPattern=\"(\\.|/)(test)\\.[jt]sx?$\"",
     "test:e2e": "wait-on http://localhost:3000/ && react-scripts test --testPathPattern=\"(\\.|/)e2e\\.(spec)\\.[jt]sx?$\" --testTimeout=300000 --runInBand --watchAll=false",
     "clean": "rm -rf build/ amplify.zip public/assets/*.zip",
     "copy": "yarn copy-assets && yarn copy-cf",

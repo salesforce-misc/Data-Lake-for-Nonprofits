@@ -40,49 +40,7 @@ export const WarningBanner = observer(({ user }: IWarningBanner) => {
     setProcessing(false);
   };
 
-  let content = null;
   if (user.hasAccess) return null;
-  if (user.accessStatus === TUserAccessStatus.No_Keys) {
-    // @ts-ignore
-    content = (
-      <Alert status="warning" mt={0} mb={4} borderRadius="md" color="red.700" alignItems="flex-start" fontSize="sm">
-        <AlertDescription>
-          The user does not have access to the data lake because there are no access keys associated with the user. Create an access key for the user
-          using the button below.
-        </AlertDescription>
-      </Alert>
-    );
-  }
-
-  if (user.accessStatus === TUserAccessStatus.No_Active_Keys) {
-    // @ts-ignore
-    content = (
-      <Alert status="warning" mt={0} mb={4} borderRadius="md" color="red.700" alignItems="flex-start" fontSize="sm">
-        <AlertDescription>
-          The user does not have access to the data lake because all the access keys are inactive. Activate one for the user to gain access.
-        </AlertDescription>
-      </Alert>
-    );
-  }
-
-  if (user.accessStatus === TUserAccessStatus.No_POLICY) {
-    // @ts-ignore
-    content = (
-      <Alert status="warning" mt={0} mb={4} borderRadius="md" color="red.700" alignItems="flex-start" fontSize="sm">
-        <Box>
-          <AlertDescription>
-            The user does not have access to the data lake because the necessary policy is not attached to the user. Click the 'Attach Policy' button
-            to attempt to remedy the problem.
-          </AlertDescription>
-          <Box textAlign="right" mt={4}>
-            <Button colorScheme={colorScheme} size="xs" isLoading={processing} loadingText="Attaching Policy" onClick={handleAttachPolicy}>
-              Attach Policy
-            </Button>
-          </Box>
-        </Box>
-      </Alert>
-    );
-  }
 
   return (
     <>
@@ -95,8 +53,36 @@ export const WarningBanner = observer(({ user }: IWarningBanner) => {
           <CloseButton position="absolute" right="8px" top="8px" onClick={() => setError("")} />
         </Alert>
       )}
-
-      {content}
+      {(user.accessStatus === TUserAccessStatus.No_Keys && (
+        <Alert status="warning" mt={0} mb={4} borderRadius="md" color="red.700" alignItems="flex-start" fontSize="sm">
+          <AlertDescription>
+            The user does not have access to the data lake because there are no access keys associated with the user. Create an access key for the
+            user using the button below.
+          </AlertDescription>
+        </Alert>
+      )) ||
+        (user.accessStatus === TUserAccessStatus.No_Active_Keys && (
+          <Alert status="warning" mt={0} mb={4} borderRadius="md" color="red.700" alignItems="flex-start" fontSize="sm">
+            <AlertDescription>
+              The user does not have access to the data lake because all the access keys are inactive. Activate one for the user to gain access.
+            </AlertDescription>
+          </Alert>
+        )) ||
+        (user.accessStatus === TUserAccessStatus.No_POLICY && (
+          <Alert status="warning" mt={0} mb={4} borderRadius="md" color="red.700" alignItems="flex-start" fontSize="sm">
+            <Box>
+              <AlertDescription>
+                The user does not have access to the data lake because the necessary policy is not attached to the user. Click the 'Attach Policy'
+                button to attempt to remedy the problem.
+              </AlertDescription>
+              <Box textAlign="right" mt={4}>
+                <Button colorScheme={colorScheme} size="xs" isLoading={processing} loadingText="Attaching Policy" onClick={handleAttachPolicy}>
+                  Attach Policy
+                </Button>
+              </Box>
+            </Box>
+          </Alert>
+        ))}
     </>
   );
 });

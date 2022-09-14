@@ -1,7 +1,7 @@
 import { cleanup, screen } from "@testing-library/react";
 import { create } from "react-test-renderer";
 
-import { render, RenderWithChakra } from "test-utils";
+import { render, CustomChakraProvider } from "test-utils";
 
 import { TimeInput } from "components/TimeInput";
 
@@ -12,9 +12,9 @@ describe("TimeInput component", () => {
 
   test("snapshot", () => {
     const tree = create(
-      <RenderWithChakra>
+      <CustomChakraProvider>
         <TimeInput hour="12" minute="15" onChange={mockOnChange} />
-      </RenderWithChakra>
+      </CustomChakraProvider>
     ).toJSON();
 
     expect(tree).toMatchSnapshot();

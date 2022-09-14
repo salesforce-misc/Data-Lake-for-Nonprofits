@@ -1,7 +1,7 @@
 import { cleanup, screen } from "@testing-library/react";
 import { create } from "react-test-renderer";
 
-import { render, RenderWithChakra } from "test-utils";
+import { render, CustomChakraProvider } from "test-utils";
 
 import { SFObject } from "models/helpers/SFObject";
 
@@ -22,9 +22,9 @@ describe("ObjectsTable -> EmptyMessage component", () => {
     });
 
     const tree = create(
-      <RenderWithChakra>
+      <CustomChakraProvider>
         <EmptyMessage objects={[sfModel]} viewOption={ObjectsViewOptions.All} searchText="" />
-      </RenderWithChakra>
+      </CustomChakraProvider>
     ).toJSON();
 
     expect(tree).toMatchSnapshot();

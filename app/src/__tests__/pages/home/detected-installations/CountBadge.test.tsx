@@ -1,7 +1,7 @@
 import { cleanup, screen } from "@testing-library/react";
 import { create } from "react-test-renderer";
 
-import { render, RenderWithChakra } from "test-utils";
+import { render, CustomChakraProvider } from "test-utils";
 
 import { StoreProvider } from "AppContext";
 
@@ -14,11 +14,11 @@ describe("DetectedInstallations -> CountBadge component", () => {
 
   test("snapshot", () => {
     const tree = create(
-      <RenderWithChakra>
+      <CustomChakraProvider>
         <StoreProvider>
           <CountBadge />
         </StoreProvider>
-      </RenderWithChakra>
+      </CustomChakraProvider>
     ).toJSON();
 
     expect(tree).toMatchSnapshot();

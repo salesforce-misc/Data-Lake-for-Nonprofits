@@ -2,108 +2,112 @@
 
 exports[`BackHome -> DataTablePanel component snapshot 1`] = `
 Array [
-  <h2
-    className="chakra-heading css-z71ux5"
+  <div
+    data-testid="test-root"
   >
-    Objects 
-    <span
-      className="chakra-badge css-1hhvihq"
+    <h2
+      className="chakra-heading css-z71ux5"
     >
-      1
-    </span>
-  </h2>,
-  <table
-    className="chakra-table css-94ssnp"
-    role="table"
-  >
-    <thead
-      className="css-0"
+      Objects 
+      <span
+        className="chakra-badge css-1hhvihq"
+      >
+        1
+      </span>
+    </h2>
+    <table
+      className="chakra-table css-94ssnp"
+      role="table"
     >
-      <tr
+      <thead
         className="css-0"
-        role="row"
       >
-        <th
-          className="css-y40s86"
+        <tr
+          className="css-0"
+          role="row"
         >
-          Type
-        </th>
-        <th
-          className="css-y40s86"
-          data-is-numeric={true}
-        >
-          # Fields
-        </th>
-      </tr>
-    </thead>
-    <tbody
-      className="css-0"
-    >
-      <tr
-        className="css-4g6ai3"
-        onClick={[Function]}
-        role="row"
-      >
-        <td
-          className="css-1etw0vg"
-          role="gridcell"
-        >
-          <div
-            className="chakra-stack css-snbr68"
+          <th
+            className="css-y40s86"
           >
-            <svg
-              className="chakra-icon css-m6c8f6"
-              focusable={false}
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
-                fill="currentColor"
-              />
-            </svg>
-            <div
-              className="css-0"
-            >
-                
-              <p
-                className="chakra-text css-1fk7407"
-              >
-                ( 
-                 )
-              </p>
-            </div>
-          </div>
-        </td>
-        <td
-          className="css-1etw0vg"
-          data-is-numeric={true}
-          role="gridcell"
-        >
-          N/A
-          /
-          N/A
-        </td>
-      </tr>
-    </tbody>
-    <tfoot
-      className="css-5wov5z"
-    >
-      <tr
+            Type
+          </th>
+          <th
+            className="css-y40s86"
+            data-is-numeric={true}
+          >
+            # Fields
+          </th>
+        </tr>
+      </thead>
+      <tbody
         className="css-0"
-        role="row"
       >
-        <th
-          className="css-y40s86"
-        />
-        <th
-          className="css-y40s86"
-          data-is-numeric={true}
+        <tr
+          className="css-4g6ai3"
+          onClick={[Function]}
+          role="row"
         >
-          N/A
-        </th>
-      </tr>
-    </tfoot>
-  </table>,
+          <td
+            className="css-1etw0vg"
+            role="gridcell"
+          >
+            <div
+              className="chakra-stack css-snbr68"
+            >
+              <svg
+                className="chakra-icon css-m6c8f6"
+                focusable={false}
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+                  fill="currentColor"
+                />
+              </svg>
+              <div
+                className="css-0"
+              >
+                  
+                <p
+                  className="chakra-text css-1fk7407"
+                >
+                  ( 
+                   )
+                </p>
+              </div>
+            </div>
+          </td>
+          <td
+            className="css-1etw0vg"
+            data-is-numeric={true}
+            role="gridcell"
+          >
+            N/A
+            /
+            N/A
+          </td>
+        </tr>
+      </tbody>
+      <tfoot
+        className="css-5wov5z"
+      >
+        <tr
+          className="css-0"
+          role="row"
+        >
+          <th
+            className="css-y40s86"
+          />
+          <th
+            className="css-y40s86"
+            data-is-numeric={true}
+          >
+            N/A
+          </th>
+        </tr>
+      </tfoot>
+    </table>
+  </div>,
   <span />,
 ]
 `;

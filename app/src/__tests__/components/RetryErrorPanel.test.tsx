@@ -1,7 +1,7 @@
 import { cleanup, screen } from "@testing-library/react";
 import { create } from "react-test-renderer";
 
-import { render, RenderWithChakra } from "test-utils";
+import { render, CustomChakraProvider } from "test-utils";
 
 import { RetryErrorPanel } from "components/RetryErrorPanel";
 
@@ -12,9 +12,9 @@ describe("RetryErrorPanel component", () => {
 
   test("snapshot", () => {
     const tree = create(
-      <RenderWithChakra>
+      <CustomChakraProvider>
         <RetryErrorPanel errorMessage="An error occurred!" onRetry={mockOnRetry} />
-      </RenderWithChakra>
+      </CustomChakraProvider>
     ).toJSON();
 
     expect(tree).toMatchSnapshot();

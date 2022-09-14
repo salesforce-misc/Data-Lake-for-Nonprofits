@@ -1,7 +1,7 @@
 import { cleanup, screen } from "@testing-library/react";
 import { create } from "react-test-renderer";
 
-import { render, RenderWithChakra } from "test-utils";
+import { render, CustomChakraProvider } from "test-utils";
 
 import { StepsBanner } from "components/StepsBanner";
 
@@ -10,9 +10,9 @@ describe("StepsBanner component", () => {
 
   test("snapshot", () => {
     const tree = create(
-      <RenderWithChakra>
+      <CustomChakraProvider>
         <StepsBanner current={1} />
-      </RenderWithChakra>
+      </CustomChakraProvider>
     ).toJSON();
 
     expect(tree).toMatchSnapshot();

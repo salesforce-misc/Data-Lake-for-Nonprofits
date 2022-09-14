@@ -2,7 +2,11 @@
 
 exports[`Markdown component snapshot 1`] = `
 Array [
-  "test-content",
+  <div
+    data-testid="test-root"
+  >
+    test-content
+  </div>,
   <span />,
 ]
 `;

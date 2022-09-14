@@ -1,7 +1,7 @@
 import { cleanup, screen } from "@testing-library/react";
 import { create } from "react-test-renderer";
 
-import { render, RenderWithChakra } from "test-utils";
+import { render, CustomChakraProvider } from "test-utils";
 
 import { StoreProvider } from "AppContext";
 
@@ -26,11 +26,11 @@ describe("DetectedInstallations -> Row component", () => {
     });
 
     const tree = create(
-      <RenderWithChakra>
+      <CustomChakraProvider>
         <StoreProvider>
           <Row item={item} selected={false} onSelected={mockOnSelected} />
         </StoreProvider>
-      </RenderWithChakra>
+      </CustomChakraProvider>
     ).toJSON();
 
     expect(tree).toMatchSnapshot();

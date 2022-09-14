@@ -1,3 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`DetectedInstallations -> CountBadge component snapshot 1`] = `<span />`;
+exports[`DetectedInstallations -> CountBadge component snapshot 1`] = `
+Array [
+  <div
+    data-testid="test-root"
+  />,
+  <span />,
+]
+`;

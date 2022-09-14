@@ -3,37 +3,41 @@
 exports[`BackHome -> ReviewGrid component snapshot 1`] = `
 Array [
   <div
-    className="css-iektmo"
+    data-testid="test-root"
   >
     <div
-      className="css-1912uuf"
+      className="css-iektmo"
     >
-      AWS Account Id
-    </div>
-    <div
-      className="css-im2a0n"
-    >
-      test-account-id
-    </div>
-    <div
-      className="css-1912uuf"
-    >
-      AWS Region
-    </div>
-    <div
-      className="css-im2a0n"
-    >
-      US East (N. Virginia)
-    </div>
-    <div
-      className="css-1912uuf"
-    >
-      Connection Name
-    </div>
-    <div
-      className="css-im2a0n"
-    >
-      test-appflow-connection-name
+      <div
+        className="css-1912uuf"
+      >
+        AWS Account Id
+      </div>
+      <div
+        className="css-im2a0n"
+      >
+        test-account-id
+      </div>
+      <div
+        className="css-1912uuf"
+      >
+        AWS Region
+      </div>
+      <div
+        className="css-im2a0n"
+      >
+        US East (N. Virginia)
+      </div>
+      <div
+        className="css-1912uuf"
+      >
+        Connection Name
+      </div>
+      <div
+        className="css-im2a0n"
+      >
+        test-appflow-connection-name
+      </div>
     </div>
   </div>,
   <span />,

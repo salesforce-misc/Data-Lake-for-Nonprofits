@@ -1,7 +1,7 @@
 import { cleanup } from "@testing-library/react";
 import { create } from "react-test-renderer";
 
-import { RenderWithChakra } from "test-utils";
+import { CustomChakraProvider } from "test-utils";
 
 import { FieldsTable } from "components/fields-table/FieldsTable";
 import { SFObject } from "models/helpers/SFObject";
@@ -20,9 +20,9 @@ describe("FieldsTable component", () => {
     });
 
     const tree = create(
-      <RenderWithChakra>
+      <CustomChakraProvider>
         <FieldsTable object={sfObject} />
-      </RenderWithChakra>
+      </CustomChakraProvider>
     ).toJSON();
 
     expect(tree).toMatchSnapshot();

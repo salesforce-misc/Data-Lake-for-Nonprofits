@@ -3,61 +3,65 @@
 exports[`DetectedInstallations -> Row component snapshot 1`] = `
 Array [
   <div
-    className="css-yuhjaa"
-    onClick={[Function]}
+    data-testid="test-root"
   >
-    <svg
-      className="chakra-icon css-1mu55r6"
-      fill="currentColor"
-      focusable={false}
-      height="1em"
-      stroke="currentColor"
-      strokeWidth="0"
-      style={
-        Object {
-          "color": undefined,
-        }
-      }
-      viewBox="0 0 16 16"
-      width="1em"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
-      />
-    </svg>
     <div
-      className="css-1tw0ka0"
+      className="css-yuhjaa"
+      onClick={[Function]}
     >
-      <div
-        className="css-gg4vpm"
+      <svg
+        className="chakra-icon css-1mu55r6"
+        fill="currentColor"
+        focusable={false}
+        height="1em"
+        stroke="currentColor"
+        strokeWidth="0"
+        style={
+          Object {
+            "color": undefined,
+          }
+        }
+        viewBox="0 0 16 16"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
       >
-        <p
-          className="chakra-text css-2ygcmq"
-        >
-          Data Lake - 
-          1
-        </p>
-        <p
-          className="chakra-text css-dw5ttn"
-        >
-          US East (N. Virginia)
-        </p>
-      </div>
+        <path
+          d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+        />
+      </svg>
       <div
-        className="css-dw5ttn"
+        className="css-1tw0ka0"
       >
-        <p
-          className="chakra-text css-5qx3eq"
+        <div
+          className="css-gg4vpm"
         >
-          •
-        </p>
-        by 
-      </div>
-      <div
-        className="css-dw5ttn"
-      >
-        Connection name: 
+          <p
+            className="chakra-text css-2ygcmq"
+          >
+            Data Lake - 
+            1
+          </p>
+          <p
+            className="chakra-text css-dw5ttn"
+          >
+            US East (N. Virginia)
+          </p>
+        </div>
+        <div
+          className="css-dw5ttn"
+        >
+          <p
+            className="chakra-text css-5qx3eq"
+          >
+            •
+          </p>
+          by 
+        </div>
+        <div
+          className="css-dw5ttn"
+        >
+          Connection name: 
+        </div>
       </div>
     </div>
   </div>,

@@ -50,7 +50,7 @@ describe("App", () => {
   });
 
   test("e2e testing", async () => {
-    const region = awsRegions[5].name; // You can use just the region name as us-east-1 as well.
+    const region = awsRegions[1].name; // You can use just the region name as us-east-1 as well.
     await AppTest(driver, testUrl, region);
   });
 });

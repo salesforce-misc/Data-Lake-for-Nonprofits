@@ -2,11 +2,15 @@
 
 exports[`BackHome -> CountBadge component snapshot 1`] = `
 Array [
-  <span
-    className="chakra-badge css-1hhvihq"
+  <div
+    data-testid="test-root"
   >
-    1
-  </span>,
+    <span
+      className="chakra-badge css-1hhvihq"
+    >
+      1
+    </span>
+  </div>,
   <span />,
 ]
 `;

@@ -2,10 +2,14 @@
 
 exports[`OutlineButton component snapshot 1`] = `
 Array [
-  <button
-    className="chakra-button css-1bex62d"
-    type="button"
-  />,
+  <div
+    data-testid="test-root"
+  >
+    <button
+      className="chakra-button css-1bex62d"
+      type="button"
+    />
+  </div>,
   <span />,
 ]
 `;

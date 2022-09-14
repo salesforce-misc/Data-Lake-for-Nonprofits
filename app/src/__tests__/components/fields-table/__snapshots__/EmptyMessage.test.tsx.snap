@@ -3,9 +3,13 @@
 exports[`EmptyMessage component snapshot 1`] = `
 Array [
   <div
-    className="css-1y07nh"
+    data-testid="test-root"
   >
-    No fields are found
+    <div
+      className="css-1y07nh"
+    >
+      No fields are found
+    </div>
   </div>,
   <span />,
 ]

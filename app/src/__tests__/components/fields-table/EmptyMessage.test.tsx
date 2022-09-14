@@ -1,7 +1,7 @@
 import { cleanup, screen } from "@testing-library/react";
 import { create } from "react-test-renderer";
 
-import { render, RenderWithChakra } from "test-utils";
+import { render, CustomChakraProvider } from "test-utils";
 
 import { FieldsViewOptions } from "models/useFieldsTable";
 import { SFObject } from "models/helpers/SFObject";
@@ -23,9 +23,9 @@ describe("EmptyMessage component", () => {
     });
 
     const tree = create(
-      <RenderWithChakra>
+      <CustomChakraProvider>
         <EmptyMessage object={sfModel} viewOption={FieldsViewOptions.All} fields={[]} searchText="" />
-      </RenderWithChakra>
+      </CustomChakraProvider>
     ).toJSON();
 
     expect(tree).toMatchSnapshot();

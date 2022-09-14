@@ -3,39 +3,43 @@
 exports[`BackHome -> ManagePanel component snapshot 1`] = `
 Array [
   <div
-    className="css-6tfm1i"
+    data-testid="test-root"
   >
-    <h2
-      className="chakra-heading css-111cakc"
-    >
-      Manage data lake
-    </h2>
-    <p
-      className="chakra-text css-0"
-    >
-      You can manage users, see the latest data import status and more. Click 
-      <b>
-        Manage
-      </b>
-       to unlock these capabilities. We will ask you for your AWS admin credentials so that we can connect to your AWS account.
-    </p>
     <div
-      className="css-s6koyw"
+      className="css-6tfm1i"
     >
-      <button
-        className="chakra-button css-wd3f61"
-        onClick={[Function]}
-        type="button"
+      <h2
+        className="chakra-heading css-111cakc"
       >
-        Start New
-      </button>
-      <button
-        className="chakra-button css-mwvyhu"
-        onClick={[Function]}
-        type="button"
+        Manage data lake
+      </h2>
+      <p
+        className="chakra-text css-0"
       >
-        Manage
-      </button>
+        You can manage users, see the latest data import status and more. Click 
+        <b>
+          Manage
+        </b>
+         to unlock these capabilities. We will ask you for your AWS admin credentials so that we can connect to your AWS account.
+      </p>
+      <div
+        className="css-s6koyw"
+      >
+        <button
+          className="chakra-button css-wd3f61"
+          onClick={[Function]}
+          type="button"
+        >
+          Start New
+        </button>
+        <button
+          className="chakra-button css-mwvyhu"
+          onClick={[Function]}
+          type="button"
+        >
+          Manage
+        </button>
+      </div>
     </div>
   </div>,
   <span />,

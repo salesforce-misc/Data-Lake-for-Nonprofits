@@ -3,31 +3,35 @@
 exports[`BackHome -> DataTableStatusInfo component snapshot 1`] = `
 Array [
   <div
-    className="css-8hr4wd"
+    data-testid="test-root"
   >
     <div
-      className="css-1lpnqa0"
-    >
-      Retrieving the data schema, this might take a few seconds
-      <br />
-      NaN
-       %
-    </div>
-    <div
-      className="css-1jer4t"
+      className="css-8hr4wd"
     >
       <div
-        aria-valuemax={100}
-        aria-valuemin={0}
-        className="css-1585z0b"
-        data-indeterminate=""
-        role="progressbar"
-        style={
-          Object {
-            "width": "0%",
+        className="css-1lpnqa0"
+      >
+        Retrieving the data schema, this might take a few seconds
+        <br />
+        NaN
+         %
+      </div>
+      <div
+        className="css-1jer4t"
+      >
+        <div
+          aria-valuemax={100}
+          aria-valuemin={0}
+          className="css-1585z0b"
+          data-indeterminate=""
+          role="progressbar"
+          style={
+            Object {
+              "width": "0%",
+            }
           }
-        }
-      />
+        />
+      </div>
     </div>
   </div>,
   <span />,

@@ -1,7 +1,7 @@
 import { cleanup, screen } from "@testing-library/react";
 import { create } from "react-test-renderer";
 
-import { RenderWithChakra } from "test-utils";
+import { CustomChakraProvider } from "test-utils";
 
 import { OutlineButton } from "components/OutlineButton";
 
@@ -10,9 +10,9 @@ describe("OutlineButton component", () => {
 
   test("snapshot", () => {
     const tree = create(
-      <RenderWithChakra>
+      <CustomChakraProvider>
         <OutlineButton />
-      </RenderWithChakra>
+      </CustomChakraProvider>
     ).toJSON();
 
     expect(tree).toMatchSnapshot();

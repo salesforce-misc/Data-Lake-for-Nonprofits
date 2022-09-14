@@ -4,13 +4,15 @@ import { ChakraProvider } from "@chakra-ui/react";
 
 import { theme } from "themes/orange";
 
-export const RenderWithChakra = ({ children }: { children: React.ReactNode }) => <ChakraProvider theme={theme}>{children}</ChakraProvider>;
-
-const CustomProvider = ({ children }: { children: React.ReactNode }) => {
-  return <ChakraProvider theme={theme}>{children}</ChakraProvider>;
+export const CustomChakraProvider = ({ children }: { children: React.ReactNode }) => {
+  return (
+    <ChakraProvider theme={theme}>
+      <div data-testid="test-root">{children}</div>
+    </ChakraProvider>
+  );
 };
 
-const customRender = (ui: React.ReactElement, options?: Omit<RenderOptions, "wrapper">) => render(ui, { wrapper: CustomProvider, ...options });
+const customRender = (ui: React.ReactElement, options?: Omit<RenderOptions, "wrapper">) => render(ui, { wrapper: CustomChakraProvider, ...options });
 
 export * from "@testing-library/react";
 

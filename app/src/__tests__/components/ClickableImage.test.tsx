@@ -1,6 +1,6 @@
 import { cleanup, fireEvent, screen, waitFor } from "@testing-library/react";
 import { create } from "react-test-renderer";
-import { render, RenderWithChakra } from "test-utils";
+import { render, CustomChakraProvider } from "test-utils";
 
 import { ClickableImage } from "components/ClickableImage";
 
@@ -10,7 +10,7 @@ describe("ClickableImage component", () => {
   afterEach(cleanup);
 
   test("snapshot", () => {
-    const tree = create(<RenderWithChakra>{component}</RenderWithChakra>).toJSON();
+    const tree = create(<CustomChakraProvider>{component}</CustomChakraProvider>).toJSON();
 
     expect(tree).toMatchSnapshot();
   });

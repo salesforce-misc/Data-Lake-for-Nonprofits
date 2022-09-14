@@ -3,9 +3,13 @@
 exports[`CurvedBox component snapshot 1`] = `
 Array [
   <div
-    className="css-t7j6xp"
-    data-testid="curved-box"
-  />,
+    data-testid="test-root"
+  >
+    <div
+      className="css-t7j6xp"
+      data-testid="curved-box"
+    />
+  </div>,
   <span />,
 ]
 `;

@@ -3,7 +3,7 @@ import { act, renderHook } from "@testing-library/react-hooks";
 import { create } from "react-test-renderer";
 // import * as reactHookForm from "react-hook-form";
 
-import { render, RenderWithChakra } from "test-utils";
+import { render, CustomChakraProvider } from "test-utils";
 
 import { StoreProvider } from "AppContext";
 
@@ -22,11 +22,11 @@ describe("Step1 -> CredentialsForm component", () => {
     } = result.current;
 
     const tree = create(
-      <RenderWithChakra>
+      <CustomChakraProvider>
         <StoreProvider>
           <CredentialsForm {...{ register, errors, isSubmitting, control }} />
         </StoreProvider>
-      </RenderWithChakra>
+      </CustomChakraProvider>
     ).toJSON();
 
     expect(tree).toMatchSnapshot();

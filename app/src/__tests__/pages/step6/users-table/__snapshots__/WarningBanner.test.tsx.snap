@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WarningBanner component snapshot 1`] = `
+Array [
+  <div
+    data-testid="test-root"
+  >
+    
+    <div
+      className="chakra-alert css-1l0fb9r"
+      role="alert"
+    >
+      <div
+        className="css-0"
+      >
+        <div
+          className="chakra-alert__desc css-zzks76"
+        >
+          The user does not have access to the data lake because the necessary policy is not attached to the user. Click the 'Attach Policy' button to attempt to remedy the problem.
+        </div>
+        <div
+          className="css-oo7t1"
+        >
+          <button
+            className="chakra-button css-1c6k3b0"
+            disabled={false}
+            onClick={[Function]}
+            type="button"
+          >
+            Attach Policy
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <span />,
+]
+`;

@@ -2,7 +2,7 @@ import { cleanup } from "@testing-library/react";
 import { create } from "react-test-renderer";
 import { BrowserRouter } from "react-router-dom";
 
-import { RenderWithChakra } from "test-utils";
+import { CustomChakraProvider } from "test-utils";
 
 import { StoreProvider } from "AppContext";
 
@@ -13,13 +13,13 @@ describe("Home component", () => {
 
   test("snapshot", () => {
     const tree = create(
-      <RenderWithChakra>
+      <CustomChakraProvider>
         <StoreProvider>
           <BrowserRouter>
             <Home />
           </BrowserRouter>
         </StoreProvider>
-      </RenderWithChakra>
+      </CustomChakraProvider>
     ).toJSON();
 
     expect(tree).toMatchSnapshot();

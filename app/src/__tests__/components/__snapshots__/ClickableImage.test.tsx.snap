@@ -3,14 +3,18 @@
 exports[`ClickableImage component snapshot 1`] = `
 Array [
   <div
-    className="css-0"
+    data-testid="test-root"
   >
-    <img
-      alt="Powered by AWS"
-      className="chakra-image css-1fyy6mf"
-      onClick={[Function]}
-      src="https://d0.awsstatic.com/logos/powered-by-aws.png"
-    />
+    <div
+      className="css-0"
+    >
+      <img
+        alt="Powered by AWS"
+        className="chakra-image css-1fyy6mf"
+        onClick={[Function]}
+        src="https://d0.awsstatic.com/logos/powered-by-aws.png"
+      />
+    </div>
   </div>,
   <span />,
 ]

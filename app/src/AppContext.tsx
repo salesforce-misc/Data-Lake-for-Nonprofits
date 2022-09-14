@@ -18,7 +18,9 @@ const storeRemotely = throttle(() => appStore.saveRemote(), 30000);
 
 // The initialization function for the root store
 export function initializeStore() {
-  if (!isEmpty(secretKey)) console.warn("Access key is bundled!");
+  if (!isEmpty(secretKey) && isLocalDev) {
+    console.warn("Access key is bundled!");
+  }
 
   if (isLocalDev) {
     console.log(`isLocalDev '${isLocalDev}'`);
@@ -33,6 +35,7 @@ export function initializeStore() {
   }
 
   appStore.loadLocal();
+
   onSnapshot(appStore, (snapshot) => {
     storeLocally();
     storeRemotely();

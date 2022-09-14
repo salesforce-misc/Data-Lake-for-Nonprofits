@@ -15,23 +15,6 @@ const mockOnDone = jest.fn();
 describe("BackHome -> CredentialsCollectionForm component", () => {
   afterEach(cleanup);
 
-  test("snapshot", () => {
-    // @ts-ignore
-    jest.spyOn(appContext, "useInstallation").mockImplementation(() => {
-      return {};
-    });
-
-    const tree = create(
-      <CustomChakraProvider>
-        <StoreProvider>
-          <CredentialsCollectionForm onCancel={mockOnCancel} onDone={mockOnDone} />
-        </StoreProvider>
-      </CustomChakraProvider>
-    ).toJSON();
-
-    expect(tree).toMatchSnapshot();
-  });
-
   test("render properly", () => {
     // @ts-ignore
     jest.spyOn(appContext, "useInstallation").mockImplementation(() => {

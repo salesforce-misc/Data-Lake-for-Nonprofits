@@ -13,25 +13,6 @@ import { useForm } from "react-hook-form";
 describe("Step1 -> CredentialsForm component", () => {
   afterEach(cleanup);
 
-  test("snapshot", async () => {
-    const { result } = renderHook(() => useForm<ICredentialsFormInput>());
-    const {
-      register,
-      control,
-      formState: { errors, isSubmitting },
-    } = result.current;
-
-    const tree = create(
-      <CustomChakraProvider>
-        <StoreProvider>
-          <CredentialsForm {...{ register, errors, isSubmitting, control }} />
-        </StoreProvider>
-      </CustomChakraProvider>
-    ).toJSON();
-
-    expect(tree).toMatchSnapshot();
-  });
-
   test("render properly", () => {
     const { result } = renderHook(() =>
       useForm<ICredentialsFormInput>({

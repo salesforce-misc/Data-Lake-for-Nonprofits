@@ -13,18 +13,6 @@ const mockOnDone = jest.fn();
 describe("Step1 -> CredentialsCollectionForm component", () => {
   afterEach(cleanup);
 
-  test("snapshot", () => {
-    const tree = create(
-      <CustomChakraProvider>
-        <StoreProvider>
-          <CredentialsCollectionForm onCancel={mockOnCancel} onDone={mockOnDone} />
-        </StoreProvider>
-      </CustomChakraProvider>
-    ).toJSON();
-
-    expect(tree).toMatchSnapshot();
-  });
-
   test("render properly", () => {
     render(
       <StoreProvider>

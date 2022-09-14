@@ -19,40 +19,6 @@ describe("Step1 component", () => {
     cleanup;
   });
 
-  test("snapshot", () => {
-    // @ts-ignore
-    jest.spyOn(appContext, "useInstallation").mockImplementation(() => {
-      return {
-        id: "1",
-        startDate: "2022-01-01",
-        startedBy: "test-user",
-        accountId: "test-account-id",
-        region: "us-east-1",
-        appFlowConnectionName: "test-appflow-connection-name",
-        connectToSalesforceStep: "test-step",
-        credentials: [],
-        deploymentStep: "1",
-        reviewStep: "1",
-        nextStepNumber: "2",
-        connectToAwsStep: {
-          needsAssistance: false,
-        },
-      };
-    });
-
-    const tree = create(
-      <CustomChakraProvider>
-        <appContext.StoreProvider>
-          <BrowserRouter>
-            <Step1 />
-          </BrowserRouter>
-        </appContext.StoreProvider>
-      </CustomChakraProvider>
-    ).toJSON();
-
-    expect(tree).toMatchSnapshot();
-  });
-
   test("render properly", () => {
     // @ts-ignore
     jest.spyOn(appContext, "useInstallation").mockImplementation(() => {

@@ -83,4 +83,40 @@ describe("WarningBanner component", () => {
 
     expect(screen.getByTestId("test-root")).toBeTruthy();
   });
+
+  test("render with a user with no policy", () => {
+    const user: IUser = User.create({
+      id: "1",
+      name: "Simsek Mert",
+      arn: "arn:aws:iam::xyzxyzxyzxx:root",
+      createDate: new Date("2022-01-05"),
+      accessKeys: {},
+      policies: ["some-test-policy"],
+      hasAthenaManagedPolicy: false,
+      stale: false,
+    });
+    user.hasAccess;
+
+    render(<WarningBanner user={user} />);
+
+    expect(screen.getByText(/necessary policy is not attached/i)).toBeTruthy();
+  });
+
+  test("render with a user with no keys", () => {
+    const user: IUser = User.create({
+      id: "1",
+      name: "Simsek Mert",
+      arn: "arn:aws:iam::xyzxyzxyzxx:root",
+      createDate: new Date("2022-01-05"),
+      accessKeys: {},
+      policies: ["arn:aws:iam::aws:policy/AdministratorAccess"],
+      hasAthenaManagedPolicy: false,
+      stale: false,
+    });
+    user.hasAccess;
+
+    render(<WarningBanner user={user} />);
+
+    expect(screen.getByText(/no access keys associated with the user/i)).toBeTruthy();
+  });
 });

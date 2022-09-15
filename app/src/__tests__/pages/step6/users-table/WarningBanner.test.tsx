@@ -35,7 +35,6 @@ describe("WarningBanner component", () => {
       return {
         store: {
           attachAthenaPolicy: (user, installation) => {
-            user.hasAthenaManagedPolicy = true;
             return true;
           },
         },

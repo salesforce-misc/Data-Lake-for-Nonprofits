@@ -138,13 +138,13 @@ Parameters:
     Type: Number
   SchemaChangeConcurrency:
     Description: Concurrency rate at which the system will interact with AppFlow to pull and update the salesforce schema (will interact with salesforce behind to pull the new schema)
-    Default: 10
+    Default: 5
     Type: Number
     MinValue: 1
     MaxValue: 30 # Don't want to get throttled, extremely large values will do this
   ImportConcurrency:
     Description: Concurrency rate at which the system will execute AppFlow flows to pull data from Salesforce.
-    Default: 10
+    Default: 5
     Type: Number
     MinValue: 1
     MaxValue: 30 # Don't want to get throttled, extremely large values will do this

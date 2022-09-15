@@ -1,14 +1,14 @@
-import { cleanup, screen } from "@testing-library/react";
+import { cleanup, fireEvent, screen, waitFor } from "@testing-library/react";
 import { create } from "react-test-renderer";
-import { BrowserRouter } from "react-router-dom";
 
 import { render, CustomChakraProvider } from "test-utils";
 
 import * as appContext from "AppContext";
-import * as metadataStore from "models/MetadataStore";
-import * as importStatusStore from "models/ImportStatusStore";
+import * as usersStore from "models/useUsersStore";
+
 import { WarningBanner } from "pages/step6/users-table/WarningBanner";
 import { IUser, User } from "models/helpers/User";
+import { IRawAccessKey, TAccessKeyStatus } from "models/helpers/UserAccessKey";
 
 describe("WarningBanner component", () => {
   beforeEach(() => {
@@ -31,11 +31,13 @@ describe("WarningBanner component", () => {
     });
 
     // @ts-ignore
-    jest.spyOn(metadataStore, "useMetadataStore").mockImplementation(() => {
+    jest.spyOn(usersStore, "useUsersStore").mockImplementation(() => {
       return {
-        isReady: true,
         store: {
-          selectedObjects: [{}],
+          attachAthenaPolicy: (user, installation) => {
+            user.hasAthenaManagedPolicy = true;
+            return true;
+          },
         },
       };
     });
@@ -77,7 +79,6 @@ describe("WarningBanner component", () => {
       hasAthenaManagedPolicy: true, // this makes sure the user has access
       stale: false,
     });
-    user.hasAccess;
 
     render(<WarningBanner user={user} />);
 
@@ -95,7 +96,6 @@ describe("WarningBanner component", () => {
       hasAthenaManagedPolicy: false,
       stale: false,
     });
-    user.hasAccess;
 
     render(<WarningBanner user={user} />);
 
@@ -113,10 +113,58 @@ describe("WarningBanner component", () => {
       hasAthenaManagedPolicy: false,
       stale: false,
     });
-    user.hasAccess;
 
     render(<WarningBanner user={user} />);
 
     expect(screen.getByText(/no access keys associated with the user/i)).toBeTruthy();
+  });
+
+  test("render with a user with inactive keys", () => {
+    const user: IUser = User.create({
+      id: "1",
+      name: "Simsek Mert",
+      arn: "arn:aws:iam::xyzxyzxyzxx:root",
+      createDate: new Date("2022-01-05"),
+      accessKeys: {},
+      policies: ["arn:aws:iam::aws:policy/AdministratorAccess"],
+      hasAthenaManagedPolicy: false,
+      stale: false,
+    });
+    const rawAccessKey: IRawAccessKey = {
+      id: "1",
+      secret: "some-test-secret",
+      createDate: new Date("2022-02-01"),
+      status: TAccessKeyStatus.Inactive,
+    };
+
+    // Set the raw access key
+    user.setAccessKey(rawAccessKey);
+
+    render(<WarningBanner user={user} />);
+
+    expect(screen.getByText(/access keys are inactive/i)).toBeTruthy();
+  });
+
+  test("attach policy for a user with no policy", async () => {
+    const user: IUser = User.create({
+      id: "1",
+      name: "Simsek Mert",
+      arn: "arn:aws:iam::xyzxyzxyzxx:root",
+      createDate: new Date("2022-01-05"),
+      accessKeys: {},
+      policies: ["some-test-policy"],
+      hasAthenaManagedPolicy: false,
+      stale: false,
+    });
+
+    render(<WarningBanner user={user} />);
+
+    expect(screen.getByText(/necessary policy is not attached/i)).toBeInTheDocument();
+
+    const button = screen.getByRole("button", { name: "Attach Policy" });
+    fireEvent.click(button);
+
+    await screen.findByText("Attaching Policy");
+    await screen.findByText("Attach Policy");
   });
 });

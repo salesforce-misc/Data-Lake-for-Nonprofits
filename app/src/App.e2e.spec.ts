@@ -9,6 +9,11 @@ import { awsRegions } from "data/aws-regions";
 
 const waitFor = async (s: number) => new Promise((r) => setTimeout(r, s));
 
+// This is a local folder in your computer to save screenshots
+// Leave blank to not take screenshots
+const screenshotFolder = "/Users/smert/Desktop/";
+const testTime = Date.now();
+
 // Set timeout to 60 minutes since this is a long running test
 jest.setTimeout(60 * 60 * 1000);
 
@@ -50,7 +55,7 @@ describe("App", () => {
   });
 
   test("e2e testing", async () => {
-    const region = awsRegions[1].name; // You can use just the region name as us-east-1 as well.
+    const region = awsRegions[0].name; // You can use just the region name as us-east-1 as well.
     await AppTest(driver, testUrl, region);
   });
 });
@@ -64,6 +69,13 @@ const AppTest = async (driver: WebDriver, testUrl: string, region: string) => {
   await driver.findElement(By.id("home")).isDisplayed();
   await driver.findElement(By.id("h2-title")).isDisplayed();
   await driver.findElement(By.id("home-btn-lets-go")).isDisplayed();
+
+  if (screenshotFolder) {
+    // Take a screenshot
+    await driver.takeScreenshot().then((image) => {
+      require("fs").writeFileSync(screenshotFolder + testTime + " e2e home.png", image, "base64");
+    });
+  }
 
   await driver.findElement(By.id("home-btn-lets-go")).click();
 
@@ -83,6 +95,14 @@ const AppTest = async (driver: WebDriver, testUrl: string, region: string) => {
 
   // Select the region
   await driver.findElement(By.className(region)).click();
+
+  if (screenshotFolder) {
+    // Take a screenshot
+    await driver.takeScreenshot().then((image) => {
+      require("fs").writeFileSync(screenshotFolder + testTime + " e2e step1.png", image, "base64");
+    });
+  }
+
   await driver.findElement(By.id("step1-btn-next")).click();
 
   // Go to step2
@@ -103,6 +123,14 @@ const AppTest = async (driver: WebDriver, testUrl: string, region: string) => {
   // Select the connection
   // We use option[2] since the first one is not a connection
   await driver.findElement(By.xpath("//select[@id='appFlowConnectionName']/option[2]")).click();
+
+  if (screenshotFolder) {
+    // Take a screenshot
+    await driver.takeScreenshot().then((image) => {
+      require("fs").writeFileSync(screenshotFolder + testTime + " e2e step2.png", image, "base64");
+    });
+  }
+
   await driver.findElement(By.id("step2-btn-next")).click();
 
   // // Go to step3
@@ -114,6 +142,14 @@ const AppTest = async (driver: WebDriver, testUrl: string, region: string) => {
   await driver.wait(until.elementIsEnabled(driver.findElement(By.id("step3-btn-next"))));
 
   await waitFor(500);
+
+  if (screenshotFolder) {
+    // Take a screenshot
+    await driver.takeScreenshot().then((image) => {
+      require("fs").writeFileSync(screenshotFolder + testTime + " e2e step3.png", image, "base64");
+    });
+  }
+
   await driver.findElement(By.id("step3-btn-next")).click();
 
   // Go to step4
@@ -123,6 +159,14 @@ const AppTest = async (driver: WebDriver, testUrl: string, region: string) => {
   await driver.findElement(By.id("h2-title")).isDisplayed();
 
   await waitFor(1000);
+
+  if (screenshotFolder) {
+    // Take a screenshot
+    await driver.takeScreenshot().then((image) => {
+      require("fs").writeFileSync(screenshotFolder + testTime + " e2e step4.png", image, "base64");
+    });
+  }
+
   await driver.findElement(By.id("step4-btn-next")).click();
 
   // Go to step5
@@ -131,7 +175,30 @@ const AppTest = async (driver: WebDriver, testUrl: string, region: string) => {
   await driver.findElement(By.id("step5")).isDisplayed();
   await driver.findElement(By.id("h2-title")).isDisplayed();
 
-  await driver.wait(until.elementIsEnabled(driver.findElement(By.id("step5-btn-next"))));
+  const provisionBox = await driver.findElement(By.id("step5-provision"));
+  await driver.executeScript("arguments[0].scrollIntoView(true);", provisionBox);
+
+  // Wait until either the provisioning is completed or 45 minutes
+  await driver.wait(until.elementIsEnabled(driver.findElement(By.id("step5-btn-next"))), 45 * 60 * 1000);
+
+  await waitFor(1000);
+
+  if ((await driver.findElements(By.name("Try Again"))).keys.length > 0 && screenshotFolder) {
+    // Take a screenshot for error page
+    await driver.takeScreenshot().then((image) => {
+      require("fs").writeFileSync(screenshotFolder + testTime + " e2e step5 error.png", image, "base64");
+    });
+
+    await driver.quit();
+  }
+
+  if (screenshotFolder) {
+    // Take a screenshot
+    await driver.takeScreenshot().then((image) => {
+      require("fs").writeFileSync(screenshotFolder + testTime + " e2e step5.png", image, "base64");
+    });
+  }
+
   await driver.findElement(By.id("step5-btn-next")).click();
 
   // Go to step6
@@ -142,6 +209,17 @@ const AppTest = async (driver: WebDriver, testUrl: string, region: string) => {
 
   const accessInformation = await driver.findElement(By.id("step6-h2-access-information"));
   expect(await accessInformation.getText()).toBe("Access Information");
+
+  await waitFor(1000);
+
+  await driver.executeScript("arguments[0].scrollIntoView(true);", accessInformation);
+
+  if (screenshotFolder) {
+    // Take a screenshot
+    await driver.takeScreenshot().then((image) => {
+      require("fs").writeFileSync(screenshotFolder + testTime + " e2e step6.png", image, "base64");
+    });
+  }
 
   await waitFor(500);
 };

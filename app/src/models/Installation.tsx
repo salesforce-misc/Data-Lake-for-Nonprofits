@@ -48,7 +48,7 @@ export const Installation = types
     athenaPrimaryWorkGroup: "",
     athenaOutput: "",
     athenaManagedPolicy: "",
-    clusterName: "",
+    dbName: "",
     importDataBucketName: "",
     athenaDataBucketName: "",
     importAlarmArns: types.array(types.string),
@@ -172,8 +172,8 @@ export const Installation = types
         self.athenaManagedPolicy = name;
       },
 
-      setClusterName(name: string) {
-        self.clusterName = name;
+      setDBName(name: string) {
+        self.dbName = name;
       },
 
       setImportDataBucketName(name: string) {

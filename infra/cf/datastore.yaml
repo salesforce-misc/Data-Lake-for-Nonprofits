@@ -50,6 +50,10 @@ Parameters:
     Description: "Name of the database (ignored when DBSnapshotIdentifier is set, value used from snapshot)."
     Type: String
     Default: db
+  # DBInstanceIdentifier:
+  #   Description: "Database instance identifier"
+  #   Type: String
+  #   Default: ""
   DBBackupRetentionPeriod:
     Description: "The number of days to keep snapshots of the database."
     Type: Number
@@ -325,23 +329,34 @@ Resources:
     UpdateReplacePolicy: Snapshot
     Properties:
       Engine: Postgres
-      MasterUsername: MySFDatalakeUserID
-      MasterUserPassword: MyDatalakePassword
+      MasterUsername: !If
+        - HasDBSnapshotIdentifier
+        - !Ref "AWS::NoValue"
+        - !Ref DBMasterUsername
+      MasterUserPassword: !If
+        - HasDBSnapshotIdentifier
+        - !Ref "AWS::NoValue"
+        - !Join
+          - ""
+          - - "{{resolve:secretsmanager:"
+            - !Ref Secret
+            - ":SecretString:password}}"
       BackupRetentionPeriod: !Ref DBBackupRetentionPeriod
-      DBInstanceIdentifier: SFDatalakeDBTestwithparams4
-      DBName: !Join
-        - ""
-        - - "sf"
-          - !Ref DBName
-          - !Ref InstallationId
-      # DBParameterGroupName: paramgroupname
+      DBName: !If
+        - HasDBSnapshotIdentifier
+        - !Ref "AWS::NoValue"
+        - !Join
+          - ""
+          - - "sf"
+            - !Ref DBName
+            - !Ref InstallationId
       EnableCloudwatchLogsExports: [postgresql, upgrade]
       EnablePerformanceInsights: false
       EngineVersion: "13.7"
       DBInstanceClass: db.m6i.large
-      # MaxAllocatedStorage: Integer
-      # Port: String
-      #VPCSecurityGroups: String
+      DBSubnetGroupName: !Ref DBSubnetGroup
+      VPCSecurityGroups:
+        - !Ref DBSecurityGroup
       StorageType: gp2
       AllocatedStorage: "100"
       StorageEncrypted: true

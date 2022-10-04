@@ -36,7 +36,7 @@ export interface OperationContext {
   importWorkflowName: string;
   importStatusStore: IImportStatusStore;
   athenaPrimaryWorkGroup: string;
-  clusterName: string;
+  dbName: string;
   importDataBucketName: string;
   importAlarmArns: string[];
   athenaDataBucketName: string;
@@ -51,7 +51,7 @@ export interface OperationContext {
   setAthenaPrimaryWorkGroup: (name: string) => void;
   setAthenaOutput: (name: string) => void;
   setAthenaManagedPolicy: (name: string) => void;
-  setClusterName: (name: string) => void;
+  setDBName: (name: string) => void;
   setImportDataBucketName: (name: string) => void;
   addImportAlarmArn: (arn: string) => void;
   setAthenaDataBucketName: (name: string) => void;

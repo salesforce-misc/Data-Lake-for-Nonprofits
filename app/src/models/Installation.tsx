@@ -172,7 +172,7 @@ export const Installation = types
         self.athenaManagedPolicy = name;
       },
 
-      setDBName(name: string) {
+      setDbName(name: string) {
         self.dbName = name;
       },
 

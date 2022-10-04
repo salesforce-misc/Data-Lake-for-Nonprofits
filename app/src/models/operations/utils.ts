@@ -51,7 +51,7 @@ export interface OperationContext {
   setAthenaPrimaryWorkGroup: (name: string) => void;
   setAthenaOutput: (name: string) => void;
   setAthenaManagedPolicy: (name: string) => void;
-  setDBName: (name: string) => void;
+  setDbName: (name: string) => void;
   setImportDataBucketName: (name: string) => void;
   addImportAlarmArn: (arn: string) => void;
   setAthenaDataBucketName: (name: string) => void;

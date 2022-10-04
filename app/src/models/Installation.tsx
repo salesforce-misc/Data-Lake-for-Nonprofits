@@ -32,7 +32,7 @@ export const BucketsStackNamePrefix = "sforg-buckets-";
  */
 export const Installation = types
   .model("Installation", {
-    v: "1", // this is to help detect changes to the shape of the installation model (after going to prod)
+    v: "2",
     id: types.optional(types.string, () => genId()),
     startDate: types.optional(types.Date, () => new Date()),
     startedBy: types.maybe(types.string),

@@ -50,10 +50,6 @@ Parameters:
     Description: "Name of the database (ignored when DBSnapshotIdentifier is set, value used from snapshot)."
     Type: String
     Default: db
-  # DBInstanceIdentifier:
-  #   Description: "Database instance identifier"
-  #   Type: String
-  #   Default: ""
   DBBackupRetentionPeriod:
     Description: "The number of days to keep snapshots of the database."
     Type: Number
@@ -81,7 +77,7 @@ Parameters:
     Description: "PostgreSQL version."
     Type: String
     Default: "13.7"
-    AllowedValues: ["13.7"] # aws rds describe-db-engine-versions --engine aurora-postgresql --query 'DBEngineVersions[?contains(SupportedEngineModes,\`serverless\`)]'
+    AllowedValues: ["13.7"]
   SSHAccessPrefixList:
     Description: Enables SSH access to the VPC by a prefix list. Must have an instance running in order to connect. Must have set "SSHAccess" to true in the VPC stack.
     Type: String
@@ -406,6 +402,63 @@ Resources:
       FromPort: !GetAtt "DBInstance.Endpoint.Port"
       ToPort: !GetAtt "DBInstance.Endpoint.Port"
       SourceSecurityGroupId: !Ref LambdaSecurityGroup
+  TableauCloudPrefixList:
+    Type: AWS::EC2::PrefixList
+    Properties:
+      PrefixListName: "online.tableau.com"
+      AddressFamily: "IPv4"
+      MaxEntries: 20
+      Entries:
+        - Cidr: "34.208.207.197/32"
+          Description: "10ax.online.tableau.com"
+        - Cidr: "52.39.159.250/32"
+          Description: "10ax.online.tableau.com"
+        - Cidr: "34.218.129.202/32"
+          Description: "10ay.online.tableau.com"
+        - Cidr: "52.40.235.24/32"
+          Description: "10ay.online.tableau.com"
+        - Cidr: "34.218.83.207/32"
+          Description: "10az.online.tableau.com"
+        - Cidr: "52.37.252.60/32"
+          Description: "10az.online.tableau.com"
+        - Cidr: "34.214.85.34/32"
+          Description: "us-west-2b.online.tableau.com"
+        - Cidr: "34.214.85.244/32"
+          Description: "us-west-2b.online.tableau.com"
+        - Cidr: "50.17.26.34/32"
+          Description: "us-east-1.online.tableau.com"
+        - Cidr: "52.206.162.101/32"
+          Description: "us-east-1.online.tableau.com"
+        - Cidr: "3.219.176.16/28"
+          Description: "prod-useast-a.online.tableau.com,prod-useast-b.online.tableau.com"
+        - Cidr: "34.246.74.86/32"
+          Description: "dub01.online.tableau.com"
+        - Cidr: "52.215.158.213/32"
+          Description: "dub01.online.tableau.com"
+        - Cidr: "34.246.62.141/32"
+          Description: "eu-west-1a.online.tableau.com"
+        - Cidr: "34.246.62.203/32"
+          Description: "eu-west-1a.online.tableau.com"
+        - Cidr: "18.176.203.96/28"
+          Description: "prod-apnortheast-a.online.tableau.com"
+        - Cidr: "3.25.37.32/28"
+          Description: "prod-apsoutheast-a.online.tableau.com"
+        - Cidr: "18.134.84.240/28"
+          Description: "prod-uk-a.online.tableau.com"
+        - Cidr: "3.98.24.208/28"
+          Description: "prod-ca-a.online.tableau.com"
+      Tags:
+        - Key: "Name"
+          Value: "Tableau Online"
+  DBSecurityGroupIngressForTableauCloud:
+    Type: "AWS::EC2::SecurityGroupIngress"
+    Properties:
+      Description: !Sub "\${AWS::StackName} Allows Tableau Cloud to access the DB"
+      GroupId: !Ref DBSecurityGroup
+      IpProtocol: tcp
+      FromPort: !GetAtt "DBInstance.Endpoint.Port"
+      ToPort: !GetAtt "DBInstance.Endpoint.Port"
+      SourcePrefixListId: !Ref TableauCloudPrefixList
 Outputs:
   StackName:
     Description: "Stack name."

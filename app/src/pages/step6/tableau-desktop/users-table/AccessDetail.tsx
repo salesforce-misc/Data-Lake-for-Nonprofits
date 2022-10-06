@@ -4,7 +4,7 @@ import { Alert, Box, AlertDescription, Button, AlertTitle, useToast, Tooltip, Te
 
 import { useInstallation } from "AppContext";
 import { useColorScheme } from "models/useColorScheme";
-import { DownloadableAccessKey } from "pages/step6/DownloadableAccessKey";
+import { DownloadableAccessKey } from "pages/step6/tableau-desktop/DownloadableAccessKey";
 import { delay } from "helpers/utils";
 import { IUser } from "models/helpers/User";
 import { IUserAccessKey } from "models/helpers/UserAccessKey";

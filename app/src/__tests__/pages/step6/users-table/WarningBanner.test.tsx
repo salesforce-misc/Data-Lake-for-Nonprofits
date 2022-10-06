@@ -6,7 +6,7 @@ import { render, CustomChakraProvider } from "test-utils";
 import * as appContext from "AppContext";
 import * as usersStore from "models/useUsersStore";
 
-import { WarningBanner } from "pages/step6/users-table/WarningBanner";
+import { WarningBanner } from "pages/step6/tableau-desktop/users-table/WarningBanner";
 import { IUser, User } from "models/helpers/User";
 import { IRawAccessKey, TAccessKeyStatus } from "models/helpers/UserAccessKey";
 

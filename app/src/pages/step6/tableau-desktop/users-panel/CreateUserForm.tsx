@@ -4,7 +4,7 @@ import { observer } from "mobx-react";
 import { SubmitHandler, useForm } from "react-hook-form";
 
 import { useInstallation } from "AppContext";
-import { DownloadableAccessKey } from "pages/step6/DownloadableAccessKey";
+import { DownloadableAccessKey } from "pages/step6/tableau-desktop/DownloadableAccessKey";
 import { useColorScheme } from "models/useColorScheme";
 import { IUserAccessKey } from "models/helpers/UserAccessKey";
 import { useUsersStore } from "models/useUsersStore";

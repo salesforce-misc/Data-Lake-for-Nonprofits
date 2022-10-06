@@ -48,7 +48,10 @@ export const Installation = types
     athenaPrimaryWorkGroup: "",
     athenaOutput: "",
     athenaManagedPolicy: "",
+    dbHost: "",
     dbName: "",
+    dbUsername: "",
+    dbPassword: "",
     importDataBucketName: "",
     athenaDataBucketName: "",
     importAlarmArns: types.array(types.string),
@@ -172,8 +175,20 @@ export const Installation = types
         self.athenaManagedPolicy = name;
       },
 
+      setDbHost(name: string) {
+        self.dbHost = name;
+      },
+
       setDbName(name: string) {
         self.dbName = name;
+      },
+
+      setDbUsername(name: string) {
+        self.dbUsername = name;
+      },
+
+      setDbPassword(name: string) {
+        self.dbPassword = name;
       },
 
       setImportDataBucketName(name: string) {

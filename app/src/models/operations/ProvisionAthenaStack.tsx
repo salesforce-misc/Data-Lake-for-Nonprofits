@@ -15,7 +15,7 @@ export const ProvisionAthenaStack = ProvisionStack.named("ProvisionAthenaStack")
     },
 
     get suggestedTime(): string {
-      return `6 minutes or more`;
+      return `2 minutes or more`;
     },
 
     get estimatedResourceCount(): number {
@@ -43,7 +43,7 @@ export const ProvisionAthenaStack = ProvisionStack.named("ProvisionAthenaStack")
       const region = context.region;
       const bucketName = context.assetBucket;
 
-      return `https://${bucketName}.s3.${region}.amazonaws.com/cf/athena.yaml`
+      return `https://${bucketName}.s3.${region}.amazonaws.com/cf/athena.yaml`;
     },
 
     processOutput(context: OperationContext, stack: Stack) {

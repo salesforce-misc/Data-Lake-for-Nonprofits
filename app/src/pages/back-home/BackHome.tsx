@@ -9,8 +9,8 @@ import { Layout } from "components/Layout";
 import { TimeAgo } from "components/TimeAgo";
 import { isCompleted } from "models/Installation";
 import { useColorScheme } from "models/useColorScheme";
-import { AccessInformation } from "pages/step6/AccessInformation";
-import { UsersPanel } from "pages/step6/users-panel/UsersPanel";
+import { AthenaAccessInformation } from "pages/step6/tableau-desktop/AthenaAccessInformation";
+import { UsersPanel } from "pages/step6/tableau-desktop/users-panel/UsersPanel";
 import { CloudwatchDashboardPanel } from "pages/step6/CloudwatchDashboardPanel";
 import { SubscribeSNSPanel } from "pages/step6/SubscribeSNSPanel";
 import { DataImportStatusPanel } from "pages/step5/data-import-status-panel/DataImportStatusPanel";
@@ -88,7 +88,7 @@ export const BackHome = observer(() => {
 
       {completedProvisioning && (
         <Box borderRadius="lg" boxShadow="base" bg={tone(25)} mt={6} p={10} pb={10}>
-          <AccessInformation />
+          <AthenaAccessInformation />
         </Box>
       )}
 

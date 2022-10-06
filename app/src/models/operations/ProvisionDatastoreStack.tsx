@@ -15,7 +15,7 @@ export const ProvisionDatastoreStack = ProvisionStack.named("ProvisionDatastoreS
     },
 
     get suggestedTime(): string {
-      return `14 minutes or more`;
+      return `9 minutes or more`;
     },
 
     get estimatedResourceCount(): number {

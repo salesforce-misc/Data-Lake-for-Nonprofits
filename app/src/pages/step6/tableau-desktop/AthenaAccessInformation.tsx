@@ -4,15 +4,15 @@ import { observer } from "mobx-react";
 
 import { useColorScheme } from "models/useColorScheme";
 
-import { AccessInfoGrid } from "./AccessInfoGrid";
+import { AthenaAccessInfoGrid } from "./AthenaAccessInfoGrid";
 
-export const AccessInformation = observer(() => {
+export const AthenaAccessInformation = observer(() => {
   const { tone } = useColorScheme();
 
   return (
     <>
       <Heading id="step6-h2-access-information" size="md" pt="0px" pb="30px" color={tone(600)} letterSpacing="-1px">
-        Access Information
+        Amazon Athena Access Information
       </Heading>
 
       <Box display="block" fontSize="sm" mb={6}>
@@ -20,7 +20,7 @@ export const AccessInformation = observer(() => {
         information will be used inside of Tableau when making the connection.
       </Box>
 
-      <AccessInfoGrid />
+      <AthenaAccessInfoGrid />
     </>
   );
 });

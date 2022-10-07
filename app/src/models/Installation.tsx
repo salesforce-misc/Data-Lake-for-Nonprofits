@@ -6,6 +6,7 @@ import { genId } from "helpers/id-gen";
 import { MetadataStore } from "models/MetadataStore";
 import { ConnectionsStore } from "models/ConnectionsStore";
 import { ConnectToAWS } from "models/steps/ConnectToAWS";
+import { GetDatabaseSecrets } from "models/steps/GetDatabaseSecrets";
 import { ConnectToSalesforce } from "models/steps/ConnectToSalesforce";
 import { ImportOptionsStep } from "models/steps/ImportOptionsStep";
 import { ICredentials } from "models/helpers/Credentials";
@@ -49,13 +50,17 @@ export const Installation = types
     athenaOutput: "",
     athenaManagedPolicy: "",
     dbHost: "",
+    dbPort: 5432,
     dbName: "",
     dbUsername: "",
     dbPassword: "",
     importDataBucketName: "",
     athenaDataBucketName: "",
     importAlarmArns: types.array(types.string),
+    secretArn: "",
     snsTopicArn: "",
+
+    getDatabaseSecrets: types.optional(GetDatabaseSecrets, {}),
 
     connectToAwsStep: types.optional(ConnectToAWS, {}),
     connectToSalesforceStep: types.optional(ConnectToSalesforce, {}),
@@ -139,6 +144,10 @@ export const Installation = types
         self.metadataStore.reset();
       },
 
+      async setDatabaseSecrets(credentials: ICredentials) {
+        await self.getDatabaseSecrets.getSecretValue(credentials.accessKey, credentials.secretKey, self.region, self.secretArn);
+      },
+
       setAssetBucket(name: string) {
         self.assetBucket = name;
       },
@@ -179,6 +188,10 @@ export const Installation = types
         self.dbHost = name;
       },
 
+      setDbPort(port: number) {
+        self.dbPort = port;
+      },
+
       setDbName(name: string) {
         self.dbName = name;
       },
@@ -207,6 +220,10 @@ export const Installation = types
 
       setSnsTopicArn(arn: string) {
         self.snsTopicArn = arn;
+      },
+
+      setSecretArn(arn: string) {
+        self.secretArn = arn;
       },
 
       triggerDeployment() {

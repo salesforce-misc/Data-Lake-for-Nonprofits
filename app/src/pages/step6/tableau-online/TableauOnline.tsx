@@ -3,7 +3,7 @@ import { Box, Heading, Link } from "@chakra-ui/react";
 import { observer } from "mobx-react";
 
 import { useColorScheme } from "models/useColorScheme";
-import { ChevronRightIcon, ExternalLinkIcon } from "@chakra-ui/icons";
+import { ExternalLinkIcon } from "@chakra-ui/icons";
 import { SetupInstructions } from "./SetupInstructions";
 
 export const TableauOnline = observer(() => {
@@ -16,11 +16,12 @@ export const TableauOnline = observer(() => {
       </Heading>
 
       <Box display="block" fontSize="sm" mb={6}>
-        Login to Table Online.{" "}
-        <Link fontWeight="bold" href="hhttps://help.tableau.com/current/pro/desktop/en-us/examples_postgresql.htm" isExternal>
-          Utilize the Access Information from below to complete the steps outlined in this help document <ExternalLinkIcon />
-        </Link>{" "}
-        inside of Tableau Online.
+        Login to{" "}
+        <Link fontWeight="bold" href="https://sso.online.tableau.com/public/idp/SSO" isExternal>
+          Tableau Online.
+        </Link>
+        <ExternalLinkIcon sx={{ mb: 1 }} /> Utilize the Access Information from below to complete the steps outlined in this help document inside of
+        Tableau Online.
       </Box>
 
       <SetupInstructions />

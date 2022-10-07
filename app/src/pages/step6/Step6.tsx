@@ -6,8 +6,6 @@ import { observer } from "mobx-react";
 
 import { useInstallation } from "AppContext";
 import { Layout } from "components/Layout";
-import { AthenaAccessInformation } from "pages/step6/tableau-desktop/AthenaAccessInformation";
-import { UsersPanel } from "pages/step6/tableau-desktop/users-panel/UsersPanel";
 import { useColorScheme } from "models/useColorScheme";
 import { TableauDesktop } from "./tableau-desktop/TableauDesktop";
 import { TableauOnline } from "./tableau-online/TableauOnline";
@@ -35,11 +33,11 @@ export const Step6 = observer(() => {
       description="Now that you have the data lake provisioned, you can connect to Tableau for analytics. Here you will gather all the necessary information needed to make that connection."
     >
       <Box borderRadius="lg" boxShadow="base" bg={tone(25)} mt={4} p={10} pb={4} position="relative">
-        <TableauDesktop />
+        <TableauOnline />
       </Box>
 
       <Box borderRadius="lg" boxShadow="base" bg={tone(25)} mt={4} p={10} pb={4} position="relative">
-        <TableauOnline />
+        <TableauDesktop />
       </Box>
 
       <Box borderRadius="lg" boxShadow="base" bg={tone(25)} mt={4} p={10} pb={4} position="relative">

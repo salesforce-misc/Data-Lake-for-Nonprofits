@@ -41,6 +41,7 @@ export interface OperationContext {
   importAlarmArns: string[];
   athenaDataBucketName: string;
   snsTopicArn: string;
+  secretArn: string;
 
   setAssetBucket: (name: string) => void;
   setMetadataBucket: (name: string) => void;
@@ -56,6 +57,7 @@ export interface OperationContext {
   addImportAlarmArn: (arn: string) => void;
   setAthenaDataBucketName: (name: string) => void;
   setSnsTopicArn: (arn: string) => void;
+  setSecretArn: (arn: string) => void;
 }
 
 const typeDispatcher = (snapshot: { type?: string }) => {

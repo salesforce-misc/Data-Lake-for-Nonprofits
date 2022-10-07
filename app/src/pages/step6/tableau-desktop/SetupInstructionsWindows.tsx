@@ -69,7 +69,7 @@ export const SetupInstructionsWindows = observer(() => {
               C:\Program Files\Tableau\Drivers
             </Text>
             . The folders "Tableau" and "Drivers" may not be there already, if not create them. It should look like the following once completed:
-            <Image p={5} src={programFilesDriverInstalledWindows} />
+            <Image my={5} ml={0} src={programFilesDriverInstalledWindows} />
           </GridItem>
         </Grid>
       </Box>
@@ -85,7 +85,7 @@ export const SetupInstructionsWindows = observer(() => {
           </GridItem>
           <GridItem colSpan={4} color={tone(800)}>
             If Tableau Desktop is already open, close and restart the application for the changes to take effect.
-            <Image src={tableauConnect} />
+            <Image my={5} ml={0} src={tableauConnect} />
           </GridItem>
         </Grid>
       </Box>

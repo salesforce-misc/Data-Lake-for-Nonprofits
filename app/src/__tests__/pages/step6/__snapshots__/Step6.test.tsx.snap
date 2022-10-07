@@ -155,6 +155,332 @@ Array [
           <h2
             className="chakra-heading css-1081m9x"
           >
+            Launch Your Connection in Tableau Online
+          </h2>
+          <div
+            className="css-bsg1we"
+          >
+            Login to
+             
+            <a
+              className="chakra-link css-157cndf"
+              href="https://sso.online.tableau.com/public/idp/SSO"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Tableau Online.
+            </a>
+            <svg
+              className="chakra-icon css-sv5w6l"
+              focusable={false}
+              viewBox="0 0 24 24"
+            >
+              <g
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeWidth="2"
+              >
+                <path
+                  d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                />
+                <path
+                  d="M15 3h6v6"
+                />
+                <path
+                  d="M10 14L21 3"
+                />
+              </g>
+            </svg>
+             Utilize the Access Information from below to complete the steps outlined in this help document inside of Tableau Online.
+          </div>
+          <div
+            className="css-0"
+          >
+            <div
+              className="css-sa17r4"
+            >
+              <div
+                className="css-0"
+              >
+                <h2
+                  className="chakra-heading css-1081m9x"
+                  id="step6-h2-access-information"
+                >
+                  PostgreSQL Access Information
+                </h2>
+                <div
+                  className="css-bsg1we"
+                >
+                  You will connect your data lake to Tableau Online using PostgreSQL, a natively supported connector for Tableau Online. This information will be used inside of Tableau when making the connection.
+                </div>
+                <div
+                  className="css-1iwavgg"
+                >
+                  <div
+                    className="css-0"
+                  >
+                    <div
+                      className="css-81r2o8"
+                    >
+                      <div
+                        className="css-8vzfl"
+                      >
+                        Server
+                      </div>
+                      <div
+                        className="css-1wt18qe"
+                      >
+                        <div
+                          className="chakra-stack css-12dr6av"
+                        >
+                          <div
+                            className="css-ffath9"
+                          >
+                            **************
+                          </div>
+                          <svg
+                            className="chakra-icon css-w4ub0m"
+                            data-testid="copy-icon"
+                            focusable={false}
+                            onBlur={[Function]}
+                            onClick={[Function]}
+                            onFocus={[Function]}
+                            onMouseDown={[Function]}
+                            onMouseEnter={[Function]}
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"
+                              fill="currentColor"
+                            />
+                          </svg>
+                        </div>
+                      </div>
+                      <div
+                        className="css-xlhe3c"
+                      >
+                        Port
+                      </div>
+                      <div
+                        className="css-p40wix"
+                      >
+                        <div
+                          className="chakra-stack css-12dr6av"
+                        >
+                          <div
+                            className="css-ffath9"
+                          >
+                            **************
+                          </div>
+                          <svg
+                            className="chakra-icon css-w4ub0m"
+                            data-testid="copy-icon"
+                            focusable={false}
+                            onBlur={[Function]}
+                            onClick={[Function]}
+                            onFocus={[Function]}
+                            onMouseDown={[Function]}
+                            onMouseEnter={[Function]}
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"
+                              fill="currentColor"
+                            />
+                          </svg>
+                        </div>
+                      </div>
+                      <div
+                        className="css-8vzfl"
+                      >
+                        Database
+                      </div>
+                      <div
+                        className="css-1wt18qe"
+                      >
+                        <div
+                          className="chakra-stack css-12dr6av"
+                        >
+                          <div
+                            className="css-ffath9"
+                          >
+                            **************
+                          </div>
+                          <svg
+                            className="chakra-icon css-w4ub0m"
+                            data-testid="copy-icon"
+                            focusable={false}
+                            onBlur={[Function]}
+                            onClick={[Function]}
+                            onFocus={[Function]}
+                            onMouseDown={[Function]}
+                            onMouseEnter={[Function]}
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"
+                              fill="currentColor"
+                            />
+                          </svg>
+                        </div>
+                      </div>
+                      <div
+                        className="css-xlhe3c"
+                      >
+                        Username
+                      </div>
+                      <div
+                        className="css-p40wix"
+                      >
+                        <div
+                          className="chakra-stack css-12dr6av"
+                        >
+                          <div
+                            className="css-ffath9"
+                          >
+                            **************
+                          </div>
+                          <svg
+                            className="chakra-icon css-w4ub0m"
+                            data-testid="copy-icon"
+                            focusable={false}
+                            onBlur={[Function]}
+                            onClick={[Function]}
+                            onFocus={[Function]}
+                            onMouseDown={[Function]}
+                            onMouseEnter={[Function]}
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"
+                              fill="currentColor"
+                            />
+                          </svg>
+                        </div>
+                      </div>
+                      <div
+                        className="css-8vzfl"
+                      >
+                        Password
+                      </div>
+                      <div
+                        className="css-1wt18qe"
+                      >
+                        <div
+                          className="chakra-stack css-12dr6av"
+                        >
+                          <div
+                            className="css-ffath9"
+                          >
+                            **************
+                          </div>
+                          <svg
+                            className="chakra-icon css-w4ub0m"
+                            data-testid="copy-icon"
+                            focusable={false}
+                            onBlur={[Function]}
+                            onClick={[Function]}
+                            onFocus={[Function]}
+                            onMouseDown={[Function]}
+                            onMouseEnter={[Function]}
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"
+                              fill="currentColor"
+                            />
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div
+                      className="css-xi606m"
+                    >
+                      <button
+                        className="chakra-button css-4ztb3u"
+                        disabled={false}
+                        onClick={[Function]}
+                        type="button"
+                      >
+                        Show Access Information
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="css-hmy6pz"
+            >
+              <div
+                className="css-7628p4"
+              >
+                <div
+                  className="css-1g7wgva"
+                >
+                  <span
+                    className="css-wr7jay"
+                  >
+                    1
+                  </span>
+                </div>
+                <div
+                  className="css-pfuu37"
+                >
+                  Select PostgreSQL connector.
+                </div>
+                <div
+                  className="css-u1e89i"
+                >
+                  Add a connector using PostgreSQL option.
+                  <img
+                    className="chakra-image css-3yr5nj"
+                    src="select-postgresql-connector.png"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              className="css-hmy6pz"
+            >
+              <div
+                className="css-7628p4"
+              >
+                <div
+                  className="css-1g7wgva"
+                >
+                  <span
+                    className="css-wr7jay"
+                  >
+                    2
+                  </span>
+                </div>
+                <div
+                  className="css-pfuu37"
+                >
+                  Utilize connection credentials
+                </div>
+                <div
+                  className="css-u1e89i"
+                >
+                  Use the connection credentials from above in order to connect to PostgreSQL database.
+                  <img
+                    className="chakra-image css-3yr5nj"
+                    src="tableau-postgres-creds.png"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="css-1jkeem6"
+        >
+          <h2
+            className="chakra-heading css-1081m9x"
+          >
             Launch Your Connection in Tableau Desktop
           </h2>
           <div
@@ -281,15 +607,15 @@ Array [
                 You will connect your data lake to Tableau using Amazon Athena, a natively supported connector for Tableau Desktop and Tableau Cloud. This information will be used inside of Tableau when making the connection.
               </div>
               <div
-                className="css-1eaeoz1"
+                className="css-81r2o8"
               >
                 <div
-                  className="css-2b9h70"
+                  className="css-8vzfl"
                 >
                   Server
                 </div>
                 <div
-                  className="css-4qo03h"
+                  className="css-1wt18qe"
                 >
                   <div
                     className="chakra-stack css-12dr6av"
@@ -318,12 +644,12 @@ Array [
                   </div>
                 </div>
                 <div
-                  className="css-2b9h70"
+                  className="css-xlhe3c"
                 >
                   Port
                 </div>
                 <div
-                  className="css-4qo03h"
+                  className="css-p40wix"
                 >
                   <div
                     className="chakra-stack css-12dr6av"
@@ -350,12 +676,12 @@ Array [
                   </div>
                 </div>
                 <div
-                  className="css-2b9h70"
+                  className="css-8vzfl"
                 >
                   S3 Staging Directory
                 </div>
                 <div
-                  className="css-4qo03h"
+                  className="css-1wt18qe"
                 >
                   <div
                     className="chakra-stack css-12dr6av"
@@ -382,12 +708,12 @@ Array [
                   </div>
                 </div>
                 <div
-                  className="css-2b9h70"
+                  className="css-xlhe3c"
                 >
                   Catalog
                 </div>
                 <div
-                  className="css-4qo03h"
+                  className="css-p40wix"
                 >
                   <div
                     className="chakra-stack css-12dr6av"
@@ -414,12 +740,12 @@ Array [
                   </div>
                 </div>
                 <div
-                  className="css-2b9h70"
+                  className="css-8vzfl"
                 >
                   Workgroup
                 </div>
                 <div
-                  className="css-4qo03h"
+                  className="css-1wt18qe"
                 >
                   <div
                     className="chakra-stack css-12dr6av"
@@ -446,12 +772,12 @@ Array [
                   </div>
                 </div>
                 <div
-                  className="css-2b9h70"
+                  className="css-xlhe3c"
                 >
                   Database
                 </div>
                 <div
-                  className="css-4qo03h"
+                  className="css-p40wix"
                 >
                   <div
                     className="chakra-stack css-12dr6av"
@@ -747,7 +1073,7 @@ Array [
                   </p>
                   . The folders "Tableau" and "Drivers" may not be there already, if not create them. It should look like the following once completed:
                   <img
-                    className="chakra-image css-r4358i"
+                    className="chakra-image css-3yr5nj"
                     src="programfiles-driver-installed.png"
                   />
                 </div>
@@ -778,133 +1104,9 @@ Array [
                 >
                   If Tableau Desktop is already open, close and restart the application for the changes to take effect.
                   <img
-                    className="chakra-image css-0"
+                    className="chakra-image css-3yr5nj"
                     src="tableau-connect.png"
                   />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          className="css-1jkeem6"
-        >
-          <h2
-            className="chakra-heading css-1081m9x"
-          >
-            Launch Your Connection in Tableau Online
-          </h2>
-          <div
-            className="css-bsg1we"
-          >
-            Login to Table Online.
-             
-            <a
-              className="chakra-link css-157cndf"
-              href="hhttps://help.tableau.com/current/pro/desktop/en-us/examples_postgresql.htm"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              Utilize the Access Information from below to complete the steps outlined in this help document 
-              <svg
-                className="chakra-icon css-onkibi"
-                focusable={false}
-                viewBox="0 0 24 24"
-              >
-                <g
-                  fill="none"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeWidth="2"
-                >
-                  <path
-                    d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
-                  />
-                  <path
-                    d="M15 3h6v6"
-                  />
-                  <path
-                    d="M10 14L21 3"
-                  />
-                </g>
-              </svg>
-            </a>
-             
-            inside of Tableau Online.
-          </div>
-          <div
-            className="css-0"
-          >
-            <div
-              className="css-187rmqg"
-            >
-              <h2
-                className="chakra-heading css-1081m9x"
-                id="step6-h2-access-information"
-              >
-                PostgreSQL Access Information
-              </h2>
-              <div
-                className="css-bsg1we"
-              >
-                You will connect your data lake to Tableau Online using PostgreSQL, a natively supported connector for Tableau Online. This information will be used inside of Tableau when making the connection.
-              </div>
-            </div>
-            <div
-              className="css-hmy6pz"
-            >
-              <div
-                className="css-7628p4"
-              >
-                <div
-                  className="css-1g7wgva"
-                >
-                  <span
-                    className="css-wr7jay"
-                  >
-                    1
-                  </span>
-                </div>
-                <div
-                  className="css-pfuu37"
-                >
-                  Download Athena Plugin
-                </div>
-                <div
-                  className="css-u1e89i"
-                >
-                  Visit the
-                   
-                  <a
-                    className="chakra-link css-157cndf"
-                    href="https://docs.aws.amazon.com/athena/latest/ug/connect-with-jdbc.html#download-the-jdbc-driver"
-                    rel="noopener noreferrer"
-                    target="_blank"
-                  >
-                    Using Athena with the JDBC Driver 
-                    <svg
-                      className="chakra-icon css-onkibi"
-                      focusable={false}
-                      viewBox="0 0 24 24"
-                    >
-                      <g
-                        fill="none"
-                        stroke="currentColor"
-                        strokeLinecap="round"
-                        strokeWidth="2"
-                      >
-                        <path
-                          d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
-                        />
-                        <path
-                          d="M15 3h6v6"
-                        />
-                        <path
-                          d="M10 14L21 3"
-                        />
-                      </g>
-                    </svg>
-                  </a>
                 </div>
               </div>
             </div>

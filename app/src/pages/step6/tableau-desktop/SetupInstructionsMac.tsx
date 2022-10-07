@@ -56,10 +56,10 @@ export const SetupInstructionsMac = observer(() => {
               ⌘ Command
             </Text>
             , also sometimes marked as Alt on some keyboards) to see the Library folder; click it to open it. The menu looks like the following:
-            <Image my={5} mx="auto" src={revealLibraryFolderMac} />
+            <Image my={5} ml={0} src={revealLibraryFolderMac} />
             You'll want to create 2 folders if they do not already exist, "Tableau" and underneath it, "Drivers". Put the "{ATHENA_JAR_NAME}" file in
             this folder. It should look like the following once completed:
-            <Image margin="auto" src={libraryDriverInstalledMac} />
+            <Image my={5} ml={0} src={libraryDriverInstalledMac} />
           </GridItem>
         </Grid>
       </Box>
@@ -75,7 +75,7 @@ export const SetupInstructionsMac = observer(() => {
           </GridItem>
           <GridItem colSpan={4} color={tone(800)}>
             If Tableau Desktop is already open, close and restart the application for the changes to take effect.
-            <Image src={tableauConnect} />
+            <Image my={5} ml={0} src={tableauConnect} />
           </GridItem>
         </Grid>
       </Box>

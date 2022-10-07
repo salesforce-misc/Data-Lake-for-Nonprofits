@@ -47,6 +47,7 @@ export const ProvisionDatastoreStack = ProvisionStack.named("ProvisionDatastoreS
 
     processOutput(context: OperationContext, stack: Stack) {
       context.setDbName(getOutputValue(stack, "DbName"));
+      context.setSecretArn(getOutputValue(stack, "SecretArn"));
     },
   }));
 

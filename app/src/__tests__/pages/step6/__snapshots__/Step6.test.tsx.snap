@@ -212,7 +212,7 @@ Array [
                 <div
                   className="css-bsg1we"
                 >
-                  You will connect your data lake to Tableau Online using PostgreSQL, a natively supported connector for Tableau Online. This information will be used inside of Tableau when making the connection.
+                  You will connect your data lake to Tableau Online using PostgreSQL, a natively supported connector for Tableau. This information will be used inside of Tableau Online when making the connection.
                 </div>
                 <div
                   className="css-1iwavgg"

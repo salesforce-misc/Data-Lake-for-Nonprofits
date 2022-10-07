@@ -50,7 +50,7 @@ export const Layout = observer(({ step, title, description, explanation, warning
         {(step === 0 || step > 3) && (
           <Box sx={{ mt: 4 }} float="right" fontSize="small" textAlign="right" color={tone(100)}>
             <Text>Region: {installation.region}</Text>
-            <Text>ID: {installation.id}</Text>
+            <Text>Installation ID: {installation.id}</Text>
           </Box>
         )}
 

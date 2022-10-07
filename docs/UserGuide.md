@@ -1,16 +1,10 @@
-# ­­
-
 # Data Lake for Nonprofits, Powered by AWS
-
-# User Guide
-
-Prepared for Salesforce by AWS Professional Services Team
 
 Aug 2022
 
 ## 1. Introduction
 
-This document provides guidance for setting up a Datalake for Nonprofits Application.
+This document provides guidance for setting up a data lake for non-profits.
 
 ## 2. Setting up the App
 

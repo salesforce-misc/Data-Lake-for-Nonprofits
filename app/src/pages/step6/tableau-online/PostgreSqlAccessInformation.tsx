@@ -10,7 +10,7 @@ export const PostgreSqlAccessInformation = observer(() => {
 
   return (
     <Box>
-      <Heading id="step6-h2-access-information" size="md" pt="0px" pb="30px" color={tone(600)} letterSpacing="-1px">
+      <Heading id="step6-postgresql-access-information" size="md" pt="0px" pb="30px" color={tone(600)} letterSpacing="-1px">
         PostgreSQL Access Information
       </Heading>
 

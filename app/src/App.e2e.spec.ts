@@ -207,17 +207,29 @@ const AppTest = async (driver: WebDriver, testUrl: string, region: string) => {
   await driver.findElement(By.id("step6")).isDisplayed();
   await driver.findElement(By.id("h2-title")).isDisplayed();
 
-  const accessInformation = await driver.findElement(By.id("step6-h2-access-information"));
-  expect(await accessInformation.getText()).toBe("Access Information");
+  const posgtresAccessInformation = await driver.findElement(By.id("step6-postgresql-access-information"));
+  expect(await posgtresAccessInformation.getText()).toBe("PostgreSQL Access Information");
 
   await waitFor(1000);
-
-  await driver.executeScript("arguments[0].scrollIntoView(true);", accessInformation);
+  await driver.executeScript("arguments[0].scrollIntoView(true);", posgtresAccessInformation);
 
   if (screenshotFolder) {
     // Take a screenshot
     await driver.takeScreenshot().then((image) => {
-      require("fs").writeFileSync(screenshotFolder + testTime + " e2e step6.png", image, "base64");
+      require("fs").writeFileSync(screenshotFolder + testTime + " e2e step6 postgres.png", image, "base64");
+    });
+  }
+
+  const athenaAccessInformation = await driver.findElement(By.id("step6-athena-access-information"));
+  expect(await athenaAccessInformation.getText()).toBe("Amazon Athena Access Information");
+
+  await waitFor(1000);
+  await driver.executeScript("arguments[0].scrollIntoView(true);", athenaAccessInformation);
+
+  if (screenshotFolder) {
+    // Take a screenshot
+    await driver.takeScreenshot().then((image) => {
+      require("fs").writeFileSync(screenshotFolder + testTime + " e2e step6 athena.png", image, "base64");
     });
   }
 

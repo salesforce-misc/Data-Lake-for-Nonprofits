@@ -11,7 +11,7 @@ export const AthenaAccessInformation = observer(() => {
 
   return (
     <>
-      <Heading id="step6-h2-access-information" size="md" pt="0px" pb="30px" color={tone(600)} letterSpacing="-1px">
+      <Heading id="step6-athena-access-information" size="md" pt="0px" pb="30px" color={tone(600)} letterSpacing="-1px">
         Amazon Athena Access Information
       </Heading>
 

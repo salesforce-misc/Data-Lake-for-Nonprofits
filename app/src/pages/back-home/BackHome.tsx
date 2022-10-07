@@ -10,6 +10,7 @@ import { TimeAgo } from "components/TimeAgo";
 import { isCompleted } from "models/Installation";
 import { useColorScheme } from "models/useColorScheme";
 import { AthenaAccessInformation } from "pages/step6/tableau-desktop/AthenaAccessInformation";
+import { PostgreSqlAccessInformation } from "pages/step6/tableau-online/PostgreSqlAccessInformation";
 import { UsersPanel } from "pages/step6/tableau-desktop/users-panel/UsersPanel";
 import { CloudwatchDashboardPanel } from "pages/step6/CloudwatchDashboardPanel";
 import { SubscribeSNSPanel } from "pages/step6/SubscribeSNSPanel";
@@ -87,9 +88,15 @@ export const BackHome = observer(() => {
       </Box>
 
       {completedProvisioning && (
-        <Box borderRadius="lg" boxShadow="base" bg={tone(25)} mt={6} p={10} pb={10}>
-          <AthenaAccessInformation />
-        </Box>
+        <>
+          <Box borderRadius="lg" boxShadow="base" bg={tone(75)} mt={6} p={10} pb={10}>
+            <PostgreSqlAccessInformation />
+          </Box>
+
+          <Box borderRadius="lg" boxShadow="base" bg={tone(75)} mt={6} p={10} pb={10}>
+            <AthenaAccessInformation />
+          </Box>
+        </>
       )}
 
       {completedProvisioning && credentialsAvailable && (

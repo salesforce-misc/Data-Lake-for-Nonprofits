@@ -15,8 +15,8 @@ export const PostgreSqlAccessInformation = observer(() => {
       </Heading>
 
       <Box display="block" fontSize="sm" mb={6}>
-        You will connect your data lake to Tableau Online using PostgreSQL, a natively supported connector for Tableau Online. This information will
-        be used inside of Tableau when making the connection.
+        You will connect your data lake to Tableau Online using PostgreSQL, a natively supported connector for Tableau. This information will be used
+        inside of Tableau Online when making the connection.
       </Box>
 
       <Box borderRadius="lg" bg={tone(75)} mt={4} pt={4} pb={4} position="relative">

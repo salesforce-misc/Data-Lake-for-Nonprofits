@@ -14,8 +14,7 @@ export const ReviewGrid = observer(() => {
   const commonProps = {
     w: "100%",
     h: "100%",
-    borderRadius: "md",
-    p: 0,
+    p: 2,
   };
 
   const headerProps = {
@@ -24,26 +23,34 @@ export const ReviewGrid = observer(() => {
     fontWeight: "bold",
   };
 
+  const headerPropsOdd = {
+    ...headerProps,
+    bg: tone(75),
+  };
+
   const contentProps = {
     ...commonProps,
-    bg: tone(75),
     color: tone(800),
-    p: 1,
     pl: 3,
   };
 
+  const contentPropsOdd = {
+    ...contentProps,
+    bg: tone(75),
+  };
+
   return (
-    <Grid templateColumns="0.5fr 1fr" gap={2} pb={6}>
-      <GridItem {...headerProps}>AWS Account Id</GridItem>
-      <GridItem {...contentProps}>{installation.accountId}</GridItem>
+    <Grid templateColumns="0.5fr 1fr" rowGap={3} pb={6}>
+      <GridItem {...headerPropsOdd}>AWS Account Id</GridItem>
+      <GridItem {...contentPropsOdd}>{installation.accountId}</GridItem>
 
       <GridItem {...headerProps}>AWS Region</GridItem>
       <GridItem {...contentProps}>{awsRegionsMap[installation.region].label}</GridItem>
 
       {installation.appFlowConnectionName && (
         <>
-          <GridItem {...headerProps}>Connection Name</GridItem>
-          <GridItem {...contentProps}>{installation.appFlowConnectionName}</GridItem>
+          <GridItem {...headerPropsOdd}>Connection Name</GridItem>
+          <GridItem {...contentPropsOdd}>{installation.appFlowConnectionName}</GridItem>
         </>
       )}
       {isCompleted(installation.connectToSalesforceStep) && (

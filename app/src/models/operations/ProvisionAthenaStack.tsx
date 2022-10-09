@@ -15,7 +15,7 @@ export const ProvisionAthenaStack = ProvisionStack.named("ProvisionAthenaStack")
     },
 
     get suggestedTime(): string {
-      return `2 minutes or more`;
+      return `3 minutes or more`;
     },
 
     get estimatedResourceCount(): number {

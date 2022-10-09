@@ -25,13 +25,6 @@ Metadata:
           - PreferredMaintenanceWindow
           - EnableDataApi
           - SecretRotationAssetZip
-      - Label:
-          default: "Serverless Parameters"
-        Parameters:
-          - AutoPause
-          - MaxCapacity
-          - MinCapacity
-          - SecondsUntilAutoPause
 Parameters:
   ParentVPCStack:
     Description: "Stack name of parent VPC stack."
@@ -50,7 +43,7 @@ Parameters:
     Type: String
     Default: "assets/SecretsManagerRDSPostgreSQLRotationSingleUser.zip"
   DBSnapshotIdentifier:
-    Description: "Optional identifier for the DB cluster snapshot from which you want to restore (leave blank to create an empty cluster)."
+    Description: "Optional identifier for the DB snapshot from which you want to restore (leave blank to create an empty database)."
     Type: String
     Default: ""
   DBName:
@@ -58,7 +51,7 @@ Parameters:
     Type: String
     Default: db
   DBBackupRetentionPeriod:
-    Description: "The number of days to keep snapshots of the cluster."
+    Description: "The number of days to keep snapshots of the database."
     Type: Number
     MinValue: 1
     MaxValue: 35
@@ -80,40 +73,15 @@ Parameters:
     Type: String
     AllowedValues: ["true", "false"]
     Default: "false"
-  AutoPause:
-    Description: "Shuts down all servers to cut cost. Enables automatic pause for a Serverless Aurora cluster. A cluster can be paused only when it has no connections. If a cluster is paused for more than seven days, the cluster might be backed up with a snapshot. In this case, the cluster is restored when there is a request to connect to it."
-    Type: String
-    AllowedValues: ["true", "false"]
-    Default: "true"
-  MaxCapacity:
-    Description: "The maximum capacity units for a Serverless Aurora cluster. Set this to put a cap on cost by limiting performance."
-    Type: String
-    AllowedValues: [2, 4, 8, 16, 32, 64, 192, 384]
-    Default: 2
-  MinCapacity:
-    Description: "The minimum capacity units for a Serverless Aurora cluster. Set this to put a minimum performance level to boot to when starting up, reducing cold/fresh start scaling times."
-    Type: String
-    AllowedValues: [2, 4, 8, 16, 32, 64, 192, 384]
-    Default: 2
-  SecondsUntilAutoPause:
-    Description: "The time, in seconds, before a Serverless Aurora cluster is paused. The longer it runs when idle the more it will cost, however this may alleviate frequent cold start issues if access is infrequent but heavily concentrated within a small time window. For example, if the database is queried hourly on Mondays, set this to > 1 hour (3,600+) and the server will stay up all day Monday but shut down ever other day of the week."
-    Type: Number
-    MinValue: 300
-    MaxValue: 86400
-    Default: 300
   EngineVersion:
-    Description: "Aurora Serverless PostgreSQL version."
+    Description: "PostgreSQL version."
     Type: String
-    Default: "10.14"
-    AllowedValues: ["10.14"] # aws rds describe-db-engine-versions --engine aurora-postgresql --query 'DBEngineVersions[?contains(SupportedEngineModes,\`serverless\`)]'
+    Default: "13.7"
+    AllowedValues: ["13.7"]
   SSHAccessPrefixList:
     Description: Enables SSH access to the VPC by a prefix list. Must have an instance running in order to connect. Must have set "SSHAccess" to true in the VPC stack.
     Type: String
     Default: ""
-Mappings:
-  EngineVersionMap:
-    "10.14":
-      ClusterParameterGroupFamily: "aurora-postgresql10"
 Conditions:
   HasDBSnapshotIdentifier: !Not [!Equals [!Ref DBSnapshotIdentifier, ""]]
   HasSSHPrefixList: !Not [!Equals [!Ref SSHAccessPrefixList, ""]]
@@ -261,10 +229,10 @@ Resources:
   SecretTargetAttachment:
     Type: "AWS::SecretsManager::SecretTargetAttachment"
     Properties:
-      TargetId: !Ref DBCluster
+      TargetId: !Ref DBInstance
       SecretId: !Ref Secret
-      TargetType: "AWS::RDS::DBCluster"
-  ClusterSecurityGroup:
+      TargetType: "AWS::RDS::DBInstance"
+  DBSecurityGroup:
     Type: "AWS::EC2::SecurityGroup"
     Properties:
       GroupDescription: !Join
@@ -281,23 +249,23 @@ Resources:
             reason: Outbound connections are unrestricted
           - id: W29
             reason: Outbound connections are unrestricted
-  ClusterSecurityGroupIngress:
+  DBSecurityGroupIngress:
     Type: "AWS::EC2::SecurityGroupIngress"
     Properties:
-      GroupId: !Ref ClusterSecurityGroup
+      GroupId: !Ref DBSecurityGroup
       IpProtocol: tcp
-      FromPort: !GetAtt "DBCluster.Endpoint.Port"
-      ToPort: !GetAtt "DBCluster.Endpoint.Port"
-      SourceSecurityGroupId: !Ref ClusterSecurityGroup
+      FromPort: !GetAtt "DBInstance.Endpoint.Port"
+      ToPort: !GetAtt "DBInstance.Endpoint.Port"
+      SourceSecurityGroupId: !Ref DBSecurityGroup
       Description: !Join
         - "-"
         - - "sf"
           - "db"
           - !Ref InstallationId
-  ClusterSecurityGroupEgress:
+  DBSecurityGroupEgress:
     Type: AWS::EC2::SecurityGroupEgress
     Properties:
-      GroupId: !Ref ClusterSecurityGroup
+      GroupId: !Ref DBSecurityGroup
       IpProtocol: tcp
       FromPort: 0
       ToPort: 65535
@@ -318,21 +286,7 @@ Resources:
       SubnetIds: !Split
         - ","
         - Fn::ImportValue: !Sub "\${ParentVPCStack}-Subnets"
-  DBClusterParameterGroup:
-    Type: "AWS::RDS::DBClusterParameterGroup"
-    Properties:
-      Description: !Join
-        - "-"
-        - - "sf"
-          - "db"
-          - !Ref InstallationId
-      Family: !FindInMap
-        - EngineVersionMap
-        - !Ref EngineVersion
-        - ClusterParameterGroupFamily
-      Parameters:
-        client_encoding: "UTF8"
-  DBClusterKey:
+  DBInstanceKey:
     Type: "AWS::KMS::Key"
     DeletionPolicy: Delete
     Properties:
@@ -353,7 +307,7 @@ Resources:
                   - ":root"
             Action: "kms:*"
             Resource: "*"
-  DBClusterKeyAlias:
+  DBInstanceKeyAlias:
     Type: "AWS::KMS::Alias"
     Properties:
       AliasName: !Join
@@ -364,30 +318,13 @@ Resources:
             - - "sf"
               - "db"
               - !Ref InstallationId
-      TargetKeyId: !Ref DBClusterKey
-  DBCluster:
+      TargetKeyId: !Ref DBInstanceKey
+  DBInstance:
+    Type: AWS::RDS::DBInstance
     DeletionPolicy: Snapshot # default
     UpdateReplacePolicy: Snapshot
-    Type: "AWS::RDS::DBCluster"
     Properties:
-      BackupRetentionPeriod: !Ref DBBackupRetentionPeriod
-      DatabaseName: !If
-        - HasDBSnapshotIdentifier
-        - !Ref "AWS::NoValue"
-        - !Join
-          - ""
-          - - "sf"
-            - !Ref DBName
-            - !Ref InstallationId
-      DeletionProtection: true
-      DBClusterParameterGroupName: !Ref DBClusterParameterGroup
-      DBSubnetGroupName: !Ref DBSubnetGroup
-      EnableHttpEndpoint: !Ref EnableDataApi
-      Engine: aurora-postgresql
-      EngineMode: serverless
-      EngineVersion: !Ref EngineVersion
-      KmsKeyId:
-        !If [HasDBSnapshotIdentifier, !Ref "AWS::NoValue", !Ref DBClusterKey]
+      Engine: Postgres
       MasterUsername: !If
         - HasDBSnapshotIdentifier
         - !Ref "AWS::NoValue"
@@ -400,31 +337,26 @@ Resources:
           - - "{{resolve:secretsmanager:"
             - !Ref Secret
             - ":SecretString:password}}"
-      PreferredBackupWindow: !Ref PreferredBackupWindow
-      PreferredMaintenanceWindow: !Ref PreferredMaintenanceWindow
-      ScalingConfiguration:
-        AutoPause: !Ref AutoPause
-        MaxCapacity: !Ref MaxCapacity
-        MinCapacity: !Ref MinCapacity
-        SecondsUntilAutoPause: !Ref SecondsUntilAutoPause
-      SnapshotIdentifier: !If
+      BackupRetentionPeriod: !Ref DBBackupRetentionPeriod
+      DBName: !If
         - HasDBSnapshotIdentifier
-        - !Ref DBSnapshotIdentifier
         - !Ref "AWS::NoValue"
+        - !Join
+          - ""
+          - - "sf"
+            - !Ref DBName
+            - !Ref InstallationId
+      EnableCloudwatchLogsExports: [postgresql, upgrade]
+      EnablePerformanceInsights: false
+      EngineVersion: "13.7"
+      DBInstanceClass: db.m6i.large
+      DBSubnetGroupName: !Ref DBSubnetGroup
+      VPCSecurityGroups:
+        - !Ref DBSecurityGroup
+      StorageType: gp2
+      AllocatedStorage: "100"
       StorageEncrypted: true
-      VpcSecurityGroupIds:
-        - !Ref ClusterSecurityGroup
-  DatabaseClusterEventSubscription:
-    Type: "AWS::RDS::EventSubscription"
-    Properties:
-      EventCategories:
-        - failover
-        - failure
-        - maintenance
-      SnsTopicArn:
-        Fn::ImportValue: !Sub "\${ParentVPCStack}-SNSAlarmTopic"
-      SourceIds: [!Ref DBCluster]
-      SourceType: "db-cluster"
+      PubliclyAccessible: true
   LambdaSecurityGroup:
     Type: "AWS::EC2::SecurityGroup"
     Properties:
@@ -461,48 +393,100 @@ Resources:
         - - "sf"
           - "lambda"
           - !Ref InstallationId
-  ClusterSecurityGroupIngressForLambda:
+  DBSecurityGroupIngressForLambda:
     Type: "AWS::EC2::SecurityGroupIngress"
     Properties:
       Description: !Sub "\${AWS::StackName} Allows Lambdas to access the DB"
-      GroupId: !Ref ClusterSecurityGroup
+      GroupId: !Ref DBSecurityGroup
       IpProtocol: tcp
-      FromPort: !GetAtt "DBCluster.Endpoint.Port"
-      ToPort: !GetAtt "DBCluster.Endpoint.Port"
+      FromPort: !GetAtt "DBInstance.Endpoint.Port"
+      ToPort: !GetAtt "DBInstance.Endpoint.Port"
       SourceSecurityGroupId: !Ref LambdaSecurityGroup
+  TableauCloudPrefixList:
+    Type: AWS::EC2::PrefixList
+    Properties:
+      PrefixListName: "online.tableau.com"
+      AddressFamily: "IPv4"
+      MaxEntries: 20
+      Entries:
+        - Cidr: "34.208.207.197/32"
+          Description: "10ax.online.tableau.com"
+        - Cidr: "52.39.159.250/32"
+          Description: "10ax.online.tableau.com"
+        - Cidr: "34.218.129.202/32"
+          Description: "10ay.online.tableau.com"
+        - Cidr: "52.40.235.24/32"
+          Description: "10ay.online.tableau.com"
+        - Cidr: "34.218.83.207/32"
+          Description: "10az.online.tableau.com"
+        - Cidr: "52.37.252.60/32"
+          Description: "10az.online.tableau.com"
+        - Cidr: "34.214.85.34/32"
+          Description: "us-west-2b.online.tableau.com"
+        - Cidr: "34.214.85.244/32"
+          Description: "us-west-2b.online.tableau.com"
+        - Cidr: "50.17.26.34/32"
+          Description: "us-east-1.online.tableau.com"
+        - Cidr: "52.206.162.101/32"
+          Description: "us-east-1.online.tableau.com"
+        - Cidr: "3.219.176.16/28"
+          Description: "prod-useast-a.online.tableau.com,prod-useast-b.online.tableau.com"
+        - Cidr: "34.246.74.86/32"
+          Description: "dub01.online.tableau.com"
+        - Cidr: "52.215.158.213/32"
+          Description: "dub01.online.tableau.com"
+        - Cidr: "34.246.62.141/32"
+          Description: "eu-west-1a.online.tableau.com"
+        - Cidr: "34.246.62.203/32"
+          Description: "eu-west-1a.online.tableau.com"
+        - Cidr: "18.176.203.96/28"
+          Description: "prod-apnortheast-a.online.tableau.com"
+        - Cidr: "3.25.37.32/28"
+          Description: "prod-apsoutheast-a.online.tableau.com"
+        - Cidr: "18.134.84.240/28"
+          Description: "prod-uk-a.online.tableau.com"
+        - Cidr: "3.98.24.208/28"
+          Description: "prod-ca-a.online.tableau.com"
+      Tags:
+        - Key: "Name"
+          Value: "Tableau Online"
+  DBSecurityGroupIngressForTableauCloud:
+    Type: "AWS::EC2::SecurityGroupIngress"
+    Properties:
+      Description: !Sub "\${AWS::StackName} Allows Tableau Cloud to access the DB"
+      GroupId: !Ref DBSecurityGroup
+      IpProtocol: tcp
+      FromPort: !GetAtt "DBInstance.Endpoint.Port"
+      ToPort: !GetAtt "DBInstance.Endpoint.Port"
+      SourcePrefixListId: !Ref TableauCloudPrefixList
 Outputs:
   StackName:
     Description: "Stack name."
     Value: !Sub "\${AWS::StackName}"
-  ClusterName:
-    Description: "The name of the cluster."
-    Value: !Ref DBCluster
-    Export:
-      Name: !Sub "\${AWS::StackName}-ClusterName"
-  ClusterDbName:
-    Description: "The name of the database in the cluster"
+  DbName:
+    Description: "The name of the database"
     Value: !Join
       - ""
       - - "sf"
         - !Ref DBName
         - !Ref InstallationId
     Export:
-      Name: !Sub "\${AWS::StackName}-ClusterDbName"
-  ClusterAddress:
-    Description: "The connection endpoint of the DB cluster."
-    Value: !GetAtt "DBCluster.Endpoint.Address"
+      Name: !Sub "\${AWS::StackName}-DbName"
+  DBAddress:
+    Description: "The connection endpoint of the DB."
+    Value: !GetAtt "DBInstance.Endpoint.Address"
     Export:
-      Name: !Sub "\${AWS::StackName}-ClusterAddress"
-  ClusterPort:
-    Description: "The connection endpoint port for the DB cluster."
-    Value: !GetAtt "DBCluster.Endpoint.Port"
+      Name: !Sub "\${AWS::StackName}-DBAddress"
+  DBPort:
+    Description: "The connection endpoint port for the DB."
+    Value: !GetAtt "DBInstance.Endpoint.Port"
     Export:
-      Name: !Sub "\${AWS::StackName}-ClusterPort"
-  ClusterSecurityGroup:
+      Name: !Sub "\${AWS::StackName}-DBPort"
+  DBSecurityGroup:
     Description: "The security group used to manage access to RDS Aurora Serverless Postgres."
-    Value: !Ref ClusterSecurityGroup
+    Value: !Ref DBSecurityGroup
     Export:
-      Name: !Sub "\${AWS::StackName}-ClusterSecurityGroup"
+      Name: !Sub "\${AWS::StackName}-DBSecurityGroup"
   Secret:
     Description: "The name of the SecretsManager secret for accessing the database"
     Value: !Join

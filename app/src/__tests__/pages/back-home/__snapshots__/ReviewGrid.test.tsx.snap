@@ -6,35 +6,35 @@ Array [
     data-testid="test-root"
   >
     <div
-      className="css-iektmo"
+      className="css-h63s9b"
     >
       <div
-        className="css-1912uuf"
+        className="css-4q8l0p"
       >
         AWS Account Id
       </div>
       <div
-        className="css-im2a0n"
+        className="css-4m8tpx"
       >
         test-account-id
       </div>
       <div
-        className="css-1912uuf"
+        className="css-u0p3f7"
       >
         AWS Region
       </div>
       <div
-        className="css-im2a0n"
+        className="css-1r2pqxi"
       >
         US East (N. Virginia)
       </div>
       <div
-        className="css-1912uuf"
+        className="css-4q8l0p"
       >
         Connection Name
       </div>
       <div
-        className="css-im2a0n"
+        className="css-4m8tpx"
       >
         test-appflow-connection-name
       </div>

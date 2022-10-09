@@ -6,6 +6,7 @@ import { genId } from "helpers/id-gen";
 import { MetadataStore } from "models/MetadataStore";
 import { ConnectionsStore } from "models/ConnectionsStore";
 import { ConnectToAWS } from "models/steps/ConnectToAWS";
+import { GetDatabaseSecrets } from "models/steps/GetDatabaseSecrets";
 import { ConnectToSalesforce } from "models/steps/ConnectToSalesforce";
 import { ImportOptionsStep } from "models/steps/ImportOptionsStep";
 import { ICredentials } from "models/helpers/Credentials";
@@ -32,7 +33,7 @@ export const BucketsStackNamePrefix = "sforg-buckets-";
  */
 export const Installation = types
   .model("Installation", {
-    v: "1", // this is to help detect changes to the shape of the installation model (after going to prod)
+    v: "2",
     id: types.optional(types.string, () => genId()),
     startDate: types.optional(types.Date, () => new Date()),
     startedBy: types.maybe(types.string),
@@ -48,11 +49,18 @@ export const Installation = types
     athenaPrimaryWorkGroup: "",
     athenaOutput: "",
     athenaManagedPolicy: "",
-    clusterName: "",
+    dbHost: "",
+    dbPort: 5432,
+    dbName: "",
+    dbUsername: "",
+    dbPassword: "",
     importDataBucketName: "",
     athenaDataBucketName: "",
     importAlarmArns: types.array(types.string),
+    secretArn: "",
     snsTopicArn: "",
+
+    getDatabaseSecrets: types.optional(GetDatabaseSecrets, {}),
 
     connectToAwsStep: types.optional(ConnectToAWS, {}),
     connectToSalesforceStep: types.optional(ConnectToSalesforce, {}),
@@ -136,6 +144,10 @@ export const Installation = types
         self.metadataStore.reset();
       },
 
+      async setDatabaseSecrets(credentials: ICredentials) {
+        await self.getDatabaseSecrets.getSecretValue(credentials.accessKey, credentials.secretKey, self.region, self.secretArn);
+      },
+
       setAssetBucket(name: string) {
         self.assetBucket = name;
       },
@@ -172,8 +184,24 @@ export const Installation = types
         self.athenaManagedPolicy = name;
       },
 
-      setClusterName(name: string) {
-        self.clusterName = name;
+      setDbHost(name: string) {
+        self.dbHost = name;
+      },
+
+      setDbPort(port: number) {
+        self.dbPort = port;
+      },
+
+      setDbName(name: string) {
+        self.dbName = name;
+      },
+
+      setDbUsername(name: string) {
+        self.dbUsername = name;
+      },
+
+      setDbPassword(name: string) {
+        self.dbPassword = name;
       },
 
       setImportDataBucketName(name: string) {
@@ -192,6 +220,10 @@ export const Installation = types
 
       setSnsTopicArn(arn: string) {
         self.snsTopicArn = arn;
+      },
+
+      setSecretArn(arn: string) {
+        self.secretArn = arn;
       },
 
       triggerDeployment() {

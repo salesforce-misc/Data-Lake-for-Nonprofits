@@ -36,11 +36,12 @@ export interface OperationContext {
   importWorkflowName: string;
   importStatusStore: IImportStatusStore;
   athenaPrimaryWorkGroup: string;
-  clusterName: string;
+  dbName: string;
   importDataBucketName: string;
   importAlarmArns: string[];
   athenaDataBucketName: string;
   snsTopicArn: string;
+  secretArn: string;
 
   setAssetBucket: (name: string) => void;
   setMetadataBucket: (name: string) => void;
@@ -51,11 +52,12 @@ export interface OperationContext {
   setAthenaPrimaryWorkGroup: (name: string) => void;
   setAthenaOutput: (name: string) => void;
   setAthenaManagedPolicy: (name: string) => void;
-  setClusterName: (name: string) => void;
+  setDbName: (name: string) => void;
   setImportDataBucketName: (name: string) => void;
   addImportAlarmArn: (arn: string) => void;
   setAthenaDataBucketName: (name: string) => void;
   setSnsTopicArn: (arn: string) => void;
+  setSecretArn: (arn: string) => void;
 }
 
 const typeDispatcher = (snapshot: { type?: string }) => {

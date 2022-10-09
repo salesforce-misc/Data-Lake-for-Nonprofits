@@ -15,7 +15,7 @@ export const ProvisionDatastoreStack = ProvisionStack.named("ProvisionDatastoreS
     },
 
     get suggestedTime(): string {
-      return `14 minutes or more`;
+      return `9 minutes or more`;
     },
 
     get estimatedResourceCount(): number {
@@ -46,7 +46,8 @@ export const ProvisionDatastoreStack = ProvisionStack.named("ProvisionDatastoreS
     },
 
     processOutput(context: OperationContext, stack: Stack) {
-      context.setClusterName(getOutputValue(stack, "ClusterName"));
+      context.setDbName(getOutputValue(stack, "DbName"));
+      context.setSecretArn(getOutputValue(stack, "SecretArn"));
     },
   }));
 

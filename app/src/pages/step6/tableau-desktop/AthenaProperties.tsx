@@ -3,8 +3,8 @@ import { Box, HStack, useClipboard, Tooltip, Text, Heading } from "@chakra-ui/re
 import { CheckCircleIcon, CopyIcon, DownloadIcon } from "@chakra-ui/icons";
 import { observer } from "mobx-react";
 
-import { useInstallation } from "../../AppContext";
-import { useColorScheme } from "../../models/useColorScheme";
+import { useInstallation } from "../../../AppContext";
+import { useColorScheme } from "../../../models/useColorScheme";
 
 export const AthenaProperties = observer(() => {
   const installation = useInstallation();

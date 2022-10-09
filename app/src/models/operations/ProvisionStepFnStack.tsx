@@ -16,7 +16,7 @@ export const ProvisionStepFnStack = ProvisionStack.named("ProvisionStepFnStack")
     },
 
     get suggestedTime(): string {
-      return self.isCreate ? `4 minutes or more` : "2 minutes or more";
+      return self.isCreate ? `7 minutes or more` : "4 minutes or more";
     },
 
     get estimatedResourceCount(): number {
@@ -40,7 +40,7 @@ export const ProvisionStepFnStack = ProvisionStack.named("ProvisionStepFnStack")
         param("ConnectionName", context.appFlowConnectionName),
       ];
 
-      const enableCron = self.enableCron? "true" : "false";
+      const enableCron = self.enableCron ? "true" : "false";
       if (self.isCreate) {
         // When we first create the stack, we don't want event bridge schedule to be active
         params.push(param("ImportWorkflowCronEnabled", enableCron));
@@ -56,17 +56,17 @@ export const ProvisionStepFnStack = ProvisionStack.named("ProvisionStepFnStack")
       const region = context.region;
       const bucketName = context.assetBucket;
 
-      return `https://${bucketName}.s3.${region}.amazonaws.com/cf/step_function.yaml`
+      return `https://${bucketName}.s3.${region}.amazonaws.com/cf/step_function.yaml`;
     },
 
     processOutput(context: OperationContext, stack: Stack) {
       context.setImportDataBucketName(getOutputValue(stack, "ImportDataBucketName"));
       context.setImportWorkflowArn(getOutputValue(stack, "ImportWorkflow"));
       context.setImportWorkflowName(getOutputValue(stack, "ImportWorkflowName"));
-      context.addImportAlarmArn(getOutputValue(stack, 'ImportFailedAlarm'));
-      context.addImportAlarmArn(getOutputValue(stack, 'ImportAbortedAlarm'));
-      context.addImportAlarmArn(getOutputValue(stack, 'ImportThrottledAlarm'));
-      context.addImportAlarmArn(getOutputValue(stack, 'ImportTimedOutAlarm'));
+      context.addImportAlarmArn(getOutputValue(stack, "ImportFailedAlarm"));
+      context.addImportAlarmArn(getOutputValue(stack, "ImportAbortedAlarm"));
+      context.addImportAlarmArn(getOutputValue(stack, "ImportThrottledAlarm"));
+      context.addImportAlarmArn(getOutputValue(stack, "ImportTimedOutAlarm"));
     },
   }));
 

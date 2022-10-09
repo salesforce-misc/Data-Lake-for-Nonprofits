@@ -2,7 +2,7 @@ import React from "react";
 import { Box, HStack, Heading } from "@chakra-ui/react";
 import { observer } from "mobx-react";
 
-import { UsersTable } from "pages/step6/users-table/UsersTable";
+import { UsersTable } from "pages/step6/tableau-desktop/users-table/UsersTable";
 import { useColorScheme } from "models/useColorScheme";
 
 import { RefreshButton } from "./RefreshButton";

@@ -44,7 +44,7 @@ export const PutDashboard = Operation.named("PutDashboard")
           dashboardJson: createDashboardJson(
             context.region,
             context.importWorkflowArn,
-            context.clusterName,
+            context.dbName,
             context.athenaPrimaryWorkGroup,
             context.athenaDataBucketName,
             context.importDataBucketName,
@@ -69,7 +69,7 @@ export interface IPutDashboard extends Instance<typeof PutDashboard> {}
 function createDashboardJson(
   region: string,
   workflowArn: string,
-  clusterName: string,
+  dbName: string,
   workGroup: string,
   athenaDataBucketName: string,
   importDataBucketName: string,
@@ -118,8 +118,8 @@ function createDashboardJson(
             [
               "AWS/RDS",
               "EngineUptime",
-              "DBClusterIdentifier",
-              clusterName,
+              "DBInstanceIdentifier",
+              dbName,
               {
                 yAxis: "left",
                 id: "m1",
@@ -346,8 +346,8 @@ function createDashboardJson(
             [
               "AWS/RDS",
               "TotalBackupStorageBilled",
-              "DBClusterIdentifier",
-              clusterName,
+              "DBInstanceIdentifier",
+              dbName,
               {
                 id: "m1",
                 visible: false,

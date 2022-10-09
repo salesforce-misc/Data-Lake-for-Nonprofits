@@ -18,7 +18,7 @@ Parameters:
     Description: Enables networking components such that the last step to enable SSH is to have an instance in a security group which allows SSH access in the VPC.
     Type: String
     AllowedValues: ["true", "false"]
-    Default: "false"
+    Default: "true"
   ThirdAZ:
     Description: Enable/Disable the third availability zone within the region. This is here to allow for disabling the third AZ when the region does not support it.
     Type: String

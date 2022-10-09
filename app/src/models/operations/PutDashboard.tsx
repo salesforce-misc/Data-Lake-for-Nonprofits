@@ -102,42 +102,6 @@ function createDashboardJson(
       },
       {
         height: 7,
-        width: 12,
-        y: 33,
-        x: 0,
-        type: "metric",
-        properties: {
-          metrics: [
-            [
-              {
-                expression: "METRICS()/60",
-                label: "RDS Uptime",
-                id: "e1",
-              },
-            ],
-            [
-              "AWS/RDS",
-              "EngineUptime",
-              "DBInstanceIdentifier",
-              dbName,
-              {
-                yAxis: "left",
-                id: "m1",
-                visible: false,
-                label: "in Minutes",
-              },
-            ],
-          ],
-          view: "timeSeries",
-          stacked: false,
-          region: region,
-          period: 86400,
-          stat: "Average",
-          title: "RDS Uptime",
-        },
-      },
-      {
-        height: 7,
         width: 8,
         y: 4,
         x: 0,
@@ -558,7 +522,7 @@ function createDashboardJson(
         type: "text",
         properties: {
           markdown:
-            "# RDS\n\nAurora Serverless is configured to be able to shut itself down when not in use. This saves money on hardware when not in use (i.e. nights, weekends, holidays, etc.). Additionally, the system is setup with an aggressive shutdown timer so that more savings can be reaped. Repeated queries to the system, via Athena or directly to RDS by other means, will keep RDS up and running and will end up costing more.\n\nBelow shows the total average uptime for the day. This uptime will directly correlate with cost.\n\nAlso, total storage is broken down into two parts. Backup storage is the amount of storage being used to keep a backup of the data within the database. Used is the amount of data RDS is currently using, whether its on or off.",
+            "# RDS\n\nTotal storage is broken down into two parts. Backup storage is the amount of storage being used to keep a backup of the data within the database. Used is the amount of data RDS is currently using, whether its on or off.",
         },
       },
     ],

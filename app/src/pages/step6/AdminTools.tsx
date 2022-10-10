@@ -30,7 +30,7 @@ export const AdminTools = observer(() => {
       </Heading>
 
       {expanded && (
-        <>
+        <Box>
           <Box display="block" fontSize="sm" mb={6}>
             You can use these admin features to monitor the ongoing health of your data lake
           </Box>
@@ -42,7 +42,7 @@ export const AdminTools = observer(() => {
           <Box borderRadius="md" boxShadow="base" bg={tone(100)} mt={4} p={10} pb={10} mb={6} position="relative">
             <CloudwatchDashboardPanel region={installation.region} id={installation.id} />
           </Box>
-        </>
+        </Box>
       )}
     </>
   );

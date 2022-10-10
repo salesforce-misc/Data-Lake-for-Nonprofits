@@ -39,6 +39,7 @@ const App = () => {
 
   return (
     <Routes>
+      <Route path="/" element={<ChakraWrapper theme={teal} children={<Step6 />} />} />
       <Route path="/" element={<ChakraWrapper theme={orange} children={<Home />} />} />
       <Route path="/steps/1" element={<ChakraWrapper theme={orange} children={<Step1 />} />} />
       <Route path="/steps/2" element={<ChakraWrapper theme={blue} children={<Step2 />} />} />

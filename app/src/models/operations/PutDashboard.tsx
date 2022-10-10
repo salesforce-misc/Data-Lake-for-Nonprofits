@@ -40,7 +40,7 @@ export const PutDashboard = Operation.named("PutDashboard")
           accessKey,
           secretKey,
           region,
-          name: `SalesforceImport-${installationId}`,
+          name: `Salesforce-DataLake-${installationId}`,
           dashboardJson: createDashboardJson(
             context.region,
             context.importWorkflowArn,

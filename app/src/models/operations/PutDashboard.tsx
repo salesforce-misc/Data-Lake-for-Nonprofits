@@ -296,7 +296,7 @@ function createDashboardJson(
         height: 7,
         width: 12,
         y: 33,
-        x: 12,
+        x: 0,
         type: "metric",
         properties: {
           metrics: [
@@ -355,7 +355,7 @@ function createDashboardJson(
             [
               {
                 expression: "METRICS()/1000",
-                label: "Query TIme",
+                label: "Query Time",
                 id: "e1",
               },
             ],

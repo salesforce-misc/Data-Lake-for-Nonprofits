@@ -36,7 +36,7 @@ export interface SchemaField {
 // https://developer.salesforce.com/docs/atlas.en-us.object_reference.meta/object_reference/field_types.htm
 export const SchemaFieldType = {
   ADDRESS: "address",
-  // ANY: "anytype",
+  ANY: "anyType",
   // CALCULATED: "calculated",
   COMBOBOX: "combobox",
   CURRENCY: "currency", 

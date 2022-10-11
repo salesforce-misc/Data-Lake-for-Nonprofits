@@ -66,6 +66,7 @@ function typeFromSalesforceType(type: SchemaFieldType): string {
     case "textarea":
     case "url":
     case "encryptedstring":
+    case "anyType":
       return "TEXT";
     case "boolean":
       return "BOOLEAN";

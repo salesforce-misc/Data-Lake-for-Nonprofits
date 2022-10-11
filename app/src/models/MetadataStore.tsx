@@ -113,10 +113,6 @@ export const MetadataStore = BaseStore.named("MetadataStore")
       return objects.reduce<number>((result, item) => result + (item as ISFObject).fieldsCount, 0);
     },
 
-    get maxLimit(): number {
-      return 50;
-    },
-
     get isPostDeployment(): boolean {
       const parent: IInstallation = getParent(self);
 

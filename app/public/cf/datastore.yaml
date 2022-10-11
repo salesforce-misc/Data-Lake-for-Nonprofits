@@ -355,6 +355,7 @@ Resources:
         - !Ref DBSecurityGroup
       StorageType: gp2
       AllocatedStorage: "100"
+      MaxAllocatedStorage: "1024"
       StorageEncrypted: true
       PubliclyAccessible: true
   LambdaSecurityGroup:

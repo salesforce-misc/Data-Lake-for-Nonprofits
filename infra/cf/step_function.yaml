@@ -1604,8 +1604,11 @@ Resources:
                         FlowDone?:
                           Type: Choice
                           Choices:
-                            - Variable: $.Result.flowStatus
-                              StringEquals: Successful
+                            - Or:
+                              - Variable: $.Result.flowStatus
+                                StringEquals: Successful
+                              - Variable: $.Result.flowStatus
+                                StringEquals: Error
                               Next: StatusReportImport
                           Default: WaitForFlowCompletion
                         WaitForFlowCompletion:
@@ -1619,6 +1622,7 @@ Resources:
                           Parameters:
                             Payload:
                               flowName.$: $.flowName
+                              flowStatus.$: $.Result.flowStatus
                               executionId.$: "$$.Execution.Name"
                               importStage: "IMPORT"
                             FunctionName: !Ref StatusReportLambda

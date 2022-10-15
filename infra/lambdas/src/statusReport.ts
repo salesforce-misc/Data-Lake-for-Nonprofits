@@ -7,12 +7,14 @@ export enum ImportStage {
     PREPARE = 'PREPARE',
     BEGIN = 'BEGIN',
     IMPORT = 'IMPORT',
-    CLEANUP = 'CLEANUP'
+    CLEANUP = 'CLEANUP',
+    NONE = 'NONE'
 }
 
 export interface StatusReportEvent { 
     s3?: S3ListingEvent;
     flowName?: string;
+    flowStatus?: string;
     flow?: {
         ExecutionResult: {
             // This will get parsed as a number up to 1e307
@@ -32,6 +34,12 @@ const db = new Database();
 export const handler = async function(event: StatusReportEvent): Promise<PartialS3EventListing | S3ListingEvent> {
     console.log("Incoming parameters:", event);
 
+    const flowStatus = event.flowStatus || "Successful";
+    
+    if (flowStatus === "Error") {
+        event.importStage = ImportStage.NONE;
+    }
+    
     let s3Event: PartialS3EventListing;
     if (event.s3) {
         s3Event = event.s3;
@@ -74,15 +82,15 @@ export const handler = async function(event: StatusReportEvent): Promise<Partial
             break;
         default:
             // If a case is not handled, this code will have a compiler error 
-            return nonExistentImportStage(event.importStage);
+            return nonExistentImportStage(event);
     }
 
     return s3Event;
 }
 
-function nonExistentImportStage(stage: never): never;
-function nonExistentImportStage(stage: string): never {
-    throw new Error(`Unable to handle import stage: ${stage}`);
+function nonExistentImportStage(event: StatusReportEvent): never;
+function nonExistentImportStage(event: StatusReportEvent): void {
+    console.log(`Unable to handle import stage: ${event}`);
 }
   
 async function getImportMetadata(schemaName: string, _installationId: string, flow?: StatusReportEvent['flow']): Promise<ImportMetadata> {

@@ -97,6 +97,12 @@ function typeFromSalesforceType(type: SchemaFieldType): string {
     // Compound field types should not get here
     case "address":
     case "location":
+    case "calculated":
+    case "complexvalue":
+    case "datacategorygroupreference":
+    case "junctionidlist":
+    case "masterrecord":
+    case "byte":
       throw new Error(`Cannot create table column definition for compound type: "${type}"`);
     default:
       return unableToConvertType(type);

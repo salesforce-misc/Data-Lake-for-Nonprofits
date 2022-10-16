@@ -114,7 +114,7 @@ const AppTest = async (driver: WebDriver, testUrl: string, region: string) => {
 
   await driver.wait(until.elementIsNotVisible(driver.findElement(By.id("appflow-connection-loader"))));
 
-  await waitFor(1500);
+  await waitFor(2000);
   await driver.wait(until.elementIsVisible(driver.findElement(By.id("step2-h2-select-connection"))));
 
   // Reload connection
@@ -140,6 +140,18 @@ const AppTest = async (driver: WebDriver, testUrl: string, region: string) => {
   await driver.findElement(By.id("h2-title")).isDisplayed();
 
   await driver.wait(until.elementIsEnabled(driver.findElement(By.id("step3-btn-next"))));
+
+  // If more objects are needed to select for testing, these lines should be uncommented.
+  // If a number greater than 100 is set then the timeout should be set high enough to complete the testing on line #18
+  // const numberOfAdditionalObjects = 100;
+  // await waitFor(500);
+  // const radio3 = await driver.findElement(By.id("radio3"));
+  // await radio3.findElement(By.xpath("./..")).click();
+
+  // for (var i = 0; i < numberOfAdditionalObjects; i++) {
+  //   await driver.findElement(By.xpath("//table[@id='objects-table']/tbody/tr[1]/td[1]/div")).click();
+  //   await waitFor(1500);
+  // }
 
   await waitFor(500);
 

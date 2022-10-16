@@ -2,6 +2,19 @@
 
 This part includes more advanced topics and is for more technical people.
 
+## Unsupported Fields
+
+Due to complexity of some objects, there are some fields that we do not support. The objects with these types of fields would not be imported. The list of unsupported fields are as below.
+
+- "address"
+- "calculated"
+- "complexvalue"
+- "datacategorygroupreference"
+- "junctionidlist"
+- "location",
+- "masterrecord"
+- "byte"
+
 ## How to edit objects and fields - post deployment
 
 The system writes `.schema.json` files to a bucket in S3. In order to change the objects and/or fields the system should import, changing these files is required. This task is a bit technical and as so may be difficult for some users to accomplish. Improper formatting or syntax errors will result in complete system failure.

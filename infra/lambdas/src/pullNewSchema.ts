@@ -1,4 +1,4 @@
-import { S3ListingEvent, Schema, toSchemaFieldType, COMPLEX_FIELDS, SchemaField, SchemaFieldType } from './utils/schema';
+import { S3ListingEvent, Schema, toSchemaFieldType, UNSUPPORTED_FIELDS, SchemaField, SchemaFieldType } from './utils/schema';
 import { processSchema } from './utils/readSchema';
 import { writeSchema } from './utils/writeSchema';
 import { describeEntity } from './utils/readAppFlow';
@@ -24,11 +24,11 @@ async function handle(schema: Schema, s3Key: string) {
       const type = toSchemaFieldType(field.supportedFieldTypeDetails?.v1?.fieldType);
       if (field.identifier &&
         type &&
-        // COMPLEX_FIELDS.includes() does not work because COMPLEX_FIELDS is type narrowed to less than schemaFieldType
-        COMPLEX_FIELDS.filter((c) => c === type).length === 0 &&
+        // UNSUPPORTED_FIELDS.includes() does not work because UNSUPPORTED_FIELDS is type narrowed to less than schemaFieldType
+        UNSUPPORTED_FIELDS.filter((c) => c === type).length === 0 &&
         !schema.exclude[field.identifier]) {
         newSchema.properties[field.identifier] = propertyFor(field, field.identifier, type);
-      } else if (field.identifier && type && COMPLEX_FIELDS.filter((c) => c === type).length !== 0) {
+      } else if (field.identifier && type && UNSUPPORTED_FIELDS.filter((c) => c === type).length !== 0) {
         console.log("Add", field.identifier, "to exclude list due to it being a compound field:", type);
         newSchema.exclude[field.identifier] = propertyFor(field, field.identifier, type);
       }

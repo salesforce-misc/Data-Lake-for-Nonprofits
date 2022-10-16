@@ -63,7 +63,7 @@ export const ObjectsPanel = observer(() => {
 
       {objects.length > 0 && (
         <>
-          <Table variant="simple" colorScheme={colorScheme} size="sm" mb={6}>
+          <Table id="objects-table" variant="simple" colorScheme={colorScheme} size="sm" mb={6}>
             <Thead>
               <Tr>
                 <Th pl={10}>Objects</Th>

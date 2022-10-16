@@ -34,6 +34,7 @@ export const ObjectsViewOptionsPanel = observer(({ viewOption, setViewOption, is
         </Flex>
 
         <Radio
+          id="radio1"
           value="1"
           colorScheme={colorScheme}
           isChecked={isSelected(ObjectsViewOptions.Only_Included)}
@@ -50,6 +51,7 @@ export const ObjectsViewOptionsPanel = observer(({ viewOption, setViewOption, is
         </Radio>
 
         <Radio
+          id="radio2"
           ml={6}
           value="2"
           colorScheme={colorScheme}
@@ -67,6 +69,7 @@ export const ObjectsViewOptionsPanel = observer(({ viewOption, setViewOption, is
         </Radio>
 
         <Radio
+          id="radio3"
           value="3"
           colorScheme={colorScheme}
           isChecked={isSelected(ObjectsViewOptions.Only_Excluded)}

@@ -6,7 +6,7 @@ In order to deploy the application to AWS Amplify,
 
 - Go to latest <a href="https://github.com/salesforce-misc/Data-Lake-for-Nonprofit-Cloud/releases/latest">release</a>
 - Download the amplify-xxx.zip file
-- Follow the instructions in the User Guide.
+- Follow the instructions in the <a href="https://github.com/salesforce-misc/Data-Lake-for-Nonprofits/blob/main/docs/UserGuide.md">user guide</a>.
 
 ## User Guide
 

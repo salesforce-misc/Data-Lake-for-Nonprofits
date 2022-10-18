@@ -40,7 +40,7 @@ function generateCreateTable(schema: Schema, tableName: string): [string, string
   const indexes: string[] = [];
   for (const fieldName in schema.properties) {
     const field: SchemaField = schema.properties[fieldName];
-    columns.push(`${fieldName.toLowerCase()} ${typeFromSalesforceType(field.type)}`);
+    columns.push(`"${fieldName.toLowerCase()}" ${typeFromSalesforceType(field.type)}`);
     comments.push(`COMMENT ON COLUMN ${tableName}."${fieldName.toLowerCase()}" is '${field.$comment.replace(/'/g, "''")}';`);
     const index: string | undefined = indexForField(field, schema.name.toLowerCase(), fieldName.toLowerCase(), tableName);
     if (index) {

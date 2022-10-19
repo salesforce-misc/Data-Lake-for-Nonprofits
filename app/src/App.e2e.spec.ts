@@ -15,7 +15,11 @@ const screenshotFolder = "/Users/smert/Desktop/";
 const testTime = Date.now();
 
 // Set timeout to 60 minutes since this is a long running test
-jest.setTimeout(60 * 60 * 1000);
+const timeout = 4 * 60 * 60 * 1000;
+jest.setTimeout(timeout);
+
+// If a number greater than 100 is set then the timeout should be set high enough to complete the testing on line #18
+const numberOfAdditionalObjects = 0;
 
 const useChrome = (driver: WebDriver) => {
   let options = new chrome.Options();
@@ -141,17 +145,14 @@ const AppTest = async (driver: WebDriver, testUrl: string, region: string) => {
 
   await driver.wait(until.elementIsEnabled(driver.findElement(By.id("step3-btn-next"))));
 
-  // If more objects are needed to select for testing, these lines should be uncommented.
-  // If a number greater than 100 is set then the timeout should be set high enough to complete the testing on line #18
-  // const numberOfAdditionalObjects = 100;
-  // await waitFor(500);
-  // const radio3 = await driver.findElement(By.id("radio3"));
-  // await radio3.findElement(By.xpath("./..")).click();
+  await waitFor(500);
+  const radio3 = await driver.findElement(By.id("radio3"));
+  await radio3.findElement(By.xpath("./..")).click();
 
-  // for (var i = 0; i < numberOfAdditionalObjects; i++) {
-  //   await driver.findElement(By.xpath("//table[@id='objects-table']/tbody/tr[1]/td[1]/div")).click();
-  //   await waitFor(1500);
-  // }
+  for (var i = 0; i < numberOfAdditionalObjects; i++) {
+    await driver.findElement(By.xpath("//table[@id='objects-table']/tbody/tr[1]/td[1]/div")).click();
+    await waitFor(1500);
+  }
 
   await waitFor(500);
 
@@ -191,7 +192,7 @@ const AppTest = async (driver: WebDriver, testUrl: string, region: string) => {
   await driver.executeScript("arguments[0].scrollIntoView(true);", provisionBox);
 
   // Wait until either the provisioning is completed or 45 minutes
-  await driver.wait(until.elementIsEnabled(driver.findElement(By.id("step5-btn-next"))), 45 * 60 * 1000);
+  await driver.wait(until.elementIsEnabled(driver.findElement(By.id("step5-btn-next"))), timeout);
 
   await waitFor(1000);
 
@@ -219,6 +220,9 @@ const AppTest = async (driver: WebDriver, testUrl: string, region: string) => {
   await driver.findElement(By.id("step6")).isDisplayed();
   await driver.findElement(By.id("h2-title")).isDisplayed();
 
+  // Expand the content
+  await driver.findElement(By.id("step6-tableau-online")).click();
+
   const posgtresAccessInformation = await driver.findElement(By.id("step6-postgresql-access-information"));
   expect(await posgtresAccessInformation.getText()).toBe("PostgreSQL Access Information");
 
@@ -228,9 +232,12 @@ const AppTest = async (driver: WebDriver, testUrl: string, region: string) => {
   if (screenshotFolder) {
     // Take a screenshot
     await driver.takeScreenshot().then((image) => {
-      require("fs").writeFileSync(screenshotFolder + testTime + " e2e step6 postgres.png", image, "base64");
+      require("fs").writeFileSync(screenshotFolder + testTime + " e2e step6 tableau online.png", image, "base64");
     });
   }
+
+  // Expand the content
+  await driver.findElement(By.id("step6-tableau-desktop")).click();
 
   const athenaAccessInformation = await driver.findElement(By.id("step6-athena-access-information"));
   expect(await athenaAccessInformation.getText()).toBe("Amazon Athena Access Information");
@@ -241,7 +248,7 @@ const AppTest = async (driver: WebDriver, testUrl: string, region: string) => {
   if (screenshotFolder) {
     // Take a screenshot
     await driver.takeScreenshot().then((image) => {
-      require("fs").writeFileSync(screenshotFolder + testTime + " e2e step6 athena.png", image, "base64");
+      require("fs").writeFileSync(screenshotFolder + testTime + " e2e step6 tableau desktop.png", image, "base64");
     });
   }
 

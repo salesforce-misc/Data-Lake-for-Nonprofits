@@ -154,6 +154,7 @@ Array [
         >
           <h2
             className="chakra-heading css-1mrywam"
+            id="step6-tableau-online"
             onClick={[Function]}
           >
             Launch Your Connection in Tableau Online
@@ -174,6 +175,7 @@ Array [
         >
           <h2
             className="chakra-heading css-1mrywam"
+            id="step6-tableau-desktop"
             onClick={[Function]}
           >
             Launch Your Connection in Tableau Desktop

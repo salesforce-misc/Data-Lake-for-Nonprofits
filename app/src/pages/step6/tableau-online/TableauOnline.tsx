@@ -14,6 +14,7 @@ export const TableauOnline = observer(() => {
   return (
     <>
       <Heading
+        id="step6-tableau-online"
         cursor="pointer"
         onClick={() => setExpanded((previous) => !previous)}
         mb={expanded ? 4 : 0}

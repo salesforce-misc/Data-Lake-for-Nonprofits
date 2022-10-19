@@ -14,6 +14,7 @@ export const TableauDesktop = observer(() => {
   return (
     <>
       <Heading
+        id="step6-tableau-desktop"
         cursor="pointer"
         onClick={() => setExpanded((previous) => !previous)}
         mb={expanded ? 4 : 0}

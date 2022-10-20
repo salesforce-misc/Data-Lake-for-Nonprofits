@@ -14,7 +14,7 @@ Follow the instructions <a href="https://github.com/salesforce-misc/Data-Lake-fo
 
 ## Bug Reports
 
-For challeneges with application deployment, create a new issue with the type <a href="https://github.com/salesforce-misc/Data-Lake-for-Nonprofits/issues/new/choose">bug report tab</a>
+For challeneges with application deployment, create a new issue with the type <a href="https://github.com/salesforce-misc/Data-Lake-for-Nonprofits/issues/new/choose">bug report</a>
 
 ## Local Development
 

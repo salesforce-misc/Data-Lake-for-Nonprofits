@@ -21,6 +21,7 @@ export const ObjectRow = observer(({ object, isProcessing, setProcessing }: IObj
   const { tone, colorScheme } = useColorScheme();
   const { store } = useMetadataStore();
   const [isLoadingFields, setLoadingField] = React.useState(false);
+  const [limitReached, setLimitReached] = React.useState(false);
   const [showFields, setShowFields] = React.useState(false);
   const [error, setError] = React.useState("");
   const hasError = !isEmpty(error);
@@ -37,6 +38,12 @@ export const ObjectRow = observer(({ object, isProcessing, setProcessing }: IObj
 
     if (isSelected) {
       object.setSelected(false);
+      return;
+    }
+
+    // Did we reach the limit?
+    if (store.selectedObjects.length >= store.maxLimit) {
+      setLimitReached(true);
       return;
     }
 
@@ -112,7 +119,7 @@ export const ObjectRow = observer(({ object, isProcessing, setProcessing }: IObj
         </Td>
         <Td isNumeric>{object.selected && <>{niceNumber(object.selectedFieldsCount)}</>}</Td>
         <Td textAlign="right">
-          {object.selected && !hasError && (
+          {object.selected && !hasError && !limitReached && (
             <Button size="xs" fontSize="0.6rem" variant="outline" colorScheme={colorScheme} isDisabled={isProcessing} onClick={onToggleFields} mt={1}>
               {!showFields && <>Customize Fields</>}
               {showFields && <>Collapse Fields Table</>}
@@ -137,6 +144,26 @@ export const ObjectRow = observer(({ object, isProcessing, setProcessing }: IObj
         <Tr>
           <Td colSpan={3} pb={12} pt={6}>
             <FieldsTable object={object} />
+          </Td>
+        </Tr>
+      )}
+      {limitReached && (
+        <Tr>
+          <Td colSpan={3} pb={8} color="orange.700">
+            <Alert status="warning" borderRadius="md">
+              <Box w="full">
+                <AlertTitle>Limit reached</AlertTitle>
+                <AlertDescription fontSize="sm" display="block" mt={2}>
+                  You can include up to {store.maxLimit} objects. You have reached this limit, you can exclude an existing object before you can add
+                  another one.
+                </AlertDescription>
+                <Box textAlign="right" mt={3}>
+                  <Button colorScheme="orange" size="sm" onClick={() => setLimitReached(false)}>
+                    Ok
+                  </Button>
+                </Box>
+              </Box>
+            </Alert>
           </Td>
         </Tr>
       )}

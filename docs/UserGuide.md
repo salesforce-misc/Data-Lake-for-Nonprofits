@@ -2,11 +2,11 @@
 
 Aug 2022
 
-## 1. Introduction
+## Introduction
 
 This document provides guidance for setting up a data lake for non-profits.
 
-## 2. Setting up the App
+## Setting up the App
 
 The Datalake for Nonprofits application has to be hosted in an AWS account. For this,
 
@@ -28,9 +28,9 @@ The image below shows the URL that was generated in this instance and the welcom
 
 Click on 'Lets Go' Button for first time setup. You could use the 'Resume' option if you have already configured the connections.
 
-## 3. Datalake Setup in 6 Steps
+## Datalake Setup in 6 Steps
 
-## 3.1 Step 1
+### Step 1
 
 In Step 1, we connect to the NPO User's AWS Account. The Datalake App requires Access Key ID & Secret Access key for an IAM Admin user.
 
@@ -46,7 +46,7 @@ At the bottom of Step 1, there is a drop-down box to select the region where the
 
 <img src="../app/src/images/screenshots/Step-1.4.png">
 
-## 3.2 Step 2
+### Step 2
 
 In Step 2, the 'Datalake for Nonprofits' app will gather credentials to connect to the NPO Salesforce Organization. For AWS to access the NPO's Salesforce data, we will need user authorization. For this, the app gives guidance to the user to create a dedicated Salesforce user with the necessary profile or permission set that provides:
 
@@ -62,7 +62,7 @@ Once the Salesforce connection is created through Amazon AppFlow, a drop-down bo
 
 <img src="../app/src/images/screenshots/Step-2.2.png">
 
-## 3.3 Step 3
+### Step 3
 
 <img src="../app/src/images/screenshots/Step-3.1.png">
 
@@ -76,7 +76,7 @@ In Step 3, the NPO User can click on default options to setup the datalake and p
 
 A default monthly sync is recommended. However, the user can select a weekly or even a daily sync and choose the date and the time of the sync. Note that we don't recommend a daily sync option for a large NPO Organization as this could incur additional costs.
 
-## 3.4 Step 4
+### Step 4
 
 In Step 4, the user can review the data lake setup and data import options and confirm the changes they've done (if any). This step is where the NPO User is allowed to go back to previous step to make any other needed changes before confirming the setup of resources for the data lake.
 
@@ -84,13 +84,13 @@ In Step 4, the user can review the data lake setup and data import options and c
 
 Once review is complete, the NPO User can click "Next" to start provisioning the resources in Step 5.
 
-## 3.5 Step 5
+### Step 5
 
 Step 5 is where the data lake is provisioned and the data is imported at the end. This can take several minutes to several hours depending on the size of the data in the NPO Organization. We caution the user to leave the EZ Datalake app running in the browser while the data lake is being provisioned. However, there is a resume feature described in Section 4.1 where a user can resume the data lake provisioning if the browser is accidentally closed.
 
 <img src="../app/src/images/screenshots/Step-5.png">
 
-## 3.6 Step 6
+### Step 6
 
 Once the data lake is setup, in Step 6, the NPO Users can create and manage IAM users to grant them access to Tableau Desktop. These users will have _least privilege_ credentials to access only the data and resources they need. In Step 6, the user can also view the Data Lake access information and instructions for Tableau Desktop installation and access for Windows and Mac, access CloudWatch Dashboard and subscribe to systems notifications.
 
@@ -104,30 +104,28 @@ Amazon CloudWatch dashboard can be used to monitor your resources in a single vi
 
 Additionally, users can subscribe to system notifications to be alerted if a problem arises.
 
-## 4. Resume Feature
+### Resume Feature
 
 The resume feature allows an NPO System Administrator to continue deployment if the app was closed during any of the five initial steps. Additionally, the resume feature can also be used to retrieve the Data Lake provisioning information after deployment and also a start a new datalake deployment if that is desired.
 
-## 4.1 Resume while deployment is in progress
+### Resume while deployment is in progress
 
 During any of the six steps with the Datalake App, it is recommended that the NPO User keep the Nonprofits Datalake app in the browser running till the datalake is deployed. However, if the user does accidentally close the browser, the "resume" feature can help pick up where the deployment was left off. Note that depending on which step the user is in when the browser is closed, the app will resume in the same step.
 
-## 4.2 Resume after deployment
+### Resume after deployment
 
 Once the datalake is deployed, the "resume" feature can be used for the NPO User to retrieve details on the datalake that was setup earlier. Additionally, the NPO System Administrator can use the app to create and manage IAM users to grant them access to Tableau Desktop. These users will have _least privilege_ credentials to access only the data and resources they need. The screenshots below show how the NPO System Administrator can enter their IAM Admin Key ID and Secret Access Key to retrieve the details of the datalake from Step 6 and manage users for Tableau Desktop access, view Data Lake access information and retrieve instructions for Tableau Desktop, access CloudWatch Dashboard and subscribe to systems notifications in Step 6.
 
 <img src="../app/src/images/screenshots/Resume-1.png"> <img src="../app/src/images/screenshots/Resume-2.png">
 
-##
-
 <img src="../app/src/images/screenshots/Resume-3.png"> <img src="../app/src/images/screenshots/Resume-4.png">
 
-## 4.3 Resume another datalake
+### Resume another datalake
 
 Typically, an NPO User is expected to setup a single datalake. If for any reason, a new datalake needs to be setup, the same app can be utilized to deploy another datalake. This can be useful perhaps if a datalake for a sandbox needs to be setup first before moving to production organization. The "resume" feature can then be used to view and manage the multiple datalake as show below in the screenshots.
 
 <img src="../app/src/images/screenshots/Resume-5.png"> <img src="../app/src/images/screenshots/Resume-6.png">
 
-## 5. Data Consistency / Data Deletion
+### Data Consistency / Data Deletion
 
 Data can be deleted in Salesforce in multiple ways triggering soft deletes and hard deletes. The Datalake app ensures data consistency with the data in the Salesforce by performing full data import on each periodic sync operation.

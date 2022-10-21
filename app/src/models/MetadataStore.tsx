@@ -41,6 +41,9 @@ export interface IObjectSchema {
   properties: { [key: string]: IFieldSchema };
 }
 
+// Set the maximum number of objects that a user can select
+const maxNumberOfObjectSelected = 500;
+
 /**
  * Represents the model for the salesforce objects metadata. This includes the objects and their fields.
  */
@@ -111,6 +114,10 @@ export const MetadataStore = BaseStore.named("MetadataStore")
       // Returns the count of all fields (regardless if they are selected or not) with the exception of the compound fields
       const objects: readonly unknown[] = values(self.objects);
       return objects.reduce<number>((result, item) => result + (item as ISFObject).fieldsCount, 0);
+    },
+
+    get maxLimit(): number {
+      return maxNumberOfObjectSelected;
     },
 
     get isPostDeployment(): boolean {

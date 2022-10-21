@@ -12,6 +12,10 @@ In order to deploy the application to AWS Amplify,
 
 Follow the instructions <a href="https://github.com/salesforce-misc/Data-Lake-for-Nonprofit-Cloud/blob/main/docs/UserGuide.md">here</a>
 
+## Bug Reports
+
+For challeneges with application deployment, create a new issue with the type <a href="https://github.com/salesforce-misc/Data-Lake-for-Nonprofits/issues/new/choose">bug report</a>
+
 ## Local Development
 
 Follow the instructions <a href="https://github.com/salesforce-misc/Data-Lake-for-Nonprofit-Cloud/blob/main/docs/Development.md">here</a>

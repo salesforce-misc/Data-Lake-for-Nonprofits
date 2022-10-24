@@ -98,10 +98,12 @@ In Step 6, the user can also view the Data Lake access information and instructi
 
 <img src="../app/src/images/screenshots/Step-6.1.png">
 
-Tableau Online Details:
+### Tableau Online Details:
+
 <img src="../app/src/images/screenshots/Step-6.1-TabOnline.png">
 
-Tableau Desktop Details:
+### Tableau Desktop Details:
+
 <img src="../app/src/images/screenshots/Step-6.1-TabDesktop.png">
 
 Amazon CloudWatch dashboard can be used to monitor your resources in a single view. The screenshot below shows metrics for the user to monitor the scheduled data import to see how long it took to run and how many records were imported by clicking on 'Open CloudWatch Dashboard' button.

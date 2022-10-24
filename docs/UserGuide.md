@@ -92,13 +92,21 @@ Step 5 is where the data lake is provisioned and the data is imported at the end
 
 ### Step 6
 
-Once the data lake is setup, in Step 6, the NPO Users can create and manage IAM users to grant them access to Tableau Desktop. These users will have _least privilege_ credentials to access only the data and resources they need. In Step 6, the user can also view the Data Lake access information and instructions for Tableau Desktop installation and access for Windows and Mac, access CloudWatch Dashboard and subscribe to systems notifications.
+Once the data lake is setup, in Step 6, the NPO Users can create and manage IAM users to grant them access to Tableau Desktop. These users will have _least privilege_ credentials to access only the data and resources they need.
 
-<img src="../app/src/images/screenshots/Step-6.1.png"> <img src="../app/src/images/screenshots/Step-6.2.png">
+In Step 6, the user can also view the Data Lake access information and instructions for Tableau Online, Tableau Desktop installation and access for Windows and Mac, access CloudWatch Dashboard and subscribe to systems notifications.
+
+<img src="../app/src/images/screenshots/Step-6.1.png">
+
+Tableau Online Details:
+<img src="../app/src/images/screenshots/Step-6.1-TabOnline.png">
+
+Tableau Desktop Details:
+<img src="../app/src/images/screenshots/Step-6.1-TabDesktop.png">
 
 Amazon CloudWatch dashboard can be used to monitor your resources in a single view. The screenshot below shows metrics for the user to monitor the scheduled data import to see how long it took to run and how many records were imported by clicking on 'Open CloudWatch Dashboard' button.
 
-<img src="../app/src/images/screenshots/Step-6.3.png">
+<img src="../app/src/images/screenshots/Step-6.3-CloudWatch.png">
 
 <img src="../app/src/images/screenshots/Step-6.4.png">
 
@@ -118,7 +126,7 @@ Once the datalake is deployed, the "resume" feature can be used for the NPO User
 
 <img src="../app/src/images/screenshots/Resume-1.png"> <img src="../app/src/images/screenshots/Resume-2.png">
 
-<img src="../app/src/images/screenshots/Resume-3.png"> <img src="../app/src/images/screenshots/Resume-4.png">
+<img src="../app/src/images/screenshots/Resume-3.png"> <img src="../app/src/images/screenshots/Step-6.1.png">
 
 ### Resume another datalake
 

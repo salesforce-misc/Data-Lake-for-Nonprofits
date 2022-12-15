@@ -1682,22 +1682,22 @@ Resources:
               AttributeNames:
                 - All
             Resource: arn:aws:states:::aws-sdk:sqs:getQueueAttributes
-            Next: QueueEmpty?
-          QueueEmpty?:
-            Type: Choice
-            Choices:
-              - And:
-                  - Variable: \$.Attributes.ApproximateNumberOfMessagesNotVisible
-                    StringEquals: "0"
-                  - Variable: \$.Attributes.ApproximateNumberOfMessagesDelayed
-                    StringEquals: "0"
-                  - Variable: \$.Attributes.ApproximateNumberOfMessages
-                    StringEquals: "0"
-                Next: "ListMetadataFiles2"
-            Default: Fail # TODO: Go to error handlers
-          Fail:
-            Type: Pass
-            End: true
+            Next: ListMetadataFiles2
+          # QueueEmpty?:
+          #   Type: Choice
+          #   Choices:
+          #     - And:
+          #         - Variable: \$.Attributes.ApproximateNumberOfMessagesNotVisible
+          #           StringEquals: "0"
+          #         - Variable: \$.Attributes.ApproximateNumberOfMessagesDelayed
+          #           StringEquals: "0"
+          #         - Variable: \$.Attributes.ApproximateNumberOfMessages
+          #           StringEquals: "0"
+          #       Next: "ListMetadataFiles2"
+          #   Default: Fail # TODO: Go to error handlers
+          # Fail:
+          #   Type: Pass
+          #   End: true
           ListMetadataFiles2:
             Type: Task
             Next: FilterMetadataFiles2

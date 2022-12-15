@@ -56,6 +56,7 @@ export async function processRecords(schema: Schema, allRecords: object[]): Prom
 
             console.log("Inserting data into", schema.name, "record count:", records.length, "with total parameter length:", parameters.length);
             const insertSQL = generateInsertSql(db.dataLoadingTableName(schema.name), columns, idCol, records.length, parameters);
+            console.log("Insert SQL: ", insertSQL);
             await db.execute(insertSQL);
 
             console.log("Batch Insert Complete!");

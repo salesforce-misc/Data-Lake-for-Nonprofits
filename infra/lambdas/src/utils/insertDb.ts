@@ -17,7 +17,7 @@ const db = new Database();
 // pagination size. This means the typical execution, even for large objects, will only result in a single INSERT statement executed even though
 // there is an O(n^2) insert algorithm below.
 const MAX_COLUMN_SIZE = 600;
-const MAX_ROW_BATCH_SIZE = 1000;
+const MAX_ROW_BATCH_SIZE = 500;
 
 export async function processRecords(schema: Schema, allRecords: object[]): Promise<void> {
     // There should only be one IDENTIFIER_TYPE in a schema, since all other identifiers are typed as "reference" for foreign keys

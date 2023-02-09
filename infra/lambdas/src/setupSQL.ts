@@ -67,13 +67,15 @@ function typeFromSalesforceType(type: SchemaFieldType): string {
     case "url":
     case "encryptedstring":
     case "anyType":
+    case "phone":
+    case "email":
+    case "combobox":
+    case "base64":
       return "TEXT";
     case "boolean":
       return "BOOLEAN";
     case "double":
       return "DOUBLE PRECISION";
-    case "phone":
-      return "VARCHAR(30)" // Put maximum length
     case "currency":
       return "DOUBLE PRECISION"; // Will need to parse when data is inserted
     case "int":
@@ -86,14 +88,8 @@ function typeFromSalesforceType(type: SchemaFieldType): string {
       return "DATE";
     case "time":
       return "TIME";
-    case "email":
-      return "VARCHAR(100)";
     case "percent":
       return "REAL";
-    case "combobox":
-      return "TEXT";
-    case "base64":
-      return "TEXT";
     // Compound field types should not get here
     case "address":
     case "location":

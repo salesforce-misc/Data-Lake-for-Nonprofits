@@ -349,7 +349,7 @@ Resources:
       EnableCloudwatchLogsExports: [postgresql, upgrade]
       EnablePerformanceInsights: false
       EngineVersion: "13.7"
-      DBInstanceClass: db.m6i.large
+      DBInstanceClass: db.m6g.large
       DBSubnetGroupName: !Ref DBSubnetGroup
       VPCSecurityGroups:
         - !Ref DBSecurityGroup

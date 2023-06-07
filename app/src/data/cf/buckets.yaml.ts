@@ -246,6 +246,9 @@ Resources:
         - - "sf"
           - "assets"
           - !Ref InstallationId
+      OwnershipControls:
+        Rules:
+          - ObjectOwnership: BucketOwnerPreferred
       BucketEncryption:
         ServerSideEncryptionConfiguration:
           - ServerSideEncryptionByDefault:
@@ -351,6 +354,9 @@ Resources:
         - - "sf"
           - "metadata"
           - !Ref InstallationId
+      OwnershipControls:
+        Rules:
+          - ObjectOwnership: BucketOwnerPreferred
       BucketEncryption:
         ServerSideEncryptionConfiguration:
           - ServerSideEncryptionByDefault:
@@ -490,6 +496,9 @@ Resources:
         - - "sf"
           - "athena-data"
           - !Ref InstallationId
+      OwnershipControls:
+        Rules:
+          - ObjectOwnership: BucketOwnerPreferred
       BucketEncryption:
         ServerSideEncryptionConfiguration:
           - ServerSideEncryptionByDefault:
@@ -562,6 +571,9 @@ Resources:
         - - "sf"
           - "logging"
           - !Ref InstallationId
+      OwnershipControls:
+        Rules:
+          - ObjectOwnership: BucketOwnerPreferred
       BucketEncryption:
         ServerSideEncryptionConfiguration:
           - ServerSideEncryptionByDefault:

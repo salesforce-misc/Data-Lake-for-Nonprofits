@@ -1,9 +1,12 @@
 name: Continuous Deployment
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
+  pull_request:
+    types: [closed]
 
 env:
   NODE_VERSION: 18.7.0
@@ -35,7 +38,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: amplify-${{ steps.date.outputs.date }}
-          path: "app/*.zip"
+          path: 'app/*.zip'
 
   publish:
     name: Publish
@@ -50,8 +53,8 @@ jobs:
         with:
           always-auth: true
           node-version: ${{ env.NODE_VERSION }}
-          registry-url: "https://npm.pkg.github.com/"
-          scope: "@salesforce-misc"
+          registry-url: 'https://npm.pkg.github.com/'
+          scope: '@salesforce-misc'
 
       - name: Set up NPM authentication
         run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.NODE_AUTH_TOKEN }}" >> .npmrc
@@ -86,7 +89,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
         with:
-          artifacts: "*.zip"
+          artifacts: '*.zip'
           tag: ${{ steps.tag-version.outputs.LATEST_TAG }}
           name: Release ${{ steps.tag-version.outputs.LATEST_TAG }}
           draft: false

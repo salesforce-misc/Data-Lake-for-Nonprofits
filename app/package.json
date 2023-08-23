@@ -1,10 +1,10 @@
 {
-  "name": "@salesforce-misc/data-lake-for-nonprofit-cloud",
+  "name": "@vera-misc/data-lake-for-amp-impact",
   "version": "1.0.0",
   "license": "BSD-3-Clause",
   "repository": {
     "type": "git",
-    "url": "https://github.com/salesforce-misc/Data-Lake-for-Nonprofit-Cloud"
+    "url": "https://github.com/Vera-Solutions-Org/Data-Lake-for-Amp-Impact"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"

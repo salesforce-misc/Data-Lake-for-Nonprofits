@@ -1,6 +1,6 @@
 # Data Lake for Vera Amp Impact, Powered by AWS
 
-Aug 2022
+Aug 2023
 
 ## Introduction
 

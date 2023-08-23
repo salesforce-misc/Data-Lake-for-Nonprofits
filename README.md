@@ -1,4 +1,4 @@
-# Data Lake for AMP Impact, Powered by AWS
+# Data Lake for Vera Amp Impact, Powered by AWS
 
 ## Deploying to AWS Amplify
 

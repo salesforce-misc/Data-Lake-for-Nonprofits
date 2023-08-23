@@ -1,4 +1,4 @@
-# Data Lake for Nonprofits, Powered by AWS
+# Data Lake for Vera Amp Impact, Powered by AWS
 
 Aug 2022
 
@@ -8,7 +8,7 @@ This document provides guidance for setting up a data lake for non-profits.
 
 ## Setting up the App
 
-The Datalake for Nonprofits application has to be hosted in an AWS account. For this,
+The Datalake for Vera Amp Impact application has to be hosted in an AWS account. For this,
 
 The app needs to be first deployed as a static website using AWS Amplify.
 
@@ -21,7 +21,7 @@ The zip file to upload with the manual deployment should be generated with the b
 <img src="../app/src/images/screenshots/Setting-Up-App-1.png">
 <img src="../app/src/images/screenshots/Setting-Up-App-2.png">
 
-It typically takes a few minutes to deploy the app after which a URL to the Datalake app is presented. ­Click on the URL to load the 'Datalake for Nonprofits' app; set up the data lake and import data in 6 steps.
+It typically takes a few minutes to deploy the app after which a URL to the Datalake app is presented. ­Click on the URL to load the 'Datalake for Vera Amp Impact’ app; set up the data lake and import data in 6 steps.
 
 The image below shows the URL that was generated in this instance and the welcome screen showing the user what to expect with an outline of the 6 steps to be completed through the wizard like UI.
 <img src="../app/src/images/screenshots/Setting-Up-App-3.png">
@@ -48,7 +48,7 @@ At the bottom of Step 1, there is a drop-down box to select the region where the
 
 ### Step 2
 
-In Step 2, the 'Datalake for Nonprofits' app will gather credentials to connect to the NPO Salesforce Organization. For AWS to access the NPO's Salesforce data, we will need user authorization. For this, the app gives guidance to the user to create a dedicated Salesforce user with the necessary profile or permission set that provides:
+In Step 2, the 'Datalake for Vera Amp Impact' app will gather credentials to connect to the NPO Salesforce Organization. For AWS to access the NPO's Salesforce data, we will need user authorization. For this, the app gives guidance to the user to create a dedicated Salesforce user with the necessary profile or permission set that provides:
 
 - Access to the objects and fields in Salesforce that you plan to sync
 - System Permission: API Enabled

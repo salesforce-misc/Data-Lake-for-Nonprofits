@@ -51,9 +51,9 @@ export const Step2 = observer(() => {
   return (
     <Layout
       step={2}
-      title="Connect to your Salesforce organization"
-      description="For AWS to access your Salesforce data, we will need your authorization."
-      explanation="We will guide you through the steps of setting up Amazon AppFlow which is a service that allows AWS to connect to Salesforce."
+      title="Connect to your Amp Impact Salesforce organization"
+      description="For AWS to access your Amp Impact data, we will need your authorization."
+      explanation="We will guide you through the steps of setting up Amazon AppFlow which is a service that allows AWS to connect to Salesforce to access your Amp Impact data."
       warning="You will be creating a Salesforce connection, signing in to Salesforce and authorizing access."
     >
       <Box borderRadius="lg" boxShadow="base" bg="blue.50" mt={4} p={8}>
@@ -62,7 +62,7 @@ export const Step2 = observer(() => {
             Create a dedicated Salesforce user
           </Heading>
           <Text mb={4}>
-            To gain access to your Salesforce data, you need a Salesforce user for authentication purposes. It is best security practice to use a
+            To gain access to your Amp Impact Salesforce data, you need a Salesforce user for authentication purposes. It is best security practice to use a
             dedicated user for this purpose. This helps ensure business continuity and adheres to the principle of least privilege to help secure your
             data. For detailed instructions, see &nbsp;
             <ChakraLink href="https://help.salesforce.com/articleView?id=000331470&amp;type=1&amp;mode=1" isExternal color="blue.600">
@@ -72,7 +72,7 @@ export const Step2 = observer(() => {
           If you do not have an extra full Salesforce user license available, you can skip this step and instead repurpose a user with a profile or
           permission set that provides:
           <UnorderedList ml={5} mt={2} mb={3}>
-            <ListItem>Access to the objects and fields in Salesforce that you plan to sync</ListItem>
+            <ListItem>Access to the Amp Impact and other objects and fields in Salesforce that you plan to sync</ListItem>
             <ListItem>System Permission: API Enabled</ListItem>
             <ListItem> System Permission: Manage Connected Apps</ListItem>
           </UnorderedList>
@@ -118,7 +118,7 @@ export const Step2 = observer(() => {
           </Box>
           <Box>
             <UnorderedList ml={5} mt={2} mb={3} color="blue.800">
-              <ListItem>Choose the Salesforce environment you want to connect to</ListItem>
+              <ListItem>Choose the Amp Impact Salesforce environment you want to connect to</ListItem>
               <ListItem>Leave the Private Link selection as 'Disabled'</ListItem>
               <ListItem>Leave the Data Encryption setting as is</ListItem>
               <ListItem>Type a name for the connection, it can be anything you want, then click Continue</ListItem>
@@ -134,11 +134,11 @@ export const Step2 = observer(() => {
           </Box>
           <Box>
             <UnorderedList ml={5} mt={2} mb={3} color="blue.800">
-              <ListItem>Provide the user name and password for the dedicated Salesforce user that you created earlier</ListItem>
+              <ListItem>Provide the user name and password for the dedicated Amp Impact Salesforce user that you created earlier</ListItem>
             </UnorderedList>
 
             <Box fontSize="sm" mt={3} bg="blue.75" p={3} borderRadius="lg">
-              Remember to log in using the newly created dedicated Salesforce user
+              Remember to log in using the newly created dedicated Amp Impact Salesforce user
             </Box>
           </Box>
         </Stack>
@@ -162,7 +162,7 @@ export const Step2 = observer(() => {
 
         <Stack direction="row" spacing="0px" pt={3} pb={6} alignItems="baseline" justifyContent="space-between">
           <Heading size="md" color="blue.600" letterSpacing="-1px" mt={0}>
-            Did you create a Salesforce connection using Amazon AppFlow?
+            Did you create a Amp Impact Salesforce connection using Amazon AppFlow?
           </Heading>
           <Box textAlign="right">
             <OutlineButton

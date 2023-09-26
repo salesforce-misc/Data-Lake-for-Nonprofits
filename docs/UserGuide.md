@@ -4,7 +4,7 @@ Aug 2023
 
 ## Introduction
 
-This document provides guidance for setting up a data lake for non-profits.
+This document provides guidance for setting up a data lake for  Vera Amp Impact.
 
 ## Setting up the App
 
@@ -32,7 +32,7 @@ Click on 'Lets Go' Button for first time setup. You could use the 'Resume' optio
 
 ### Step 1
 
-In Step 1, we connect to the NPO User's AWS Account. The Datalake App requires Access Key ID & Secret Access key for an IAM Admin user.
+In Step 1, we connect to the Amp Impact Admin User's AWS Account. The Datalake App requires Access Key ID & Secret Access key for an IAM Admin user.
 
 <img src="../app/src/images/screenshots/Step-1.1.png">
 
@@ -48,9 +48,9 @@ At the bottom of Step 1, there is a drop-down box to select the region where the
 
 ### Step 2
 
-In Step 2, the 'Datalake for Vera Amp Impact' app will gather credentials to connect to the NPO Salesforce Organization. For AWS to access the NPO's Salesforce data, we will need user authorization. For this, the app gives guidance to the user to create a dedicated Salesforce user with the necessary profile or permission set that provides:
+In Step 2, the 'Datalake for Vera Amp Impact' app will gather credentials to connect to the Amp Impact Client's Salesforce Organization. For AWS to access the Amp Impact Client's Salesforce data, we will need user authorization. For this, the app gives guidance to the user to create a dedicated Amp Impact Salesforce user with the necessary profile or permission set that provides:
 
-- Access to the objects and fields in Salesforce that you plan to sync
+- Access to the Amp Impact objects and fields in Salesforce that you plan to sync
 - System Permission: API Enabled
 - System Permission: Manage Connected Apps
 
@@ -58,7 +58,7 @@ This is likely a user with a System Administrator or similar profile. Additional
 
 <img src="../app/src/images/screenshots/Step-2.1.png">
 
-Once the Salesforce connection is created through Amazon AppFlow, a drop-down box will populate the list of connections that can be selected for use. Connections are region-specific and the list will show only the connections that are created in the selected region. Once a connection is selected from the drop-down box, the NPO User can proceed to Step 3.
+Once the Salesforce connection is created through Amazon AppFlow, a drop-down box will populate the list of connections that can be selected for use. Connections are region-specific and the list will show only the connections that are created in the selected region. Once a connection is selected from the drop-down box, the Amp Impact User can proceed to Step 3.
 
 <img src="../app/src/images/screenshots/Step-2.2.png">
 
@@ -66,15 +66,15 @@ Once the Salesforce connection is created through Amazon AppFlow, a drop-down bo
 
 <img src="../app/src/images/screenshots/Step-3.1.png">
 
-During step 3, Salesforce data schema is retrieved to show the NPSP data model. An NPO organization can have standard objects, core NPSP objects as well as custom objects. The retrieved schema is used to show the list of objects to the NPO user to be included or excluded as desired.
+During step 3, Salesforce data schema is retrieved to show the Amp Impact data model. An Amp Impact organization can have Amp Impact objects, standard objects, core NPSP objects as well as custom objects. The retrieved schema is used to show the list of objects to the Amp Impact user to be included or excluded as desired.
 
 <img src="../app/src/images/screenshots/Step-3.2.png"> <img src="../app/src/images/screenshots/Step-3.3.png">
 
-In Step 3, the NPO User can click on default options to setup the datalake and periodic data import. A typical NPO User is expected to click on all default options to proceed to Step 4. However, an advanced NPO User can customize the objects and fields to be included or excluded in the data import. The image on the left below shows a custom object being added for import and the image on the right, shows fields being excluded from the Account object.
+In Step 3, the Amp Impact User can click on default options to setup the datalake and periodic data import. A typical Amp Impact User is expected to click on all default options to proceed to Step 4. However, an advanced Amp Impact User can customize the objects and fields to be included or excluded in the data import. The image on the left below shows a custom object being added for import and the image on the right, shows fields being excluded from the Account object.
 
 <img src="../app/src/images/screenshots/Step-3.4.png"> <img src="../app/src/images/screenshots/Step-3.5.png">
 
-A default monthly sync is recommended. However, the user can select a weekly or even a daily sync and choose the date and the time of the sync. Note that we don't recommend a daily sync option for a large NPO Organization as this could incur additional costs.
+A default monthly sync is recommended. However, the user can select a weekly or even a daily sync and choose the date and the time of the sync. Note that we don't recommend a daily sync option for a large Amp Impact Organization as this could incur additional costs.
 
 ### Step 4
 
@@ -82,17 +82,17 @@ In Step 4, the user can review the data lake setup and data import options and c
 
 <img src="../app/src/images/screenshots/Step-4.1.png"> <img src="../app/src/images/screenshots/Step-4.2.png">
 
-Once review is complete, the NPO User can click "Next" to start provisioning the resources in Step 5.
+Once review is complete, the Amp Impact User can click "Next" to start provisioning the resources in Step 5.
 
 ### Step 5
 
-Step 5 is where the data lake is provisioned and the data is imported at the end. This can take several minutes to several hours depending on the size of the data in the NPO Organization. We caution the user to leave the EZ Datalake app running in the browser while the data lake is being provisioned. However, there is a resume feature described in Section 4.1 where a user can resume the data lake provisioning if the browser is accidentally closed.
+Step 5 is where the data lake is provisioned and the data is imported at the end. This can take several minutes to several hours depending on the size of the data in the NPO Organization. We caution the user to leave the Amp Impact Datalake Connector app running in the browser while the data lake is being provisioned. However, there is a resume feature described in Section 4.1 where a user can resume the data lake provisioning if the browser is accidentally closed.
 
 <img src="../app/src/images/screenshots/Step-5.png">
 
 ### Step 6
 
-Once the data lake is setup, in Step 6, the NPO Users can create and manage IAM users to grant them access to Tableau Desktop. These users will have _least privilege_ credentials to access only the data and resources they need.
+Once the data lake is setup, in Step 6, the AWS Admin User can create and manage IAM users to grant them access to Tableau Desktop. These users will have _least privilege_ credentials to access only the data and resources they need.
 
 In Step 6, the user can also view the Data Lake access information and instructions for Tableau Online, Tableau Desktop installation and access for Windows and Mac, access CloudWatch Dashboard and subscribe to systems notifications.
 
@@ -116,15 +116,15 @@ Additionally, users can subscribe to system notifications to be alerted if a pro
 
 ### Resume Feature
 
-The resume feature allows an NPO System Administrator to continue deployment if the app was closed during any of the five initial steps. Additionally, the resume feature can also be used to retrieve the Data Lake provisioning information after deployment and also a start a new datalake deployment if that is desired.
+The resume feature allows an Amp Impact System Administrator to continue deployment if the app was closed during any of the five initial steps. Additionally, the resume feature can also be used to retrieve the Data Lake provisioning information after deployment and also a start a new datalake deployment if that is desired.
 
 ### Resume while deployment is in progress
 
-During any of the six steps with the Datalake App, it is recommended that the NPO User keep the Nonprofits Datalake app in the browser running till the datalake is deployed. However, if the user does accidentally close the browser, the "resume" feature can help pick up where the deployment was left off. Note that depending on which step the user is in when the browser is closed, the app will resume in the same step.
+During any of the six steps with the Amp Impact Datalake Connector App, it is recommended that the User keep the Amp Impact Datalake Connector App in the browser running till the datalake is deployed. However, if the user does accidentally close the browser, the "resume" feature can help pick up where the deployment was left off. Note that depending on which step the user is in when the browser is closed, the app will resume in the same step.
 
 ### Resume after deployment
 
-Once the datalake is deployed, the "resume" feature can be used for the NPO User to retrieve details on the datalake that was setup earlier. Additionally, the NPO System Administrator can use the app to create and manage IAM users to grant them access to Tableau Desktop. These users will have _least privilege_ credentials to access only the data and resources they need. The screenshots below show how the NPO System Administrator can enter their IAM Admin Key ID and Secret Access Key to retrieve the details of the datalake from Step 6 and manage users for Tableau Desktop access, view Data Lake access information and retrieve instructions for Tableau Desktop, access CloudWatch Dashboard and subscribe to systems notifications in Step 6.
+Once the datalake is deployed, the "resume" feature can be used for the User to retrieve details on the datalake that was setup earlier. Additionally, the System Administrator can use the app to create and manage IAM users to grant them access to Tableau Desktop. These users will have _least privilege_ credentials to access only the data and resources they need. The screenshots below show how the System Administrator can enter their IAM Admin Key ID and Secret Access Key to retrieve the details of the datalake from Step 6 and manage users for Tableau Desktop access, view Data Lake access information and retrieve instructions for Tableau Desktop, access CloudWatch Dashboard and subscribe to systems notifications in Step 6.
 
 <img src="../app/src/images/screenshots/Resume-1.png"> <img src="../app/src/images/screenshots/Resume-2.png">
 
@@ -132,10 +132,10 @@ Once the datalake is deployed, the "resume" feature can be used for the NPO User
 
 ### Resume another datalake
 
-Typically, an NPO User is expected to setup a single datalake. If for any reason, a new datalake needs to be setup, the same app can be utilized to deploy another datalake. This can be useful perhaps if a datalake for a sandbox needs to be setup first before moving to production organization. The "resume" feature can then be used to view and manage the multiple datalake as show below in the screenshots.
+Typically, an Amp Impact Datalake User is expected to setup a single datalake. If for any reason, a new datalake needs to be setup, the same app can be utilized to deploy another datalake. This can be useful perhaps if a datalake for a sandbox needs to be setup first before moving to production organization. The "resume" feature can then be used to view and manage the multiple datalake as show below in the screenshots.
 
 <img src="../app/src/images/screenshots/Resume-5.png"> <img src="../app/src/images/screenshots/Resume-6.png">
 
 ### Data Consistency / Data Deletion
 
-Data can be deleted in Salesforce in multiple ways triggering soft deletes and hard deletes. The Datalake app ensures data consistency with the data in the Salesforce by performing full data import on each periodic sync operation.
+Data can be deleted in Salesforce in multiple ways triggering soft deletes and hard deletes. The Datalake app ensures data consistency with the data in the Amp Impact Salesforce installation by performing full data import on each periodic sync operation.

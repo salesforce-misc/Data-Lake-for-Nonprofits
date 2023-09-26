@@ -43,7 +43,7 @@ export const Step3 = observer(() => {
     <Layout
       step={3}
       title="Select data import options"
-      description="In this step, you can pick the standard NPSP import options for your Salesforce data or customize these options to fit your needs. You also get to specify the schedule at which data is imported."
+      description="In this step, you can pick the standard Amp Impact import options for your Salesforce data or customize these options to fit your needs. You also get to specify the schedule at which data is imported."
     >
       <Box borderRadius="lg" boxShadow="base" bg={tone(25)} mt={4} p={8}>
         <StoreStatusInfo />

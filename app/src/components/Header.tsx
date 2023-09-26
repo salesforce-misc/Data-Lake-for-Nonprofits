@@ -18,13 +18,9 @@ export const Header = observer(() => {
           direction={{ base: "column", lg: "row" }}
           spacing={{ base: "0", lg: "0" }}
           divider={<StackDivider borderColor="gray.200" />}
-          width="100%"
-        >
+          width="100%">
             <Box maxW="90px" paddingRight="24px">
             <Image src={VeraLogo} />
-          </Box>
-          <Box maxW="90px" paddingRight="24px">
-            <Image src={SalesforceLogo} />
           </Box>
           <Box maxW="65px">
             <Image src={AWSLogo} marginLeft="24px" />

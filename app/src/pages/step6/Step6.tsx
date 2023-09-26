@@ -30,7 +30,7 @@ export const Step6 = observer(() => {
     <Layout
       step={6}
       title="Connect to Analytics"
-      description="Now that you have the data lake provisioned, you can connect to Tableau for analytics. Here you will gather all the necessary information needed to make that connection."
+      description="Now that you have the Amp Impact data lake provisioned, you can connect to Tableau for analytics. Here you will gather all the necessary information needed to make that connection."
     >
       <Box borderRadius="lg" boxShadow="base" bg={tone(25)} mt={4} p={10} pb={4} position="relative">
         <TableauOnline />

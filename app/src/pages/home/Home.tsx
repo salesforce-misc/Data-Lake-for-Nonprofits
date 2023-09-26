@@ -58,7 +58,7 @@ export const Home = observer(() => {
             </Heading>
           </Box>
           <Text pl={2}>
-            In just a few steps, you can bring your Salesforce data to AWS and keep it in sync. Take a look at the summary of the steps needed, no
+            In just a few steps, you can bring your Amp Impact and supporting Salesforce data to AWS and keep it in sync. Take a look at the summary of the steps needed, no
             worries though, we will guide you through each step.
           </Text>
           <Box textAlign="right" w="full" mt={4} mb={8}>

@@ -43,7 +43,7 @@ export const ObjectsViewOptionsPanel = observer(({ viewOption, setViewOption, is
           cursor={cursor}
         >
           <Text color={tone(700)} fontSize="sm" mr={4} cursor={cursor}>
-            NPSP Objects
+            Amp Impact Objects
             <Badge ml={2} bg={tone(75)} fontSize="xs" borderRadius="full" fontWeight="normal">
               {store.selectedObjects.length}
             </Badge>

@@ -29,7 +29,7 @@ export const FieldsViewOptionsPanel = observer(({ object, viewOption, setViewOpt
           onChange={() => setViewOption(FieldsViewOptions.Only_Included)}
         >
           <Text color={tone(700)} fontSize="sm" mr={4}>
-            NPSP Fields
+            Amp Impact Fields
             <Badge ml={2} bg={tone(75)} fontSize="xs" borderRadius="full" fontWeight="normal">
               {object.selectedFieldsCount}
             </Badge>

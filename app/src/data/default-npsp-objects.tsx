@@ -59,7 +59,7 @@ export const defaultObjects: {name: string; label: string }[] = sortBy([
     label: "Activity",
   },
   {
-    name: "ampi__Reporting_Period__c	",
+    name: "ampi__Reporting_Period__c",
     label: "Reporting Period",
   },
     {
